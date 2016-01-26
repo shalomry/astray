@@ -484,6 +484,7 @@
 				69B4E7161C5056EF00FF1663 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69B4E7171C5056EF00FF1663 /* Build configuration list for PBXNativeTarget "AstrayTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +493,7 @@
 				69B4E7191C5056EF00FF1663 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69B4E71A1C5056EF00FF1663 /* Build configuration list for PBXNativeTarget "AstrayUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +502,7 @@
 				69B4E71C1C5056EF00FF1663 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

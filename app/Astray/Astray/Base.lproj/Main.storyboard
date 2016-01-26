@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,17 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aWA-bF-3dh">
-                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
-                            </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hV-aH-RUN">
+                                <rect key="frame" x="-46" y="8" width="469" height="44"/>
+                                <items>
+                                    <navigationItem title="astray" id="ktl-D3-k4i"/>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gCf-nk-5Kp">
+                                <rect key="frame" x="37" y="55" width="304" height="587"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aWA-bF-3dh">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="587"/>
+                                    </mapView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="aWA-bF-3dh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5CS-nA-uRY"/>
-                            <constraint firstItem="aWA-bF-3dh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AqM-OK-uu1"/>
-                            <constraint firstItem="aWA-bF-3dh" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="h9M-nT-SxZ"/>
-                            <constraint firstItem="aWA-bF-3dh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="i9n-V1-5Lg"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="aWA-bF-3dh" id="UPu-RM-mya"/>
@@ -36,7 +40,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="364"/>
+            <point key="canvasLocation" x="468" y="613"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vgF-pg-VDK">
+            <objects>
+                <viewController id="IOM-a6-7Vf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B56-in-POm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="luw-Cb-pKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="-95"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="M7y-5w-UJP">
+            <objects>
+                <viewController id="L3f-SI-vIX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3cU-vF-zdV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HcZ-bJ-u9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>
