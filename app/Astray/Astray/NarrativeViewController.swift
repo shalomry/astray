@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 import AVFoundation
 
 class NarrativeViewController: UIViewController {
@@ -31,8 +32,39 @@ class NarrativeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func back() {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    private var firstAppear = true
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if firstAppear {
+            do {
+                try playVideo()
+                firstAppear = false
+            } catch AppError.InvalidResource(let name, let type) {
+                debugPrint("Could not find resource \(name).\(type)")
+            } catch {
+                debugPrint("Generic error")
+            }
+            
+        }
+    }
+    
+    private func playVideo() throws {
+        guard let path = NSBundle.mainBundle().pathForResource("samplevideo", ofType:"mov") else {
+            throw AppError.InvalidResource("samplevideo", "mov")
+        }
+        let player = AVPlayer(URL: NSURL(fileURLWithPath: path))
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        self.presentViewController(playerController, animated: true) {
+            player.play()
+        }
     }
     
     /*
@@ -45,4 +77,8 @@ class NarrativeViewController: UIViewController {
     }
     */
     
+}
+
+enum AppError : ErrorType {
+    case InvalidResource(String, String)
 }

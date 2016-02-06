@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="1276" y="625"/>
         </scene>
-        <!--View Controller-->
+        <!--Narrative View Controller-->
         <scene sceneID="0Hn-5z-ogB">
             <objects>
-                <viewController id="htA-ZJ-9zY" customClass="GLKViewController" sceneMemberID="viewController">
+                <viewController id="htA-ZJ-9zY" customClass="NarrativeViewController" customModule="Astray" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W8c-YN-2sS"/>
                         <viewControllerLayoutGuide type="bottom" id="4DP-GK-E35"/>
