@@ -1,0 +1,6 @@
+framework module Pods_AstrayUITests {
+  umbrella header "Pods-AstrayUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
