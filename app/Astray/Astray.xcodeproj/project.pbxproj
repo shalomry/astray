@@ -18,6 +18,7 @@
 		79DD37F8767E90B318A6BBF6 /* Pods_AstrayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA30B05DA62688F365C63CD8 /* Pods_AstrayUITests.framework */; };
 		8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */; };
 		8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FF177B41C6012B60035BB3D /* sample.mp3 */; };
+		C81E80C41C69B6810042E477 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E80C31C69B6810042E477 /* UserController.swift */; };
 		C85244FF1C695F7800998F4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85244FE1C695F7800998F4D /* User.swift */; };
 		C85245011C695F8700998F4D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85245001C695F8700998F4D /* LoginViewController.swift */; };
 		F171B4C904BA82966A3203AF /* Pods_AstrayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB28131029A26FA67A7386D /* Pods_AstrayTests.framework */; };
@@ -66,6 +67,7 @@
 		8FF177B41C6012B60035BB3D /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample.mp3; path = Astray/sample.mp3; sourceTree = "<group>"; };
 		A773EC080E8F37FD3185215F /* Pods-Astray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.release.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.release.xcconfig"; sourceTree = "<group>"; };
 		BA30B05DA62688F365C63CD8 /* Pods_AstrayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81E80C31C69B6810042E477 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		C85244FE1C695F7800998F4D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C85245001C695F8700998F4D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D81146DAC0CD11EB709D4119 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				69B4E6F81C5056EF00FF1663 /* LaunchScreen.storyboard */,
 				69B4E6FB1C5056EF00FF1663 /* Info.plist */,
 				C85245001C695F8700998F4D /* LoginViewController.swift */,
+				C81E80C31C69B6810042E477 /* UserController.swift */,
 			);
 			path = Astray;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81E80C41C69B6810042E477 /* UserController.swift in Sources */,
 				C85244FF1C695F7800998F4D /* User.swift in Sources */,
 				69B4E6F21C5056EF00FF1663 /* ViewController.swift in Sources */,
 				69B4E6F01C5056EF00FF1663 /* AppDelegate.swift in Sources */,

@@ -18,22 +18,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (CLLocationManager.locationServicesEnabled()) {
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestAlwaysAuthorization()
-            locationManager.startUpdatingLocation()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if let currUid = appDelegate.currUid {
+            
+            if (CLLocationManager.locationServicesEnabled()) {
+                locationManager = CLLocationManager()
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager.requestAlwaysAuthorization()
+                locationManager.startUpdatingLocation()
+            }
+            let myRootRef = Firebase(url:"https://astray194.firebaseio.com")
+            
+            myRootRef.observeEventType(.Value, withBlock: {
+                snapshot in
+                print("\(snapshot.key) -> \(snapshot.value)")
+            })
+            
+        } else {
+            print("didn't find value for appdelegate.curruid")
+            if let loginPageView = self.storyboard?.instantiateViewControllerWithIdentifier("LoginView") {
+                self.navigationController?.pushViewController(loginPageView, animated: true)
+            }
         }
-        let myRootRef = Firebase(url:"https://astray194.firebaseio.com")
-  
-        myRootRef.observeEventType(.Value, withBlock: {
-            snapshot in
-            print("\(snapshot.key) -> \(snapshot.value)")
-        })
     }
     
-
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = manager.location {
