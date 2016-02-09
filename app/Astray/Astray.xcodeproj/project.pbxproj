@@ -16,6 +16,7 @@
 		69B4E7051C5056EF00FF1663 /* AstrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E7041C5056EF00FF1663 /* AstrayTests.swift */; };
 		69B4E7101C5056EF00FF1663 /* AstrayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E70F1C5056EF00FF1663 /* AstrayUITests.swift */; };
 		79DD37F8767E90B318A6BBF6 /* Pods_AstrayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA30B05DA62688F365C63CD8 /* Pods_AstrayUITests.framework */; };
+		8FA5DB831C69B57F00692276 /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5DB821C69B57F00692276 /* RecordingViewController.swift */; };
 		8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */; };
 		8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FF177B41C6012B60035BB3D /* sample.mp3 */; };
 		C81E80C41C69B6810042E477 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E80C31C69B6810042E477 /* UserController.swift */; };
@@ -62,6 +63,7 @@
 		69B4E70F1C5056EF00FF1663 /* AstrayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstrayUITests.swift; sourceTree = "<group>"; };
 		69B4E7111C5056EF00FF1663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AF8C914CCB9A40E64135994 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8FA5DB821C69B57F00692276 /* RecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarrativeViewController.swift; sourceTree = "<group>"; };
 		8FF177B21C60101D0035BB3D /* sax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sax.mp3; path = "../../../../../../Qt/Examples/Qt-5.3/svg/embedded/desktopservices/data/sax.mp3"; sourceTree = "<group>"; };
 		8FF177B41C6012B60035BB3D /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample.mp3; path = Astray/sample.mp3; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				69B4E6EF1C5056EF00FF1663 /* AppDelegate.swift */,
 				69B4E6F11C5056EF00FF1663 /* ViewController.swift */,
 				69B4E6F31C5056EF00FF1663 /* Main.storyboard */,
+				8FA5DB821C69B57F00692276 /* RecordingViewController.swift */,
 				8FF177B21C60101D0035BB3D /* sax.mp3 */,
 				C85244FE1C695F7800998F4D /* User.swift */,
 				8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */,
@@ -262,6 +265,7 @@
 				TargetAttributes = {
 					69B4E6EB1C5056EF00FF1663 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9E86MJ83U7;
 					};
 					69B4E6FF1C5056EF00FF1663 = {
 						CreatedOnToolsVersion = 7.2;
@@ -454,6 +458,7 @@
 				69B4E6F21C5056EF00FF1663 /* ViewController.swift in Sources */,
 				69B4E6F01C5056EF00FF1663 /* AppDelegate.swift in Sources */,
 				C85245011C695F8700998F4D /* LoginViewController.swift in Sources */,
+				8FA5DB831C69B57F00692276 /* RecordingViewController.swift in Sources */,
 				8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +604,8 @@
 			baseConfigurationReference = 5142EC8A1AC80DDBF90EA99A /* Pods-Astray.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Astray/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -609,6 +616,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.arewemeeting.Astray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -617,6 +625,8 @@
 			baseConfigurationReference = A773EC080E8F37FD3185215F /* Pods-Astray.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Astray/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -627,6 +637,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.arewemeeting.Astray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
