@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61AECB2A90FC1141A95676EB /* Pods_Astray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5577E726108CDA6B51D69627 /* Pods_Astray.framework */; };
+		3298875DD9B009795684CCC9 /* Pods_AstrayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A270DC07E54A6D407493D5CE /* Pods_AstrayTests.framework */; };
+		5237C27A0E6FEE4B768ADB24 /* Pods_Astray.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6FD38F251876BDBBF61A1E7 /* Pods_Astray.framework */; };
+		694464451C688CDE00B7A12F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694464441C688CDE00B7A12F /* User.swift */; };
+		6944644D1C688DA100B7A12F /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6944644C1C688DA100B7A12F /* Story.swift */; };
+		6995CDC61C6A8B2B0089117D /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995CDC51C6A8B2B0089117D /* global.swift */; };
+		6995CDC81C6A8B360089117D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995CDC71C6A8B360089117D /* LoginViewController.swift */; };
+		6995CDCA1C6A8B420089117D /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995CDC91C6A8B420089117D /* RecordingViewController.swift */; };
+		6995CDCC1C6A8B510089117D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6995CDCB1C6A8B510089117D /* sample.mp3 */; };
+		6995CDCE1C6A8B540089117D /* samplevideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 6995CDCD1C6A8B540089117D /* samplevideo.mov */; };
+		6995CDD01C6A8B6B0089117D /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995CDCF1C6A8B6B0089117D /* UserController.swift */; };
 		69B4E6F01C5056EF00FF1663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E6EF1C5056EF00FF1663 /* AppDelegate.swift */; };
 		69B4E6F21C5056EF00FF1663 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E6F11C5056EF00FF1663 /* ViewController.swift */; };
 		69B4E6F51C5056EF00FF1663 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B4E6F31C5056EF00FF1663 /* Main.storyboard */; };
@@ -15,16 +24,9 @@
 		69B4E6FA1C5056EF00FF1663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B4E6F81C5056EF00FF1663 /* LaunchScreen.storyboard */; };
 		69B4E7051C5056EF00FF1663 /* AstrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E7041C5056EF00FF1663 /* AstrayTests.swift */; };
 		69B4E7101C5056EF00FF1663 /* AstrayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E70F1C5056EF00FF1663 /* AstrayUITests.swift */; };
-		79DD37F8767E90B318A6BBF6 /* Pods_AstrayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA30B05DA62688F365C63CD8 /* Pods_AstrayUITests.framework */; };
-		82C79A241C69E3BF00D7A8C6 /* samplevideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = 82C79A231C69E3BF00D7A8C6 /* samplevideo.mov */; };
-		8FA5DB831C69B57F00692276 /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5DB821C69B57F00692276 /* RecordingViewController.swift */; };
-		8FA5DB851C69C8E800692276 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5DB841C69C8E800692276 /* global.swift */; };
 		8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */; };
 		8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FF177B41C6012B60035BB3D /* sample.mp3 */; };
-		C81E80C41C69B6810042E477 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E80C31C69B6810042E477 /* UserController.swift */; };
-		C85244FF1C695F7800998F4D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85244FE1C695F7800998F4D /* User.swift */; };
-		C85245011C695F8700998F4D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85245001C695F8700998F4D /* LoginViewController.swift */; };
-		F171B4C904BA82966A3203AF /* Pods_AstrayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB28131029A26FA67A7386D /* Pods_AstrayTests.framework */; };
+		D25A0340BAD78776591A0169 /* Pods_AstrayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,12 +47,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		31ACC930DDDFBF8BA19585C3 /* Pods-AstrayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayTests/Pods-AstrayTests.debug.xcconfig"; sourceTree = "<group>"; };
-		329B910B65436BB87A034B06 /* Pods-AstrayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayUITests/Pods-AstrayUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		5142EC8A1AC80DDBF90EA99A /* Pods-Astray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.debug.xcconfig"; sourceTree = "<group>"; };
-		53FC1758250AD8A351A21ADB /* Pods-AstrayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayUITests/Pods-AstrayUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5577E726108CDA6B51D69627 /* Pods_Astray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6015CA2BE9F4BD3EC6BCBF84 /* Pods-AstrayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayTests/Pods-AstrayTests.release.xcconfig"; sourceTree = "<group>"; };
+		0C26449DA6E10011EAB7342E /* Pods-Astray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.release.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.release.xcconfig"; sourceTree = "<group>"; };
+		2E282CA6B6C638C54F460BC5 /* Pods-AstrayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayUITests/Pods-AstrayUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6528C3966EF87CEEBB6E8AFB /* Pods-AstrayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayTests/Pods-AstrayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		694464441C688CDE00B7A12F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6944644C1C688DA100B7A12F /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		6995CDC51C6A8B2B0089117D /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
+		6995CDC71C6A8B360089117D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6995CDC91C6A8B420089117D /* RecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
+		6995CDCB1C6A8B510089117D /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
+		6995CDCD1C6A8B540089117D /* samplevideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = samplevideo.mov; sourceTree = "<group>"; };
+		6995CDCF1C6A8B6B0089117D /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		69B4E6EC1C5056EF00FF1663 /* Astray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B4E6EF1C5056EF00FF1663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69B4E6F11C5056EF00FF1663 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,20 +71,15 @@
 		69B4E70B1C5056EF00FF1663 /* AstrayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstrayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B4E70F1C5056EF00FF1663 /* AstrayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstrayUITests.swift; sourceTree = "<group>"; };
 		69B4E7111C5056EF00FF1663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6AF8C914CCB9A40E64135994 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		82C79A231C69E3BF00D7A8C6 /* samplevideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = samplevideo.mov; sourceTree = "<group>"; };
-		8FA5DB821C69B57F00692276 /* RecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
-		8FA5DB841C69C8E800692276 /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
+		6E4E458BC9672AEEE42EC048 /* Pods-AstrayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayUITests/Pods-AstrayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarrativeViewController.swift; sourceTree = "<group>"; };
 		8FF177B21C60101D0035BB3D /* sax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sax.mp3; path = "../../../../../../Qt/Examples/Qt-5.3/svg/embedded/desktopservices/data/sax.mp3"; sourceTree = "<group>"; };
 		8FF177B41C6012B60035BB3D /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample.mp3; path = Astray/sample.mp3; sourceTree = "<group>"; };
-		A773EC080E8F37FD3185215F /* Pods-Astray.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.release.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.release.xcconfig"; sourceTree = "<group>"; };
-		BA30B05DA62688F365C63CD8 /* Pods_AstrayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C81E80C31C69B6810042E477 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
-		C85244FE1C695F7800998F4D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C85245001C695F8700998F4D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		D81146DAC0CD11EB709D4119 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		FBB28131029A26FA67A7386D /* Pods_AstrayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A270DC07E54A6D407493D5CE /* Pods_AstrayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6FD38F251876BDBBF61A1E7 /* Pods_Astray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D240410A82D67689366AE0EC /* Pods-Astray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.debug.xcconfig"; sourceTree = "<group>"; };
+		E448E9BBF990482EA28BCEBE /* Pods-AstrayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayTests/Pods-AstrayTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61AECB2A90FC1141A95676EB /* Pods_Astray.framework in Frameworks */,
+				5237C27A0E6FEE4B768ADB24 /* Pods_Astray.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F171B4C904BA82966A3203AF /* Pods_AstrayTests.framework in Frameworks */,
+				3298875DD9B009795684CCC9 /* Pods_AstrayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,23 +103,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79DD37F8767E90B318A6BBF6 /* Pods_AstrayUITests.framework in Frameworks */,
+				D25A0340BAD78776591A0169 /* Pods_AstrayUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12BA27BE361A38D810B0A8B9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5577E726108CDA6B51D69627 /* Pods_Astray.framework */,
-				FBB28131029A26FA67A7386D /* Pods_AstrayTests.framework */,
-				BA30B05DA62688F365C63CD8 /* Pods_AstrayUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		69B4E6E31C5056EF00FF1663 = {
 			isa = PBXGroup;
 			children = (
@@ -126,8 +118,8 @@
 				69B4E7031C5056EF00FF1663 /* AstrayTests */,
 				69B4E70E1C5056EF00FF1663 /* AstrayUITests */,
 				69B4E6ED1C5056EF00FF1663 /* Products */,
-				CAA430AF8698366DBCDCD4D2 /* Pods */,
-				12BA27BE361A38D810B0A8B9 /* Frameworks */,
+				DF85C70DAEFC1CA837A59E13 /* Pods */,
+				D27FDA998ADE4C51189AD248 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,20 +136,22 @@
 		69B4E6EE1C5056EF00FF1663 /* Astray */ = {
 			isa = PBXGroup;
 			children = (
-				82C79A231C69E3BF00D7A8C6 /* samplevideo.mov */,
+				6995CDC91C6A8B420089117D /* RecordingViewController.swift */,
+				6995CDC71C6A8B360089117D /* LoginViewController.swift */,
+				6995CDC51C6A8B2B0089117D /* global.swift */,
+				694464441C688CDE00B7A12F /* User.swift */,
+				6995CDCF1C6A8B6B0089117D /* UserController.swift */,
 				69B4E6EF1C5056EF00FF1663 /* AppDelegate.swift */,
-				8FA5DB841C69C8E800692276 /* global.swift */,
 				69B4E6F11C5056EF00FF1663 /* ViewController.swift */,
 				69B4E6F31C5056EF00FF1663 /* Main.storyboard */,
-				8FA5DB821C69B57F00692276 /* RecordingViewController.swift */,
+				6995CDCB1C6A8B510089117D /* sample.mp3 */,
+				6995CDCD1C6A8B540089117D /* samplevideo.mov */,
 				8FF177B21C60101D0035BB3D /* sax.mp3 */,
-				C85244FE1C695F7800998F4D /* User.swift */,
 				8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */,
 				69B4E6F61C5056EF00FF1663 /* Assets.xcassets */,
 				69B4E6F81C5056EF00FF1663 /* LaunchScreen.storyboard */,
 				69B4E6FB1C5056EF00FF1663 /* Info.plist */,
-				C85245001C695F8700998F4D /* LoginViewController.swift */,
-				C81E80C31C69B6810042E477 /* UserController.swift */,
+				6944644C1C688DA100B7A12F /* Story.swift */,
 			);
 			path = Astray;
 			sourceTree = "<group>";
@@ -180,17 +174,25 @@
 			path = AstrayUITests;
 			sourceTree = "<group>";
 		};
-		CAA430AF8698366DBCDCD4D2 /* Pods */ = {
+		D27FDA998ADE4C51189AD248 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D81146DAC0CD11EB709D4119 /* Pods.debug.xcconfig */,
-				6AF8C914CCB9A40E64135994 /* Pods.release.xcconfig */,
-				5142EC8A1AC80DDBF90EA99A /* Pods-Astray.debug.xcconfig */,
-				A773EC080E8F37FD3185215F /* Pods-Astray.release.xcconfig */,
-				31ACC930DDDFBF8BA19585C3 /* Pods-AstrayTests.debug.xcconfig */,
-				6015CA2BE9F4BD3EC6BCBF84 /* Pods-AstrayTests.release.xcconfig */,
-				329B910B65436BB87A034B06 /* Pods-AstrayUITests.debug.xcconfig */,
-				53FC1758250AD8A351A21ADB /* Pods-AstrayUITests.release.xcconfig */,
+				B6FD38F251876BDBBF61A1E7 /* Pods_Astray.framework */,
+				A270DC07E54A6D407493D5CE /* Pods_AstrayTests.framework */,
+				9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF85C70DAEFC1CA837A59E13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D240410A82D67689366AE0EC /* Pods-Astray.debug.xcconfig */,
+				0C26449DA6E10011EAB7342E /* Pods-Astray.release.xcconfig */,
+				6528C3966EF87CEEBB6E8AFB /* Pods-AstrayTests.debug.xcconfig */,
+				E448E9BBF990482EA28BCEBE /* Pods-AstrayTests.release.xcconfig */,
+				2E282CA6B6C638C54F460BC5 /* Pods-AstrayUITests.debug.xcconfig */,
+				6E4E458BC9672AEEE42EC048 /* Pods-AstrayUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -202,12 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69B4E7141C5056EF00FF1663 /* Build configuration list for PBXNativeTarget "Astray" */;
 			buildPhases = (
-				8B6EA6564892FD8C87DFA52D /* Check Pods Manifest.lock */,
+				EE9A08BDB7FEEFE49B640851 /* Check Pods Manifest.lock */,
 				69B4E6E81C5056EF00FF1663 /* Sources */,
 				69B4E6E91C5056EF00FF1663 /* Frameworks */,
 				69B4E6EA1C5056EF00FF1663 /* Resources */,
-				589E58BD586FB6E7595737C1 /* Embed Pods Frameworks */,
-				AF8AC2ECEE3196E931C812AB /* Copy Pods Resources */,
+				D3DDD95E8920F8FCEED7F941 /* Embed Pods Frameworks */,
+				C14655A7ECE6A039E935604B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,12 +224,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69B4E7171C5056EF00FF1663 /* Build configuration list for PBXNativeTarget "AstrayTests" */;
 			buildPhases = (
-				66FBEB9F2B57C6D492E71C9D /* Check Pods Manifest.lock */,
+				786383BB3B3D5F9623356DD2 /* Check Pods Manifest.lock */,
 				69B4E6FC1C5056EF00FF1663 /* Sources */,
 				69B4E6FD1C5056EF00FF1663 /* Frameworks */,
 				69B4E6FE1C5056EF00FF1663 /* Resources */,
-				6FC925AC40949A8D5B059578 /* Embed Pods Frameworks */,
-				453B17A41D03DBBE8A09E70A /* Copy Pods Resources */,
+				239166C7B0C7E8039135FAAF /* Embed Pods Frameworks */,
+				03CA64D4213ACFFD9CB88CF0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,11 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69B4E71A1C5056EF00FF1663 /* Build configuration list for PBXNativeTarget "AstrayUITests" */;
 			buildPhases = (
-				01FD7A6C9CE92FC86F726EA9 /* Check Pods Manifest.lock */,
+				BCDED8F958B916683BEFF569 /* Check Pods Manifest.lock */,
 				69B4E7071C5056EF00FF1663 /* Sources */,
 				69B4E7081C5056EF00FF1663 /* Frameworks */,
 				69B4E7091C5056EF00FF1663 /* Resources */,
-				649BCC0072DAF6B7B61AB868 /* Copy Pods Resources */,
+				85D225D92D901267E5EA5CEA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,7 +273,7 @@
 				TargetAttributes = {
 					69B4E6EB1C5056EF00FF1663 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 9E86MJ83U7;
+						DevelopmentTeam = 78LZUB52UA;
 					};
 					69B4E6FF1C5056EF00FF1663 = {
 						CreatedOnToolsVersion = 7.2;
@@ -308,11 +310,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6995CDCE1C6A8B540089117D /* samplevideo.mov in Resources */,
 				69B4E6FA1C5056EF00FF1663 /* LaunchScreen.storyboard in Resources */,
 				69B4E6F71C5056EF00FF1663 /* Assets.xcassets in Resources */,
-				82C79A241C69E3BF00D7A8C6 /* samplevideo.mov in Resources */,
 				69B4E6F51C5056EF00FF1663 /* Main.storyboard in Resources */,
 				8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */,
+				6995CDCC1C6A8B510089117D /* sample.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,22 +336,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01FD7A6C9CE92FC86F726EA9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		453B17A41D03DBBE8A09E70A /* Copy Pods Resources */ = {
+		03CA64D4213ACFFD9CB88CF0 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -363,52 +351,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AstrayTests/Pods-AstrayTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		589E58BD586FB6E7595737C1 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Astray/Pods-Astray-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		649BCC0072DAF6B7B61AB868 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AstrayUITests/Pods-AstrayUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66FBEB9F2B57C6D492E71C9D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6FC925AC40949A8D5B059578 /* Embed Pods Frameworks */ = {
+		239166C7B0C7E8039135FAAF /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -423,7 +366,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AstrayTests/Pods-AstrayTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8B6EA6564892FD8C87DFA52D /* Check Pods Manifest.lock */ = {
+		786383BB3B3D5F9623356DD2 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -438,7 +381,37 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		AF8AC2ECEE3196E931C812AB /* Copy Pods Resources */ = {
+		85D225D92D901267E5EA5CEA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AstrayUITests/Pods-AstrayUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCDED8F958B916683BEFF569 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C14655A7ECE6A039E935604B /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,6 +426,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Astray/Pods-Astray-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D3DDD95E8920F8FCEED7F941 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Astray/Pods-Astray-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE9A08BDB7FEEFE49B640851 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -460,14 +463,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA5DB851C69C8E800692276 /* global.swift in Sources */,
-				C81E80C41C69B6810042E477 /* UserController.swift in Sources */,
-				C85244FF1C695F7800998F4D /* User.swift in Sources */,
+				6995CDD01C6A8B6B0089117D /* UserController.swift in Sources */,
+				6995CDC81C6A8B360089117D /* LoginViewController.swift in Sources */,
+				6995CDC61C6A8B2B0089117D /* global.swift in Sources */,
+				694464451C688CDE00B7A12F /* User.swift in Sources */,
 				69B4E6F21C5056EF00FF1663 /* ViewController.swift in Sources */,
+				6995CDCA1C6A8B420089117D /* RecordingViewController.swift in Sources */,
 				69B4E6F01C5056EF00FF1663 /* AppDelegate.swift in Sources */,
-				C85245011C695F8700998F4D /* LoginViewController.swift in Sources */,
-				8FA5DB831C69B57F00692276 /* RecordingViewController.swift in Sources */,
 				8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */,
+				6944644D1C688DA100B7A12F /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +563,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -599,7 +602,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -609,49 +611,39 @@
 		};
 		69B4E7151C5056EF00FF1663 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5142EC8A1AC80DDBF90EA99A /* Pods-Astray.debug.xcconfig */;
+			baseConfigurationReference = D240410A82D67689366AE0EC /* Pods-Astray.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Astray/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-framework",
-					"\"Firebase\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arewemeeting.Astray;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arewemeetingtodayoranydayreally.Astray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Astray-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		69B4E7161C5056EF00FF1663 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A773EC080E8F37FD3185215F /* Pods-Astray.release.xcconfig */;
+			baseConfigurationReference = 0C26449DA6E10011EAB7342E /* Pods-Astray.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Astray/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-framework",
-					"\"Firebase\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arewemeeting.Astray;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arewemeetingtodayoranydayreally.Astray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Astray-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		69B4E7181C5056EF00FF1663 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31ACC930DDDFBF8BA19585C3 /* Pods-AstrayTests.debug.xcconfig */;
+			baseConfigurationReference = 6528C3966EF87CEEBB6E8AFB /* Pods-AstrayTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AstrayTests/Info.plist;
@@ -664,7 +656,7 @@
 		};
 		69B4E7191C5056EF00FF1663 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6015CA2BE9F4BD3EC6BCBF84 /* Pods-AstrayTests.release.xcconfig */;
+			baseConfigurationReference = E448E9BBF990482EA28BCEBE /* Pods-AstrayTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AstrayTests/Info.plist;
@@ -677,7 +669,7 @@
 		};
 		69B4E71B1C5056EF00FF1663 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 329B910B65436BB87A034B06 /* Pods-AstrayUITests.debug.xcconfig */;
+			baseConfigurationReference = 2E282CA6B6C638C54F460BC5 /* Pods-AstrayUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = AstrayUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -690,7 +682,7 @@
 		};
 		69B4E71C1C5056EF00FF1663 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53FC1758250AD8A351A21ADB /* Pods-AstrayUITests.release.xcconfig */;
+			baseConfigurationReference = 6E4E458BC9672AEEE42EC048 /* Pods-AstrayUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = AstrayUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

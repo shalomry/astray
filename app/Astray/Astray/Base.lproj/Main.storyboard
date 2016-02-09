@@ -31,11 +31,15 @@
                                     </mapView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ia-SA-R3b">
-                                <rect key="frame" x="121" y="524" width="81" height="30"/>
-                                <state key="normal" title="to Narrative"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4p9-lQ-IeD">
+                                <rect key="frame" x="82" y="533" width="140" height="47"/>
+                                <color key="backgroundColor" red="0.30813083579606171" green="0.00083137051921999827" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="View This Story">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <segue destination="htA-ZJ-9zY" kind="presentation" id="nSj-wz-zAk"/>
+                                    <action selector="goToStory" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Ir-PG-PgE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -55,6 +59,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="aWA-bF-3dh" id="UPu-RM-mya"/>
+                        <outlet property="viewStoryButton" destination="4p9-lQ-IeD" id="c4K-mq-TFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -91,7 +96,7 @@
         <!--Narrative View Controller-->
         <scene sceneID="0Hn-5z-ogB">
             <objects>
-                <viewController id="htA-ZJ-9zY" customClass="NarrativeViewController" customModule="Astray" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NarrativeView" id="htA-ZJ-9zY" customClass="NarrativeViewController" customModule="Astray" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W8c-YN-2sS"/>
                         <viewControllerLayoutGuide type="bottom" id="4DP-GK-E35"/>
