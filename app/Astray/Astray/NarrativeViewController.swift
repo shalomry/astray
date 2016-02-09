@@ -14,7 +14,7 @@ import Firebase
 
 class NarrativeViewController: UIViewController {
     @IBOutlet weak var strFiles: UITextView!
-    var myPlayer = AVAudioPlayer()
+    var audioPlayer: AVAudioPlayer! = AVAudioPlayer()
     var yourSound:NSURL?
     
     func prepareYourSound(myData:NSData) {
@@ -39,7 +39,7 @@ class NarrativeViewController: UIViewController {
         let sample = NSBundle.mainBundle().URLForResource("sample", withExtension: "mp3")
         
         do{
-            let audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
+            audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
             audioPlayer.prepareToPlay()
             audioPlayer.play()
             print("played audio")
