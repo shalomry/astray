@@ -30,11 +30,17 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         ref = Firebase(url:"https://astray194.firebaseio.com")
     }
     
+    func navigateToView(view:String) {
+        if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
+            self.navigationController?.pushViewController(nextView, animated: true)
+        }
+    }
+    
     func createUser(email:String, password:String, username:String, bio:String) {
-        ref.createUser(email, password: password,
+        self.ref.createUser(email, password: password,
             withValueCompletionBlock: { error, result in
                 if error != nil {
-                    // There was an error creating the account
+                    print(error)
                 } else {
                     let uid = result["uid"] as? String
                     print("Successfully created user account with uid: \(uid)")
@@ -44,6 +50,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                     let newUserRef = usersRef.childByAppendingPath(uid!)
                     let user : NSDictionary = ["username":username, "bio":bio, "email":email]
                     newUserRef.setValue(user)
+                    self.navigateToView("LoginView")
                 }
         })
     }
@@ -83,9 +90,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                     
                     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                     appDelegate.currUid = authData.uid
-                    if let mainView = self.storyboard?.instantiateViewControllerWithIdentifier("DiscoverView") {
-                        self.navigationController?.pushViewController(mainView, animated: true)
-                    }
+                    self.navigateToView("DiscoverView")
                 }
         })
     }

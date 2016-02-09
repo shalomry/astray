@@ -29,10 +29,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 locationManager.startUpdatingLocation()
             }
         } else {
-            print("didn't find value for appdelegate.curruid")
-            if let loginPageView = self.storyboard?.instantiateViewControllerWithIdentifier("LoginView") {
-                self.navigationController?.pushViewController(loginPageView, animated: true)
-            }
+            self.navigateToView("LoginView")
+        }
+    }
+    
+    func navigateToView(view:String) {
+        if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
+            self.navigationController?.pushViewController(nextView, animated: true)
         }
     }
     

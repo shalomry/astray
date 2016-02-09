@@ -19,6 +19,8 @@ class UserController : UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var profileUsernameLabel: UILabel!
     @IBOutlet weak var profileBioLabel: UILabel!
     @IBOutlet weak var settingsUsernameLabel: UILabel!
+    @IBOutlet weak var storyUsernameLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,9 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     if self.settingsUsernameLabel != nil {
                         self.settingsUsernameLabel.text = "\(username)"
                     }
+                    if self.storyUsernameLabel != nil {
+                        self.storyUsernameLabel.text = "\(username)"
+                    }
                 }
                 if let bio = snapshot.value.objectForKey("bio") {
                     if self.newBioField != nil {
@@ -45,6 +50,12 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     }
                 }
             })
+        }
+    }
+    
+    func navigateToView(view:String) {
+        if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
+            self.navigationController?.pushViewController(nextView, animated: true)
         }
     }
     
@@ -59,14 +70,13 @@ class UserController : UIViewController, UIActionSheetDelegate {
             let bioRef = currUserRef.childByAppendingPath("bio")
             bioRef.setValue(newBio)
         }
-        if let profileView = self.storyboard?.instantiateViewControllerWithIdentifier("ProfileView") {
-            self.navigationController?.pushViewController(profileView, animated: true)
-        }
+        self.navigateToView("ProfileView")
     }
     
     @IBAction func logout() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.currUid = nil
+        self.navigateToView("LoginView")
     }
     
 }
