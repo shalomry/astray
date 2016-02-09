@@ -106,7 +106,8 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated:true)
+    //COMMENT IN TO BRING BACK AUTH
+        //    self.navigationItem.setHidesBackButton(true, animated:true)
     }
 
     
