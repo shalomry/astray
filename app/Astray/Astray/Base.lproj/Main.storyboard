@@ -8,7 +8,7 @@
         <!--Discover-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscoverView" id="BYZ-38-t0r" customClass="ViewController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -207,7 +207,7 @@
         <!--Settings-->
         <scene sceneID="Dtm-yZ-oSQ">
             <objects>
-                <viewController id="tTi-D6-Ar7" sceneMemberID="viewController">
+                <viewController id="tTi-D6-Ar7" customClass="UserController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gwc-ca-ISe"/>
                         <viewControllerLayoutGuide type="bottom" id="Cz7-ky-YsJ"/>
@@ -228,10 +228,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhV-ev-ugg">
-                                <rect key="frame" x="59" y="417" width="162" height="30"/>
-                                <state key="normal" title="Connect with Facebook"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;username&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGH-GY-6Ve">
                                 <rect key="frame" x="59" y="102" width="98" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -255,13 +251,25 @@
                                 <rect key="frame" x="55" y="528" width="55" height="30"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
+                                    <action selector="logout" destination="tTi-D6-Ar7" eventType="touchUpInside" id="vJp-db-02w"/>
                                     <segue destination="Qw7-hF-ieF" kind="show" id="6y1-nE-sKb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhV-ev-ugg">
+                                <rect key="frame" x="55" y="422" width="98" height="30"/>
+                                <state key="normal" title="Save Changes"/>
+                                <connections>
+                                    <action selector="updateProfile" destination="tTi-D6-Ar7" eventType="touchUpInside" id="8Ks-Ff-X8W"/>
+                                    <segue destination="vcR-bc-sQL" kind="show" id="C6l-cU-Flm"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="0dw-CT-Ncw"/>
+                    <connections>
+                        <outlet property="newBioField" destination="wOQ-6n-DYS" id="9Fy-I9-WPd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaQ-iT-mfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -331,7 +339,7 @@
         <!--Login-->
         <scene sceneID="jUl-EX-7yp">
             <objects>
-                <viewController id="Qw7-hF-ieF" customClass="LoginViewController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="Qw7-hF-ieF" customClass="LoginViewController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H8P-HR-Y1T"/>
                         <viewControllerLayoutGuide type="bottom" id="9NE-df-6qe"/>
@@ -371,7 +379,6 @@
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="login:" destination="Qw7-hF-ieF" eventType="touchUpInside" id="uF0-21-IyG"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="jYE-JR-ih8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymM-BP-e9O">

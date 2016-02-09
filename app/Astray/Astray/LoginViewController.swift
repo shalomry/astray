@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import Firebase
+import CoreData
 
 import Foundation
 
@@ -79,9 +80,16 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                     let usersRef = self.ref.childByAppendingPath("Users")
                     let currRef = usersRef.childByAppendingPath(authData.uid)
                     print(currRef.key)
+                    
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.currUid = authData.uid
+                    if let mainView = self.storyboard?.instantiateViewControllerWithIdentifier("DiscoverView") {
+                        self.navigationController?.pushViewController(mainView, animated: true)
+                    }
                 }
         })
     }
+
     
 //    func loginWithFacebook() {
 //        ref.authWithOAuthPopup("facebook", function(error, authData) {
