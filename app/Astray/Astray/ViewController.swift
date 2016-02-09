@@ -59,14 +59,40 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let ikesPin = MKPointAnnotation()
             ikesPin.coordinate = ikes
             ikesPin.title = "The Restaurant Formerly Known As Ike's"
+            let memchu = CLLocationCoordinate2DMake(37.4268187, -122.1705897)
+            let memchuPin = MKPointAnnotation()
+            memchuPin.coordinate = memchu
+            memchuPin.title = "MemChu"
+            let sf = CLLocationCoordinate2DMake(37.7889499,-122.4066867)
+            let sfPin = MKPointAnnotation()
+            sfPin.coordinate = sf
+            sfPin.title = "sf"
+            let pinAnnotation = MKPointAnnotation()
+            sfPin.setValue(pinAnnotation, forKey: "button")
+            
         
             self.mapView.addAnnotation(ovalPin)
             self.mapView.addAnnotation(lakelagPin)
             self.mapView.addAnnotation(ikesPin)
+            self.mapView.addAnnotation(memchuPin)
+            self.mapView.addAnnotation(sfPin)
             
             
             
         }
+    }
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        if annotation is MKAnnotation {
+            let pinButton = UIButton(type: UIButtonType.Custom) as UIButton
+            pinButton.frame.size.width = 44
+            pinButton.frame.size.height = 44
+            pinButton.backgroundColor = UIColor.redColor()
+            let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "sf")
+            pinAnnotationView.leftCalloutAccessoryView = pinButton
+            return pinAnnotationView
+        }
+        return nil
     }
 
     override func didReceiveMemoryWarning() {
