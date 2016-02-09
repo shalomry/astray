@@ -100,13 +100,15 @@ class NarrativeViewController: UIViewController {
             }
             else{
                 self.payload = snap.value as! String!
-                let thisUrl = NSURL(string: self.payload)!
-                
-                let player = AVPlayer(URL: thisUrl) //AVPlayer(contentsOfURL: url, fileTypeHint: "mov")
-                let playerController = AVPlayerViewController()
-                playerController.player = player
-                self.presentViewController(playerController, animated: true) {
-                    player.play()
+                if let thisUrl = NSURL(string: self.payload) {
+                    let player = AVPlayer(URL: thisUrl) //AVPlayer(contentsOfURL: url, fileTypeHint: "mov")
+                    let playerController = AVPlayerViewController()
+                    playerController.player = player
+                    self.presentViewController(playerController, animated: true) {
+                        player.play()
+                    }
+                } else {
+                    print("Received nil video payload")
                 }
             }
         })
