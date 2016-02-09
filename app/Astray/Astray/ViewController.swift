@@ -46,6 +46,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             
             self.mapView.setRegion(region, animated: true)
+            
+            let oval = CLLocationCoordinate2DMake(37.4299352, -122.169266)
+            let ovalPin = MKPointAnnotation()
+            ovalPin.coordinate = oval
+            ovalPin.title = "The Oval"
+            let lakelag = CLLocationCoordinate2DMake(37.4221486, -122.1766676)
+            let lakelagPin = MKPointAnnotation()
+            lakelagPin.coordinate = lakelag
+            lakelagPin.title = "Lake Lag"
+            let ikes = CLLocationCoordinate2DMake(37.4281014, -122.1742029)
+            let ikesPin = MKPointAnnotation()
+            ikesPin.coordinate = ikes
+            ikesPin.title = "The Restaurant Formerly Known As Ike's"
+        
+            self.mapView.addAnnotation(ovalPin)
+            self.mapView.addAnnotation(lakelagPin)
+            self.mapView.addAnnotation(ikesPin)
+            
+            
+            
         }
     }
 
