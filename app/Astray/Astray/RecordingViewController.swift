@@ -9,12 +9,18 @@
 import UIKit
 import MediaPlayer
 import MobileCoreServices
+import Firebase
+import CoreData
 
 
 class RecordingViewController: UIViewController {
+    
+    var ref: Firebase!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Firebase(url:"https://astray194.firebaseio.com")
+
         startCameraFromViewController(self, withDelegate: self)
         // Do any additional setup after loading the view.
     }
@@ -36,7 +42,7 @@ class RecordingViewController: UIViewController {
     */
     
     func startCameraFromViewController(viewController: UIViewController, withDelegate delegate: protocol<UIImagePickerControllerDelegate, UINavigationControllerDelegate>) -> Bool {
-        
+        print("starting camera")
         if UIImagePickerController.isSourceTypeAvailable(.Camera) == false {
             return false
         }
@@ -46,8 +52,9 @@ class RecordingViewController: UIViewController {
         cameraController.mediaTypes = [kUTTypeMovie as NSString as String]
         cameraController.allowsEditing = false
         cameraController.delegate = delegate
-        
+        print("presenting view controller")
         presentViewController(cameraController, animated: true, completion: nil)
+
         return true
     }
     
@@ -65,19 +72,42 @@ class RecordingViewController: UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
 
+    
+    private func uploadVideo() throws {
+        if mainInstance.path != "" {
+            let NSDataMovieData = NSData(contentsOfFile:mainInstance.path)
+            let movieData = NSString(data: NSDataMovieData!, encoding:NSUTF8StringEncoding)
+            //let movieData = NSDataMovieData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithLineFeed)// or encodingwith64???!?!?!?!EncodingEndLineWithLineFeed
+            ref = Firebase(url:"https://astray194.firebaseio.com/Stories/story5/data")
+            ref.setValue(movieData)
+            ref.observeEventType(.Value, withBlock: { snap in
+                print("\(snap.value)")
+            })
+        }
+    }
 }
 
 extension RecordingViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
-        dismissViewControllerAnimated(true, completion: nil)
         // Handle a movie capture
         if mediaType == kUTTypeMovie {
-            let path = (info[UIImagePickerControllerMediaURL] as! NSURL).path
-            if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path!) {
-                UISaveVideoAtPathToSavedPhotosAlbum(path!, self, "video:didFinishSavingWithError:contextInfo:", nil)
+            print("movie recorded")
+            mainInstance.path = (info[UIImagePickerControllerMediaURL] as! NSURL).path!
+            if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(mainInstance.path) {
+                print("video path compatible")
+                UISaveVideoAtPathToSavedPhotosAlbum(mainInstance.path, self, "video:didFinishSavingWithError:contextInfo:", nil)
+                print("saved video at path")
+            }
+            do {
+                print("trying to upload video")
+                try uploadVideo()
+            } catch {
+                print("Upload video failed")
             }
         }
+        print("dismissing view controller")
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
