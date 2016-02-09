@@ -90,7 +90,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 // myRootRef.setValue("EHRMAGEHRD BACKEND")
                 myRootRef.observeEventType(.Value, withBlock: {
                     snapshot in
-                    print("\(snapshot.key) -> \(snapshot.value)")
+                    //The following line will hang the view:
+                    //print("\(snapshot.key) -> \(snapshot.value)")
                 })
                 let geoFire = GeoFire(firebaseRef: myRootRef)
                 geoFire.setLocation(location, forKey: currUid)
