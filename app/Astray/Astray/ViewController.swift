@@ -26,7 +26,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         let myRootRef = Firebase(url:"https://astray194.firebaseio.com")
-        myRootRef.setValue("EHRMAGEHRD BACKEND")
+  
         myRootRef.observeEventType(.Value, withBlock: {
             snapshot in
             print("\(snapshot.key) -> \(snapshot.value)")

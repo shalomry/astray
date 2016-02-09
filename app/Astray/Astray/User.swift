@@ -11,14 +11,14 @@ import UIKit
 class User {
     var username : String
     var bio : String
-    var password : String
+    var email : String
     var stumble : Bool
     var fbConnected : Bool
     
-    init(username:String, bio:String, password:String) {
+    init(username:String, bio:String, email:String) {
         self.username = username
         self.bio = bio
-        self.password = password
+        self.email = email
         self.stumble = true
         self.fbConnected = false
     }
@@ -31,8 +31,8 @@ class User {
         return self.bio
     }
     
-    func getPassword() -> String {
-        return self.password
+    func getEmail() -> String {
+        return self.email
     }
     
     func getStumbleMode() -> Bool {
