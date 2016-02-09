@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BC242F47FA5E7A8758ED8CD9'
+               BlueprintIdentifier = '63712D2DD8A6AB4915433677'
                BlueprintName = 'Pods-AstrayUITests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_AstrayUITests.framework'>

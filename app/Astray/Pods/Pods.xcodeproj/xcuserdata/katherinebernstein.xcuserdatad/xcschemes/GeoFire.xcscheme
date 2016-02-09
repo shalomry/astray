@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8EAAE33180D8DD2108B72DD5'
-               BlueprintName = 'Pods-Astray'
+               BlueprintIdentifier = '6439710F163E5BBD09760067'
+               BlueprintName = 'GeoFire'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_Astray.framework'>
+               BuildableName = 'GeoFire.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
