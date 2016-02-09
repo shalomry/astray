@@ -25,9 +25,19 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var loginEmailField: UITextField!
     var ref: Firebase!
     
+    @IBOutlet weak var loginErrorMessage: UILabel!
+    var shouldShowLoginErrorMessage: Bool = false
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Firebase(url:"https://astray194.firebaseio.com")
+        
+        if !shouldShowLoginErrorMessage {
+            if self.loginErrorMessage != nil {
+                self.loginErrorMessage.text = ""
+            }
+        }
     }
     
     func navigateToView(view:String) {
@@ -93,6 +103,10 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                     self.navigateToView("DiscoverView")
                 }
         })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated:true)
     }
 
     
