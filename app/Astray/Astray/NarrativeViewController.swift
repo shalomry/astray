@@ -36,15 +36,23 @@ class NarrativeViewController: UIViewController {
         super.viewDidLoad()
         
         //this works to play audio.
-        let sample = NSBundle.mainBundle().URLForResource("sample", withExtension: "mp3")
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if appDelegate.currStory != nil {
+            var sample : NSURL?
+            if appDelegate.currStory=="MemChu" {
+                sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
+            } else {
+                sample = NSBundle.mainBundle().URLForResource("lakelag", withExtension: "mp3")
+            }
         
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
-            audioPlayer.prepareToPlay()
-            audioPlayer.play()
-            print("played audio")
-        }catch {
-            print("Error getting the audio file")
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
+                audioPlayer.prepareToPlay()
+                audioPlayer.play()
+                print("played audio")
+            }catch {
+                print("Error getting the audio file")
+            }
         }
         
     }

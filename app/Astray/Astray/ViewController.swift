@@ -51,26 +51,26 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 ikesPin.coordinate = ikes
                 ikesPin.title = "The Restaurant Formerly Known As Ike's"
                 
-                self.mapView.addAnnotation(ovalPin)
-                self.mapView.addAnnotation(lakelagPin)
-                self.mapView.addAnnotation(ikesPin)
+//                self.mapView.addAnnotation(ovalPin)
+//                self.mapView.addAnnotation(lakelagPin)
+//                self.mapView.addAnnotation(ikesPin)
                 
                 let myRootRef = Firebase(url:"https://astray194.firebaseio.com")
                 let geoFire = GeoFire(firebaseRef: myRootRef)
-                var ovalQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4299352, longitude: -122.169266), withRadius: 0.001)
-                var ovalQueryHandle = ovalQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-                    print("Key '\(key)' entered the search area and is at the oval'")
-                })
+//                var ovalQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4299352, longitude: -122.169266), withRadius: 0.001)
+//                var ovalQueryHandle = ovalQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+//                    print("Key '\(key)' entered the search area and is at the oval'")
+//                })
                 
                 var lakeLagQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4221486, longitude: -122.1766676), withRadius: 0.001)
                 var lakeLagQueryHandle = lakeLagQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
                     print("Key '\(key)' entered the search area and is at lake lag'")
                 })
-                
-                var ikesQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4281014, longitude: -122.1742029), withRadius: 0.001)
-                var ikesQueryHandle = ikesQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-                    print("Key '\(key)' entered the search area and is at ikes'")
-                })
+//                
+//                var ikesQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4281014, longitude: -122.1742029), withRadius: 0.001)
+//                var ikesQueryHandle = ikesQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+//                    print("Key '\(key)' entered the search area and is at ikes'")
+//                })
             }
         } else {
             self.navigateToView("LoginView")
@@ -86,38 +86,40 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = manager.location {
-            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            
-            self.mapView.setRegion(region, animated: true)
-            
-            let oval = CLLocationCoordinate2DMake(37.4299352, -122.169266)
-            let ovalPin = MKPointAnnotation()
-            ovalPin.coordinate = oval
-            ovalPin.title = "The Oval"
+//            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+//            
+//            self.mapView.setRegion(region, animated: true)
+//            
+//            let oval = CLLocationCoordinate2DMake(37.4299352, -122.169266)
+//            let ovalPin = MKPointAnnotation()
+//            ovalPin.coordinate = oval
+//            ovalPin.title = "The Oval"
             let lakelag = CLLocationCoordinate2DMake(37.4221486, -122.1766676)
             let lakelagPin = MKPointAnnotation()
             lakelagPin.coordinate = lakelag
             lakelagPin.title = "Lake Lag"
-            let ikes = CLLocationCoordinate2DMake(37.4281014, -122.1742029)
-            let ikesPin = MKPointAnnotation()
-            ikesPin.coordinate = ikes
-            ikesPin.title = "The Restaurant Formerly Known As Ike's"
+//            let ikes = CLLocationCoordinate2DMake(37.4281014, -122.1742029)
+//            let ikesPin = MKPointAnnotation()
+//            ikesPin.coordinate = ikes
+//            ikesPin.title = "The Restaurant Formerly Known As Ike's"
             let memchu = CLLocationCoordinate2DMake(37.4268187, -122.1705897)
             let memchuPin = MKPointAnnotation()
             memchuPin.coordinate = memchu
             memchuPin.title = "MemChu"
-            let sf = CLLocationCoordinate2DMake(37.7889499,-122.4066867)
-            let sfPin = MKPointAnnotation()
-            sfPin.coordinate = sf
-            sfPin.title = "sf"
+//            let sf = CLLocationCoordinate2DMake(37.7889499,-122.4066867)
+//            let sfPin = MKPointAnnotation()
+//            sfPin.coordinate = sf
+//            sfPin.title = "sf"
             
         
-            self.mapView.addAnnotation(ovalPin)
-            self.mapView.addAnnotation(lakelagPin)
-            self.mapView.addAnnotation(ikesPin)
+//            self.mapView.addAnnotation(ovalPin)
+//            self.mapView.addAnnotation(lakelagPin)
+//            self.mapView.addAnnotation(ikesPin)
+//            self.mapView.addAnnotation(sfPin)
+
             self.mapView.addAnnotation(memchuPin)
-            self.mapView.addAnnotation(sfPin)
+            self.mapView.addAnnotation(lakelagPin)
             
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             if let currUid = appDelegate.currUid {
