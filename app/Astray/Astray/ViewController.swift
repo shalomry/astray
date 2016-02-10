@@ -38,18 +38,25 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 mapView.delegate = self
                 self.mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false);
                 
-                let oval = CLLocationCoordinate2DMake(37.4299352, -122.169266)
-                let ovalPin = MKPointAnnotation()
-                ovalPin.coordinate = oval
-                ovalPin.title = "The Oval"
+//                let oval = CLLocationCoordinate2DMake(37.4299352, -122.169266)
+//                let ovalPin = MKPointAnnotation()
+//                ovalPin.coordinate = oval
+//                ovalPin.title = "The Oval"
                 let lakelag = CLLocationCoordinate2DMake(37.4221486, -122.1766676)
                 let lakelagPin = MKPointAnnotation()
                 lakelagPin.coordinate = lakelag
                 lakelagPin.title = "Lake Lag"
-                let ikes = CLLocationCoordinate2DMake(37.4281014, -122.1742029)
-                let ikesPin = MKPointAnnotation()
-                ikesPin.coordinate = ikes
-                ikesPin.title = "The Restaurant Formerly Known As Ike's"
+                let memchu = CLLocationCoordinate2DMake(37.4268187, -122.1705897)
+                let memchuPin = MKPointAnnotation()
+                memchuPin.coordinate = memchu
+                memchuPin.title = "MemChu"
+                self.mapView.addAnnotation(lakelagPin)
+                self.mapView.addAnnotation(memchuPin)
+                
+//                let ikes = CLLocationCoordinate2DMake(37.4281014, -122.1742029)
+//                let ikesPin = MKPointAnnotation()
+//                ikesPin.coordinate = ikes
+//                ikesPin.title = "The Restaurant Formerly Known As Ike's"
                 
 //                self.mapView.addAnnotation(ovalPin)
 //                self.mapView.addAnnotation(lakelagPin)
@@ -95,18 +102,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 //            let ovalPin = MKPointAnnotation()
 //            ovalPin.coordinate = oval
 //            ovalPin.title = "The Oval"
-            let lakelag = CLLocationCoordinate2DMake(37.4221486, -122.1766676)
-            let lakelagPin = MKPointAnnotation()
-            lakelagPin.coordinate = lakelag
-            lakelagPin.title = "Lake Lag"
+
 //            let ikes = CLLocationCoordinate2DMake(37.4281014, -122.1742029)
 //            let ikesPin = MKPointAnnotation()
 //            ikesPin.coordinate = ikes
 //            ikesPin.title = "The Restaurant Formerly Known As Ike's"
-            let memchu = CLLocationCoordinate2DMake(37.4268187, -122.1705897)
-            let memchuPin = MKPointAnnotation()
-            memchuPin.coordinate = memchu
-            memchuPin.title = "MemChu"
+//            let memchu = CLLocationCoordinate2DMake(37.4268187, -122.1705897)
+//            let memchuPin = MKPointAnnotation()
+//            memchuPin.coordinate = memchu
+//            memchuPin.title = "MemChu"
 //            let sf = CLLocationCoordinate2DMake(37.7889499,-122.4066867)
 //            let sfPin = MKPointAnnotation()
 //            sfPin.coordinate = sf
@@ -118,8 +122,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 //            self.mapView.addAnnotation(ikesPin)
 //            self.mapView.addAnnotation(sfPin)
 
-            self.mapView.addAnnotation(memchuPin)
-            self.mapView.addAnnotation(lakelagPin)
+//            self.mapView.addAnnotation(memchuPin)
+//            self.mapView.addAnnotation(lakelagPin)
             
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             if let currUid = appDelegate.currUid {
