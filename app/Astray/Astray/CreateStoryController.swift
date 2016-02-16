@@ -72,6 +72,21 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
+    @IBAction func createStoryButtonClicked() {
+        let lat = mapView.centerCoordinate.latitude
+        let long = mapView.centerCoordinate.longitude
+        
+        let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
+        let geoFire = GeoFire(firebaseRef: storyRef)
+        
+        var lakeLagQuery = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.001)
+        var lakeLagQueryHandle = lakeLagQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+            print("Key '\(key)' entered the search area and is at lake lag'")
+        })
+        
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

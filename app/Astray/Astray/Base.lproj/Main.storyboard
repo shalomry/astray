@@ -152,6 +152,9 @@
                                 <rect key="frame" x="198" y="332" width="123" height="30"/>
                                 <color key="tintColor" red="0.99991470575332642" green="0.56295872410767678" blue="0.12949627855743723" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Create your story!"/>
+                                <connections>
+                                    <action selector="createStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="QFz-7A-val"/>
+                                </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B3K-FH-eaa">
                                 <rect key="frame" x="0.0" y="402" width="600" height="198"/>
