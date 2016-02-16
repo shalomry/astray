@@ -53,6 +53,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 self.mapView.addAnnotation(lakelagPin)
                 self.mapView.addAnnotation(memchuPin)
                 
+                let sf = CLLocationCoordinate2DMake(37.786919, -122.408148)
+                let sfPin = MKPointAnnotation()
+                sfPin.coordinate = sf
+                sfPin.title = "sf"
+                self.mapView.addAnnotation(sfPin)
+                
+                
 //                let ikes = CLLocationCoordinate2DMake(37.4281014, -122.1742029)
 //                let ikesPin = MKPointAnnotation()
 //                ikesPin.coordinate = ikes
@@ -72,6 +79,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 var lakeLagQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4221486, longitude: -122.1766676), withRadius: 0.001)
                 var lakeLagQueryHandle = lakeLagQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
                     print("Key '\(key)' entered the search area and is at lake lag'")
+                })
+                
+                var sfQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.786919, longitude: -122.408148), withRadius: 0.1)
+                var sfQueryHandle = sfQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+                    print("Key '\(key)' entered the search area and is in sf'")
+                    let userAvailableStoriesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+                    userAvailableStoriesRef.setValue(["storyID"])
                 })
 //                
 //                var ikesQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4281014, longitude: -122.1742029), withRadius: 0.001)

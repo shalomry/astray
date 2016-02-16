@@ -58,7 +58,14 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                     print(uid!)
                     let usersRef = self.ref.childByAppendingPath("Users")
                     let newUserRef = usersRef.childByAppendingPath(uid!)
-                    let user : NSDictionary = ["username":username, "bio":bio, "email":email]
+                    let user : NSDictionary = [
+                        "username":username,
+                        "bio":bio,
+                        "email":email,
+                        "listofcreatedstories":[],
+                        "storiestheyveseen":[],
+                        "availablestories":[]
+                    ]
                     newUserRef.setValue(user)
                     self.navigateToView("LoginView")
                 }
