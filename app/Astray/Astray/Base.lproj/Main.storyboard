@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="2100" y="632"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Story Controller-->
         <scene sceneID="Tep-Da-DXw">
             <objects>
-                <viewController id="7Xg-TQ-HDl" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateStoryView" id="7Xg-TQ-HDl" customClass="CreateStoryController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MId-ZA-5hb"/>
                         <viewControllerLayoutGuide type="bottom" id="qq5-Gi-Uri"/>
@@ -184,6 +184,12 @@
                             <constraint firstItem="uYV-Vd-DjO" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="xcC-Jq-ZTA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createStoryButton" destination="txJ-Bi-nxb" id="RTQ-pj-fhG"/>
+                        <outlet property="mapView" destination="B3K-FH-eaa" id="0ej-1a-6YQ"/>
+                        <outlet property="storyDescription" destination="2yY-HA-pvJ" id="4P8-Rl-kGq"/>
+                        <outlet property="storyTitle" destination="Rlh-g4-knG" id="9Me-oz-rDa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXS-Ai-p01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

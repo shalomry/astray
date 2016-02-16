@@ -26,6 +26,7 @@
 		69B4E7101C5056EF00FF1663 /* AstrayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E70F1C5056EF00FF1663 /* AstrayUITests.swift */; };
 		8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */; };
 		8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FF177B41C6012B60035BB3D /* sample.mp3 */; };
+		C8A35F231C73CF5E006B9D4A /* CreateStoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */; };
 		C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */; };
 		C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727E1C6AB66F005C54DE /* memchu.mp3 */; };
 		D25A0340BAD78776591A0169 /* Pods_AstrayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */; };
@@ -80,6 +81,7 @@
 		9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A270DC07E54A6D407493D5CE /* Pods_AstrayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FD38F251876BDBBF61A1E7 /* Pods_Astray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoryController.swift; sourceTree = "<group>"; };
 		C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lakelag.mp3; sourceTree = "<group>"; };
 		C8AD727E1C6AB66F005C54DE /* memchu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = memchu.mp3; sourceTree = "<group>"; };
 		D240410A82D67689366AE0EC /* Pods-Astray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				69B4E6F81C5056EF00FF1663 /* LaunchScreen.storyboard */,
 				69B4E6FB1C5056EF00FF1663 /* Info.plist */,
 				6944644C1C688DA100B7A12F /* Story.swift */,
+				C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */,
 			);
 			path = Astray;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				69B4E6F01C5056EF00FF1663 /* AppDelegate.swift in Sources */,
 				8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */,
 				6944644D1C688DA100B7A12F /* Story.swift in Sources */,
+				C8A35F231C73CF5E006B9D4A /* CreateStoryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
