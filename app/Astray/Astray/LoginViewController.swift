@@ -62,9 +62,9 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                         "username":username,
                         "bio":bio,
                         "email":email,
-                        "listofcreatedstories":[],
-                        "storiestheyveseen":[],
-                        "availablestories":[]
+                        "listofcreatedstories": ["0":""] as NSDictionary,
+                        "storiestheyveseen": ["0":""] as NSDictionary,
+                        "availablestories":["0":""] as NSDictionary
                     ]
                     newUserRef.setValue(user)
                     self.navigateToView("LoginView")
