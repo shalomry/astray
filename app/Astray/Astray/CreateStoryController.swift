@@ -18,6 +18,8 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet weak var storyDescription: UITextField!
     @IBOutlet weak var createStoryButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    var username: String?
+    var userId: String?
     
     var locationManager: CLLocationManager!
     
@@ -44,6 +46,18 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
 
                 let myRootRef = Firebase(url:"https://astray194.firebaseio.com")
                 let geoFire = GeoFire(firebaseRef: myRootRef)
+                
+                let ref = Firebase(url:"https://astray194.firebaseio.com/Users")
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                if let currUid = appDelegate.currUid {
+                    userId = currUid
+                    let currUserRef = ref.childByAppendingPath(currUid)
+                    currUserRef.observeEventType(.Value, withBlock: { snapshot in
+                        if let username = snapshot.value.objectForKey("username") {
+                            self.username = "\(username)"
+                        }
+                    })
+                }
             }
         } else {
             self.navigateToView("LoginView")
@@ -72,17 +86,52 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
+//    self.ref.createUser(email, password: password,
+//    withValueCompletionBlock: { error, result in
+//    if error != nil {
+//    print(error)
+//    } else {
+//    let uid = result["uid"] as? String
+//    print("Successfully created user account with uid: \(uid)")
+//    print(username)
+//    print(uid!)
+//    let usersRef = self.ref.childByAppendingPath("Users")
+//    let newUserRef = usersRef.childByAppendingPath(uid!)
+//    let user : NSDictionary = [
+//    "username":username,
+//    "bio":bio,
+//    "email":email,
+//    "listofcreatedstories": ["0":""] as NSDictionary,
+//    "storiestheyveseen": ["0":""] as NSDictionary,
+//    "availablestories":["0":""] as NSDictionary
+//    ]
+//    newUserRef.setValue(user)
+//    self.navigateToView("LoginView")
+//    }
+//    })
+
+    
+    
+    
     @IBAction func createStoryButtonClicked() {
         let lat = mapView.centerCoordinate.latitude
         let long = mapView.centerCoordinate.longitude
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
-        let geoFire = GeoFire(firebaseRef: storyRef)
-        
-        var lakeLagQuery = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.001)
-        var lakeLagQueryHandle = lakeLagQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-            print("Key '\(key)' entered the search area and is at lake lag'")
-        })
+        let storyInfo: NSDictionary = [
+            "title": self.storyTitle,
+            "description": self.storyDescription,
+            "author": self.username!,
+            "author_id": self.userId!,
+            "latitude": lat,
+            "longitude": long
+        ]
+        storyRef.childByAutoId().setValue(storyInfo)
+//
+//        var lakeLagQuery = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.001)
+//        var lakeLagQueryHandle = lakeLagQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+//            print("Key '\(key)' entered the search area and is at lake lag'")
+//        })
         
         
     }
