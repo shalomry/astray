@@ -15,6 +15,7 @@ import CoreData
 class UserController : UIViewController, UIActionSheetDelegate {
     
     var ref: Firebase!
+    var username: String?
     @IBOutlet weak var newBioField: UITextView!
     @IBOutlet weak var profileUsernameLabel: UILabel!
     @IBOutlet weak var profileBioLabel: UILabel!
@@ -31,6 +32,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
             currUserRef.observeEventType(.Value, withBlock: { snapshot in
                 print(snapshot.value)
                 if let username = snapshot.value.objectForKey("username") {
+                    self.username = "\(username)"
                     if self.profileUsernameLabel != nil {
                         self.profileUsernameLabel.text = "\(username)"
                     }

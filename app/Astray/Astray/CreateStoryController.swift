@@ -86,53 +86,26 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
-//    self.ref.createUser(email, password: password,
-//    withValueCompletionBlock: { error, result in
-//    if error != nil {
-//    print(error)
-//    } else {
-//    let uid = result["uid"] as? String
-//    print("Successfully created user account with uid: \(uid)")
-//    print(username)
-//    print(uid!)
-//    let usersRef = self.ref.childByAppendingPath("Users")
-//    let newUserRef = usersRef.childByAppendingPath(uid!)
-//    let user : NSDictionary = [
-//    "username":username,
-//    "bio":bio,
-//    "email":email,
-//    "listofcreatedstories": ["0":""] as NSDictionary,
-//    "storiestheyveseen": ["0":""] as NSDictionary,
-//    "availablestories":["0":""] as NSDictionary
-//    ]
-//    newUserRef.setValue(user)
-//    self.navigateToView("LoginView")
-//    }
-//    })
-
-    
-    
-    
     @IBAction func createStoryButtonClicked() {
         let lat = mapView.centerCoordinate.latitude
         let long = mapView.centerCoordinate.longitude
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
         let storyInfo: NSDictionary = [
-            "title": self.storyTitle,
-            "description": self.storyDescription,
+            "title": self.storyTitle.text!,
+            "description": self.storyDescription.text!,
             "author": self.username!,
             "author_id": self.userId!,
             "latitude": lat,
             "longitude": long
         ]
-        storyRef.childByAutoId().setValue(storyInfo)
-//
-//        var lakeLagQuery = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.001)
-//        var lakeLagQueryHandle = lakeLagQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-//            print("Key '\(key)' entered the search area and is at lake lag'")
-//        })
-        
+        let childRef = storyRef.childByAutoId()
+        childRef.setValue(storyInfo)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        print("KEY:")
+        print(childRef.key)
+        appDelegate.currStory = childRef.key
+        self.navigateToView("NarrativeView")
         
     }
     
