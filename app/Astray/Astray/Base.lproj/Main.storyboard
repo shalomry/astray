@@ -5,6 +5,18 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Existence-Light.otf">
+            <string>Existence-Light</string>
+        </mutableArray>
+        <mutableArray key="Existence-UnicaseLight.otf">
+            <string>Existence-UnicaseLight</string>
+            <string>Existence-UnicaseLight</string>
+            <string>Existence-UnicaseLight</string>
+            <string>Existence-UnicaseLight</string>
+            <string>Existence-UnicaseLight</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Discover-->
         <scene sceneID="tne-QT-ifu">
@@ -148,14 +160,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
-                                <rect key="frame" x="198" y="332" width="123" height="30"/>
-                                <color key="tintColor" red="0.99991470575332642" green="0.56295872410767678" blue="0.12949627855743723" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Create your story!"/>
-                                <connections>
-                                    <action selector="createStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="QFz-7A-val"/>
-                                </connections>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B3K-FH-eaa">
                                 <rect key="frame" x="0.0" y="402" width="600" height="198"/>
                             </mapView>
@@ -166,6 +170,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
+                                <rect key="frame" x="239" y="329" width="123" height="30"/>
+                                <color key="backgroundColor" red="0.3081308358" green="0.00083137051919999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Create your story!"/>
+                                <connections>
+                                    <action selector="createStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="QFz-7A-val"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91372001169999995" green="0.97842323779999996" blue="0.99981433149999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -492,18 +505,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vlZ-5I-AVS">
-                                <rect key="frame" x="48" y="169" width="505" height="30"/>
-                                <color key="backgroundColor" red="0.83252838323955847" green="0.92914874059923847" blue="0.961159484521239" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vlZ-5I-AVS">
+                                <rect key="frame" x="125" y="169" width="428" height="30"/>
+                                <color key="backgroundColor" red="0.050134464679999997" green="0.115191452" blue="0.1797769716" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0z-k7-3AI">
                                 <rect key="frame" x="279" y="279" width="42" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="15"/>
                                 <state key="normal" title="Log In">
-                                    <color key="titleColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="Qw7-hF-ieF" eventType="touchUpInside" id="uF0-21-IyG"/>
@@ -511,51 +525,89 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;error&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw4-RH-32j">
                                 <rect key="frame" x="271" y="133" width="59" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="17"/>
                                 <color key="textColor" red="0.98594671487808228" green="0.0" blue="0.039444990456104279" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-k4-c9i">
-                                <rect key="frame" x="48" y="219" width="505" height="30"/>
-                                <color key="backgroundColor" red="0.8325283832" green="0.92914874059999997" blue="0.96115948449999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-k4-c9i">
+                                <rect key="frame" x="125" y="219" width="428" height="30"/>
+                                <color key="backgroundColor" red="0.050134464679999997" green="0.115191452" blue="0.1797769716" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to astray!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chO-kF-JWq">
-                                <rect key="frame" x="226" y="101" width="147" height="21"/>
+                                <rect key="frame" x="193" y="101" width="180" height="24"/>
                                 <color key="tintColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Existence-Light" family="Existence" pointSize="18"/>
+                                <color key="textColor" red="0.89411764705882357" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ExY-5S-A0q">
                                 <rect key="frame" x="237" y="540" width="127" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="15"/>
                                 <state key="normal" title="Create an Account">
-                                    <color key="titleColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="a3O-xH-gkS" kind="show" id="EhI-0c-Qmz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sz-su-d6J">
+                                <rect key="frame" x="40" y="175" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxW-eW-32x">
+                                <rect key="frame" x="33" y="228" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCa-SL-lga">
+                                <rect key="frame" x="33" y="198" width="520" height="4"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="CsN-TW-e1v"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4u-2W-wR0">
+                                <rect key="frame" x="33" y="249" width="520" height="4"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="yx6-wt-T19"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.7843137255" green="0.87450980389999999" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.050134464680955726" green="0.11519145195601811" blue="0.17977697162935979" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="vlZ-5I-AVS" firstAttribute="leading" secondItem="zH7-cf-sOY" secondAttribute="leadingMargin" constant="20" id="5my-HW-ohB"/>
+                            <constraint firstItem="qCa-SL-lga" firstAttribute="top" secondItem="5sz-su-d6J" secondAttribute="bottom" constant="2" id="3Cl-pu-hV4"/>
+                            <constraint firstItem="vlZ-5I-AVS" firstAttribute="leading" secondItem="zH7-cf-sOY" secondAttribute="leadingMargin" constant="100" id="5my-HW-ohB"/>
                             <constraint firstItem="9NE-df-6qe" firstAttribute="top" secondItem="ExY-5S-A0q" secondAttribute="bottom" constant="30" id="7H4-Ur-YDV"/>
                             <constraint firstItem="kw4-RH-32j" firstAttribute="top" secondItem="chO-kF-JWq" secondAttribute="bottom" constant="15" id="BSc-Hm-WYJ"/>
+                            <constraint firstItem="Q4u-2W-wR0" firstAttribute="top" secondItem="LxW-eW-32x" secondAttribute="bottom" constant="2" id="ELT-Sj-k0c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WdR-k4-c9i" secondAttribute="trailing" constant="20" id="GZ8-qi-VfO"/>
                             <constraint firstItem="d0z-k7-3AI" firstAttribute="centerX" secondItem="zH7-cf-sOY" secondAttribute="centerX" id="Gkt-km-kF2"/>
+                            <constraint firstItem="Q4u-2W-wR0" firstAttribute="top" secondItem="WdR-k4-c9i" secondAttribute="bottom" constant="2" id="JHu-Gx-zf0"/>
+                            <constraint firstItem="5sz-su-d6J" firstAttribute="leading" secondItem="zH7-cf-sOY" secondAttribute="leadingMargin" constant="10" id="OMv-5h-812"/>
                             <constraint firstItem="chO-kF-JWq" firstAttribute="centerX" secondItem="zH7-cf-sOY" secondAttribute="centerX" id="QgY-j0-pVN"/>
+                            <constraint firstItem="qCa-SL-lga" firstAttribute="top" secondItem="5sz-su-d6J" secondAttribute="bottom" constant="4" id="Tv9-iC-Oh9"/>
                             <constraint firstItem="kw4-RH-32j" firstAttribute="centerX" secondItem="zH7-cf-sOY" secondAttribute="centerX" id="VAl-hk-HcH"/>
+                            <constraint firstItem="d0z-k7-3AI" firstAttribute="top" secondItem="Q4u-2W-wR0" secondAttribute="bottom" constant="30" id="Wsv-eB-8QS"/>
+                            <constraint firstItem="Q4u-2W-wR0" firstAttribute="leading" secondItem="zH7-cf-sOY" secondAttribute="leadingMargin" constant="10" id="XZR-sG-Lig"/>
                             <constraint firstItem="vlZ-5I-AVS" firstAttribute="top" secondItem="kw4-RH-32j" secondAttribute="bottom" constant="15" id="bh1-Np-dpv"/>
-                            <constraint firstItem="WdR-k4-c9i" firstAttribute="leading" secondItem="zH7-cf-sOY" secondAttribute="leadingMargin" constant="20" id="ezY-lp-4Fz"/>
+                            <constraint firstItem="WdR-k4-c9i" firstAttribute="leading" secondItem="zH7-cf-sOY" secondAttribute="leadingMargin" constant="100" id="ezY-lp-4Fz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qCa-SL-lga" secondAttribute="trailing" constant="10" id="fCP-EG-KdQ"/>
                             <constraint firstItem="ExY-5S-A0q" firstAttribute="centerX" secondItem="zH7-cf-sOY" secondAttribute="centerX" id="fRC-Op-lMs"/>
-                            <constraint firstItem="WdR-k4-c9i" firstAttribute="top" secondItem="vlZ-5I-AVS" secondAttribute="bottom" constant="20" id="hea-XA-ivM"/>
+                            <constraint firstItem="Q4u-2W-wR0" firstAttribute="top" secondItem="LxW-eW-32x" secondAttribute="bottom" constant="2" id="h6u-9T-MBo"/>
+                            <constraint firstItem="WdR-k4-c9i" firstAttribute="top" secondItem="vlZ-5I-AVS" secondAttribute="bottom" constant="30" id="hea-XA-ivM"/>
+                            <constraint firstItem="LxW-eW-32x" firstAttribute="leading" secondItem="zH7-cf-sOY" secondAttribute="leadingMargin" constant="10" id="jgP-vg-eb0"/>
                             <constraint firstItem="chO-kF-JWq" firstAttribute="top" secondItem="H8P-HR-Y1T" secondAttribute="bottom" constant="60" id="pFD-zr-16a"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vlZ-5I-AVS" secondAttribute="trailing" constant="20" id="sWY-Fi-5cv"/>
-                            <constraint firstItem="d0z-k7-3AI" firstAttribute="top" secondItem="WdR-k4-c9i" secondAttribute="bottom" constant="30" id="tRG-Os-55w"/>
+                            <constraint firstItem="qCa-SL-lga" firstAttribute="leading" secondItem="zH7-cf-sOY" secondAttribute="leadingMargin" constant="10" id="uIP-5C-UEZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q4u-2W-wR0" secondAttribute="trailing" constant="10" id="uJY-vp-qRh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="m8k-BD-gnE"/>
@@ -808,5 +860,5 @@
         <segue reference="nKG-xW-2w2"/>
         <segue reference="f2I-Bg-dLg"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.14509803921568629" green="0.23529411764705882" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
