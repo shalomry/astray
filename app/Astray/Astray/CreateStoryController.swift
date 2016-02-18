@@ -90,6 +90,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         let lat = mapView.centerCoordinate.latitude
         let long = mapView.centerCoordinate.longitude
         
+        // TODO: move lines 84-108 in viewcontroller here, incorporate story id in geofire handles
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
         let storyInfo: NSDictionary = [
             "title": self.storyTitle.text!,

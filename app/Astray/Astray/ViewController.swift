@@ -16,6 +16,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewStoryButton: UIButton!
+    @IBOutlet weak var notInRangeLabel: UILabel!
     
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
@@ -176,16 +177,29 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func mapView(_ mapView: MKMapView,
         didSelectAnnotationView view: MKAnnotationView) {
-            self.viewStoryButton.hidden = false
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             if let aTitle = mapView.selectedAnnotations[0].title {
                 appDelegate.currStory = aTitle!
             }
+            if let currUid = appDelegate.currUid {
+                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+currUid+"/availablestories")
+                storiesRef.observeEventType(.Value, withBlock: { snapshot in
+                    print(snapshot.value)
+                    var array: [String] = snapshot.value as! [String]
+                    var storyset: Set<String> = Set(array)
+                    if storyset.contains(appDelegate.currStory! as! String) { //TODO: use id, not title
+                        self.viewStoryButton.hidden = false
+                    } else {
+                        self.notInRangeLabel.hidden = false
+                    }
+                })
+            }
     }
-    
+
     func mapView(_ mapView: MKMapView,
         didDeselectAnnotationView view: MKAnnotationView) {
             self.viewStoryButton.hidden = true
+            self.notInRangeLabel.hidden = true
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.currStory = nil
     }
