@@ -26,9 +26,9 @@
 		69B4E7101C5056EF00FF1663 /* AstrayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E70F1C5056EF00FF1663 /* AstrayUITests.swift */; };
 		8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */; };
 		8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FF177B41C6012B60035BB3D /* sample.mp3 */; };
-		C818F58D1C7554E0007CB2FD /* Existence-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C818F58A1C7554E0007CB2FD /* Existence-Light.otf */; };
-		C818F58E1C7554E0007CB2FD /* Existence-StencilLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C818F58B1C7554E0007CB2FD /* Existence-StencilLight.otf */; };
-		C818F58F1C7554E0007CB2FD /* Existence-UnicaseLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C818F58C1C7554E0007CB2FD /* Existence-UnicaseLight.otf */; };
+		C88E9BE11C75C808001283B2 /* Existence-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BDE1C75C808001283B2 /* Existence-Light.otf */; };
+		C88E9BE21C75C808001283B2 /* Existence-StencilLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BDF1C75C808001283B2 /* Existence-StencilLight.otf */; };
+		C88E9BE31C75C808001283B2 /* Existence-UnicaseLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BE01C75C808001283B2 /* Existence-UnicaseLight.otf */; };
 		C8A35F231C73CF5E006B9D4A /* CreateStoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */; };
 		C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */; };
 		C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727E1C6AB66F005C54DE /* memchu.mp3 */; };
@@ -84,9 +84,9 @@
 		9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A270DC07E54A6D407493D5CE /* Pods_AstrayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FD38F251876BDBBF61A1E7 /* Pods_Astray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C818F58A1C7554E0007CB2FD /* Existence-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Existence-Light.otf"; path = "../../../../../Downloads/Existence-Light/Existence-Light.otf"; sourceTree = "<group>"; };
-		C818F58B1C7554E0007CB2FD /* Existence-StencilLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Existence-StencilLight.otf"; path = "../../../../../Downloads/Existence-Light/Existence-StencilLight.otf"; sourceTree = "<group>"; };
-		C818F58C1C7554E0007CB2FD /* Existence-UnicaseLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Existence-UnicaseLight.otf"; path = "../../../../../Downloads/Existence-Light/Existence-UnicaseLight.otf"; sourceTree = "<group>"; };
+		C88E9BDE1C75C808001283B2 /* Existence-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-Light.otf"; sourceTree = "<group>"; };
+		C88E9BDF1C75C808001283B2 /* Existence-StencilLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-StencilLight.otf"; sourceTree = "<group>"; };
+		C88E9BE01C75C808001283B2 /* Existence-UnicaseLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-UnicaseLight.otf"; sourceTree = "<group>"; };
 		C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoryController.swift; sourceTree = "<group>"; };
 		C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lakelag.mp3; sourceTree = "<group>"; };
 		C8AD727E1C6AB66F005C54DE /* memchu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = memchu.mp3; sourceTree = "<group>"; };
@@ -148,9 +148,9 @@
 		69B4E6EE1C5056EF00FF1663 /* Astray */ = {
 			isa = PBXGroup;
 			children = (
-				C818F58A1C7554E0007CB2FD /* Existence-Light.otf */,
-				C818F58B1C7554E0007CB2FD /* Existence-StencilLight.otf */,
-				C818F58C1C7554E0007CB2FD /* Existence-UnicaseLight.otf */,
+				C88E9BDE1C75C808001283B2 /* Existence-Light.otf */,
+				C88E9BDF1C75C808001283B2 /* Existence-StencilLight.otf */,
+				C88E9BE01C75C808001283B2 /* Existence-UnicaseLight.otf */,
 				6995CDC91C6A8B420089117D /* RecordingViewController.swift */,
 				6995CDC71C6A8B360089117D /* LoginViewController.swift */,
 				6995CDC51C6A8B2B0089117D /* global.swift */,
@@ -328,13 +328,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C818F58E1C7554E0007CB2FD /* Existence-StencilLight.otf in Resources */,
+				C88E9BE21C75C808001283B2 /* Existence-StencilLight.otf in Resources */,
 				6995CDCE1C6A8B540089117D /* samplevideo.mov in Resources */,
-				C818F58D1C7554E0007CB2FD /* Existence-Light.otf in Resources */,
+				C88E9BE11C75C808001283B2 /* Existence-Light.otf in Resources */,
 				69B4E6FA1C5056EF00FF1663 /* LaunchScreen.storyboard in Resources */,
 				69B4E6F71C5056EF00FF1663 /* Assets.xcassets in Resources */,
 				C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */,
-				C818F58F1C7554E0007CB2FD /* Existence-UnicaseLight.otf in Resources */,
+				C88E9BE31C75C808001283B2 /* Existence-UnicaseLight.otf in Resources */,
 				69B4E6F51C5056EF00FF1663 /* Main.storyboard in Resources */,
 				8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */,
 				6995CDCC1C6A8B510089117D /* sample.mp3 in Resources */,
