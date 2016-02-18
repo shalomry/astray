@@ -16,6 +16,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewStoryButton: UIButton!
+    @IBOutlet weak var notInRangeLabel: UILabel!
     
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
@@ -189,7 +190,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     if storyset.contains(appDelegate.currStory! as! String) { //TODO: use id, not title
                         self.viewStoryButton.hidden = false
                     } else {
-                        //TODO: other button conveying that user is too far
+                        self.notInRangeLabel.hidden = false
                     }
                 })
             }
@@ -198,6 +199,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func mapView(_ mapView: MKMapView,
         didDeselectAnnotationView view: MKAnnotationView) {
             self.viewStoryButton.hidden = true
+            self.notInRangeLabel.hidden = true
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.currStory = nil
     }

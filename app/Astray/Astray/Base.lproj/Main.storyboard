@@ -23,6 +23,7 @@
             <string>Existence-UnicaseLight</string>
             <string>Existence-UnicaseLight</string>
             <string>Existence-UnicaseLight</string>
+            <string>Existence-UnicaseLight</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -50,15 +51,23 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aWA-bF-3dh">
-                                <rect key="frame" x="0.0" y="81" width="600" height="439"/>
+                                <rect key="frame" x="0.0" y="70" width="600" height="439"/>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                             </mapView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are not within range of this story." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-BH-egh">
+                                <rect key="frame" x="152" y="545" width="284" height="21"/>
+                                <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.91372001171112061" green="0.97842323780059814" blue="0.99981433153152466" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="aWA-bF-3dh" secondAttribute="trailing" constant="20" id="4X9-UQ-1PW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4p9-lQ-IeD" secondAttribute="bottom" constant="10" id="FdQ-eG-a6l"/>
                             <constraint firstItem="aWA-bF-3dh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="HW1-qd-Rhl"/>
+                            <constraint firstItem="g0w-BH-egh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IlK-dH-Byq"/>
+                            <constraint firstItem="g0w-BH-egh" firstAttribute="top" secondItem="aWA-bF-3dh" secondAttribute="bottom" constant="10" id="YAv-fK-Hap"/>
                             <constraint firstItem="aWA-bF-3dh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="q6p-Do-ZWn"/>
                             <constraint firstItem="4p9-lQ-IeD" firstAttribute="top" secondItem="aWA-bF-3dh" secondAttribute="bottom" constant="10" id="sgf-eG-zhD"/>
                             <constraint firstItem="4p9-lQ-IeD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4G-Ta-U6C"/>
@@ -79,6 +88,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="aWA-bF-3dh" id="UPu-RM-mya"/>
+                        <outlet property="notInRangeLabel" destination="g0w-BH-egh" id="glT-7h-rOW"/>
                         <outlet property="viewStoryButton" destination="4p9-lQ-IeD" id="c4K-mq-TFE"/>
                     </connections>
                 </viewController>
@@ -814,7 +824,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoL-Sp-cqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8" y="-1760"/>
+            <point key="canvasLocation" x="-52" y="-1776"/>
         </scene>
         <!--Set Your Bio-->
         <scene sceneID="8Cb-ul-vDw">
@@ -937,7 +947,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nKG-xW-2w2"/>
+        <segue reference="OPa-aK-5NL"/>
         <segue reference="f2I-Bg-dLg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
