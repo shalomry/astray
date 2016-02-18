@@ -82,10 +82,29 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 })
                 
                 var sfQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.786919, longitude: -122.408148), withRadius: 0.1)
-                var sfQueryHandle = sfQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+                var sfAddHandle = sfQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
                     print("Key '\(key)' entered the search area and is in sf'")
-                    let userAvailableStoriesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
-                    userAvailableStoriesRef.setValue(["storyID"])
+                    let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+                    storiesRef.runTransactionBlock({
+                        (currentData:FMutableData!) in
+                        var value: [String] = currentData.value as! [String]
+                        var storyset: Set<String> = Set(value)
+                        storyset.insert("sfkey")
+                        currentData.value = Array(storyset)
+                        return FTransactionResult.successWithValue(currentData)
+                    })
+                })
+                var sfRemoveHandle = sfQuery.observeEventType(GFEventTypeKeyExited, withBlock: { (key: String!, location: CLLocation!) in
+                    print("Key '\(key)' left sf'")
+                    let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+                    storiesRef.runTransactionBlock({
+                        (currentData:FMutableData!) in
+                        var value: [String] = currentData.value as! [String]
+                        var storyset: Set<String> = Set(value)
+                        storyset.remove("sfkey")
+                        currentData.value = Array(storyset)
+                        return FTransactionResult.successWithValue(currentData)
+                    })
                 })
 //                
 //                var ikesQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4281014, longitude: -122.1742029), withRadius: 0.001)
