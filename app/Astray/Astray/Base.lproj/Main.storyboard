@@ -57,7 +57,7 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are not within range of this story." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-BH-egh">
                                 <rect key="frame" x="152" y="545" width="284" height="21"/>
                                 <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -680,7 +680,6 @@
                                 <connections>
                                     <action selector="create:" destination="a3O-xH-gkS" eventType="touchUpInside" id="42R-IW-PhX"/>
                                     <action selector="create:" destination="QCe-Tf-pWY" eventType="touchUpInside" id="RYA-bG-BpN"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="nKG-xW-2w2"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;error&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFm-xb-62U">
@@ -947,8 +946,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OPa-aK-5NL"/>
         <segue reference="f2I-Bg-dLg"/>
+        <segue reference="OPa-aK-5NL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
