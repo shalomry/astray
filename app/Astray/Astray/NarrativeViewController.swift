@@ -14,7 +14,9 @@ import Firebase
 
 class NarrativeViewController: UIViewController {
     @IBOutlet weak var strFiles: UITextView!
+    @IBOutlet weak var playPause: UIButton!
     var audioPlayer: AVAudioPlayer! = AVAudioPlayer()
+    var playing = false
     var yourSound:NSURL?
     
     func prepareYourSound(myData:NSData) {
@@ -49,6 +51,7 @@ class NarrativeViewController: UIViewController {
                 audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
                 audioPlayer.prepareToPlay()
                 audioPlayer.play()
+                playing = true
                 print("played audio")
             }catch {
                 print("Error getting the audio file")
@@ -61,9 +64,25 @@ class NarrativeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    @IBAction func controlAudio() {
+        if playing {
+            audioPlayer.pause()
+            playPause.setTitle(">", forState: .Normal)
+        } else {
+            audioPlayer.play()
+            playPause.setTitle("| |", forState: .Normal)
+        }
+        playing = !playing
+    }
     
-    @IBAction func back() {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func restartAudio() {
+        audioPlayer.stop()
+        audioPlayer.currentTime = 0
+        audioPlayer.prepareToPlay()
+        playPause.setTitle("| |", forState: .Normal)
+        audioPlayer.play()
+        playing = true
     }
     
     private var firstAppear = true
@@ -71,14 +90,22 @@ class NarrativeViewController: UIViewController {
         super.viewDidAppear(animated)
         if firstAppear {
             do {
-                try playVideo()
-                firstAppear = false
+                //try playVideo()
+                //firstAppear = false
             } catch AppError.InvalidResource(let name, let type) {
                 debugPrint("Could not find resource \(name).\(type)")
             } catch {
                 debugPrint("Generic error")
             }
         }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        playing = false
+        audioPlayer.stop()
+        audioPlayer.currentTime = 0
     }
     
     private func playVideo() throws {
