@@ -57,7 +57,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 let sf = CLLocationCoordinate2DMake(37.786919, -122.408148)
                 let sfPin = MKPointAnnotation()
                 sfPin.coordinate = sf
-                sfPin.title = "sf"
+                sfPin.title = "sfkey"
                 self.mapView.addAnnotation(sfPin)
                 
                 
@@ -70,14 +70,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 //                self.mapView.addAnnotation(lakelagPin)
 //                self.mapView.addAnnotation(ikesPin)
                 
-                let myRootRef = Firebase(url:"https://astray194.firebaseio.com")
+                let myRootRef = Firebase(url:"https://astray194.firebaseio.com/Geo")
                 let geoFire = GeoFire(firebaseRef: myRootRef)
 //                var ovalQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4299352, longitude: -122.169266), withRadius: 0.001)
 //                var ovalQueryHandle = ovalQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
 //                    print("Key '\(key)' entered the search area and is at the oval'")
 //                })
                 
-                var lakeLagQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4221486, longitude: -122.1766676), withRadius: 0.001)
+                var lakeLagQuery = geoFire.queryAtLocation(CLLocation(latitude: 37.4221486, longitude: -122.1766676), withRadius: 0.1)
                 var lakeLagQueryHandle = lakeLagQuery.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
                     print("Key '\(key)' entered the search area and is at lake lag'")
                 })
@@ -88,9 +88,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
                     storiesRef.runTransactionBlock({
                         (currentData:FMutableData!) in
-                        var value: [String] = currentData.value as! [String]
-                        var storyset: Set<String> = Set(value)
-                        storyset.insert("sfkey")
+                        var storyset: Set<String> = ["sfkey"]
+                        if let value: [String] = currentData.value as? [String] {
+                            for key in value { storyset.insert(key) }
+                        }
                         currentData.value = Array(storyset)
                         return FTransactionResult.successWithValue(currentData)
                     })
@@ -100,9 +101,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
                     storiesRef.runTransactionBlock({
                         (currentData:FMutableData!) in
-                        var value: [String] = currentData.value as! [String]
-                        var storyset: Set<String> = Set(value)
-                        storyset.remove("sfkey")
+                        var storyset: Set<String> = Set<String>()
+                        if let value: [String] = currentData.value as? [String] {
+                            for key in value { storyset.insert(key) }
+                            storyset.remove("sfkey")
+                        }
                         currentData.value = Array(storyset)
                         return FTransactionResult.successWithValue(currentData)
                     })
@@ -161,7 +164,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             if let currUid = appDelegate.currUid {
-                let myRootRef = Firebase(url:"https://astray194.firebaseio.com")
+                let myRootRef = Firebase(url:"https://astray194.firebaseio.com/Geo")
                 let geoFire = GeoFire(firebaseRef: myRootRef)
                 geoFire.setLocation(location, forKey: currUid)
             }
@@ -181,15 +184,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             if let aTitle = mapView.selectedAnnotations[0].title {
                 appDelegate.currStory = aTitle!
             }
+            print(appDelegate.currStory)
             if let currUid = appDelegate.currUid {
                 let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+currUid+"/availablestories")
                 storiesRef.observeEventType(.Value, withBlock: { snapshot in
                     print(snapshot.value)
-                    var array: [String] = snapshot.value as! [String]
-                    var storyset: Set<String> = Set(array)
-                    if storyset.contains(appDelegate.currStory! as! String) { //TODO: use id, not title
+                    var storyset: Set<String> = Set<String>()
+                    if var array: [String] = snapshot.value as? [String] {
+                        for key in array {
+                            storyset.insert(key)
+                        }
+                    }
+                    if storyset.contains(appDelegate.currStory!) {
+                        print("showing view story button")
+                        //TODO: use id, not title
                         self.viewStoryButton.hidden = false
                     } else {
+                        print("showing not in range label")
                         self.notInRangeLabel.hidden = false
                     }
                 })
