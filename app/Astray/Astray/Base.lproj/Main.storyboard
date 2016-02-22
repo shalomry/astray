@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uiM-I9-qjL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uiM-I9-qjL">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Existence-UnicaseLight.otf">
-            <string>Existence-UnicaseLight</string>
             <string>Existence-UnicaseLight</string>
             <string>Existence-UnicaseLight</string>
             <string>Existence-UnicaseLight</string>
@@ -483,7 +482,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GF7-oD-yt1" id="xoV-lh-RqY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -555,7 +554,7 @@
                                     <action selector="login:" destination="Qw7-hF-ieF" eventType="touchUpInside" id="uF0-21-IyG"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-k4-c9i">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="WdR-k4-c9i">
                                 <rect key="frame" x="125" y="389" width="428" height="30"/>
                                 <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -614,7 +613,7 @@
                                     <constraint firstAttribute="height" constant="150" id="ywL-sd-ZyO"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vlZ-5I-AVS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vlZ-5I-AVS">
                                 <rect key="frame" x="125" y="341" width="428" height="30"/>
                                 <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -682,9 +681,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhK-hW-QL2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astray-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gr0-9k-SqP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MhK-hW-QL2">
                                 <rect key="frame" x="152" y="176" width="413" height="30"/>
-                                <color key="backgroundColor" red="0.050134464679999997" green="0.115191452" blue="0.1797769716" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Lyt-ls-Pck"/>
                                 </constraints>
@@ -692,9 +693,8 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QwC-R2-9zw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QwC-R2-9zw">
                                 <rect key="frame" x="152" y="276" width="413" height="30"/>
-                                <color key="backgroundColor" red="0.050134464679999997" green="0.115191452" blue="0.1797769716" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="scH-Qk-8zL"/>
                                 </constraints>
@@ -702,10 +702,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDA-1D-NmI">
-                                <rect key="frame" x="280" y="506" width="41" height="30"/>
-                                <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="15"/>
-                                <state key="normal" title="finish">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDA-1D-NmI">
+                                <rect key="frame" x="227" y="494" width="148" height="53"/>
+                                <state key="normal" image="finishbutton.png">
                                     <color key="titleColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -719,15 +718,14 @@
                                 <color key="textColor" red="0.98594671489999997" green="0.0" blue="0.039444990460000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Create an account!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-q8-UNd">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpF-q8-UNd">
                                 <rect key="frame" x="228" y="99" width="191" height="33"/>
                                 <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="18"/>
                                 <color key="textColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bio" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K2z-Mc-mix">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K2z-Mc-mix">
                                 <rect key="frame" x="152" y="326" width="413" height="30"/>
-                                <color key="backgroundColor" red="0.050134464679999997" green="0.115191452" blue="0.1797769716" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -784,9 +782,8 @@
                                 <color key="textColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fGm-RL-T9q">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fGm-RL-T9q">
                                 <rect key="frame" x="152" y="225" width="413" height="30"/>
-                                <color key="backgroundColor" red="0.050134464679999997" green="0.115191452" blue="0.1797769716" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AxH-1A-6mf"/>
                                 </constraints>
@@ -797,6 +794,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.050134464679999997" green="0.115191452" blue="0.1797769716" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Gr0-9k-SqP" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="topMargin" id="1i5-ph-Pog"/>
                             <constraint firstItem="MhK-hW-QL2" firstAttribute="top" secondItem="yFm-xb-62U" secondAttribute="bottom" constant="15" id="2Pe-8q-uN3"/>
                             <constraint firstItem="7WN-4r-zXE" firstAttribute="top" secondItem="MhK-hW-QL2" secondAttribute="bottom" constant="2" id="4Vb-yU-Q7Y"/>
                             <constraint firstItem="K2z-Mc-mix" firstAttribute="leading" secondItem="9Jr-lG-ISC" secondAttribute="leadingMargin" constant="100" id="4bV-Oy-ume"/>
@@ -823,6 +821,7 @@
                             <constraint firstItem="e5M-Sf-8gZ" firstAttribute="top" secondItem="Sup-wB-HXq" secondAttribute="bottom" constant="2" id="gAL-nv-OnY"/>
                             <constraint firstItem="Sup-wB-HXq" firstAttribute="leading" secondItem="9Jr-lG-ISC" secondAttribute="leadingMargin" constant="10" id="gjR-9o-nA8"/>
                             <constraint firstItem="k0T-PN-pcZ" firstAttribute="top" secondItem="fGm-RL-T9q" secondAttribute="bottom" constant="2" id="gqv-59-EiT"/>
+                            <constraint firstItem="Gr0-9k-SqP" firstAttribute="leading" secondItem="9Jr-lG-ISC" secondAttribute="leadingMargin" constant="-20" id="iZy-8E-xcE"/>
                             <constraint firstItem="K2z-Mc-mix" firstAttribute="top" secondItem="QwC-R2-9zw" secondAttribute="bottom" constant="30" id="iep-RV-zyc"/>
                             <constraint firstItem="rgB-E7-0Xs" firstAttribute="leading" secondItem="9Jr-lG-ISC" secondAttribute="leadingMargin" constant="10" id="ihy-YD-2v0"/>
                             <constraint firstItem="k0T-PN-pcZ" firstAttribute="leading" secondItem="9Jr-lG-ISC" secondAttribute="leadingMargin" constant="10" id="mlj-fn-hbX"/>
@@ -833,6 +832,8 @@
                             <constraint firstItem="k0T-PN-pcZ" firstAttribute="top" secondItem="CLV-R8-lSg" secondAttribute="bottom" constant="2" id="tU3-kv-DQ5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MhK-hW-QL2" secondAttribute="trailing" constant="10" id="uNM-Wc-hUL"/>
                             <constraint firstItem="Y53-qj-Gbj" firstAttribute="top" secondItem="G2f-VT-iE7" secondAttribute="bottom" constant="2" id="vw8-qE-0Ns"/>
+                            <constraint firstItem="Gr0-9k-SqP" firstAttribute="bottom" secondItem="9Jr-lG-ISC" secondAttribute="bottomMargin" id="xSV-bb-0ZU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gr0-9k-SqP" secondAttribute="trailing" constant="-20" id="xY2-s5-jTO"/>
                             <constraint firstItem="e5M-Sf-8gZ" firstAttribute="top" secondItem="K2z-Mc-mix" secondAttribute="bottom" constant="2" id="yJP-Es-Qu3"/>
                         </constraints>
                     </view>
@@ -981,6 +982,7 @@
         <image name="astray-logo.png" width="280" height="281"/>
         <image name="astray-text.png" width="251" height="138"/>
         <image name="create-account-text.png" width="215" height="39"/>
+        <image name="finishbutton.png" width="104" height="53"/>
         <image name="login-text.png" width="105" height="53"/>
     </resources>
     <inferredMetricsTieBreakers>
