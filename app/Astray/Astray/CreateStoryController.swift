@@ -97,7 +97,8 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             "author": self.username!,
             "author_id": self.userId!,
             "latitude": lat,
-            "longitude": long
+            "longitude": long,
+            "data": "data_placeholder_text"
         ]
         let childRef = storyRef.childByAutoId()
         childRef.setValue(storyInfo)
