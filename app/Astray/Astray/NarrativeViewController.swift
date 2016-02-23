@@ -43,51 +43,54 @@ class NarrativeViewController: UIViewController {
 //        
 //        imageView.image = UIImage.imageWithData(data)// Error here
         
-        var postprocessedURL = NSURL(string: "nil");
+        var urlofFile = NSURL(string: "nil");
         let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
         //sample can be put in avplayer as url easily. avplayer(url: sample)
         
         let path = NSBundle.mainBundle().pathForResource("memchu", ofType:"mp3")
-        let data = NSData(contentsOfFile:path!)
+        let fakeURL = NSURL(fileURLWithPath: path!)
         
-        print("DATASTART")
-        print(data)
-        //let data = NSData(contentsOfURL: sample!)
+        //let data = NSData(contentsOfFile:path!)
+        let data = NSData(contentsOfURL: sample!)
         
-//        if (data==data2) {  HOW TO COMPARE NSDATA... are they equivalent? anyways...
-//            print("data are equal")
-//        }
         if (data != nil)
         {
             let encodeOption = NSDataBase64EncodingOptions(rawValue: 0)
             let decodeOption = NSDataBase64DecodingOptions(rawValue: 0)
             let movieData = data!.base64EncodedStringWithOptions(encodeOption)
-            
-            
+            //upload and download from firebase works here, check plus
             let decodedData = NSData(base64EncodedString: movieData, options: decodeOption)
-            print("DATAEND")
-            print(decodedData)
-            print("ENDOFDECODEDDATA")
-            
-            
-            let urlString = NSString(data: decodedData!, encoding: NSUTF8StringEncoding)
 
+            //try saving the data somewhere and then accessing that URL and playing it.
             
-            if (urlString != nil){
-                postprocessedURL = NSURL(string: urlString! as String)
+            let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
+            let docDir = paths[0] //should i do .first instead of 0???
+            let dataPath = (docDir as NSString).stringByAppendingPathComponent("cachedmemchu.mp3")
+            
+            data!.writeToFile(dataPath, atomically: true)
+            urlofFile = NSURL(fileURLWithPath: dataPath)
+            print("wrote data to: ")
+            print(dataPath)
+            
+            
+            
+    
             }
-            else {
-                print("urlstring is nil!")
-            }
-        }
         else{
             print("data was nil")
         }
         
         do{
+            print("trying with written data at address")
+            //let player = try AVAudioPlayer(data: data!)
+            var url = fakeURL
+            print(url)
+            url = urlofFile!
+            print(url)
+            let player = AVPlayer(URL: url)
             
-            let player = AVPlayer(URL: postprocessedURL!) //sample! original, works. //try catch here if you want
-         //   let player2 = AVPlayer(URL: sample2!)
+            //sample! original, works. //try catch here if you want
+            //let player2 = AVPlayer(URL: sample2!)
             let playerController = AVPlayerViewController()
             
             playerController.player = player
@@ -96,6 +99,18 @@ class NarrativeViewController: UIViewController {
             playerController.view.frame = self.view.frame
             
             player.play()
+            
+            //CALL UPON EXIT::::: SUPER IMPORTANT, DELETE FILE
+            do{
+                try NSFileManager.defaultManager().removeItemAtURL(urlofFile!)
+            }
+            catch{
+                print("everything burns - figure out cache system better, things did not go as expected")
+            }
+            
+        }
+        catch {
+            print("avaudioplayer didn't work")
         }
 
 //        //this works to play audio.
@@ -238,6 +253,7 @@ class NarrativeViewController: UIViewController {
             else{
                 self.payload = snap.value as! String!
                 if let thisUrl = NSURL(string: self.payload) {
+                    
                     let player = AVPlayer(URL: thisUrl) //AVPlayer(contentsOfURL: url, fileTypeHint: "mov")
                     let playerController = AVPlayerViewController()
                     playerController.player = player
