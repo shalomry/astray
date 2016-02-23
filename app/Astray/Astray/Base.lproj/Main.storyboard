@@ -322,9 +322,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ih6-QS-yak">
-                                <rect key="frame" x="263" y="529" width="73" height="30"/>
+                                <rect key="frame" x="227" y="527" width="146" height="33"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                <state key="normal" title="My Stories">
+                                <state key="normal" title="&lt;username&gt;'s Stories">
                                     <color key="titleColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -391,6 +391,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="goToStoriesButton" destination="ih6-QS-yak" id="O0V-a1-G9g"/>
                         <outlet property="profileBioLabel" destination="NjM-gg-PCR" id="0GH-sD-zte"/>
                         <outlet property="profileEmailLabel" destination="El7-A5-xiL" id="krH-Ag-ePS"/>
                         <outlet property="profileUsernameLabel" destination="9Jn-It-SQM" id="NE2-n5-Vn0"/>

@@ -24,7 +24,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var storyUsernameLabel: UILabel!
     @IBOutlet weak var profileEmailLabel: UILabel!
     @IBOutlet weak var newEmailField: UITextField!
-    
+    @IBOutlet weak var goToStoriesButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,11 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     }
                     if self.storyUsernameLabel != nil {
                         self.storyUsernameLabel.text = "\(username)"
+                    }
+                    
+                    if self.goToStoriesButton != nil {
+                        let title = "\(username)'s Stories"
+                        self.goToStoriesButton.setTitle(title, forState: .Normal)
                     }
                 }
                 if let bio = snapshot.value.objectForKey("bio") {
