@@ -19,20 +19,10 @@ class NarrativeViewController: UIViewController {
     var playing = false
     var yourSound:NSURL?
     
-    func prepareYourSound(myData:NSData) {
-        do {
-            let myPlayer = try AVAudioPlayer(data: myData, fileTypeHint: filetype)
-            myPlayer.prepareToPlay()
-        }
-        catch {
-            print("error from player!!!")
-        }
-        
-    }
     
     var ref: Firebase!
     var payload: String!
-    var filetype: String = "mov"
+    var fileType: String = "mov"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,96 +33,6 @@ class NarrativeViewController: UIViewController {
         //
         //        imageView.image = UIImage.imageWithData(data)// Error here
         
-        var urlofFile = NSURL(string: "nil");
-        let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
-        //sample can be put in avplayer as url easily. avplayer(url: sample)
-        
-        let path = NSBundle.mainBundle().pathForResource("memchu", ofType:"mp3")
-        let fakeURL = NSURL(fileURLWithPath: path!)
-        
-        //let data = NSData(contentsOfFile:path!)
-        let data = NSData(contentsOfURL: sample!)
-        
-        if (data != nil)
-        {
-            let encodeOption = NSDataBase64EncodingOptions(rawValue: 0)
-            let decodeOption = NSDataBase64DecodingOptions(rawValue: 0)
-            let movieData = data!.base64EncodedStringWithOptions(encodeOption)
-            //upload and download from firebase works here, check plus
-            let decodedData = NSData(base64EncodedString: movieData, options: decodeOption)
-            
-            //try saving the data somewhere and then accessing that URL and playing it.
-            
-            let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
-            let docDir = paths[0] //should i do .first instead of 0???
-            let dataPath = (docDir as NSString).stringByAppendingPathComponent("cachedmemchu.mp3")
-            
-            data!.writeToFile(dataPath, atomically: true)
-            urlofFile = NSURL(fileURLWithPath: dataPath)
-            print("wrote data to: ")
-            print(dataPath)
-            
-            
-            
-            
-        }
-        else{
-            print("data was nil")
-        }
-        
-        do{
-            print("trying with written data at address")
-            //let player = try AVAudioPlayer(data: data!)
-            var url = fakeURL
-            print(url)
-            url = urlofFile!
-            print(url)
-            let player = AVPlayer(URL: url)
-            
-            //sample! original, works. //try catch here if you want
-            //let player2 = AVPlayer(URL: sample2!)
-            let playerController = AVPlayerViewController()
-            
-            playerController.player = player
-            self.addChildViewController(playerController)
-            self.view.addSubview(playerController.view)
-            playerController.view.frame = self.view.frame
-            
-            player.play()
-            
-            //CALL UPON EXIT::::: SUPER IMPORTANT, DELETE FILE
-            do{
-                try NSFileManager.defaultManager().removeItemAtURL(urlofFile!)
-            }
-            catch{
-                print("everything burns - figure out cache system better, things did not go as expected")
-            }
-            
-        }
-        catch {
-            print("avaudioplayer didn't work")
-        }
-        
-        //        //this works to play audio.
-        //        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        //        if appDelegate.currStory != nil {
-        //            var sample : NSURL?
-        //            if appDelegate.currStory=="MemChu" {
-        //                sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
-        //            } else {
-        //                sample = NSBundle.mainBundle().URLForResource("lakelag", withExtension: "mp3")
-        //            }
-        //
-        //            do{
-        //                audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
-        //                audioPlayer.prepareToPlay()
-        //                audioPlayer.play()
-        //                playing = true
-        //                print("played audio")
-        //            }catch {
-        //                print("Error getting the audio file")
-        //            }
-        //        }
         
     }
     
@@ -166,8 +66,7 @@ class NarrativeViewController: UIViewController {
         super.viewDidAppear(animated)
         if firstAppear {
             do {
-                //try playVideo()
-                //firstAppear = false
+                try setupVideo()
             } catch AppError.InvalidResource(let name, let type) {
                 debugPrint("Could not find resource \(name).\(type)")
             } catch {
@@ -185,46 +84,50 @@ class NarrativeViewController: UIViewController {
     }
     
       
-    private func playVideo() throws {
-        //let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        //let videoURL = "samplevideo.vid"
-        let mediaID = "story1" // pulled from database, storyID comes from the previous page, here we know which story we want to play
+    private func setupVideo() throws {
         
-        let ref = Firebase(url:"https://astray194.firebaseio.com/Stories/"+mediaID+"/data")
-        
-        let typeRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+mediaID+"/filetype")
-        
-        typeRef.observeEventType(.Value, withBlock: { snap in
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+      
+        if appDelegate.currStory != nil {
+            print(appDelegate.currStory)
+            let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
             
-            if snap.value is NSNull {
-                print("Can't find anything at the given address!")
-                // The value is null
-            }
-            else{
-                self.filetype = snap.value as! String
-            }
-        })
-        
-        ref.observeEventType(.Value, withBlock: { snap in
-            if snap.value is NSNull {
-                print("Can't find anything at the given address!")
-                // The value is null
-            }
-            else{
-                self.payload = snap.value as! String!
-                if let thisUrl = NSURL(string: self.payload) {
-                    
-                    let player = AVPlayer(URL: thisUrl) //AVPlayer(contentsOfURL: url, fileTypeHint: "mov")
-                    let playerController = AVPlayerViewController()
-                    playerController.player = player
-                    self.presentViewController(playerController, animated: true) {
-                        player.play()
-                    }
-                } else {
-                    print("Received nil video payload")
+            storyInfoRef.observeEventType(.Value, withBlock: { snap in
+                let dict = snap.value as! NSDictionary
+                
+                self.fileType = dict.valueForKey("fileType") as! String
+                self.payload = dict.valueForKey("data") as! String
+                
+                let decodeOption = NSDataBase64DecodingOptions(rawValue: 0)
+                let decodedData = NSData(base64EncodedString: self.payload, options: decodeOption)
+                
+                //try saving the data somewhere and then accessing that URL and playing it.
+                
+                let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
+                let docDir = paths[0] //should i do .first instead of 0???
+                let dataPath = (docDir as NSString).stringByAppendingPathComponent("cacheddata.mp3")
+                
+                decodedData!.writeToFile(dataPath, atomically: true)
+                let url = NSURL(fileURLWithPath: dataPath)
+                
+                let player = AVPlayer(URL: url)
+                let playerController = AVPlayerViewController()
+                playerController.player = player
+                self.view.addSubview(playerController.view)
+                playerController.view.frame = self.view.frame
+                self.presentViewController(playerController, animated: true) {
+                    player.play()
                 }
-            }
-        })
+                //CALL UPON EXIT, UPON LEAVING THE VIDEO SCREEN::::: SUPER IMPORTANT, DELETE FILE
+                do{
+                    try NSFileManager.defaultManager().removeItemAtURL(url)
+                }
+                catch{
+                    print("everything burns - figure out cache system better, things did not go as expected")
+                }
+                
+            })
+        }
     }
 }
 

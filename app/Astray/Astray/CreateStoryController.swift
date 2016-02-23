@@ -112,10 +112,11 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
                 "author_id": self.userId!,
                 "latitude": lat,
                 "longitude": long,
-                "data": try videoData()
+                "data": try videoData(),
+                "fileType": "mp3"
             ]
         
-            let childRef = storyRef.childByAutoId()
+            let childRef = storyRef.childByAutoId() //WHY ARE WE USING THIS? HOW DO I KNOW WHICH STORY THIS IS?
             childRef.setValue(storyInfo)
         
             let myRootRef = Firebase(url:"https://astray194.firebaseio.com/Geo")

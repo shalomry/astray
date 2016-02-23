@@ -184,6 +184,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             if let aTitle = mapView.selectedAnnotations[0].title {
                 appDelegate.currStory = aTitle!
             }
+            print("current story is:")
             print(appDelegate.currStory)
             if let currUid = appDelegate.currUid {
                 let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+currUid+"/availablestories")
