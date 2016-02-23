@@ -37,11 +37,11 @@ class NarrativeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//TRYING FOR IMAGE : loading image from url http://stackoverflow.com/questions/24231680/loading-image-from-url
-//        var url:NSURL = NSURL.URLWithString("http://myURL/ios8.png")
-//        var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
-//        
-//        imageView.image = UIImage.imageWithData(data)// Error here
+        //TRYING FOR IMAGE : loading image from url http://stackoverflow.com/questions/24231680/loading-image-from-url
+        //        var url:NSURL = NSURL.URLWithString("http://myURL/ios8.png")
+        //        var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
+        //
+        //        imageView.image = UIImage.imageWithData(data)// Error here
         
         var urlofFile = NSURL(string: "nil");
         let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
@@ -60,7 +60,7 @@ class NarrativeViewController: UIViewController {
             let movieData = data!.base64EncodedStringWithOptions(encodeOption)
             //upload and download from firebase works here, check plus
             let decodedData = NSData(base64EncodedString: movieData, options: decodeOption)
-
+            
             //try saving the data somewhere and then accessing that URL and playing it.
             
             let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
@@ -74,8 +74,8 @@ class NarrativeViewController: UIViewController {
             
             
             
-    
-            }
+            
+        }
         else{
             print("data was nil")
         }
@@ -112,27 +112,27 @@ class NarrativeViewController: UIViewController {
         catch {
             print("avaudioplayer didn't work")
         }
-
-//        //this works to play audio.
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        if appDelegate.currStory != nil {
-//            var sample : NSURL?
-//            if appDelegate.currStory=="MemChu" {
-//                sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
-//            } else {
-//                sample = NSBundle.mainBundle().URLForResource("lakelag", withExtension: "mp3")
-//            }
-//        
-//            do{
-//                audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
-//                audioPlayer.prepareToPlay()
-//                audioPlayer.play()
-//                playing = true
-//                print("played audio")
-//            }catch {
-//                print("Error getting the audio file")
-//            }
-//        }
+        
+        //        //this works to play audio.
+        //        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        //        if appDelegate.currStory != nil {
+        //            var sample : NSURL?
+        //            if appDelegate.currStory=="MemChu" {
+        //                sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
+        //            } else {
+        //                sample = NSBundle.mainBundle().URLForResource("lakelag", withExtension: "mp3")
+        //            }
+        //
+        //            do{
+        //                audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
+        //                audioPlayer.prepareToPlay()
+        //                audioPlayer.play()
+        //                playing = true
+        //                print("played audio")
+        //            }catch {
+        //                print("Error getting the audio file")
+        //            }
+        //        }
         
     }
     
@@ -140,7 +140,7 @@ class NarrativeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func controlAudio() {
         if playing {
             audioPlayer.pause()
