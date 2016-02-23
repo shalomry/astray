@@ -33,6 +33,8 @@
 		C84876851C770790008C401D /* login-text.png in Resources */ = {isa = PBXBuildFile; fileRef = C84876821C770790008C401D /* login-text.png */; };
 		C84876871C7BD069008C401D /* finishbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C84876861C7BD069008C401D /* finishbutton.png */; };
 		C84876891C7BD341008C401D /* astray-purple-background.png in Resources */ = {isa = PBXBuildFile; fileRef = C84876881C7BD341008C401D /* astray-purple-background.png */; };
+		C848768B1C7BEB7F008C401D /* astray-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C848768A1C7BEB7F008C401D /* astray-icon.png */; };
+		C848768D1C7BEC8C008C401D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C848768C1C7BEC8C008C401D /* Images.xcassets */; };
 		C88E9BE11C75C808001283B2 /* Existence-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BDE1C75C808001283B2 /* Existence-Light.otf */; };
 		C88E9BE21C75C808001283B2 /* Existence-StencilLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BDF1C75C808001283B2 /* Existence-StencilLight.otf */; };
 		C88E9BE31C75C808001283B2 /* Existence-UnicaseLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BE01C75C808001283B2 /* Existence-UnicaseLight.otf */; };
@@ -98,6 +100,8 @@
 		C84876821C770790008C401D /* login-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-text.png"; sourceTree = "<group>"; };
 		C84876861C7BD069008C401D /* finishbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finishbutton.png; sourceTree = "<group>"; };
 		C84876881C7BD341008C401D /* astray-purple-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "astray-purple-background.png"; sourceTree = "<group>"; };
+		C848768A1C7BEB7F008C401D /* astray-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "astray-icon.png"; sourceTree = "<group>"; };
+		C848768C1C7BEC8C008C401D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C88E9BDE1C75C808001283B2 /* Existence-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-Light.otf"; sourceTree = "<group>"; };
 		C88E9BDF1C75C808001283B2 /* Existence-StencilLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-StencilLight.otf"; sourceTree = "<group>"; };
 		C88E9BE01C75C808001283B2 /* Existence-UnicaseLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-UnicaseLight.otf"; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		69B4E6EE1C5056EF00FF1663 /* Astray */ = {
 			isa = PBXGroup;
 			children = (
+				C848768A1C7BEB7F008C401D /* astray-icon.png */,
 				C84876881C7BD341008C401D /* astray-purple-background.png */,
 				C84876861C7BD069008C401D /* finishbutton.png */,
 				C84876801C770790008C401D /* astray-text.png */,
@@ -191,6 +196,7 @@
 				69B4E6FB1C5056EF00FF1663 /* Info.plist */,
 				6944644C1C688DA100B7A12F /* Story.swift */,
 				C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */,
+				C848768C1C7BEC8C008C401D /* Images.xcassets */,
 			);
 			path = Astray;
 			sourceTree = "<group>";
@@ -349,6 +355,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C848768B1C7BEB7F008C401D /* astray-icon.png in Resources */,
+				C848768D1C7BEC8C008C401D /* Images.xcassets in Resources */,
 				C88E9BE21C75C808001283B2 /* Existence-StencilLight.otf in Resources */,
 				6995CDCE1C6A8B540089117D /* samplevideo.mov in Resources */,
 				C84876841C770790008C401D /* create-account-text.png in Resources */,
@@ -665,7 +673,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D240410A82D67689366AE0EC /* Pods-Astray.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Astray/Info.plist;
@@ -681,7 +690,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0C26449DA6E10011EAB7342E /* Pods-Astray.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Astray/Info.plist;

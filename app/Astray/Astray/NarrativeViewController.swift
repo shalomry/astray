@@ -50,8 +50,8 @@ class NarrativeViewController: UIViewController {
         let path = NSBundle.mainBundle().pathForResource("memchu", ofType:"mp3")
         let data = NSData(contentsOfFile:path!)
         
-        print("DATASTART")
-        print(data)
+//        print("DATASTART")
+//        print(data)
         //let data = NSData(contentsOfURL: sample!)
         
 //        if (data==data2) {  HOW TO COMPARE NSDATA... are they equivalent? anyways...
@@ -65,13 +65,14 @@ class NarrativeViewController: UIViewController {
             
             
             let decodedData = NSData(base64EncodedString: movieData, options: decodeOption)
-            print("DATAEND")
-            print(decodedData)
-            print("ENDOFDECODEDDATA")
+//            print("DATAEND")
+//            print(decodedData)
+//            print("ENDOFDECODEDDATA")
             
             
             let urlString = NSString(data: decodedData!, encoding: NSUTF8StringEncoding)
-
+            print("URL STRING:")
+            print(urlString)
             
             if (urlString != nil){
                 postprocessedURL = NSURL(string: urlString! as String)

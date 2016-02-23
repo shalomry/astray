@@ -107,7 +107,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                     
                     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                     appDelegate.currUid = authData.uid
-                    self.navigateToView("NarrativeView")//"DiscoverView")
+                    self.navigateToView("DiscoverView")//"DiscoverView")
                 }
         })
     }
