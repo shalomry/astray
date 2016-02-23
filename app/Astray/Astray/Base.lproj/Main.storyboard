@@ -172,6 +172,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="astray-purple-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="g0v-hD-UAK">
+                                <rect key="frame" x="0.0" y="20" width="600" height="379"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Leave an audio or video memory!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYV-Vd-DjO">
+                                <rect key="frame" x="174" y="97" width="253" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rlh-g4-knG">
+                                <rect key="frame" x="252" y="136" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zhL-Yn-CRL"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B3K-FH-eaa">
+                                <rect key="frame" x="0.0" y="402" width="600" height="198"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="198" id="vlU-8c-dTf"/>
+                                </constraints>
+                            </mapView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Story Description (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yY-HA-pvJ">
+                                <rect key="frame" x="252" y="182" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8Uo-GP-oky"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
+                                <rect key="frame" x="239" y="329" width="123" height="30"/>
+                                <color key="backgroundColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="tintColor" red="0.43529411764705883" green="0.28627450980392155" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create your story!"/>
+                                <connections>
+                                    <action selector="createStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="QFz-7A-val"/>
+                                </connections>
+                            </button>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y1m-aM-3rW">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
@@ -179,49 +222,18 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;placeholder for uploading content&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jN-ui-Shv">
-                                <rect key="frame" x="119" y="263" width="280" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="160" y="265" width="280" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Leave an audio or video memory!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYV-Vd-DjO">
-                                <rect key="frame" x="174" y="97" width="253" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rlh-g4-knG">
-                                <rect key="frame" x="252" y="136" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.96422159671783447" green="0.98971575498580933" blue="0.99991470575332642" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B3K-FH-eaa">
-                                <rect key="frame" x="0.0" y="402" width="600" height="198"/>
-                            </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Description (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yY-HA-pvJ">
-                                <rect key="frame" x="252" y="182" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.96422159669999996" green="0.98971575499999997" blue="0.99991470579999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.19215686269999999" green="0.30196078430000001" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
-                                <rect key="frame" x="239" y="329" width="123" height="30"/>
-                                <color key="backgroundColor" red="0.3081308358" green="0.00083137051919999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Create your story!"/>
-                                <connections>
-                                    <action selector="createStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="QFz-7A-val"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91372001169999995" green="0.97842323779999996" blue="0.99981433149999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2yY-HA-pvJ" firstAttribute="top" secondItem="Rlh-g4-knG" secondAttribute="bottom" constant="20" id="6h2-su-DHZ"/>
                             <constraint firstItem="Rlh-g4-knG" firstAttribute="top" secondItem="uYV-Vd-DjO" secondAttribute="bottom" constant="20" id="8br-YI-usZ"/>
-                            <constraint firstItem="txJ-Bi-nxb" firstAttribute="top" secondItem="0jN-ui-Shv" secondAttribute="bottom" constant="30" id="EPv-7w-Vlj"/>
+                            <constraint firstItem="g0v-hD-UAK" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="leadingMargin" constant="-20" id="9bm-8a-bbV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g0v-hD-UAK" secondAttribute="trailing" constant="-20" id="G9p-Ns-rnq"/>
                             <constraint firstItem="Rlh-g4-knG" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="leadingMargin" constant="20" id="Gz2-Id-slv"/>
                             <constraint firstItem="txJ-Bi-nxb" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="H7A-xE-FRu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="B3K-FH-eaa" secondAttribute="trailing" constant="-20" id="HtD-5H-4tJ"/>
@@ -232,8 +244,10 @@
                             <constraint firstItem="0jN-ui-Shv" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="aRa-LJ-Eol"/>
                             <constraint firstItem="B3K-FH-eaa" firstAttribute="top" secondItem="txJ-Bi-nxb" secondAttribute="bottom" constant="20" id="c8H-gZ-4dk"/>
                             <constraint firstItem="qq5-Gi-Uri" firstAttribute="top" secondItem="B3K-FH-eaa" secondAttribute="bottom" id="duq-h2-x4e"/>
+                            <constraint firstItem="B3K-FH-eaa" firstAttribute="top" secondItem="g0v-hD-UAK" secondAttribute="bottom" id="lJQ-S7-Xbq"/>
                             <constraint firstItem="B3K-FH-eaa" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="leadingMargin" constant="-20" id="nTA-ph-KoR"/>
                             <constraint firstItem="0jN-ui-Shv" firstAttribute="top" secondItem="2yY-HA-pvJ" secondAttribute="bottom" constant="20" id="nfN-0f-Tjq"/>
+                            <constraint firstItem="g0v-hD-UAK" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="topMargin" id="qO7-hs-06a"/>
                             <constraint firstItem="uYV-Vd-DjO" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="xcC-Jq-ZTA"/>
                         </constraints>
                     </view>
@@ -1040,5 +1054,5 @@
         <segue reference="f2I-Bg-dLg"/>
         <segue reference="OPa-aK-5NL"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.43529411759999997" green="0.28627450980000002" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
 </document>
