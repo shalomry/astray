@@ -32,6 +32,7 @@
 		C84876841C770790008C401D /* create-account-text.png in Resources */ = {isa = PBXBuildFile; fileRef = C84876811C770790008C401D /* create-account-text.png */; };
 		C84876851C770790008C401D /* login-text.png in Resources */ = {isa = PBXBuildFile; fileRef = C84876821C770790008C401D /* login-text.png */; };
 		C84876871C7BD069008C401D /* finishbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C84876861C7BD069008C401D /* finishbutton.png */; };
+		C84876891C7BD341008C401D /* astray-purple-background.png in Resources */ = {isa = PBXBuildFile; fileRef = C84876881C7BD341008C401D /* astray-purple-background.png */; };
 		C88E9BE11C75C808001283B2 /* Existence-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BDE1C75C808001283B2 /* Existence-Light.otf */; };
 		C88E9BE21C75C808001283B2 /* Existence-StencilLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BDF1C75C808001283B2 /* Existence-StencilLight.otf */; };
 		C88E9BE31C75C808001283B2 /* Existence-UnicaseLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C88E9BE01C75C808001283B2 /* Existence-UnicaseLight.otf */; };
@@ -96,6 +97,7 @@
 		C84876811C770790008C401D /* create-account-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create-account-text.png"; sourceTree = "<group>"; };
 		C84876821C770790008C401D /* login-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-text.png"; sourceTree = "<group>"; };
 		C84876861C7BD069008C401D /* finishbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finishbutton.png; sourceTree = "<group>"; };
+		C84876881C7BD341008C401D /* astray-purple-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "astray-purple-background.png"; sourceTree = "<group>"; };
 		C88E9BDE1C75C808001283B2 /* Existence-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-Light.otf"; sourceTree = "<group>"; };
 		C88E9BDF1C75C808001283B2 /* Existence-StencilLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-StencilLight.otf"; sourceTree = "<group>"; };
 		C88E9BE01C75C808001283B2 /* Existence-UnicaseLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Existence-UnicaseLight.otf"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		69B4E6EE1C5056EF00FF1663 /* Astray */ = {
 			isa = PBXGroup;
 			children = (
+				C84876881C7BD341008C401D /* astray-purple-background.png */,
 				C84876861C7BD069008C401D /* finishbutton.png */,
 				C84876801C770790008C401D /* astray-text.png */,
 				C84876811C770790008C401D /* create-account-text.png */,
@@ -351,6 +354,7 @@
 				C84876841C770790008C401D /* create-account-text.png in Resources */,
 				C88E9BE11C75C808001283B2 /* Existence-Light.otf in Resources */,
 				69B4E6FA1C5056EF00FF1663 /* LaunchScreen.storyboard in Resources */,
+				C84876891C7BD341008C401D /* astray-purple-background.png in Resources */,
 				69B4E6F71C5056EF00FF1663 /* Assets.xcassets in Resources */,
 				C848767D1C7704F5008C401D /* astray-background.png in Resources */,
 				C84876831C770790008C401D /* astray-text.png in Resources */,

@@ -16,11 +16,14 @@ class UserController : UIViewController, UIActionSheetDelegate {
     
     var ref: Firebase!
     var username: String?
+    var email: String?
     @IBOutlet weak var newBioField: UITextView!
     @IBOutlet weak var profileUsernameLabel: UILabel!
     @IBOutlet weak var profileBioLabel: UILabel!
     @IBOutlet weak var settingsUsernameLabel: UILabel!
     @IBOutlet weak var storyUsernameLabel: UILabel!
+    @IBOutlet weak var profileEmailLabel: UILabel!
+    @IBOutlet weak var newEmailField: UITextField!
     
     
     override func viewDidLoad() {
@@ -51,6 +54,15 @@ class UserController : UIViewController, UIActionSheetDelegate {
                         self.profileBioLabel.text = "\(bio)"
                     }
                 }
+                if let email = snapshot.value.objectForKey("email") {
+                    self.email = "\(email)"
+                    if self.newEmailField != nil {
+                        self.newEmailField.text = "\(email)"
+                    }
+                    if self.profileEmailLabel != nil {
+                        self.profileEmailLabel.text = "\(email)"
+                    }
+                }
             })
         }
     }
@@ -62,15 +74,13 @@ class UserController : UIViewController, UIActionSheetDelegate {
     }
     
     @IBAction func updateProfile() {
-        updateBio(newBioField.text)
-    }
-    
-    func updateBio(newBio:String) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
             let currUserRef = ref.childByAppendingPath(currUid)
             let bioRef = currUserRef.childByAppendingPath("bio")
-            bioRef.setValue(newBio)
+            bioRef.setValue(newBioField.text)
+            let emailRef = currUserRef.childByAppendingPath("email")
+            emailRef.setValue(newEmailField.text)
         }
         self.navigateToView("ProfileView")
     }
