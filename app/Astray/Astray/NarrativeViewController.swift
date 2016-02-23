@@ -184,47 +184,7 @@ class NarrativeViewController: UIViewController {
         audioPlayer.currentTime = 0
     }
     
-    private func uploadVideo() throws {
-        // guard let path = NSBundle.mainBundle().pathForResource("samplevideo", ofType:"mov") else {
-        guard let path = NSBundle.mainBundle().pathForResource("sample", ofType:"mp3") else {
-            throw AppError.InvalidResource("sample", "mp3")
-        }
-        
-        
-        let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
-        do{
-            
-            let player = try AVPlayer(URL: sample!)
-            let playerController = AVPlayerViewController()
-            
-            playerController.player = player
-            self.addChildViewController(playerController)
-            self.view.addSubview(playerController.view)
-            playerController.view.frame = self.view.frame
-            
-            player.play()
-        } catch {
-            print("Error getting the audio file")
-        }
-        
-        
-        
-        
-        if path != "" {
-            if let data = NSData(contentsOfFile:path){
-                
-                
-                let movieData = data.base64EncodedStringWithOptions([])
-                //let movieData = NSString(data: data, encoding:NSASCIIStringEncoding)//NSUTF8StringEncoding)
-                //let movieData = NSDataMovieData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithLineFeed)// or encodingwith64???!?!?!?!EncodingEndLineWithLineFeed
-                ref = Firebase(url:"https://astray194.firebaseio.com/Stories/story1/data")
-                ref.setValue(movieData)
-            }
-            
-            
-        }
-    }
-    
+      
     private func playVideo() throws {
         //let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         //let videoURL = "samplevideo.vid"
