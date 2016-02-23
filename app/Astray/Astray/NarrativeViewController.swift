@@ -37,26 +37,87 @@ class NarrativeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //this works to play audio.
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        if appDelegate.currStory != nil {
-            var sample : NSURL?
-            if appDelegate.currStory=="MemChu" {
-                sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
-            } else {
-                sample = NSBundle.mainBundle().URLForResource("lakelag", withExtension: "mp3")
-            }
+//TRYING FOR IMAGE : loading image from url http://stackoverflow.com/questions/24231680/loading-image-from-url
+//        var url:NSURL = NSURL.URLWithString("http://myURL/ios8.png")
+//        var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
+//        
+//        imageView.image = UIImage.imageWithData(data)// Error here
         
-            do{
-                audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
-                audioPlayer.prepareToPlay()
-                audioPlayer.play()
-                playing = true
-                print("played audio")
-            }catch {
-                print("Error getting the audio file")
+        var postprocessedURL = NSURL(string: "nil");
+        let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
+        //sample can be put in avplayer as url easily. avplayer(url: sample)
+        
+        let path = NSBundle.mainBundle().pathForResource("memchu", ofType:"mp3")
+        let data = NSData(contentsOfFile:path!)
+        
+        print("DATASTART")
+        print(data)
+        //let data = NSData(contentsOfURL: sample!)
+        
+//        if (data==data2) {  HOW TO COMPARE NSDATA... are they equivalent? anyways...
+//            print("data are equal")
+//        }
+        if (data != nil)
+        {
+            let encodeOption = NSDataBase64EncodingOptions(rawValue: 0)
+            let decodeOption = NSDataBase64DecodingOptions(rawValue: 0)
+            let movieData = data!.base64EncodedStringWithOptions(encodeOption)
+            
+            
+            let decodedData = NSData(base64EncodedString: movieData, options: decodeOption)
+            print("DATAEND")
+            print(decodedData)
+            print("ENDOFDECODEDDATA")
+            
+            
+            let urlString = NSString(data: decodedData!, encoding: NSUTF8StringEncoding)
+
+            
+            if (urlString != nil){
+                postprocessedURL = NSURL(string: urlString! as String)
+            }
+            else {
+                print("urlstring is nil!")
             }
         }
+        else{
+            print("data was nil")
+        }
+        
+        do{
+            
+            let player = AVPlayer(URL: postprocessedURL!) //sample! original, works. //try catch here if you want
+         //   let player2 = AVPlayer(URL: sample2!)
+            let playerController = AVPlayerViewController()
+            
+            playerController.player = player
+            self.addChildViewController(playerController)
+            self.view.addSubview(playerController.view)
+            playerController.view.frame = self.view.frame
+            
+            player.play()
+        }
+
+//        //this works to play audio.
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        if appDelegate.currStory != nil {
+//            var sample : NSURL?
+//            if appDelegate.currStory=="MemChu" {
+//                sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
+//            } else {
+//                sample = NSBundle.mainBundle().URLForResource("lakelag", withExtension: "mp3")
+//            }
+//        
+//            do{
+//                audioPlayer = try AVAudioPlayer(contentsOfURL:sample!)
+//                audioPlayer.prepareToPlay()
+//                audioPlayer.play()
+//                playing = true
+//                print("played audio")
+//            }catch {
+//                print("Error getting the audio file")
+//            }
+//        }
         
     }
     
@@ -106,6 +167,47 @@ class NarrativeViewController: UIViewController {
         playing = false
         audioPlayer.stop()
         audioPlayer.currentTime = 0
+    }
+    
+    private func uploadVideo() throws {
+        // guard let path = NSBundle.mainBundle().pathForResource("samplevideo", ofType:"mov") else {
+        guard let path = NSBundle.mainBundle().pathForResource("sample", ofType:"mp3") else {
+            throw AppError.InvalidResource("sample", "mp3")
+        }
+        
+        
+        let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
+        do{
+            
+            let player = try AVPlayer(URL: sample!)
+            let playerController = AVPlayerViewController()
+            
+            playerController.player = player
+            self.addChildViewController(playerController)
+            self.view.addSubview(playerController.view)
+            playerController.view.frame = self.view.frame
+            
+            player.play()
+        } catch {
+            print("Error getting the audio file")
+        }
+        
+        
+        
+        
+        if path != "" {
+            if let data = NSData(contentsOfFile:path){
+                
+                
+                let movieData = data.base64EncodedStringWithOptions([])
+                //let movieData = NSString(data: data, encoding:NSASCIIStringEncoding)//NSUTF8StringEncoding)
+                //let movieData = NSDataMovieData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithLineFeed)// or encodingwith64???!?!?!?!EncodingEndLineWithLineFeed
+                ref = Firebase(url:"https://astray194.firebaseio.com/Stories/story1/data")
+                ref.setValue(movieData)
+            }
+            
+            
+        }
     }
     
     private func playVideo() throws {
