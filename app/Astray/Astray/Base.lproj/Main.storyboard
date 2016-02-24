@@ -18,7 +18,6 @@
             <string>Existence-UnicaseLight</string>
             <string>Existence-UnicaseLight</string>
             <string>Existence-UnicaseLight</string>
-            <string>Existence-UnicaseLight</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -653,6 +652,18 @@
                                 <color key="textColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw4-RH-32j">
+                                <rect key="frame" x="271" y="323" width="59" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="&lt;error&gt;">
+                                        <attributes>
+                                            <color key="NSColor" red="0.98594671487808228" green="0.0" blue="0.039444990456104279" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="Avenir-Heavy"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qCa-SL-lga">
                                 <rect key="frame" x="33" y="371" width="520" height="4"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -667,12 +678,6 @@
                                     <constraint firstAttribute="height" constant="1" id="yx6-wt-T19"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;error&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw4-RH-32j">
-                                <rect key="frame" x="271" y="326" width="59" height="21"/>
-                                <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="17"/>
-                                <color key="textColor" red="0.98594671487808228" green="0.0" blue="0.039444990456104279" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="astray-text.png" translatesAutoresizingMaskIntoConstraints="NO" id="qBj-np-PvV">
                                 <rect key="frame" x="233" y="230" width="135" height="79"/>
                             </imageView>
@@ -782,9 +787,9 @@
                                     <action selector="create:" destination="QCe-Tf-pWY" eventType="touchUpInside" id="RYA-bG-BpN"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;error&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFm-xb-62U">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;error&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFm-xb-62U">
                                 <rect key="frame" x="271" y="140" width="59" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="14"/>
                                 <color key="textColor" red="0.98594671489999997" green="0.0" blue="0.039444990460000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -918,6 +923,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bioField" destination="K2z-Mc-mix" id="7nH-C2-uyj"/>
+                        <outlet property="createAccountErrorMessage" destination="yFm-xb-62U" id="28L-np-hQl"/>
                         <outlet property="newEmailField" destination="fGm-RL-T9q" id="Nrc-FL-DDC"/>
                         <outlet property="newPasswordField" destination="QwC-R2-9zw" id="bkH-0j-Xxy"/>
                         <outlet property="newUsernameField" destination="MhK-hW-QL2" id="zSK-fH-Env"/>
