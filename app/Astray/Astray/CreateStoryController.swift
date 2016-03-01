@@ -90,7 +90,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
-    private func videoData()throws ->String {
+    private func audioData()throws ->String {
         
         let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3") //THIS FILE WILL BE THE RECORDED FILE. ASK DEGER ABOUT HOW TO CACHE IT.
         let data = NSData(contentsOfURL: sample!)
@@ -104,7 +104,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     @IBAction func createStoryButtonClicked() {
         let lat = mapView.centerCoordinate.latitude
-        let long = mapView.centerCoordinate.longitude
+        let long = mapView.centerCoordinate.longitude //TODO: MAKE USER CHOOSE/SPECIFY LOCATION
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
         
@@ -116,44 +116,44 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
                 "author_id": self.userId!,
                 "latitude": lat,
                 "longitude": long,
-                "data": try videoData(),
+                "data": try audioData(),
                 "fileType": "mp3"
             ]
         
-            let childRef = storyRef.childByAutoId() //WHY ARE WE USING THIS? HOW DO I KNOW WHICH STORY THIS IS?
+            let childRef = storyRef.childByAutoId()
             childRef.setValue(storyInfo)
         
-            let myRootRef = Firebase(url:"https://astray194.firebaseio.com/Geo")
-            let geoFire = GeoFire(firebaseRef: myRootRef)
-            var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.1)
-            var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-                print("Key '\(key)' entered the search area for "+(storyInfo["title"] as! String))
-                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
-                storiesRef.runTransactionBlock({
-                    (currentData:FMutableData!) in
-                    var storyset: Set<String> = [childRef.key as! String]
-                    if let value: [String] = currentData.value as? [String] {
-                        for key in value { storyset.insert(key) }
-                    }
-                    currentData.value = Array(storyset)
-                    return FTransactionResult.successWithValue(currentData)
-                })
-            })
-            
-            var removeHandle = query.observeEventType(GFEventTypeKeyExited, withBlock: { (key: String!, location: CLLocation!) in
-                print("Key '\(key)' left "+(storyInfo["title"] as! String))
-                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
-                storiesRef.runTransactionBlock({
-                    (currentData:FMutableData!) in
-                    var storyset: Set<String> = Set<String>()
-                    if let value: [String] = currentData.value as? [String] {
-                        for key in value { storyset.insert(key) }
-                        storyset.remove(childRef.key as! String)
-                    }
-                    currentData.value = Array(storyset)
-                    return FTransactionResult.successWithValue(currentData)
-                })
-            })
+//            let myRootRef = Firebase(url:"https://astray194.firebaseio.com/Geo")
+//            let geoFire = GeoFire(firebaseRef: myRootRef)
+//            var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.1)
+//            var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+//                print("Key '\(key)' entered the search area for "+(storyInfo["title"] as! String))
+//                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+//                storiesRef.runTransactionBlock({
+//                    (currentData:FMutableData!) in
+//                    var storyset: Set<String> = [childRef.key as! String]
+//                    if let value: [String] = currentData.value as? [String] {
+//                        for key in value { storyset.insert(key) }
+//                    }
+//                    currentData.value = Array(storyset)
+//                    return FTransactionResult.successWithValue(currentData)
+//                })
+//            })
+//            
+//            var removeHandle = query.observeEventType(GFEventTypeKeyExited, withBlock: { (key: String!, location: CLLocation!) in
+//                print("Key '\(key)' left "+(storyInfo["title"] as! String))
+//                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+//                storiesRef.runTransactionBlock({
+//                    (currentData:FMutableData!) in
+//                    var storyset: Set<String> = Set<String>()
+//                    if let value: [String] = currentData.value as? [String] {
+//                        for key in value { storyset.insert(key) }
+//                        storyset.remove(childRef.key as! String)
+//                    }
+//                    currentData.value = Array(storyset)
+//                    return FTransactionResult.successWithValue(currentData)
+//                })
+//            })
             
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             print("KEY:")
