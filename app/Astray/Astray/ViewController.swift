@@ -127,6 +127,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    @IBAction func createAStory() {
+        self.navigateToView("RecordingView")
+    }
+    
+    @IBAction func goBack() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = manager.location {

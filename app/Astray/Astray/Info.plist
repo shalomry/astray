@@ -32,7 +32,8 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>"Existence-Light.otf"</string>
+		<string>Montserrat-Regular.otf</string>
+		<string>&quot;Existence-Light.otf&quot;</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

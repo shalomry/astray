@@ -70,6 +70,10 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
+    @IBAction func videoCreate() {
+        self.navigateToView("RecordingView")
+    }
+    
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = manager.location {
