@@ -87,7 +87,6 @@ class NarrativeViewController: UIViewController {
     private func setupVideo() throws {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        print("yp")
         if appDelegate.currStory != nil {
             print(appDelegate.currStory)
             var storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)

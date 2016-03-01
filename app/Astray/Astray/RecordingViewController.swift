@@ -73,20 +73,24 @@ class RecordingViewController: UIViewController {
     }
 
     
-    private func uploadVideo() throws {
-        if mainInstance.path != "" {
-            let NSDataMovieData = NSData(contentsOfFile:mainInstance.path)
-            let movieData = NSString(data: NSDataMovieData!, encoding:NSUTF8StringEncoding)
-            //let movieData = NSDataMovieData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithLineFeed)// or encodingwith64???!?!?!?!EncodingEndLineWithLineFeed
-            ref = Firebase(url:"https://astray194.firebaseio.com/Stories/story5/data")
-            ref.setValue(movieData)
-            ref.observeEventType(.Value, withBlock: { snap in
-                print("\(snap.value)")
-            })
-        }
-    }
+//    private func uploadVideo() throws {
+//        if mainInstance.path != "" {
+//            let NSDataMovieData = NSData(contentsOfFile:mainInstance.path)
+//            let movieData = NSString(data: NSDataMovieData!, encoding:NSUTF8StringEncoding)
+//            //let movieData = NSDataMovieData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.EncodingEndLineWithLineFeed)// or encodingwith64???!?!?!?!EncodingEndLineWithLineFeed
+//            ref = Firebase(url:"https://astray194.firebaseio.com/Stories/story5/data")
+//            ref.setValue(movieData)
+//            ref.observeEventType(.Value, withBlock: { snap in
+//                print("\(snap.value)")
+//            })
+//        }
+//    }
 }
 
+//1) look at gallery or compile new media?
+//2) if new media
+//ImagePickerController looks at the past videos/photos taken.
+//from album vs new video.
 extension RecordingViewController: UIImagePickerControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let mediaType = info[UIImagePickerControllerMediaType] as! NSString
@@ -94,17 +98,18 @@ extension RecordingViewController: UIImagePickerControllerDelegate {
         if mediaType == kUTTypeMovie {
             print("movie recorded")
             mainInstance.path = (info[UIImagePickerControllerMediaURL] as! NSURL).path!
+            
             if UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(mainInstance.path) {
                 print("video path compatible")
                 UISaveVideoAtPathToSavedPhotosAlbum(mainInstance.path, self, "video:didFinishSavingWithError:contextInfo:", nil)
                 print("saved video at path")
             }
-            do {
-                print("trying to upload video")
-                try uploadVideo()
-            } catch {
-                print("Upload video failed")
-            }
+//            do {
+//                print("trying to upload video")
+//                try uploadVideo()
+//            } catch {
+//                print("Upload video failed")
+//            }
         }
         print("dismissing view controller")
         dismissViewControllerAnimated(true, completion: nil)
