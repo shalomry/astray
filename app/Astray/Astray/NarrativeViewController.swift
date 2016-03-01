@@ -41,25 +41,25 @@ class NarrativeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func controlAudio() {
-        if playing {
-            audioPlayer.pause()
-            playPause.setTitle(">", forState: .Normal)
-        } else {
-            audioPlayer.play()
-            playPause.setTitle("| |", forState: .Normal)
-        }
-        playing = !playing
-    }
-    
-    @IBAction func restartAudio() {
-        audioPlayer.stop()
-        audioPlayer.currentTime = 0
-        audioPlayer.prepareToPlay()
-        playPause.setTitle("| |", forState: .Normal)
-        audioPlayer.play()
-        playing = true
-    }
+//    @IBAction func controlAudio() {
+//        if playing {
+//            audioPlayer.pause()
+//            playPause.setTitle(">", forState: .Normal)
+//        } else {
+//            audioPlayer.play()
+//            playPause.setTitle("| |", forState: .Normal)
+//        }
+//        playing = !playing
+//    }
+//    
+//    @IBAction func restartAudio() {
+//        audioPlayer.stop()
+//        audioPlayer.currentTime = 0
+//        audioPlayer.prepareToPlay()
+//        playPause.setTitle("| |", forState: .Normal)
+//        audioPlayer.play()
+//        playing = true
+//    }
     
     private var firstAppear = true
     override func viewDidAppear(animated: Bool) {
@@ -78,25 +78,27 @@ class NarrativeViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        playing = false
-        audioPlayer.stop()
-        audioPlayer.currentTime = 0
+//        playing = false
+//        audioPlayer.stop()
+//        audioPlayer.currentTime = 0
     }
     
       
     private func setupVideo() throws {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-      
+        print("yp")
         if appDelegate.currStory != nil {
             print(appDelegate.currStory)
-            let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
-            
+            var storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
+            storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/-KBCe_C1gyMHYVLgYS5y")
             storyInfoRef.observeEventType(.Value, withBlock: { snap in
                 let dict = snap.value as! NSDictionary
                 
                 self.fileType = dict.valueForKey("fileType") as! String
                 self.payload = dict.valueForKey("data") as! String
+                
+                print(dict.valueForKey("title") as! String)
                 
                 let decodeOption = NSDataBase64DecodingOptions(rawValue: 0)
                 let decodedData = NSData(base64EncodedString: self.payload, options: decodeOption)
@@ -116,6 +118,7 @@ class NarrativeViewController: UIViewController {
                 self.view.addSubview(playerController.view)
                 playerController.view.frame = self.view.frame
                 self.presentViewController(playerController, animated: true) {
+                    print("playing video!!")
                     player.play()
                 }
                 //CALL UPON EXIT, UPON LEAVING THE VIDEO SCREEN::::: SUPER IMPORTANT, DELETE FILE
