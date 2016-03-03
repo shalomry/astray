@@ -27,6 +27,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var goToStoriesButton: UIButton!
     @IBOutlet weak var passwordConfirmation: UITextField!
     @IBOutlet weak var settingsError: UILabel!
+    @IBOutlet weak var followButton: UIButton!
     
     let invalidPasswordText = "The password you entered was incorrect."
     let invalidEmailText = "Please enter a valid email address."
@@ -54,10 +55,12 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     if self.storyUsernameLabel != nil {
                         self.storyUsernameLabel.text = "\(username)"
                     }
-                    
                     if self.goToStoriesButton != nil {
                         let title = "\(username)'s Stories"
                         self.goToStoriesButton.setTitle(title, forState: .Normal)
+                    }
+                    if self.followButton != nil {
+                        self.followButton.setTitle("Follow \(username)", forState: .Normal)
                     }
                 }
                 if let bio = snapshot.value.objectForKey("bio") {
@@ -76,6 +79,10 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     if self.profileEmailLabel != nil {
                         self.profileEmailLabel.text = "\(email)"
                     }
+                }
+                if let following = snapshot.value.objectForKey("following") {
+                    print(following)
+                    
                 }
             })
         }

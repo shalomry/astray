@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z0B-pN-pq9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z0B-pN-pq9">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -84,17 +84,9 @@
                             <constraint firstItem="aWA-bF-3dh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vSo-Km-Jhp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Discover" id="e0h-iR-lth">
-                        <barButtonItem key="leftBarButtonItem" title="My Profile" id="TTu-v1-T82">
-                            <connections>
-                                <segue destination="vcR-bc-sQL" kind="show" id="f2I-Bg-dLg"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="agI-10-TDc">
-                            <connections>
-                                <segue destination="7Xg-TQ-HDl" kind="show" id="2Mp-e6-WZQ"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Discover" id="pit-gr-sps">
+                        <barButtonItem key="leftBarButtonItem" title="My Profile" id="slN-s2-a7P"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Wb-qG-saK"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="aWA-bF-3dh" id="UPu-RM-mya"/>
@@ -370,7 +362,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astray-purple-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tvl-nU-Kka">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="astray-purple-background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Tvl-nU-Kka">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ih6-QS-yak">
@@ -413,10 +405,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tO-6R-9rh">
+                                <rect key="frame" x="396" y="96" width="132" height="30"/>
+                                <state key="normal" title="follow &lt;username&gt;"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7843137255" green="0.87450980389999999" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6tO-6R-9rh" secondAttribute="trailing" constant="52" id="3Ko-qn-KRw"/>
                             <constraint firstItem="NYn-Jr-sfn" firstAttribute="top" secondItem="El7-A5-xiL" secondAttribute="bottom" constant="30" id="AJS-sr-73I"/>
+                            <constraint firstItem="6tO-6R-9rh" firstAttribute="top" secondItem="uyG-vh-hPf" secondAttribute="bottom" constant="65" id="Alh-ZI-ud1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NjM-gg-PCR" secondAttribute="trailing" constant="20" id="BdX-JT-wlg"/>
                             <constraint firstItem="TI6-mz-gdE" firstAttribute="top" secondItem="ih6-QS-yak" secondAttribute="bottom" constant="30" id="LIk-tH-znp"/>
                             <constraint firstItem="El7-A5-xiL" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="Mfa-5a-PT8"/>
@@ -435,6 +433,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Tvl-nU-Kka" secondAttribute="trailing" constant="-20" id="zvW-cV-6x0"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="dvs-BD-4LS">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="akb-yH-qkp">
                             <connections>
@@ -442,7 +441,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="followButton" destination="6tO-6R-9rh" id="H36-Oh-Mif"/>
                         <outlet property="goToStoriesButton" destination="ih6-QS-yak" id="O0V-a1-G9g"/>
                         <outlet property="profileBioLabel" destination="NjM-gg-PCR" id="0GH-sD-zte"/>
                         <outlet property="profileEmailLabel" destination="El7-A5-xiL" id="krH-Ag-ePS"/>
@@ -507,7 +508,7 @@
                                 <color key="textColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hku-j2-Sn3">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hku-j2-Sn3">
                                 <rect key="frame" x="273" y="540" width="55" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Log Out">
@@ -597,7 +598,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GF7-oD-yt1" id="xoV-lh-RqY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -864,7 +865,7 @@
                                 <color key="tintColor" red="0.89411764709999997" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -972,7 +973,11 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bioField" destination="hH1-4J-Bet" id="7Cf-Nx-Qa6"/>
                         <outlet property="createAccountErrorMessage" destination="yFm-xb-62U" id="28L-np-hQl"/>
+                        <outlet property="newEmailField" destination="Hxe-5U-F5j" id="6wa-ye-TSE"/>
+                        <outlet property="newPasswordField" destination="ENY-GR-rJE" id="ICL-qq-Sf7"/>
+                        <outlet property="newUsernameField" destination="CX1-9G-wyd" id="ECF-Wz-fhJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoL-Sp-cqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1051,8 +1056,5 @@
         <image name="login-background.tiff" width="1242" height="2208"/>
         <image name="login-button.tiff" width="747" height="183"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="f2I-Bg-dLg"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.43529411759999997" green="0.28627450980000002" blue="0.4941176471" alpha="1" colorSpace="calibratedRGB"/>
 </document>
