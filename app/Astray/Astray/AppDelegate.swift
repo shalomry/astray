@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var currUid: String?
     var currStory: String?
+    var viewingUid: String?
     
 
 
