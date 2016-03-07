@@ -92,12 +92,12 @@ class UserController : UIViewController, UIActionSheetDelegate {
                         self.profileEmailLabel.text = "\(email)"
                     }
                 }
-                if let following = snapshot.value.objectForKey("following") {
+                if let following = snapshot.value.objectForKey("followers") {
                     print(following)
                     if (self.followButton != nil) {
                         self.followButton.setTitle("Follow", forState: .Normal)
                         for (id) in following as! NSArray {
-                            if id as! String == self.uid {
+                            if id as! String == appDelegate.currUid {
                                 self.followButton.setTitle("Stop following", forState: .Normal)
                             }
                         }
@@ -114,10 +114,38 @@ class UserController : UIViewController, UIActionSheetDelegate {
     }
     
     @IBAction func follow() {
-        if self.followButton.titleLabel == "Follow" {
-            print("IT SAID FOLLOW")
-        } else if self.followButton.titleLabel == "Unfollow" {
-            print("IT SAID UNFOLLOW")
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if let currUid = appDelegate.currUid {
+            let currUserRef = ref.childByAppendingPath(currUid)
+            let profileUserRef = ref.childByAppendingPath(uid)
+            currUserRef.observeEventType(.Value, withBlock: { snapshot1 in
+                if let following = snapshot1.value.objectForKey("following") as? NSArray {
+                    profileUserRef.observeEventType(.Value, withBlock: { snapshot2 in
+                        if let followers = snapshot2.value.objectForKey("followers") as? NSArray {
+                            let newFollowing: NSMutableArray = NSMutableArray()
+                            let newFollowers: NSMutableArray = NSMutableArray()
+                            for (follower) in followers {
+                                if follower as! String != currUid {
+                                    newFollowers.addObject(follower)
+                                }
+                            }
+                            for (follow) in following {
+                                if follow as! String != self.uid {
+                                    newFollowing.addObject(follow)
+                                }
+                            }
+
+                            if self.followButton.titleLabel?.text == "Follow" {
+                                newFollowing.addObject(self.uid!)
+                                newFollowers.addObject(currUid)
+                            }
+                            
+                            currUserRef.childByAppendingPath("following").setValue(newFollowing)
+                            profileUserRef.childByAppendingPath("followers").setValue(newFollowers)
+                        }
+                    })
+                }
+            })
         }
     }
     
