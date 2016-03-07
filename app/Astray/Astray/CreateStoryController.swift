@@ -16,7 +16,11 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     @IBOutlet weak var storyTitle: UITextField!
     @IBOutlet weak var storyDescription: UITextField!
-    @IBOutlet weak var createStoryButton: UIButton!
+    @IBOutlet weak var storyTextData: UITextField!
+    @IBOutlet weak var storyAudioData: NSData!
+    @IBOutlet weak var storyVideoData: NSData!
+    @IBOutlet weak var storyImageData: NSData!
+    @IBOutlet weak var uploadStoryButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     var username: String?
     var userId: String?
@@ -96,8 +100,10 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     private func audioData()throws ->String {
         
-        let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3") //THIS FILE WILL BE THE RECORDED FILE. ASK DEGER ABOUT HOW TO CACHE IT.
+        let sample = NSBundle.mainBundle().URLForResource("memchu", withExtension: "mp3")
         let data = NSData(contentsOfURL: sample!)
+        
+        
         if data != "" {
             
             let encodeOption = NSDataBase64EncodingOptions(rawValue: 0)
@@ -106,20 +112,29 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         return ""
     }
     
-    @IBAction func createStoryButtonClicked() {
+    @IBAction func uploadStoryButtonClicked() {
         let lat = mapView.centerCoordinate.latitude
-        let long = mapView.centerCoordinate.longitude //TODO: MAKE USER CHOOSE/SPECIFY LOCATION
+        let long = mapView.centerCoordinate.longitude
+        let rad = 0.1 //radius of story, get from mk
+        let time = 0 //NSData
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
         
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let story = UIApplication.sharedApplication().delegate as! Story
+        
         do{
             let storyInfo: NSDictionary = [
-                "title": self.storyTitle.text!,
+                "title": story.title,
                 "description": self.storyDescription.text!,
                 "author": self.username!,
                 "author_id": self.userId!,
                 "latitude": lat,
                 "longitude": long,
+                "radius": rad,
+                "timestamp": time,
                 "data": try audioData(),
                 "fileType": "mp3"
             ]
@@ -163,10 +178,10 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             print("KEY:")
             print(childRef.key)
             appDelegate.currStory = childRef.key
-            self.navigateToView("NarrativeView")
+            self.navigateToView("DiscoverView") //or should we go back to discover view instead??
         }
         catch {
-            print("videoData couldnot be uploaded.")
+            print("videoData could not be uploaded.")
         }
         
     }

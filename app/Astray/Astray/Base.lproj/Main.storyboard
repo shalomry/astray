@@ -197,7 +197,7 @@
                                 <color key="tintColor" red="0.43529411764705883" green="0.28627450980392155" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Create your story!"/>
                                 <connections>
-                                    <action selector="createStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="QFz-7A-val"/>
+                                    <action selector="uploadStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="jGj-pe-j1W"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5i-Dz-Fi5">
@@ -295,13 +295,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="createStoryButton" destination="txJ-Bi-nxb" id="RTQ-pj-fhG"/>
                         <outlet property="mapView" destination="B3K-FH-eaa" id="0ej-1a-6YQ"/>
+                        <outlet property="storyDescription" destination="2yY-HA-pvJ" id="4P8-Rl-kGq"/>
+                        <outlet property="storyTitle" destination="Rlh-g4-knG" id="9Me-oz-rDa"/>
+                        <outlet property="uploadStoryButton" destination="txJ-Bi-nxb" id="RYS-9B-eIt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXS-Ai-p01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="1238"/>
+            <point key="canvasLocation" x="2563" y="1230"/>
         </scene>
         <!--User Controller-->
         <scene sceneID="vgF-pg-VDK">
@@ -367,6 +369,37 @@
             </objects>
             <point key="canvasLocation" x="15" y="613"/>
         </scene>
+        <!--Favorites Controller-->
+        <scene sceneID="VIc-d2-NM8">
+            <objects>
+                <tableViewController storyboardIdentifier="FavoritesView" id="gZW-pw-CHj" customClass="FavoritesController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xOa-Ld-HlL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kuM-Q0-mgA">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kuM-Q0-mgA" id="b5X-W1-TBS">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gZW-pw-CHj" id="kAr-wD-J3q"/>
+                            <outlet property="delegate" destination="gZW-pw-CHj" id="taY-GB-nik"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="favoritesTable" destination="xOa-Ld-HlL" id="Lgh-2S-c4U"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1bF-fE-h8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="-955"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="4fg-mR-85B">
             <objects>
@@ -429,6 +462,13 @@
                                     <action selector="follow" destination="vcR-bc-sQL" eventType="touchUpInside" id="DoF-QQ-Bp1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9L-eN-41P">
+                                <rect key="frame" x="257" y="471" width="87" height="30"/>
+                                <state key="normal" title="My Favorites"/>
+                                <connections>
+                                    <action selector="goToFavorites" destination="vcR-bc-sQL" eventType="touchUpInside" id="AGU-yF-cor"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7843137255" green="0.87450980389999999" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -438,8 +478,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="NjM-gg-PCR" secondAttribute="trailing" constant="20" id="BdX-JT-wlg"/>
                             <constraint firstItem="TI6-mz-gdE" firstAttribute="top" secondItem="ih6-QS-yak" secondAttribute="bottom" constant="30" id="LIk-tH-znp"/>
                             <constraint firstItem="El7-A5-xiL" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="Mfa-5a-PT8"/>
+                            <constraint firstItem="K9L-eN-41P" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="TxE-re-Yuj"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="top" secondItem="uyG-vh-hPf" secondAttribute="bottom" constant="40" id="ZvJ-bu-1WD"/>
                             <constraint firstItem="NYn-Jr-sfn" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="bMC-w2-ZiJ"/>
+                            <constraint firstItem="ih6-QS-yak" firstAttribute="top" secondItem="K9L-eN-41P" secondAttribute="bottom" constant="20" id="ccY-6E-IhO"/>
                             <constraint firstItem="Tvl-nU-Kka" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="-20" id="dD1-S5-DVe"/>
                             <constraint firstItem="NjM-gg-PCR" firstAttribute="top" secondItem="NYn-Jr-sfn" secondAttribute="bottom" constant="20" id="eQz-VE-XsN"/>
                             <constraint firstItem="NjM-gg-PCR" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="fpz-fQ-ZXH"/>
@@ -463,6 +505,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="favoritesButton" destination="K9L-eN-41P" id="Ce5-QX-K3X"/>
                         <outlet property="followButton" destination="6tO-6R-9rh" id="H36-Oh-Mif"/>
                         <outlet property="goToStoriesButton" destination="ih6-QS-yak" id="O0V-a1-G9g"/>
                         <outlet property="profileBioLabel" destination="NjM-gg-PCR" id="0GH-sD-zte"/>

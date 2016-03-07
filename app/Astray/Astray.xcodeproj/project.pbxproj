@@ -46,6 +46,7 @@
 		C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */; };
 		C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727E1C6AB66F005C54DE /* memchu.mp3 */; };
 		C8D97A1E1C8D40AF003142CE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995CDCF1C6A8B6B0089117D /* UserController.swift */; };
+		C8D97A201C8D46A0003142CE /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */; };
 		D25A0340BAD78776591A0169 /* Pods_AstrayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoryController.swift; sourceTree = "<group>"; };
 		C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lakelag.mp3; sourceTree = "<group>"; };
 		C8AD727E1C6AB66F005C54DE /* memchu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = memchu.mp3; sourceTree = "<group>"; };
+		C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		D240410A82D67689366AE0EC /* Pods-Astray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.debug.xcconfig"; sourceTree = "<group>"; };
 		E448E9BBF990482EA28BCEBE /* Pods-AstrayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayTests/Pods-AstrayTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				6944644C1C688DA100B7A12F /* Story.swift */,
 				C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */,
 				C848768C1C7BEC8C008C401D /* Images.xcassets */,
+				C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */,
 			);
 			path = Astray;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */,
 				6944644D1C688DA100B7A12F /* Story.swift in Sources */,
 				C8A35F231C73CF5E006B9D4A /* CreateStoryController.swift in Sources */,
+				C8D97A201C8D46A0003142CE /* FavoritesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
