@@ -27,11 +27,9 @@ class FavoritesController : UITableViewController {
         ref = Firebase(url:"https://astray194.firebaseio.com/Users")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
-            print(currUid)
             let currUserRef = ref.childByAppendingPath(currUid)
             currUserRef.observeEventType(.Value, withBlock: { snapshot1 in
                 if let following = snapshot1.value.objectForKey("following") {
-                    print(following)
                     for (id) in following as! NSArray {
                         if id.length! > 0 {
                             self.ref.childByAppendingPath(id as! String).observeEventType(.Value, withBlock: { snapshot2 in
@@ -60,5 +58,18 @@ class FavoritesController : UITableViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         favoritesTable.reloadData()
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let idClicked = listOfIds[indexPath.item] as? String
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.viewingUid = idClicked!
+        navigateToView("ProfileView")
+    }
+    
+    func navigateToView(view:String) {
+        if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
+            self.navigationController?.pushViewController(nextView, animated: true)
+        }
     }
 }
