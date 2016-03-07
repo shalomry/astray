@@ -29,6 +29,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var passwordConfirmation: UITextField!
     @IBOutlet weak var settingsError: UILabel!
     @IBOutlet weak var followButton: UIButton!
+    @IBOutlet weak var favoritesButton: UIButton!
     
     let invalidPasswordText = "The password you entered was incorrect."
     let invalidEmailText = "Please enter a valid email address."
@@ -41,18 +42,20 @@ class UserController : UIViewController, UIActionSheetDelegate {
         if self.settingsError != nil {
             self.settingsError.text = ""
         }
-        appDelegate.viewingUid = "1c5ac729-2507-4247-82f1-48f6d9fd525d"
+//        appDelegate.viewingUid = "1c5ac729-2507-4247-82f1-48f6d9fd525d"
         if let viewingUid = appDelegate.viewingUid {
             self.uid = viewingUid
         } else if let currUid = appDelegate.currUid {
             self.uid = currUid
         }
-        if appDelegate.viewingUid == appDelegate.currUid {
-            followButton.hidden = true;
-            // TODO: HIDE OPTION TO EDIT PROFILE
-        } else {
-            followButton.hidden = false;
-        }
+//        if appDelegate.viewingUid == appDelegate.currUid {
+//            followButton.hidden = true
+//            favoritesButton.hidden = false
+//            // TODO: HIDE OPTION TO EDIT PROFILE
+//        } else {
+//            followButton.hidden = false
+//            favoritesButton.hidden = true
+//        }
         if uid != nil {
             let currUserRef = ref.childByAppendingPath(uid)
             currUserRef.observeEventType(.Value, withBlock: { snapshot in
@@ -92,16 +95,23 @@ class UserController : UIViewController, UIActionSheetDelegate {
                         self.profileEmailLabel.text = "\(email)"
                     }
                 }
-                if let following = snapshot.value.objectForKey("followers") {
-                    print(following)
-                    if (self.followButton != nil) {
-                        self.followButton.setTitle("Follow", forState: .Normal)
-                        for (id) in following as! NSArray {
-                            if id as! String == appDelegate.currUid {
-                                self.followButton.setTitle("Stop following", forState: .Normal)
+                if appDelegate.viewingUid != appDelegate.currUid && appDelegate.viewingUid != nil {
+                    self.followButton.hidden = false
+                    self.favoritesButton.hidden = true
+                    if let following = snapshot.value.objectForKey("followers") {
+                        print(following)
+                        if (self.followButton != nil) {
+                            self.followButton.setTitle("Follow", forState: .Normal)
+                            for (id) in following as! NSArray {
+                                if id as! String == appDelegate.currUid {
+                                    self.followButton.setTitle("Stop following", forState: .Normal)
+                                }
                             }
                         }
                     }
+                } else {
+                    self.followButton.hidden = true
+                    self.favoritesButton.hidden = false
                 }
             })
         }
@@ -111,6 +121,10 @@ class UserController : UIViewController, UIActionSheetDelegate {
         if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
             self.navigationController?.pushViewController(nextView, animated: true)
         }
+    }
+    
+    @IBAction func goToFavorites() {
+        self.navigateToView("FavoritesView")
     }
     
     @IBAction func follow() {
