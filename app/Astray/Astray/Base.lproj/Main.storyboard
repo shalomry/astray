@@ -807,9 +807,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="m8k-BD-gnE"/>
                     <connections>
-                        <outlet property="loginEmailField" destination="vlZ-5I-AVS" id="b2w-iq-QRI"/>
+                        <outlet property="loginEmailField" destination="vlZ-5I-AVS" id="eR2-N7-Cdy"/>
                         <outlet property="loginErrorMessage" destination="kw4-RH-32j" id="iND-94-vbY"/>
-                        <outlet property="loginPasswordField" destination="WdR-k4-c9i" id="v7i-KQ-cUg"/>
+                        <outlet property="loginPasswordField" destination="WdR-k4-c9i" id="1ih-EK-5am"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAW-WH-Bva" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -960,13 +960,13 @@
                             <constraint firstItem="yDA-1D-NmI" firstAttribute="height" secondItem="9Jr-lG-ISC" secondAttribute="height" id="3IV-Ox-Q5k"/>
                             <constraint firstItem="Bpe-xW-7Vu" firstAttribute="width" secondItem="hH1-4J-Bet" secondAttribute="width" id="4aj-mg-Hpq"/>
                             <constraint firstItem="nF6-TC-R3N" firstAttribute="top" secondItem="CX1-9G-wyd" secondAttribute="bottom" id="686-5X-0ue"/>
-                            <constraint firstItem="ENY-GR-rJE" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.417" id="6QS-VQ-p6V"/>
+                            <constraint firstItem="ENY-GR-rJE" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.468" id="6QS-VQ-p6V"/>
                             <constraint firstItem="xSP-ZA-s1C" firstAttribute="centerX" secondItem="9Jr-lG-ISC" secondAttribute="centerX" id="7WX-QS-kWc"/>
                             <constraint firstItem="3Ve-B3-NCM" firstAttribute="centerX" secondItem="9Jr-lG-ISC" secondAttribute="centerX" id="9I5-GK-pOq"/>
-                            <constraint firstItem="Hxe-5U-F5j" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.293" id="9ve-5A-9LC"/>
+                            <constraint firstItem="Hxe-5U-F5j" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.319" id="9ve-5A-9LC"/>
                             <constraint firstItem="hH1-4J-Bet" firstAttribute="centerX" secondItem="9Jr-lG-ISC" secondAttribute="centerX" id="ASN-1j-wN7"/>
                             <constraint firstItem="yDA-1D-NmI" firstAttribute="width" secondItem="9Jr-lG-ISC" secondAttribute="width" multiplier="0.577" id="H3b-TW-Mhv"/>
-                            <constraint firstItem="hH1-4J-Bet" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.541" id="Lp8-NN-Ohn"/>
+                            <constraint firstItem="hH1-4J-Bet" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.618" id="Lp8-NN-Ohn"/>
                             <constraint firstItem="CX1-9G-wyd" firstAttribute="width" secondItem="9Jr-lG-ISC" secondAttribute="width" multiplier="0.659" id="OWj-L8-lKD"/>
                             <constraint firstItem="Hxe-5U-F5j" firstAttribute="centerX" secondItem="9Jr-lG-ISC" secondAttribute="centerX" id="PEA-bB-RtH"/>
                             <constraint firstItem="3Ve-B3-NCM" firstAttribute="width" secondItem="ENY-GR-rJE" secondAttribute="width" id="PWM-ya-Q9K"/>
@@ -984,10 +984,10 @@
                             <constraint firstItem="Gr0-9k-SqP" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="topMargin" id="iNG-1O-9ym"/>
                             <constraint firstItem="CX1-9G-wyd" firstAttribute="centerX" secondItem="9Jr-lG-ISC" secondAttribute="centerX" id="lIe-7W-OTt"/>
                             <constraint firstItem="CX1-9G-wyd" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.169" id="lxJ-pB-9cd"/>
-                            <constraint firstItem="l1D-0K-CNf" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.845" id="m2q-C2-UEH"/>
+                            <constraint firstItem="l1D-0K-CNf" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.88" id="m2q-C2-UEH"/>
                             <constraint firstItem="yDA-1D-NmI" firstAttribute="centerX" secondItem="9Jr-lG-ISC" secondAttribute="centerX" id="msj-qZ-gil"/>
                             <constraint firstItem="nF6-TC-R3N" firstAttribute="width" secondItem="CX1-9G-wyd" secondAttribute="width" id="oTn-8n-FjJ"/>
-                            <constraint firstItem="yDA-1D-NmI" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.691" id="q9p-x3-STL"/>
+                            <constraint firstItem="yDA-1D-NmI" firstAttribute="top" secondItem="9Jr-lG-ISC" secondAttribute="bottom" multiplier="0.756" id="q9p-x3-STL"/>
                             <constraint firstItem="Hxe-5U-F5j" firstAttribute="width" secondItem="9Jr-lG-ISC" secondAttribute="width" multiplier="0.659" id="qNG-nj-JKQ"/>
                             <constraint firstItem="ENY-GR-rJE" firstAttribute="width" secondItem="9Jr-lG-ISC" secondAttribute="width" multiplier="0.659" id="s4g-W4-IN9"/>
                             <constraint firstItem="l1D-0K-CNf" firstAttribute="centerX" secondItem="9Jr-lG-ISC" secondAttribute="centerX" id="vgb-mu-XCa"/>
@@ -1011,11 +1011,12 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bioField" destination="hH1-4J-Bet" id="7Cf-Nx-Qa6"/>
-                        <outlet property="createAccountErrorMessage" destination="yFm-xb-62U" id="28L-np-hQl"/>
-                        <outlet property="newEmailField" destination="Hxe-5U-F5j" id="6wa-ye-TSE"/>
-                        <outlet property="newPasswordField" destination="ENY-GR-rJE" id="ICL-qq-Sf7"/>
-                        <outlet property="newUsernameField" destination="CX1-9G-wyd" id="ECF-Wz-fhJ"/>
+                        <outlet property="bioField" destination="hH1-4J-Bet" id="aN8-Kn-kQu"/>
+                        <outlet property="createAccountErrorMessage" destination="yFm-xb-62U" id="JYf-W9-6HE"/>
+                        <outlet property="newEmailField" destination="Hxe-5U-F5j" id="bse-a4-ZS8"/>
+                        <outlet property="newPasswordField" destination="ENY-GR-rJE" id="UBQ-G8-HBc"/>
+                        <outlet property="newUsernameField" destination="CX1-9G-wyd" id="SMp-M9-ggN"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoL-Sp-cqi" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -185,7 +185,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     @IBAction func createAStory() {
-        self.navigateToView("RecordingView")
+        self.navigateToView("CreateStoryView")
     }
     
     @IBAction func goBack() {
