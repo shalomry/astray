@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z0B-pN-pq9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z0B-pN-pq9">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -179,38 +179,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Leave an audio or video memory!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYV-Vd-DjO">
-                                <rect key="frame" x="174" y="97" width="253" height="21"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rlh-g4-knG">
-                                <rect key="frame" x="252" y="136" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="zhL-Yn-CRL"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B3K-FH-eaa">
-                                <rect key="frame" x="0.0" y="402" width="600" height="198"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B3K-FH-eaa">
+                                <rect key="frame" x="0.0" y="55" width="600" height="198"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="198" id="vlU-8c-dTf"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="vlU-8c-dTf"/>
+                                    </mask>
+                                </variation>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Story Description (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yY-HA-pvJ">
-                                <rect key="frame" x="252" y="182" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="8Uo-GP-oky"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
-                                <rect key="frame" x="239" y="329" width="123" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
+                                <rect key="frame" x="80" y="473" width="123" height="30"/>
                                 <color key="backgroundColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="tintColor" red="0.43529411764705883" green="0.28627450980392155" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
@@ -220,19 +201,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5i-Dz-Fi5">
-                                <rect key="frame" x="275" y="230" width="30" height="30"/>
+                                <rect key="frame" x="412" y="535" width="30" height="30"/>
                                 <state key="normal" title="Text">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0n-SK-PjL">
-                                <rect key="frame" x="298" y="268" width="40" height="30"/>
+                                <rect key="frame" x="494" y="486" width="40" height="30"/>
                                 <state key="normal" title="Audio">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7m-Fa-pba">
-                                <rect key="frame" x="229" y="268" width="40" height="30"/>
+                                <rect key="frame" x="402" y="480" width="40" height="30"/>
                                 <state key="normal" title="Video">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -240,39 +221,77 @@
                                     <action selector="videoCreate" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="AQa-5A-qrg"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y1m-aM-3rW">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Create a Story" id="7O9-yJ-qwX">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="DSV-3e-14v">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qBi-Ub-kPb">
-                                                <rect key="frame" x="447" y="7" width="133" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="+"/>
-                                                <connections>
-                                                    <segue destination="rqx-oc-bxu" kind="presentation" id="eZ2-2h-6lb"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="create-top-bar.tiff" translatesAutoresizingMaskIntoConstraints="NO" id="07d-FU-6Fu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="07d-FU-6Fu" secondAttribute="height" multiplier="414:79" id="j1t-El-3kv"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCc-jY-atv">
+                                <rect key="frame" x="20" y="6" width="30" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FCc-jY-atv" secondAttribute="height" multiplier="16.86:28" id="dmk-7V-thb"/>
+                                </constraints>
+                                <state key="normal" image="back-chevron.tiff"/>
+                                <connections>
+                                    <action selector="goBack" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="ctO-gG-mnh"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="create-map-bottom.tiff" translatesAutoresizingMaskIntoConstraints="NO" id="TSO-N7-aqw">
+                                <rect key="frame" x="0.0" y="252" width="600" height="348"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pzu-LS-YgL">
+                                <rect key="frame" x="180" y="338" width="241" height="31"/>
+                                <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1a-ai-jI1">
+                                <rect key="frame" x="216" y="531" width="169" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="m1a-ai-jI1" secondAttribute="height" multiplier="146:41" id="zh0-6l-shC"/>
+                                </constraints>
+                                <state key="normal" image="create-text-button.tiff"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szH-C7-Lbd">
+                                <rect key="frame" x="94" y="450" width="182" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="szH-C7-Lbd" secondAttribute="height" multiplier="146:41" id="mZY-Eq-L9c"/>
+                                </constraints>
+                                <state key="normal" image="create-audio-button.tiff"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK1-Sn-qGJ">
+                                <rect key="frame" x="321" y="450" width="182" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="VK1-Sn-qGJ" secondAttribute="height" multiplier="146:41" id="gvX-eL-ZJ9"/>
+                                </constraints>
+                                <state key="normal" image="create-video-button.tiff"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91372001169999995" green="0.97842323779999996" blue="0.99981433149999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2yY-HA-pvJ" firstAttribute="top" secondItem="Rlh-g4-knG" secondAttribute="bottom" constant="20" id="6h2-su-DHZ"/>
-                            <constraint firstItem="Rlh-g4-knG" firstAttribute="top" secondItem="uYV-Vd-DjO" secondAttribute="bottom" constant="20" id="8br-YI-usZ"/>
-                            <constraint firstItem="Rlh-g4-knG" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="leadingMargin" constant="20" id="Gz2-Id-slv"/>
+                            <constraint firstItem="B3K-FH-eaa" firstAttribute="height" secondItem="tQa-vv-NiI" secondAttribute="height" multiplier="0.425" id="2ou-ra-Owl"/>
+                            <constraint firstItem="pzu-LS-YgL" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="3df-EK-ZyZ"/>
+                            <constraint firstItem="TSO-N7-aqw" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.513" id="4bn-E5-NUN"/>
+                            <constraint firstItem="m1a-ai-jI1" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="9iC-p9-oV7"/>
                             <constraint firstItem="txJ-Bi-nxb" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="H7A-xE-FRu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="B3K-FH-eaa" secondAttribute="trailing" constant="-20" id="HtD-5H-4tJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2yY-HA-pvJ" secondAttribute="trailing" constant="20" id="OmW-oZ-Ssz"/>
-                            <constraint firstItem="2yY-HA-pvJ" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="leadingMargin" constant="20" id="S5q-eW-QR4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Rlh-g4-knG" secondAttribute="trailing" constant="20" id="V3M-vG-att"/>
-                            <constraint firstItem="uYV-Vd-DjO" firstAttribute="top" secondItem="y1m-aM-3rW" secondAttribute="bottom" constant="30" id="aHJ-vN-7Nx"/>
-                            <constraint firstItem="B3K-FH-eaa" firstAttribute="top" secondItem="txJ-Bi-nxb" secondAttribute="bottom" constant="20" id="c8H-gZ-4dk"/>
-                            <constraint firstItem="qq5-Gi-Uri" firstAttribute="top" secondItem="B3K-FH-eaa" secondAttribute="bottom" id="duq-h2-x4e"/>
-                            <constraint firstItem="B3K-FH-eaa" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="leadingMargin" constant="-20" id="nTA-ph-KoR"/>
-                            <constraint firstItem="uYV-Vd-DjO" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="xcC-Jq-ZTA"/>
+                            <constraint firstItem="m1a-ai-jI1" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.843" id="JVn-8O-JXg"/>
+                            <constraint firstItem="szH-C7-Lbd" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="M4f-kG-qEv"/>
+                            <constraint firstItem="FCc-jY-atv" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.055" id="Nch-T6-wRG"/>
+                            <constraint firstItem="07d-FU-6Fu" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="top" id="OwD-Fr-Hzc"/>
+                            <constraint firstItem="TSO-N7-aqw" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" id="ULa-db-0HT"/>
+                            <constraint firstItem="VK1-Sn-qGJ" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="WXS-9H-lML"/>
+                            <constraint firstItem="szH-C7-Lbd" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.123" id="Xxi-4O-VsE"/>
+                            <constraint firstItem="FCc-jY-atv" firstAttribute="top" secondItem="07d-FU-6Fu" secondAttribute="bottom" multiplier="0.319" id="Zqe-uZ-FbA"/>
+                            <constraint firstItem="m1a-ai-jI1" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="bSi-zq-4oc"/>
+                            <constraint firstItem="VK1-Sn-qGJ" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.524" id="cp1-Me-xl3"/>
+                            <constraint firstItem="B3K-FH-eaa" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" id="eaR-pO-fUB"/>
+                            <constraint firstItem="07d-FU-6Fu" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" id="g9a-xH-JUd"/>
+                            <constraint firstItem="B3K-FH-eaa" firstAttribute="top" secondItem="07d-FU-6Fu" secondAttribute="bottom" multiplier="0.911" id="hG8-sy-RXf"/>
+                            <constraint firstItem="pzu-LS-YgL" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.669" id="hJI-Db-HZk"/>
+                            <constraint firstItem="pzu-LS-YgL" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.618" id="iLs-E8-yPx"/>
+                            <constraint firstItem="TSO-N7-aqw" firstAttribute="bottom" secondItem="tQa-vv-NiI" secondAttribute="bottom" id="pxl-Sb-cVh"/>
+                            <constraint firstItem="szH-C7-Lbd" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.762" id="s6E-Uv-2Ye"/>
+                            <constraint firstItem="FCc-jY-atv" firstAttribute="height" secondItem="tQa-vv-NiI" secondAttribute="height" multiplier="0.038" id="wXN-1V-IRy"/>
+                            <constraint firstItem="VK1-Sn-qGJ" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.762" id="xB8-ks-bgU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1092,10 +1111,15 @@
     </scenes>
     <resources>
         <image name="astray-purple-background.png" width="414" height="736"/>
-        <image name="back-chevron.tiff" width="21" height="32"/>
+        <image name="back-chevron.tiff" width="81" height="114"/>
         <image name="cancel-button.tiff" width="747" height="183"/>
         <image name="create-acct-background.tiff" width="1242" height="2208"/>
         <image name="create-acct-button.tiff" width="747" height="183"/>
+        <image name="create-audio-button.tiff" width="444" height="129"/>
+        <image name="create-map-bottom.tiff" width="1242" height="1074"/>
+        <image name="create-text-button.tiff" width="444" height="129"/>
+        <image name="create-top-bar.tiff" width="1242" height="237"/>
+        <image name="create-video-button.tiff" width="444" height="129"/>
         <image name="finish-button.tiff" width="747" height="183"/>
         <image name="login-background.tiff" width="1242" height="2208"/>
         <image name="login-button.tiff" width="747" height="183"/>

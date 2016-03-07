@@ -21,6 +21,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet var storyData: String!
     @IBOutlet weak var uploadStoryButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var pin: MKPointAnnotation!
     var username: String?
     var userId: String?
     
@@ -94,15 +95,50 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
                     })
                 }
             }
+            
+            var pin = MKPointAnnotation()
+            pin.coordinate = mapView.centerCoordinate;
+            self.pin = pin
+            mapView.addAnnotation(self.pin)
+            
+//            let lpgr = UILongPressGestureRecognizer(target: self, action:"handleLongPress:")
+//            lpgr.minimumPressDuration = 0.5
+//            lpgr.delaysTouchesBegan = true
+//            self.mapView.addGestureRecognizer(lpgr)
+            
         } else {
             self.navigateToView("LoginView")
         }
+    }
+    
+//    @IBAction func handleLongPress(sender: UILongPressGestureRecognizer) {
+//        if sender.state != UIGestureRecognizerState.Began { return }
+//        let touchLocation = sender.locationInView(mapView)
+//        let locationCoordinate = mapView.convertPoint(touchLocation, toCoordinateFromView: mapView)
+//        print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
+//        if (self.pin != nil) {
+//            self.mapView.removeAnnotation(self.pin)
+//        }
+//        self.mapView.setUserTrackingMode(MKUserTrackingMode.None, animated: false);
+//        var pin = MKPointAnnotation()
+//        pin.coordinate = locationCoordinate;
+//        self.pin = pin;
+//        self.mapView.addAnnotation(self.pin);
+//        self.mapView.setCenterCoordinate(locationCoordinate, animated: true);
+//        
+//    }
+    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+        self.pin.coordinate = mapView.centerCoordinate;
     }
     
     func navigateToView(view:String) {
         if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
             self.navigationController?.pushViewController(nextView, animated: true)
         }
+    }
+    
+    @IBAction func goBack() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func videoCreate() {
@@ -199,7 +235,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         if let location = manager.location {
             let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            self.mapView.setRegion(region, animated: true)
+            //self.mapView.setRegion(region, animated: true)
             
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             if let currUid = appDelegate.currUid {
@@ -209,12 +245,18 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             }
         }
     }
-    
+
     @IBAction func uploadStoryButtonClicked() {
-        let lat = mapView.centerCoordinate.latitude
-        let long = mapView.centerCoordinate.longitude
         let rad = 0.1 //radius of story, get from mk
         let time = 0 //NSData
+        
+        var lat = mapView.centerCoordinate.latitude
+        var long = mapView.centerCoordinate.longitude
+        
+        if (self.pin != nil) {
+            lat = self.pin.coordinate.latitude
+            long = self.pin.coordinate.longitude
+        }
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
         
@@ -238,38 +280,6 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             
             let childRef = storyRef.childByAutoId()
             childRef.setValue(storyInfo)
-            
-            //            let myRootRef = Firebase(url:"https://astray194.firebaseio.com/Geo")
-            //            let geoFire = GeoFire(firebaseRef: myRootRef)
-            //            var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.1)
-            //            var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-            //                print("Key '\(key)' entered the search area for "+(storyInfo["title"] as! String))
-            //                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
-            //                storiesRef.runTransactionBlock({
-            //                    (currentData:FMutableData!) in
-            //                    var storyset: Set<String> = [childRef.key as! String]
-            //                    if let value: [String] = currentData.value as? [String] {
-            //                        for key in value { storyset.insert(key) }
-            //                    }
-            //                    currentData.value = Array(storyset)
-            //                    return FTransactionResult.successWithValue(currentData)
-            //                })
-            //            })
-            //
-            //            var removeHandle = query.observeEventType(GFEventTypeKeyExited, withBlock: { (key: String!, location: CLLocation!) in
-            //                print("Key '\(key)' left "+(storyInfo["title"] as! String))
-            //                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
-            //                storiesRef.runTransactionBlock({
-            //                    (currentData:FMutableData!) in
-            //                    var storyset: Set<String> = Set<String>()
-            //                    if let value: [String] = currentData.value as? [String] {
-            //                        for key in value { storyset.insert(key) }
-            //                        storyset.remove(childRef.key as! String)
-            //                    }
-            //                    currentData.value = Array(storyset)
-            //                    return FTransactionResult.successWithValue(currentData)
-            //                })
-            //            })
             
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             print("KEY:")
