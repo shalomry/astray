@@ -216,7 +216,7 @@
                                 <color key="tintColor" red="0.43529411764705883" green="0.28627450980392155" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Create your story!"/>
                                 <connections>
-                                    <action selector="createStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="QFz-7A-val"/>
+                                    <action selector="uploadStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="jGj-pe-j1W"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5i-Dz-Fi5">
@@ -276,15 +276,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="createStoryButton" destination="txJ-Bi-nxb" id="RTQ-pj-fhG"/>
                         <outlet property="mapView" destination="B3K-FH-eaa" id="0ej-1a-6YQ"/>
                         <outlet property="storyDescription" destination="2yY-HA-pvJ" id="4P8-Rl-kGq"/>
                         <outlet property="storyTitle" destination="Rlh-g4-knG" id="9Me-oz-rDa"/>
+                        <outlet property="uploadStoryButton" destination="txJ-Bi-nxb" id="RYS-9B-eIt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXS-Ai-p01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="1238"/>
+            <point key="canvasLocation" x="2563" y="1230"/>
         </scene>
         <!--User Controller-->
         <scene sceneID="vgF-pg-VDK">
@@ -601,7 +601,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GF7-oD-yt1" id="xoV-lh-RqY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -981,7 +981,6 @@
                         <outlet property="newEmailField" destination="Hxe-5U-F5j" id="bse-a4-ZS8"/>
                         <outlet property="newPasswordField" destination="ENY-GR-rJE" id="UBQ-G8-HBc"/>
                         <outlet property="newUsernameField" destination="CX1-9G-wyd" id="SMp-M9-ggN"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoL-Sp-cqi" userLabel="First Responder" sceneMemberID="firstResponder"/>

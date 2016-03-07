@@ -86,11 +86,11 @@ class NarrativeViewController: UIViewController {
       
     private func setupVideo() throws {
         
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if appDelegate.currStory != nil {
             print(appDelegate.currStory)
             var storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
-            storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/-KBCe_C1gyMHYVLgYS5y")
             storyInfoRef.observeEventType(.Value, withBlock: { snap in
                 let dict = snap.value as! NSDictionary
                 
