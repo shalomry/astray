@@ -443,8 +443,8 @@
                                     <action selector="follow" destination="vcR-bc-sQL" eventType="touchUpInside" id="DoF-QQ-Bp1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9L-eN-41P">
-                                <rect key="frame" x="95" y="398" width="87" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9L-eN-41P">
+                                <rect key="frame" x="257" y="471" width="87" height="30"/>
                                 <state key="normal" title="My Favorites"/>
                                 <connections>
                                     <action selector="goToFavorites" destination="vcR-bc-sQL" eventType="touchUpInside" id="AGU-yF-cor"/>
@@ -459,8 +459,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="NjM-gg-PCR" secondAttribute="trailing" constant="20" id="BdX-JT-wlg"/>
                             <constraint firstItem="TI6-mz-gdE" firstAttribute="top" secondItem="ih6-QS-yak" secondAttribute="bottom" constant="30" id="LIk-tH-znp"/>
                             <constraint firstItem="El7-A5-xiL" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="Mfa-5a-PT8"/>
+                            <constraint firstItem="K9L-eN-41P" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="TxE-re-Yuj"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="top" secondItem="uyG-vh-hPf" secondAttribute="bottom" constant="40" id="ZvJ-bu-1WD"/>
                             <constraint firstItem="NYn-Jr-sfn" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="bMC-w2-ZiJ"/>
+                            <constraint firstItem="ih6-QS-yak" firstAttribute="top" secondItem="K9L-eN-41P" secondAttribute="bottom" constant="20" id="ccY-6E-IhO"/>
                             <constraint firstItem="Tvl-nU-Kka" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="-20" id="dD1-S5-DVe"/>
                             <constraint firstItem="NjM-gg-PCR" firstAttribute="top" secondItem="NYn-Jr-sfn" secondAttribute="bottom" constant="20" id="eQz-VE-XsN"/>
                             <constraint firstItem="NjM-gg-PCR" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="fpz-fQ-ZXH"/>
@@ -484,6 +486,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="favoritesButton" destination="K9L-eN-41P" id="Ce5-QX-K3X"/>
                         <outlet property="followButton" destination="6tO-6R-9rh" id="H36-Oh-Mif"/>
                         <outlet property="goToStoriesButton" destination="ih6-QS-yak" id="O0V-a1-G9g"/>
                         <outlet property="profileBioLabel" destination="NjM-gg-PCR" id="0GH-sD-zte"/>
