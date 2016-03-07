@@ -350,16 +350,16 @@
             </objects>
             <point key="canvasLocation" x="15" y="613"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Favorites Controller-->
         <scene sceneID="VIc-d2-NM8">
             <objects>
-                <tableViewController storyboardIdentifier="FavoritesView" id="gZW-pw-CHj" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FavoritesView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xOa-Ld-HlL">
+                <tableViewController storyboardIdentifier="FavoritesView" id="gZW-pw-CHj" customClass="FavoritesController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xOa-Ld-HlL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kuM-Q0-mgA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kuM-Q0-mgA">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kuM-Q0-mgA" id="b5X-W1-TBS">
@@ -373,6 +373,9 @@
                             <outlet property="delegate" destination="gZW-pw-CHj" id="taY-GB-nik"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="favoritesTable" destination="xOa-Ld-HlL" id="Lgh-2S-c4U"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bF-fE-h8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1016,7 +1019,6 @@
                         <outlet property="newEmailField" destination="Hxe-5U-F5j" id="bse-a4-ZS8"/>
                         <outlet property="newPasswordField" destination="ENY-GR-rJE" id="UBQ-G8-HBc"/>
                         <outlet property="newUsernameField" destination="CX1-9G-wyd" id="SMp-M9-ggN"/>
-
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoL-Sp-cqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
