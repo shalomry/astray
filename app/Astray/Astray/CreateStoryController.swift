@@ -70,6 +70,10 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
+    @IBAction func goBack() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     @IBAction func videoCreate() {
         self.navigateToView("RecordingView")
     }
