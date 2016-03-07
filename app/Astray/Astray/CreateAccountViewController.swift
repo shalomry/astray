@@ -16,18 +16,18 @@ import Foundation
 
 class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
     
+
     @IBOutlet weak var newUsernameField: UITextField!
     @IBOutlet weak var newEmailField: UITextField!
     @IBOutlet weak var newPasswordField: UITextField!
     @IBOutlet weak var bioField: UITextField!
-    var ref: Firebase!
     
     @IBOutlet weak var createAccountErrorMessage: UILabel!
     let invalidEmailMsg = "The specified email address is invalid."
     let emailTakenMsg = "An account with that email already exists."
     let noUsernameMsg = "You must choose a username."
     let passwordTooShortMsg = "Your password must be at least 8 characters long."
-    
+    var ref: Firebase!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +75,9 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
                             "email":email,
                             "listofcreatedstories": ["0":""] as NSDictionary,
                             "storiestheyveseen": ["0":""] as NSDictionary,
-                            "availablestories":["0":""] as NSDictionary
+                            "availablestories":["0":""] as NSDictionary,
+                            "following":["0":""] as NSDictionary,
+                            "followers":["0":""] as NSDictionary
                         ]
                         newUserRef.setValue(user)
                         self.navigateToView("DiscoverView")

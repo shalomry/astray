@@ -40,6 +40,7 @@
 		C8A35F231C73CF5E006B9D4A /* CreateStoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */; };
 		C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */; };
 		C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727E1C6AB66F005C54DE /* memchu.mp3 */; };
+		C8D97A1E1C8D40AF003142CE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995CDCF1C6A8B6B0089117D /* UserController.swift */; };
 		D25A0340BAD78776591A0169 /* Pods_AstrayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -543,6 +544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8D97A1E1C8D40AF003142CE /* UserController.swift in Sources */,
 				69B4E7051C5056EF00FF1663 /* AstrayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
