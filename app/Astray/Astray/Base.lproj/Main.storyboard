@@ -350,6 +350,34 @@
             </objects>
             <point key="canvasLocation" x="15" y="613"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="VIc-d2-NM8">
+            <objects>
+                <tableViewController storyboardIdentifier="FavoritesView" id="gZW-pw-CHj" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FavoritesView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xOa-Ld-HlL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kuM-Q0-mgA">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kuM-Q0-mgA" id="b5X-W1-TBS">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gZW-pw-CHj" id="kAr-wD-J3q"/>
+                            <outlet property="delegate" destination="gZW-pw-CHj" id="taY-GB-nik"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1bF-fE-h8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="-955"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="4fg-mR-85B">
             <objects>
@@ -410,6 +438,13 @@
                                 <state key="normal" title="follow &lt;username&gt;"/>
                                 <connections>
                                     <action selector="follow" destination="vcR-bc-sQL" eventType="touchUpInside" id="DoF-QQ-Bp1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9L-eN-41P">
+                                <rect key="frame" x="95" y="398" width="87" height="30"/>
+                                <state key="normal" title="My Favorites"/>
+                                <connections>
+                                    <action selector="goToFavorites" destination="vcR-bc-sQL" eventType="touchUpInside" id="AGU-yF-cor"/>
                                 </connections>
                             </button>
                         </subviews>

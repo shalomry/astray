@@ -113,6 +113,10 @@ class UserController : UIViewController, UIActionSheetDelegate {
         }
     }
     
+    @IBAction func goToFavorites() {
+        self.navigateToView("FavoritesView")
+    }
+    
     @IBAction func follow() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
