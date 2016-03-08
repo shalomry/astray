@@ -106,27 +106,12 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
         return cell
     }
 
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return listOfUsernames.count
-//    }
-//    
-//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-//        cell.textLabel?.text = listOfUsernames[indexPath.item] as? String
-//        return cell
-//    }
-//    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        resultsTable.reloadData()
-//    }
-//    
-//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let idClicked = listOfIds[indexPath.item] as? String
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        appDelegate.viewingUid = idClicked!
-//        navigateToView("ProfileView")
-//    }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let idClicked = filteredIds[indexPath.item] as? String
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.viewingUid = idClicked!
+        navigateToView("ProfileView")
+    }
     
     func navigateToView(view:String) {
         if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
