@@ -72,7 +72,9 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filteredUsernames = NSMutableArray()
         filteredIds = NSMutableArray()
-        filterContentForSearchText(searchController.searchBar.text!)
+        if (searchController.searchBar.text?.characters.count > 0) {
+            filterContentForSearchText(searchController.searchBar.text!)
+        }
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
