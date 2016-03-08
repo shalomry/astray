@@ -27,7 +27,9 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
     let emailTakenMsg = "An account with that email already exists."
     let noUsernameMsg = "You must choose a username."
     let passwordTooShortMsg = "Your password must be at least 8 characters long."
+    let usernameTakenMsg = "An account with that username already exists."
     var ref: Firebase!
+    var existingUsernames: NSMutableArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,18 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
         if self.createAccountErrorMessage != nil {
             self.createAccountErrorMessage.text = ""
         }
+        
+        existingUsernames = NSMutableArray()
+        let usersRef = ref.childByAppendingPath("Users")
+        usersRef.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot)
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? FDataSnapshot {
+                if let username = rest.value.valueForKey("username") {
+                    self.existingUsernames.addObject(username.lowercaseString)
+                }
+            }
+        })
     }
     
     func navigateToView(view:String) {
@@ -51,6 +65,8 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
             self.createAccountErrorMessage.text = self.noUsernameMsg
         } else if password.characters.count < 8 {
             self.createAccountErrorMessage.text = self.passwordTooShortMsg
+        } else if self.existingUsernames.containsObject(username.lowercaseString) {
+            self.createAccountErrorMessage.text = self.usernameTakenMsg
         } else {
             
             self.ref.createUser(email, password: password,
