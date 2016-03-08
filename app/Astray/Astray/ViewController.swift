@@ -17,6 +17,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewStoryButton: UIButton!
     @IBOutlet weak var notInRangeLabel: UILabel!
+    @IBOutlet weak var searchButton: UIButton!
     
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
@@ -112,6 +113,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         if appDelegate.currStory != nil {
             self.navigateToView("NarrativeView")
         }
+    }
+    
+    @IBAction func goToSearch() {
+        navigateToView("SearchView")
     }
     
     func mapView(_ mapView: MKMapView,
