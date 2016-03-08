@@ -101,21 +101,21 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             self.pin = pin
             mapView.addAnnotation(self.pin)
             
-//            let lpgr = UILongPressGestureRecognizer(target: self, action:"handleLongPress:")
-//            lpgr.minimumPressDuration = 0.5
-//            lpgr.delaysTouchesBegan = true
-//            self.mapView.addGestureRecognizer(lpgr)
+            let lpgr = UILongPressGestureRecognizer(target: self, action:"handleLongPress:")
+            lpgr.minimumPressDuration = 0.5
+            lpgr.delaysTouchesBegan = true
+            self.mapView.addGestureRecognizer(lpgr)
             
         } else {
             self.navigateToView("LoginView")
         }
     }
     
-//    @IBAction func handleLongPress(sender: UILongPressGestureRecognizer) {
-//        if sender.state != UIGestureRecognizerState.Began { return }
-//        let touchLocation = sender.locationInView(mapView)
-//        let locationCoordinate = mapView.convertPoint(touchLocation, toCoordinateFromView: mapView)
-//        print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
+    @IBAction func handleLongPress(sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.Began { return }
+        let touchLocation = sender.locationInView(mapView)
+        let locationCoordinate = mapView.convertPoint(touchLocation, toCoordinateFromView: mapView)
+        print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
 //        if (self.pin != nil) {
 //            self.mapView.removeAnnotation(self.pin)
 //        }
@@ -124,9 +124,9 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
 //        pin.coordinate = locationCoordinate;
 //        self.pin = pin;
 //        self.mapView.addAnnotation(self.pin);
-//        self.mapView.setCenterCoordinate(locationCoordinate, animated: true);
-//        
-//    }
+        self.mapView.setCenterCoordinate(locationCoordinate, animated: true);
+        
+    }
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
         self.pin.coordinate = mapView.centerCoordinate;
     }
