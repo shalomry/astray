@@ -12,7 +12,7 @@ import AVFoundation
 import Firebase
 import CoreData
 
-class SearchController : UITableViewController {
+class SearchController : UITableViewController, UISearchResultsUpdating {
     
     
     @IBOutlet var resultsTable: UITableView!
@@ -24,6 +24,9 @@ class SearchController : UITableViewController {
     var allUsernames: NSMutableArray!
     var allIds: NSMutableArray!
     var allEmails: NSMutableArray!
+    var filteredUsernames: NSMutableArray!
+    var filteredIds: NSMutableArray!
+    let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -35,7 +38,14 @@ class SearchController : UITableViewController {
         allIds = NSMutableArray()
         allUsernames = NSMutableArray()
         allEmails = NSMutableArray()
+        filteredUsernames = NSMutableArray()
+        filteredIds = NSMutableArray()
         ref = Firebase(url:"https://astray194.firebaseio.com/Users")
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         ref.observeEventType(.Value, withBlock: { snapshot in
@@ -58,38 +68,42 @@ class SearchController : UITableViewController {
             }
         })
     }
-
-//
-//        if let currUid = appDelegate.currUid {
-//            let currUserRef = ref.childByAppendingPath(currUid)
-//            currUserRef.observeEventType(.Value, withBlock: { snapshot1 in
-//                if let following = snapshot1.value.objectForKey("following") {
-//                    for (id) in following as! NSArray {
-//                        if id.length! > 0 {
-//                            self.ref.childByAppendingPath(id as! String).observeEventType(.Value, withBlock: { snapshot2 in
-//                                if let username = snapshot2.value.objectForKey("username") {
-//                                    self.listOfUsernames.addObject(username)
-//                                    self.listOfIds.addObject(id as! String)
-//                                }
-//                            })
-//                        }
-//                    }
-//                }
-//            })
-//        }
-//    }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filteredUsernames = NSMutableArray()
+        filteredIds = NSMutableArray()
         filterContentForSearchText(searchController.searchBar.text!)
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        print("FILTERING STUFF")
-        let filteredUsernames = allUsernames.filter { username in
-            return username.name.lowercaseString.containsString(searchText.lowercaseString)
+        let usernames = allUsernames.filter { username in
+            return username.lowercaseString.containsString(searchText.lowercaseString)
         }
-        
+        for (username) in usernames {
+            filteredUsernames.addObject(username)
+            let idIndex = allUsernames.indexOfObject(username)
+            filteredIds.addObject(allIds[idIndex])
+        }
         tableView.reloadData()
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredUsernames.count
+        }
+        return allUsernames.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let username: String
+        if searchController.active && searchController.searchBar.text != "" {
+            username = filteredUsernames[indexPath.row] as! String
+        } else {
+            username = allUsernames[indexPath.row] as! String
+        }
+        cell.textLabel?.text = username
+        return cell
     }
 
 //    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
