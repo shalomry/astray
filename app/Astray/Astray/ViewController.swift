@@ -116,7 +116,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     @IBAction func goToSearch() {
-        navigateToView("SearchView")
+        self.navigateToView("SearchView")
     }
     
     func mapView(_ mapView: MKMapView,

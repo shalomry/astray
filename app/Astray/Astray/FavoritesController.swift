@@ -19,11 +19,13 @@ class FavoritesController : UITableViewController {
     
     var listOfUsernames: NSMutableArray!
     var listOfIds: NSMutableArray!
+    var listOfBios: NSMutableArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         listOfUsernames = NSMutableArray()
         listOfIds = NSMutableArray()
+        listOfBios = NSMutableArray()
         ref = Firebase(url:"https://astray194.firebaseio.com/Users")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
@@ -36,6 +38,11 @@ class FavoritesController : UITableViewController {
                                 if let username = snapshot2.value.objectForKey("username") {
                                     self.listOfUsernames.addObject(username)
                                     self.listOfIds.addObject(id as! String)
+                                    if let bio = snapshot2.value.objectForKey("bio") {
+                                        self.listOfBios.addObject(bio)
+                                    } else {
+                                        self.listOfBios.addObject("")
+                                    }
                                 }
                             })
                         }
@@ -52,6 +59,7 @@ class FavoritesController : UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
             cell.textLabel?.text = listOfUsernames[indexPath.item] as? String
+            cell.detailTextLabel?.text = listOfBios[indexPath.item] as? String
         return cell
     }
     

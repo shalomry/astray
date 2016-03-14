@@ -96,8 +96,12 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     }
                 }
                 if appDelegate.viewingUid != appDelegate.currUid && appDelegate.viewingUid != nil {
-                    self.followButton.hidden = false
-                    self.favoritesButton.hidden = true
+                    if self.followButton != nil {
+                        self.followButton.hidden = false
+                    }
+                    if self.favoritesButton != nil {
+                        self.favoritesButton.hidden = true
+                    }
                     if let following = snapshot.value.objectForKey("followers") {
                         print(following)
                         if (self.followButton != nil) {

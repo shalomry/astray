@@ -24,8 +24,10 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
     var allUsernames: NSMutableArray!
     var allIds: NSMutableArray!
     var allEmails: NSMutableArray!
+    var allBios: NSMutableArray!
     var filteredUsernames: NSMutableArray!
     var filteredIds: NSMutableArray!
+    var filteredBios: NSMutableArray!
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -33,22 +35,26 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("IN SEARCH")
         listOfUsernames = NSMutableArray()
         listOfIds = NSMutableArray()
         allIds = NSMutableArray()
         allUsernames = NSMutableArray()
         allEmails = NSMutableArray()
+        allBios = NSMutableArray()
         filteredUsernames = NSMutableArray()
         filteredIds = NSMutableArray()
+        filteredBios = NSMutableArray()
         ref = Firebase(url:"https://astray194.firebaseio.com/Users")
+        print(ref)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         ref.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot)
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FDataSnapshot {
              //   print("USER")
@@ -63,6 +69,12 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
                         self.allIds.addObject(rest.key)
                         self.allUsernames.addObject(username)
                         self.allEmails.addObject(email)
+    
+                        if let bio = rest.value.valueForKey("bio") {
+                            self.allBios.addObject(bio)
+                        } else {
+                            self.allBios.addObject("")
+                        }
                     }
                 }
             }
@@ -72,6 +84,7 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filteredUsernames = NSMutableArray()
         filteredIds = NSMutableArray()
+        filteredBios = NSMutableArray()
         if (searchController.searchBar.text?.characters.count > 0) {
             filterContentForSearchText(searchController.searchBar.text!)
         }
@@ -85,6 +98,7 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
             filteredUsernames.addObject(username)
             let idIndex = allUsernames.indexOfObject(username)
             filteredIds.addObject(allIds[idIndex])
+            filteredBios.addObject(allBios[idIndex])
         }
         tableView.reloadData()
     }
@@ -99,12 +113,16 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         let username: String
+        let bio: String
         if searchController.active && searchController.searchBar.text != "" {
             username = filteredUsernames[indexPath.row] as! String
+            bio = filteredBios[indexPath.row] as! String
         } else {
             username = allUsernames[indexPath.row] as! String
+            bio = allBios[indexPath.row] as! String
         }
         cell.textLabel?.text = username
+        cell.detailTextLabel?.text = bio
         return cell
     }
 
