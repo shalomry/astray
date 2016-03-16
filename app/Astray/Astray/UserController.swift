@@ -114,8 +114,12 @@ class UserController : UIViewController, UIActionSheetDelegate {
                         }
                     }
                 } else {
-                    self.followButton.hidden = true
-                    self.favoritesButton.hidden = false
+                    if self.followButton != nil {
+                        self.followButton.hidden = true
+                    }
+                    if self.favoritesButton != nil {
+                        self.favoritesButton.hidden = false
+                    }
                 }
             })
         }
