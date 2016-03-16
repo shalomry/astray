@@ -84,6 +84,8 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     }
                     if self.profileBioLabel != nil {
                         self.profileBioLabel.text = "\(bio)"
+                        self.profileBioLabel.lineBreakMode = .ByWordWrapping
+                        self.profileBioLabel.numberOfLines = 0
                     }
                 }
                 if let email = snapshot.value.objectForKey("email") {
