@@ -217,4 +217,57 @@ class UserController : UIViewController, UIActionSheetDelegate {
             }
         }
     }
+    
+    func deleteUser() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if let currUid = appDelegate.currUid {
+            let currUserRef = ref.childByAppendingPath(currUid)
+            if let currUid = appDelegate.currUid {
+                currUserRef.observeEventType(.Value, withBlock: { snapshot in
+                    
+                    if let favorites = snapshot.value.objectForKey("following") as? NSArray {
+                        for (favorite) in favorites {
+                            let favoriteRef = self.ref.childByAppendingPath(favorite as! String)
+                            let newFavFollowers = NSMutableArray()
+                            favoriteRef.observeEventType(.Value, withBlock: { snapshot1 in
+                                if let favFollowers = snapshot1.value.objectForKey("followers") as? NSArray {
+                                    for (follower) in favFollowers {
+                                        if follower as! String != currUid {
+                                            newFavFollowers.addObject(follower)
+                                        }
+                                    }
+                                }
+                            })
+                            favoriteRef.childByAppendingPath("followers").setValue(newFavFollowers)
+                        }
+                    }
+                    
+                    if let followers = snapshot.value.objectForKey("followers") as? NSArray {
+                        for (follower) in followers {
+                            let followerRef = self.ref.childByAppendingPath(follower as! String)
+                            let newFollowerFavs = NSMutableArray()
+                            followerRef.observeEventType(.Value, withBlock: { snapshot2 in
+                                if let followerFavs = snapshot2.value.objectForKey("following") as? NSArray {
+                                    for (favorite) in followerFavs {
+                                        if favorite as! String != currUid {
+                                            newFollowerFavs.addObject(favorite)
+                                        }
+                                    }
+                                }
+                            })
+                            followerRef.childByAppendingPath("following").setValue(newFollowerFavs)
+                        }
+                    }
+                    
+                    if let storiesCreated = snapshot.value.objectForKey("listofcreatedstories") as? NSArray {
+                        appDelegate.deleteStories(storiesCreated)
+                    }
+                    
+                })
+                
+                currUserRef.removeValue()
+    
+            }
+        }
+    }
 }
