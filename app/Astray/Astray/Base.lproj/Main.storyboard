@@ -311,10 +311,10 @@
             </objects>
             <point key="canvasLocation" x="2563" y="1230"/>
         </scene>
-        <!--User Controller-->
+        <!--User Stories Controller-->
         <scene sceneID="vgF-pg-VDK">
             <objects>
-                <viewController storyboardIdentifier="UserStoriesView" id="IOM-a6-7Vf" customClass="UserController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserStoriesView" id="IOM-a6-7Vf" customClass="UserStoriesController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TOr-XD-XFS"/>
                         <viewControllerLayoutGuide type="bottom" id="fMs-vV-ZBw"/>
@@ -336,6 +336,10 @@
                                 <rect key="frame" x="247" y="550" width="107" height="30"/>
                                 <state key="normal" title="View This Story"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izx-gC-W4G">
+                                <rect key="frame" x="53" y="512" width="198" height="30"/>
+                                <state key="normal" title="Show story pin (make pretty)"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91372001169999995" green="0.97842323779999996" blue="0.99981433149999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -350,6 +354,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="qnk-TJ-b0B" id="maZ-xU-7e2"/>
                         <outlet property="storyUsernameLabel" destination="ahx-uh-aIx" id="x31-LZ-5Al"/>
                     </connections>
                 </viewController>
