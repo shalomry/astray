@@ -59,11 +59,11 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
             while let rest = enumerator.nextObject() as? FDataSnapshot {
              //   print("USER")
               //  print(" ")
-                print("id: " + rest.key)
-               // print(rest.value)
-                print(rest.value.valueForKey("username")!)
-                print(rest.value.valueForKey("email")!)
-                print(" ")
+//                print("id: " + rest.key)
+//               // print(rest.value)
+//                print(rest.value.valueForKey("username")!)
+//                print(rest.value.valueForKey("email")!)
+//                print(" ")
                 if let username = rest.value.valueForKey("username") {
                     if let email = rest.value.valueForKey("email") {
                         self.allIds.addObject(rest.key)
