@@ -13,6 +13,10 @@ import Firebase
 import GeoFire
 import AVFoundation
 
+let minR = 1.0
+let maxDelta = 100.0
+let initDelta = 50.0
+
 class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate {
     
     @IBOutlet weak var storyTitle: UITextField!
@@ -21,9 +25,14 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet var storyData: String!
     @IBOutlet weak var uploadStoryButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var pin: MKPointAnnotation!
+    var pin: MKPointAnnotation!
+    var radius: Double = minR+initDelta
+    var radiusOverlay: MKCircle = MKCircle()
     var username: String?
     var userId: String?
+    
+    //@IBOutlet weak var sliderRadius: UISlider!
+    
     
     
     var recordButton: UIButton!
@@ -101,6 +110,10 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             self.pin = pin
             mapView.addAnnotation(self.pin)
             
+            var circle = MKCircle(centerCoordinate: self.pin.coordinate, radius: self.radius)
+            self.radiusOverlay = circle
+            self.mapView.addOverlay(self.radiusOverlay)
+            
             let lpgr = UILongPressGestureRecognizer(target: self, action:"handleLongPress:")
             lpgr.minimumPressDuration = 0.5
             lpgr.delaysTouchesBegan = true
@@ -109,6 +122,26 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         } else {
             self.navigateToView("LoginView")
         }
+    }
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        var overlayRenderer : MKCircleRenderer = MKCircleRenderer(overlay: overlay);
+        overlayRenderer.lineWidth = 1.0
+        overlayRenderer.strokeColor = UIColor.redColor()
+        return overlayRenderer
+    }
+    
+    func updateOverlay() {
+        self.mapView.removeOverlay(self.radiusOverlay)
+        self.radiusOverlay = MKCircle(centerCoordinate: self.pin.coordinate, radius: self.radius)
+        self.mapView.addOverlay(radiusOverlay)
+    }
+    
+    @IBAction func radiusSlider(sender: UISlider) {
+        var currentValue = Double(sender.value)
+        var currR = currentValue*maxDelta+minR
+        self.radius = currR
+        updateOverlay()
     }
     
     @IBAction func handleLongPress(sender: UILongPressGestureRecognizer) {
@@ -125,10 +158,10 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
 //        self.pin = pin;
 //        self.mapView.addAnnotation(self.pin);
         self.mapView.setCenterCoordinate(locationCoordinate, animated: true);
-        
     }
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
         self.pin.coordinate = mapView.centerCoordinate;
+        updateOverlay()
     }
     
     func navigateToView(view:String) {
@@ -247,7 +280,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     }
 
     @IBAction func uploadStoryButtonClicked() {
-        let rad = 0.1 //radius of story, get from mk
+        let rad = self.radius //radius of story, get from mk
         let time = 0 //NSData
         
         var lat = mapView.centerCoordinate.latitude
