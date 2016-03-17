@@ -131,6 +131,22 @@ class NarrativeViewController: UIViewController {
             })
         }
     }
+    
+    func navigateToView(view:String) {
+        if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
+            self.navigationController?.pushViewController(nextView, animated: true)
+        }
+    }
+    
+    func delete() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if let currStory = appDelegate.currStory {
+            let storyArray = NSMutableArray()
+            storyArray.addObject(currStory)
+            appDelegate.deleteStories(storyArray)
+            self.navigateToView("ProfileView")
+        }
+    }
 }
 
 

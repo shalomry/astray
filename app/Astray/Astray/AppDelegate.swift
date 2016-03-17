@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currUid: String?
     var currStory: String?
     var viewingUid: String?
+    var ref: Firebase!
     
 
 
@@ -44,6 +46,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func deleteStories(storiesToDelete: NSArray) {
+        let userRef = Firebase(url:"https://astray194.firebaseio.com/Users")
+        ref.observeEventType(.Value, withBlock: { snapshot in
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? FDataSnapshot {
+                if let storiesSeen = rest.value.valueForKey("storiestheyveseen") as? NSArray {
+                    let newStoriesSeen = NSMutableArray()
+                    for (story) in storiesSeen {
+                        if !storiesToDelete.containsObject(story) {
+                            newStoriesSeen.addObject(story)
+                        }
+                    }
+                    userRef.childByAppendingPath(rest.key + "/storiestheyveseen").setValue(newStoriesSeen)
+                }
+                
+                if let availableStories = rest.value.valueForKey("availablestories") as? NSArray {
+                    let newAvailableStories = NSMutableArray()
+                    for (story) in availableStories {
+                        if !storiesToDelete.containsObject(story) {
+                            newAvailableStories.addObject(story)
+                        }
+                    }
+                    userRef.childByAppendingPath(rest.key + "/availablestories").setValue(newAvailableStories)
+                }
+                
+                if rest.key == self.currUid {
+                    if let storiesCreated = rest.value.valueForKey("listofcreatedstories") as? NSArray {
+                        let newStoriesCreated = NSMutableArray()
+                        for (story) in storiesCreated {
+                            if !storiesToDelete.containsObject(story) {
+                                newStoriesCreated.addObject(story)
+                            }
+                        }
+                        userRef.childByAppendingPath(rest.key + "/listofcreatedstories").setValue(newStoriesCreated)
+                    }
+                }
+            }
+        })
+        
+        for (storyId) in storiesToDelete {
+            let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+(storyId as! String))
+            storyRef.removeValue()
+        }
+        
     }
 
 

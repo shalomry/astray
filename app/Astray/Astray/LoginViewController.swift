@@ -80,20 +80,6 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
-    //COMMENT IN TO BRING BACK AUTH
-        //    self.navigationItem.setHidesBackButton(true, animated:true)
     }
-
-    
-//    func loginWithFacebook() {
-//        ref.authWithOAuthPopup("facebook", function(error, authData) {
-//            if (error) {
-//                console.log("Login Failed!", error);
-//            } else {
-//                console.log("Authenticated successfully with payload:", authData)
-//            }
-//        });
-//    }
-    
     
 }
