@@ -15,10 +15,12 @@ import GeoFire
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    var ref: Firebase!
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewStoryButton: UIButton!
-    @IBOutlet weak var notInRangeLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var rangeLabel: UILabel!
     
     @IBOutlet weak var pinInfoView: UIView!
     
@@ -30,6 +32,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Firebase(url:"https://astray194.firebaseio.com/Users")
+        
+        self.pinInfoView.layer.borderWidth = 0
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // appDelegate.stumbleMode = true
@@ -250,7 +256,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     else {
                         
                         print("showing not in range label")
-                        self.notInRangeLabel.hidden = false
+                        self.rangeLabel.text = "out of range"
+                        self.pinInfoView.layer.borderWidth = 0
                         self.viewStoryButton.hidden = true
                     }
                 if key != ""{
@@ -259,9 +266,26 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     let dict = snapshot.value as! NSDictionary
                     
                     self.pinTitleAtInfoView.text = dict.valueForKey("title") as? String
-                    self.pinAuthorAtInfoView.text = dict.valueForKey("author_id") as? String
+                    let uid = dict.valueForKey("author_id")
+                    let currUserRef = self.ref.childByAppendingPath(String(uid!))
+                    currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        if let username = snapshot.value.objectForKey("username") {
+                            self.pinAuthorAtInfoView.text = "by " + (username as! String)
+                        }
+                        })
                     self.pinDescriptionAtInfoView.text = dict.valueForKey("description") as? String
-                    self.pinTypeAtInfoView.text = dict.valueForKey("fileType") as? String
+                    let fileType = dict.valueForKey("fileType") as? String
+                    if fileType == "mp3" {
+                        self.pinTypeAtInfoView.text = "Audio"
+                        if let image = UIImage(named: "listen-button.tiff") {
+                            self.viewStoryButton.setImage(image, forState: .Normal)
+                        }
+                    } else {
+                        self.pinTypeAtInfoView.text = "Text"
+                        if let image = UIImage(named: "read-button.tiff") {
+                            self.viewStoryButton.setImage(image, forState: .Normal)
+                        }
+                    }
                     
                     UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
                         self.pinInfoView.frame.origin.y = 0
@@ -269,7 +293,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.pinInfoView.hidden = false
                     
                     self.viewStoryButton.hidden = false
-                    self.notInRangeLabel.hidden = true
+                    self.rangeLabel.text = "in range"
+                    self.pinInfoView.layer.borderWidth = 3
+                    self.pinInfoView.layer.borderColor = UIColor(red:235.0/255.0, green:215.0/255.0, blue:159.0/255.0, alpha: 1.0).CGColor
                     appDelegate.currStory = key
                     
                 })
@@ -282,7 +308,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func mapView(_ mapView: MKMapView,
         didDeselectAnnotationView view: MKAnnotationView) {
             slideOutPinView()
-            self.notInRangeLabel.hidden = true
+            self.rangeLabel.text = "in range"
+            self.pinInfoView.layer.borderWidth = 3
+            self.pinInfoView.layer.borderColor = UIColor(red:235.0/255.0, green:215.0/255.0, blue:159.0/255.0, alpha: 1.0).CGColor
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.currStory = nil
     }
