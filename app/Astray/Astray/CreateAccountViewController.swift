@@ -91,12 +91,12 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UIT
     func textViewDidEndEditing(textView: UITextView) {
         if(bioField.text == "") {
             self.bioField.text = placeHolderText
-            self.bioField.textColor = UIColor(red: 193.0/255.0, green: 193.0/255.0, blue: 193.0/255.0, alpha: 1)
+            self.bioField.textColor = UIColor(red: 12.0/255.0, green: 18.0/255.0, blue: 24.0/255.0, alpha: 1)
         }
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.bioField.textColor = UIColor(red: 193.0/255.0, green: 193.0/255.0, blue: 193.0/255.0, alpha: 1.0)
+        self.bioField.textColor = UIColor(red: 12.0/255.0, green: 18.0/255.0, blue: 24.0/255.0, alpha: 1)
         self.bioField.text = placeHolderText
         self.bioField.textContainer.lineFragmentPadding = 0;
         self.bioField.textContainerInset = UIEdgeInsetsZero;
