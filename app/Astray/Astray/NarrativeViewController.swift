@@ -16,11 +16,14 @@ class NarrativeViewController: UIViewController {
     @IBOutlet weak var strFiles: UITextView!
     @IBOutlet weak var playPause: UIButton!
     @IBOutlet weak var storyTitle: UILabel!
-    @IBOutlet weak var timeBar: UIProgressView!
+    @IBOutlet weak var trackBar: UISlider!
+    @IBOutlet weak var durationTime: UILabel!
+    @IBOutlet weak var currTime: UILabel!
     //var playerReal: AVAudioPlayer! = AVAudioPlayer()
     
     //pick whichever one depending on the type of media.
     var playerReal: AVPlayer! = AVPlayer()
+    var playerItemReal: AVPlayerItem!
     //var audioPlayer
     //var textDisplayer
     var playing = true
@@ -43,7 +46,9 @@ class NarrativeViewController: UIViewController {
             debugPrint("Generic error")
         }
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "updateBar", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateBar", userInfo: nil, repeats: true)
+        
+        trackBar.addTarget(self, action: Selector("trackBarMoved"), forControlEvents: UIControlEvents.ValueChanged)
 
         
         
@@ -84,8 +89,39 @@ class NarrativeViewController: UIViewController {
         playing = !playing
     }
     
+    func trackBarMoved() {
+        print("MOVED!")
+        timer.invalidate()
+        let durDuration = (playerReal.currentItem?.asset.duration)!
+        let durSecs = CMTimeGetSeconds(durDuration)
+        let trackValue = self.trackBar.value
+        playerReal.seekToTime(CMTimeMakeWithSeconds(Float64(trackValue) * durSecs, 1))
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateBar", userInfo: nil, repeats: true)
+    }
+    
     func updateBar() {
-        timeBar?.progress = Float(CMTimeGetSeconds(playerReal.currentTime())) / Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
+        let barValue : Float = Float(CMTimeGetSeconds(playerReal.currentTime())) / Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
+        
+        self.trackBar.value = barValue
+        
+        let currMin = Int(CMTimeGetSeconds((playerReal.currentTime()))) / 60
+        let currSec = Int(CMTimeGetSeconds((playerReal.currentTime()))) % 60
+        var currSecString = String(currSec)
+        if currSec < 10 {
+            currSecString = "0" + currSecString
+        }
+        currTime.text = String(currMin) + ":" + currSecString
+        
+        let durDuration = (playerReal.currentItem?.asset.duration)!
+        let durSecs = CMTimeGetSeconds(durDuration)
+        
+        let durationMin = Int(durSecs) / 60
+        let durationSec = Int(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!)) % 60
+        var durationSecString = String(durationSec)
+        if durationSec < 10 {
+            durationSecString = "0" + durationSecString
+        }
+        durationTime.text = String(durationMin) + ":" + durationSecString
     }
     
 //    
@@ -103,14 +139,12 @@ class NarrativeViewController: UIViewController {
     
     //https://github.com/eliotfowler/EFCircularSlider
     
-    @IBAction func restartAudio() {
+    @IBAction func resetAudio() {
         playerReal.pause()
         playerReal.seekToTime(CMTimeMake(0, 1))
-        if let image = UIImage(named: "pause-button.tiff") {
+        if let image = UIImage(named: "play-button.tiff") {
             playPause.setImage(image, forState: .Normal)
         }
-        playerReal.play()
-        playing = true
     }
     
     private var firstAppear = true
@@ -156,12 +190,20 @@ class NarrativeViewController: UIViewController {
                 decodedData!.writeToFile(dataPath, atomically: true)
                 self.fileURL = NSURL(fileURLWithPath: dataPath)
                 
-                self.playerReal = AVPlayer(URL: self.fileURL)
+                self.playerItemReal = AVPlayerItem(URL: self.fileURL)
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: "audioDone", name: AVPlayerItemDidPlayToEndTimeNotification, object: self.playerItemReal)
+                
+                self.playerReal = AVPlayer(playerItem: self.playerItemReal)
                 let playerController = AVPlayerViewController()
                 playerController.player = self.playerReal
                 self.playerReal.play()
             })
         }
+    }
+    
+    func audioDone() {
+        resetAudio()
+        playing = false
     }
     
     func navigateToView(view:String) {
@@ -197,7 +239,15 @@ class NarrativeViewController: UIViewController {
     
 }
 
+//http://stackoverflow.hex1.ru/a/9302494
+class CustomUISlider : UISlider {
+    override func trackRectForBounds(bounds: CGRect) -> CGRect {
 
+        let customBounds = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width, height: 12.0))
+        super.trackRectForBounds(customBounds)
+        return customBounds
+    }
+}
 
 
 enum AppError : ErrorType {
