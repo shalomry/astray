@@ -86,7 +86,6 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="goBack" destination="vcR-bc-sQL" eventType="touchUpInside" id="K7u-UV-cme"/>
                                     <action selector="goBack" destination="PE1-57-EUW" eventType="touchUpInside" id="rq6-UB-XJO"/>
                                 </connections>
                             </button>
@@ -405,7 +404,6 @@
                                 <state key="normal" image="back-chevron.tiff"/>
                                 <connections>
                                     <action selector="backToExplore" destination="htA-ZJ-9zY" eventType="touchUpInside" id="zzs-ZX-HNx"/>
-                                    <action selector="goBack" destination="vcR-bc-sQL" eventType="touchUpInside" id="ZvT-Lk-den"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="335-0c-a4S">
@@ -639,7 +637,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="create-map-bottom.tiff" translatesAutoresizingMaskIntoConstraints="NO" id="TSO-N7-aqw">
                                 <rect key="frame" x="0.0" y="237" width="600" height="348"/>
                             </imageView>
-                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pzu-LS-YgL">
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.25" minValue="0.0" maxValue="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="pzu-LS-YgL">
                                 <rect key="frame" x="180" y="338" width="241" height="31"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="minimumTrackTintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1384,48 +1382,12 @@
                                 <color key="shadowColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gwR-gg-5VX">
-                                <rect key="frame" x="396" y="319" width="76" height="31"/>
-                                <color key="tintColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="onTintColor" red="0.30980392159999998" green="0.43921568630000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="thumbTintColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUS-jt-zUv">
                                 <rect key="frame" x="11" y="76" width="33" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jUS-jt-zUv" secondAttribute="height" multiplier="26.86:38" id="czK-Dz-3fi"/>
                                 </constraints>
                                 <state key="normal" image="back-chevron.tiff"/>
-                                <connections>
-                                    <action selector="goBack" destination="vcR-bc-sQL" eventType="touchUpInside" id="MNA-IG-r8Z"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSE-81-Y8e">
-                                <rect key="frame" x="396" y="83" width="102" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="0E2-oS-sXP"/>
-                                    <constraint firstAttribute="width" constant="82" id="2fd-w4-eNV"/>
-                                    <constraint firstAttribute="width" secondItem="bSE-81-Y8e" secondAttribute="height" multiplier="82:38" id="xrT-nH-HXw"/>
-                                </constraints>
-                                <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="edit-button.tiff">
-                                    <color key="titleColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="xrT-nH-HXw"/>
-                                    </mask>
-                                </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MK-3X-zu7">
-                                <rect key="frame" x="396" y="172" width="102" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="9MK-3X-zu7" secondAttribute="height" multiplier="82:38" id="aHn-3m-5q4"/>
-                                </constraints>
-                                <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="edit-button.tiff">
-                                    <color key="titleColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quY-fi-joT">
                                 <rect key="frame" x="151" y="371" width="299" height="41"/>
@@ -1460,30 +1422,22 @@
                         </subviews>
                         <color key="backgroundColor" red="0.7843137255" green="0.87450980389999999" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="bSE-81-Y8e" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="height" multiplier="82:38" id="0Se-GG-mTu"/>
                             <constraint firstItem="Tvl-nU-Kka" firstAttribute="height" secondItem="qeS-tE-8Rj" secondAttribute="height" id="1Mp-i0-Y1Y"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="baseline" secondItem="jUS-jt-zUv" secondAttribute="baseline" constant="-1" id="2de-QZ-11e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6tO-6R-9rh" secondAttribute="trailing" constant="52" id="3Ko-qn-KRw"/>
                             <constraint firstItem="1ui-3j-nuj" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.766" id="7gp-fU-lqf"/>
                             <constraint firstItem="Tvl-nU-Kka" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="9Yt-rn-p5a"/>
-                            <constraint firstItem="bSE-81-Y8e" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="width" multiplier="0.198" id="AYz-7z-CjI"/>
                             <constraint firstItem="6tO-6R-9rh" firstAttribute="top" secondItem="uyG-vh-hPf" secondAttribute="bottom" constant="65" id="Alh-ZI-ud1"/>
                             <constraint firstItem="quY-fi-joT" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.641" id="CD7-OD-wdi"/>
                             <constraint firstItem="NjM-gg-PCR" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="trailing" multiplier="0.106" id="CNi-hC-G4U"/>
                             <constraint firstItem="5X6-lz-7nh" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.886" id="CzW-CY-bkO"/>
-                            <constraint firstItem="9MK-3X-zu7" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="width" multiplier="38:82" id="D0G-dS-IK4"/>
                             <constraint firstItem="jUS-jt-zUv" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="trailing" multiplier="0.043" id="EjS-Fi-WGt"/>
-                            <constraint firstItem="gwR-gg-5VX" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="width" multiplier="0.123" id="GKH-h6-glE"/>
-                            <constraint firstItem="bSE-81-Y8e" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.14266" id="H6e-he-Tci"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="centerY" secondItem="qeS-tE-8Rj" secondAttribute="top" constant="36" id="I0Y-On-VLc"/>
                             <constraint firstItem="quY-fi-joT" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="width" multiplier="0.739" id="KRt-cL-OiP"/>
                             <constraint firstItem="1ui-3j-nuj" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="width" multiplier="0.563" id="MKr-Jq-GcS"/>
-                            <constraint firstItem="9MK-3X-zu7" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.28397" id="Nod-nB-0Pj"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="top" secondItem="Tvl-nU-Kka" secondAttribute="top" id="ULh-Sl-bG3"/>
-                            <constraint firstItem="bSE-81-Y8e" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="trailing" multiplier="0.708" id="WHI-Ax-1NL"/>
                             <constraint firstItem="Tvl-nU-Kka" firstAttribute="centerY" secondItem="qeS-tE-8Rj" secondAttribute="centerY" id="Whc-2a-eoa"/>
                             <constraint firstItem="5X6-lz-7nh" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="ZJb-DP-GLx"/>
-                            <constraint firstItem="gwR-gg-5VX" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="trailing" multiplier="0.72" id="cKc-26-lMW"/>
                             <constraint firstItem="Tvl-nU-Kka" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="-20" id="dD1-S5-DVe"/>
                             <constraint firstItem="quY-fi-joT" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="height" multiplier="306:50" id="dSW-5v-QPi"/>
                             <constraint firstItem="jUS-jt-zUv" firstAttribute="height" secondItem="qeS-tE-8Rj" secondAttribute="height" multiplier="0.052" id="fGz-J9-Dke"/>
@@ -1496,8 +1450,6 @@
                             <constraint firstItem="1ui-3j-nuj" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="ojs-zT-hkL"/>
                             <constraint firstItem="TI6-mz-gdE" firstAttribute="top" secondItem="Tvl-nU-Kka" secondAttribute="bottom" id="pMS-8l-OBU"/>
                             <constraint firstItem="El7-A5-xiL" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.21" id="qTa-1f-s15"/>
-                            <constraint firstItem="9MK-3X-zu7" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="width" multiplier="0.198" id="rRT-kk-wwu"/>
-                            <constraint firstItem="gwR-gg-5VX" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.528" id="rpo-kS-d7l"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="height" relation="lessThanOrEqual" secondItem="qeS-tE-8Rj" secondAttribute="height" multiplier="0.08" id="tTI-Lf-DvT"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="u0v-Sg-ib3"/>
                             <constraint firstItem="NjM-gg-PCR" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.352" id="uGo-xY-HQS"/>
@@ -1506,7 +1458,6 @@
                             <constraint firstItem="1ui-3j-nuj" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="height" multiplier="233:50" id="x7A-KM-9m0"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="bottom" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.0679" id="y4D-dv-v1J"/>
                             <constraint firstItem="El7-A5-xiL" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="trailing" multiplier="0.106" id="y6L-8N-uj9"/>
-                            <constraint firstItem="9MK-3X-zu7" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="trailing" multiplier="0.708" id="zVp-vb-hAL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tvl-nU-Kka" secondAttribute="trailing" constant="-20" id="zvW-cV-6x0"/>
                         </constraints>
                         <variation key="default">
@@ -1518,9 +1469,6 @@
                                 <exclude reference="ULh-Sl-bG3"/>
                                 <exclude reference="y4D-dv-v1J"/>
                                 <exclude reference="dSW-5v-QPi"/>
-                                <exclude reference="0Se-GG-mTu"/>
-                                <exclude reference="AYz-7z-CjI"/>
-                                <exclude reference="D0G-dS-IK4"/>
                                 <exclude reference="x7A-KM-9m0"/>
                                 <exclude reference="hne-Vi-r8Y"/>
                                 <exclude reference="pMS-8l-OBU"/>
@@ -2115,7 +2063,6 @@
         <image name="delete-button.tiff" width="186" height="186"/>
         <image name="discover-card.tiff" width="1155" height="1026"/>
         <image name="discover-top-bar.tiff" width="1242" height="243"/>
-        <image name="edit-button.tiff" width="252" height="120"/>
         <image name="finish-button.tiff" width="753" height="189"/>
         <image name="follow-button.tiff" width="186" height="186"/>
         <image name="go-to-profile.tiff" width="435" height="120"/>
