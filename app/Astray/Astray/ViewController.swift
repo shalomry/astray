@@ -16,6 +16,7 @@ import GeoFire
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var ref: Firebase!
+    var activeUid : String!
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewStoryButton: UIButton!
@@ -42,6 +43,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // appDelegate.stumbleMode = true
         if let currUid = appDelegate.currUid {
+            activeUid = currUid
             
             if (CLLocationManager.locationServicesEnabled()) {
                 locationManager = CLLocationManager()
@@ -65,7 +67,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                             let storyKey = child.key
                             let storySnapshot = snapshot.childSnapshotForPath(storyKey)
                             print("adding story")
-                            print(storySnapshot.value.objectForKey("latitude"))
+                            //print(storySnapshot.value.objectForKey("latitude"))
                             let lat = storySnapshot.value.objectForKey("latitude") as! Double
                             let long = storySnapshot.value.objectForKey("longitude") as! Double
                             let loc = CLLocationCoordinate2DMake(lat, long)
@@ -97,21 +99,21 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         print("NEW THING IN RANGE")
                         //AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                         // story id = snapshot.value
-                        print(snapshot.value)
+                        // print(snapshot.value)
                     })
                 } else {
                     rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildAdded, withBlock: { snapshot1 in
-                        print("SNAPSHOT 1")
-                        print(snapshot1)
-                        print("SNAPSHOT DONE")
-                        print(snapshot1.value)
+//                        print("SNAPSHOT 1")
+//                        print(snapshot1)
+//                        print("SNAPSHOT DONE")
+//                        print(snapshot1.value)
                         let storyKey = snapshot1.value
                         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                         if (storyKey as! String).characters.count > 0 {
                             rootRef.childByAppendingPath("Stories").childByAppendingPath(storyKey as! String).observeSingleEventOfType(.ChildAdded, withBlock: { storySnapshot in
-                                print("adding story")
-                                print(storySnapshot)
-                                print(storySnapshot.value.objectForKey("latitude"))
+//                                print("adding story")
+//                                print(storySnapshot)
+//                                print(storySnapshot.value.objectForKey("latitude"))
                                 let lat = storySnapshot.value.objectForKey("latitude") as! Double
                                 let long = storySnapshot.value.objectForKey("longitude") as! Double
                                 let loc = CLLocationCoordinate2DMake(lat, long)
@@ -226,6 +228,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.navigateToView("ProfileView")
     }
     
+
+    @IBAction func goToAuthorProfile() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.viewingUid = activeUid
+        self.navigateToView("ProfileMapView")
+    }
+    
     
     @IBAction func goToSearch() {
         self.navigateToView("SearchView")
@@ -269,6 +278,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     
                     self.pinTitleAtInfoView.text = dict.valueForKey("title") as? String
                     let uid = dict.valueForKey("author_id")
+                    self.activeUid = String(uid!)
                     let currUserRef = self.ref.childByAppendingPath(String(uid!))
                     var subLine = ""
                     currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in

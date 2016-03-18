@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Astray/FavoritesController.swift"
-            timestampString = "479620967.61017"
+            timestampString = "480031874.017704"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Astray/SearchController.swift"
-            timestampString = "479621327.3037"
+            timestampString = "480031438.072648"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "225"
             endingLineNumber = "225"
-            landmarkName = "confirmDelete()"
+            landmarkName = "updateProfile()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "226"
             endingLineNumber = "226"
-            landmarkName = "confirmDelete()"
+            landmarkName = "updateProfile()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -175,8 +175,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "311"
             endingLineNumber = "311"
-            landmarkName = "UserController"
-            landmarkType = "3">
+            landmarkName = "deleteUser(_:password:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -207,8 +207,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "deleteUser(_:password:)"
-            landmarkType = "5">
+            landmarkName = "UserController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -223,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
             endingLineNumber = "242"
-            landmarkName = "deleteUser(_:password:)"
+            landmarkName = "updateProfile()"
             landmarkType = "5">
             <Locations>
                <Location
@@ -315,6 +315,146 @@
             endingLineNumber = "88"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Astray.UserStoriesController.viewDidLoad (Astray.UserStoriesController)() -&gt; ()"
+                  moduleName = "Astray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinebernstein/seniorproject/astray/app/Astray/Astray/UserStoriesController.swift"
+                  timestampString = "480025541.767486"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "4462">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Astray.UserStoriesController.(viewDidLoad (Astray.UserStoriesController) -&gt; () -&gt; ()).(closure #2)"
+                  moduleName = "Astray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinebernstein/seniorproject/astray/app/Astray/Astray/UserStoriesController.swift"
+                  timestampString = "480025541.767872"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "7532">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Astray/SearchController.swift"
+            timestampString = "480031438.072648"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "SearchController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Astray.SearchController.allUsernames.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSMutableArray&gt;"
+                  moduleName = "Astray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinebernstein/seniorproject/astray/app/Astray/Astray/SearchController.swift"
+                  timestampString = "480024425.552549"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Astray.SearchController.allUsernames.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSMutableArray&gt;"
+                  moduleName = "Astray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinebernstein/seniorproject/astray/app/Astray/Astray/SearchController.swift"
+                  timestampString = "480024425.552773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Astray.SearchController.allUsernames.materializeForSet : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.NSMutableArray&gt;"
+                  moduleName = "Astray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinebernstein/seniorproject/astray/app/Astray/Astray/SearchController.swift"
+                  timestampString = "480024425.552928"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Astray.SearchController.init (Astray.SearchController.Type)(style : __C.UITableViewStyle) -&gt; Astray.SearchController"
+                  moduleName = "Astray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinebernstein/seniorproject/astray/app/Astray/Astray/SearchController.swift"
+                  timestampString = "480024425.553056"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "199">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Astray.SearchController.init (Astray.SearchController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Astray.SearchController"
+                  moduleName = "Astray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinebernstein/seniorproject/astray/app/Astray/Astray/SearchController.swift"
+                  timestampString = "480024425.553188"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "273">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Astray.SearchController.init (Astray.SearchController.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Astray.SearchController&gt;"
+                  moduleName = "Astray"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/katherinebernstein/seniorproject/astray/app/Astray/Astray/SearchController.swift"
+                  timestampString = "480024425.553325"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "199">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

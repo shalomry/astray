@@ -11,8 +11,12 @@ import AVKit
 import AVFoundation
 import Firebase
 import CoreData
+import MapKit
+import CoreLocation
 
-class UserController : UIViewController, UIActionSheetDelegate {
+class UserController : UIViewController, UIActionSheetDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    var locationManager: CLLocationManager!
     
     var ref: Firebase!
     var uid: String?
@@ -31,6 +35,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var favoritesButton: UIButton!
     
+    @IBOutlet weak var mapView: MKMapView!
     let invalidPasswordText = "The password you entered was incorrect."
     let invalidEmailText = "Please enter a valid email address."
     let emailTakenText = "An account with that email already exists."
@@ -62,12 +67,61 @@ class UserController : UIViewController, UIActionSheetDelegate {
 //            favoritesButton.hidden = true
 //        }
         if uid != nil {
+            if (self.mapView != nil) {
+                if (CLLocationManager.locationServicesEnabled()) {
+                    locationManager = CLLocationManager()
+                    locationManager.delegate = self
+                    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                    locationManager.requestAlwaysAuthorization()
+                    locationManager.startUpdatingLocation()
+                    
+                    //                let userTrackingArrow = MKUserTrackingBarButtonItem(mapView: self.mapView)
+                    //                self.toolbarItems = [userTrackingArrow]
+                    //                self.navigationController?.setToolbarHidden(true, animated: false)
+                    mapView.showsUserLocation = true
+                    mapView.delegate = self
+                    //                self.mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false);
+            }
+            
+                
+                print("getting stories")
+                var pins = [MKAnnotation]()
+                let rootRef = Firebase(url:"https://astray194.firebaseio.com")
+                Firebase(url:"https://astray194.firebaseio.com/Stories").observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    print("whyyy")
+                    for child in snapshot.children {
+                        let storyKey = child.key
+                        let storySnapshot = snapshot.childSnapshotForPath(storyKey)
+                        print("currUid")
+                        print(self.uid)
+                        print("storyAuthorId")
+                        //print(storySnapshot.value.objectForKey("author_id") as! String)
+                        if (storySnapshot.value.objectForKey("author_id") as! String == self.uid){
+                            print("adding story")
+                            //print(storySnapshot.value.objectForKey("latitude"))
+                            let lat = storySnapshot.value.objectForKey("latitude") as! Double
+                            let long = storySnapshot.value.objectForKey("longitude") as! Double
+                            let loc = CLLocationCoordinate2DMake(lat, long)
+                            let pin = MKPointAnnotation()
+                            pin.coordinate = loc
+                            let title = storySnapshot.value.objectForKey("title") as! String
+                            pin.title = title
+                            if (self.mapView != nil) {self.mapView.addAnnotation(pin)}
+                            pins.append(pin)
+                        }
+                    }
+                    if (self.mapView != nil) {self.mapView.showAnnotations(pins, animated: true)}
+                })
+            }
             let currUserRef = ref.childByAppendingPath(uid)
             currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if let username = snapshot.value.objectForKey("username") {
                     self.username = "\(username)"
                     if self.profileUsernameLabel != nil {
                         self.profileUsernameLabel.text = "\(username)"
+                        self.profileUsernameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+                        self.profileUsernameLabel.layer.shadowRadius = 5
+                        self.profileUsernameLabel.layer.shadowOpacity = 1.0
                     }
                     if self.settingsUsernameLabel != nil {
                         self.settingsUsernameLabel.text = "\(username)"
@@ -79,9 +133,9 @@ class UserController : UIViewController, UIActionSheetDelegate {
 //                        let title = "\(username)'s Stories"
 //                        self.goToStoriesButton.setTitle(title, forState: .Normal)
 //                    }
-                    if self.followButton != nil {
-                        self.followButton.setTitle("Follow \(username)", forState: .Normal)
-                    }
+//                    if self.followButton != nil {
+//                        self.followButton.setTitle("Follow \(username)", forState: .Normal)
+//                    }
                 }
                 if let bio = snapshot.value.objectForKey("bio") {
                     if self.newBioField != nil {
@@ -91,6 +145,9 @@ class UserController : UIViewController, UIActionSheetDelegate {
                         self.profileBioLabel.text = "\(bio)"
                         self.profileBioLabel.lineBreakMode = .ByWordWrapping
                         self.profileBioLabel.numberOfLines = 0
+                        self.profileBioLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+                        self.profileBioLabel.layer.shadowRadius = 5
+                        self.profileBioLabel.layer.shadowOpacity = 1.0
                     }
                 }
                 if let email = snapshot.value.objectForKey("email") {
@@ -100,6 +157,10 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     }
                     if self.profileEmailLabel != nil {
                         self.profileEmailLabel.text = "\(email)"
+                        
+                        self.profileEmailLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+                        self.profileEmailLabel.layer.shadowRadius = 5
+                        self.profileEmailLabel.layer.shadowOpacity = 1.0
                     }
                 }
                 if appDelegate.viewingUid != appDelegate.currUid && appDelegate.viewingUid != nil {
@@ -112,10 +173,14 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     if let following = snapshot.value.objectForKey("followers") {
                         print(following)
                         if (self.followButton != nil) {
-                            self.followButton.setTitle("Follow", forState: .Normal)
+                            if let image = UIImage(named: "follow-button.tiff") {
+                                self.followButton.setImage(image, forState: .Normal)
+                            }
                             for (id) in following as! NSArray {
                                 if id as! String == appDelegate.currUid {
-                                    self.followButton.setTitle("Stop following", forState: .Normal)
+                                    if let image = UIImage(named: "unfollow-button.tiff") {
+                                        self.followButton.setImage(image, forState: .Normal)
+                                    }
                                 }
                             }
                         }
@@ -130,15 +195,8 @@ class UserController : UIViewController, UIActionSheetDelegate {
                 }
             })
             
-            profileUsernameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
-            profileUsernameLabel.layer.shadowRadius = 5
-            profileUsernameLabel.layer.shadowOpacity = 1.0
-            profileBioLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
-            profileBioLabel.layer.shadowRadius = 5
-            profileBioLabel.layer.shadowOpacity = 1.0
-            profileEmailLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
-            profileEmailLabel.layer.shadowRadius = 5
-            profileEmailLabel.layer.shadowOpacity = 1.0
+            
+            
         }
     }
     
@@ -154,7 +212,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
     
     
     @IBAction func goToStories() {
-        self.navigateToView("UserStoriesView")
+        self.navigateToView("ProfileMapView")
     }
     
     @IBAction func goBack() {

@@ -41,6 +41,9 @@
 		8F24C3DD1C9C89B60001D02C /* read-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3DB1C9C89B60001D02C /* read-button.tiff */; };
 		8F24C3DE1C9C89B60001D02C /* listen-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3DC1C9C89B60001D02C /* listen-button.tiff */; };
 		8F24C3E01C9C99CD0001D02C /* delete-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3DF1C9C99CD0001D02C /* delete-button.tiff */; };
+		8F24C3E21C9CA7450001D02C /* profile-top-bar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3E11C9CA7450001D02C /* profile-top-bar.tiff */; };
+		8F24C3E51C9CA8160001D02C /* unfollow-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3E31C9CA8160001D02C /* unfollow-button.tiff */; };
+		8F24C3E61C9CA8160001D02C /* follow-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3E41C9CA8160001D02C /* follow-button.tiff */; };
 		8F2791581C84F3FB0058D138 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F2791571C84F3FB0058D138 /* Montserrat-Regular.otf */; };
 		8F27915C1C8507DF0058D138 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */; };
 		8F27916B1C851CE00058D138 /* finish-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F2791641C851CE00058D138 /* finish-button.tiff */; };
@@ -80,6 +83,7 @@
 		C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */; };
 		C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727E1C6AB66F005C54DE /* memchu.mp3 */; };
 		C8BCFC9F1C9B70460049F70C /* UserStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BCFC9E1C9B70460049F70C /* UserStoriesController.swift */; };
+		C8C853CB1C9CA1440047FAE2 /* SearchContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C853CA1C9CA1440047FAE2 /* SearchContainerController.swift */; };
 		C8D97A1E1C8D40AF003142CE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995CDCF1C6A8B6B0089117D /* UserController.swift */; };
 		C8D97A201C8D46A0003142CE /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */; };
 		C8D97A221C8D692E003142CE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D97A211C8D692E003142CE /* SearchController.swift */; };
@@ -146,6 +150,9 @@
 		8F24C3DB1C9C89B60001D02C /* read-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "read-button.tiff"; path = "UI assets/read-button.tiff"; sourceTree = "<group>"; };
 		8F24C3DC1C9C89B60001D02C /* listen-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "listen-button.tiff"; path = "UI assets/listen-button.tiff"; sourceTree = "<group>"; };
 		8F24C3DF1C9C99CD0001D02C /* delete-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "delete-button.tiff"; path = "UI assets/delete-button.tiff"; sourceTree = "<group>"; };
+		8F24C3E11C9CA7450001D02C /* profile-top-bar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "profile-top-bar.tiff"; path = "UI assets/profile-top-bar.tiff"; sourceTree = "<group>"; };
+		8F24C3E31C9CA8160001D02C /* unfollow-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "unfollow-button.tiff"; path = "UI assets/unfollow-button.tiff"; sourceTree = "<group>"; };
+		8F24C3E41C9CA8160001D02C /* follow-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "follow-button.tiff"; path = "UI assets/follow-button.tiff"; sourceTree = "<group>"; };
 		8F2791571C84F3FB0058D138 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.otf"; path = "montserrat/Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8F2791641C851CE00058D138 /* finish-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "finish-button.tiff"; path = "UI assets/finish-button.tiff"; sourceTree = "<group>"; };
@@ -189,6 +196,7 @@
 		C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lakelag.mp3; sourceTree = "<group>"; };
 		C8AD727E1C6AB66F005C54DE /* memchu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = memchu.mp3; sourceTree = "<group>"; };
 		C8BCFC9E1C9B70460049F70C /* UserStoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStoriesController.swift; sourceTree = "<group>"; };
+		C8C853CA1C9CA1440047FAE2 /* SearchContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerController.swift; sourceTree = "<group>"; };
 		C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		C8D97A211C8D692E003142CE /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		D240410A82D67689366AE0EC /* Pods-Astray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.debug.xcconfig"; sourceTree = "<group>"; };
@@ -285,6 +293,7 @@
 				C8D97A211C8D692E003142CE /* SearchController.swift */,
 				C840D9131C9BA2B7005EC732 /* SeenStoriesMapController.swift */,
 				C840D9151C9BAD5E005EC732 /* SlidingViewExtension.swift */,
+				C8C853CA1C9CA1440047FAE2 /* SearchContainerController.swift */,
 			);
 			path = Astray;
 			sourceTree = "<group>";
@@ -310,6 +319,9 @@
 		8F27915F1C850B910058D138 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8F24C3E31C9CA8160001D02C /* unfollow-button.tiff */,
+				8F24C3E41C9CA8160001D02C /* follow-button.tiff */,
+				8F24C3E11C9CA7450001D02C /* profile-top-bar.tiff */,
 				8F24C3DF1C9C99CD0001D02C /* delete-button.tiff */,
 				8F24C3DB1C9C89B60001D02C /* read-button.tiff */,
 				8F24C3DC1C9C89B60001D02C /* listen-button.tiff */,
@@ -516,6 +528,8 @@
 				8FE01EE11C8D73CD009FF8C7 /* create-audio-button.tiff in Resources */,
 				8FFDEE0F1C9BE12400B2E84E /* pause-button.tiff in Resources */,
 				8F27916F1C851CE00058D138 /* login-button.tiff in Resources */,
+				8F24C3E51C9CA8160001D02C /* unfollow-button.tiff in Resources */,
+				8F24C3E21C9CA7450001D02C /* profile-top-bar.tiff in Resources */,
 				C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */,
 				8F27916B1C851CE00058D138 /* finish-button.tiff in Resources */,
 				8F2791731C851DE40058D138 /* cancel-button.tiff in Resources */,
@@ -533,6 +547,7 @@
 				6995CDCC1C6A8B510089117D /* sample.mp3 in Resources */,
 				82E951CB1C9CAC24003B1FC1 /* burbankdormroom.mp3 in Resources */,
 				8FF63C281C9C3899001F51CB /* create-text-background.tiff in Resources */,
+				8F24C3E61C9CA8160001D02C /* follow-button.tiff in Resources */,
 				8FF63C2A1C9C41B8001F51CB /* upload-button.tiff in Resources */,
 				C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */,
 				8FFDEE031C9BC2D200B2E84E /* edit-button.tiff in Resources */,
@@ -689,6 +704,7 @@
 				82E951C01C9BC6B5003B1FC1 /* CreateAudioController.swift in Sources */,
 				C8BCFC9F1C9B70460049F70C /* UserStoriesController.swift in Sources */,
 				6995CDD01C6A8B6B0089117D /* UserController.swift in Sources */,
+				C8C853CB1C9CA1440047FAE2 /* SearchContainerController.swift in Sources */,
 				6995CDC81C6A8B360089117D /* LoginViewController.swift in Sources */,
 				82E951C21C9BE2D4003B1FC1 /* CreateTextController.swift in Sources */,
 				6995CDC61C6A8B2B0089117D /* global.swift in Sources */,
