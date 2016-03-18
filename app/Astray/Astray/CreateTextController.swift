@@ -14,17 +14,12 @@ import GeoFire
 import AVFoundation
 
 
-class CreateTextController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate {
+class CreateTextController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var titleHolder: UITextField!
-    
-    
     @IBOutlet weak var descriptionHolder: UITextView!
-    
-    
     @IBOutlet weak var bodyHolder: UITextView!
-    
     @IBOutlet weak var uploadStoryButton: UIButton!
     
     var placeHolderTextDesc = "description"
@@ -40,7 +35,18 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
         
         descriptionHolder.delegate = self
         bodyHolder.delegate = self
+        titleHolder.delegate = self
         
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
@@ -96,6 +102,10 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
         
+        let time =  NSDate()
+        let cal = NSCalendar.currentCalendar()
+        let comps = cal.components([.Day , .Month , .Year], fromDate: time)
+        let timestamp = String(comps.month)+"/"+String(comps.day)+"/"+String(comps.year)
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -107,7 +117,7 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
             "latitude": storyInfo.lat,
             "longitude": storyInfo.long,
             "radius": storyInfo.radius,
-            //   "timestamp": NSDate(),
+            "timestamp": timestamp,
             "data": storyData!,
             "fileType": "txt"
         ]

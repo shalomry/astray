@@ -15,7 +15,7 @@ import AVKit
 import AVFoundation
 
 
-class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate {
+class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var titleHolder: UITextField!
     @IBOutlet weak var currTime: UILabel!
@@ -47,6 +47,9 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
     override func viewDidLoad() {
         super.viewDidLoad()
         print("at audio view!")
+        self.titleHolder.delegate = self
+        self.descriptionHolder.delegate = self
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
             
@@ -74,6 +77,16 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
         trackBar.addTarget(self, action: Selector("trackBarMoved"), forControlEvents: UIControlEvents.ValueChanged)
 
         descriptionHolder.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
@@ -228,7 +241,11 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
         print("uploadClicked!!")
         let title = self.titleHolder.text
         let description = self.descriptionHolder.text
-    
+        
+        let time =  NSDate()
+        let cal = NSCalendar.currentCalendar()
+        let comps = cal.components([.Day , .Month , .Year], fromDate: time)
+        let timestamp = String(comps.month)+"/"+String(comps.day)+"/"+String(comps.year)
 
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
@@ -238,13 +255,12 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
         
         let storyBundle: NSDictionary = [
             "title": title!,
-            "description": description!, //also fix title and filetype!!!
-            
+            "description": description!,
             "author_id": appDelegate.currUid!,
             "latitude": storyInfo.lat,
             "longitude": storyInfo.long,
             "radius": storyInfo.radius,
-            //   "timestamp": NSDate(),
+            "timestamp": timestamp,
             "data": storyData,
             "fileType": "mp3"
         ]

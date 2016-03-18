@@ -14,7 +14,7 @@ import CoreData
 
 import Foundation
 
-class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UITextViewDelegate {
+class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UITextViewDelegate, UITextFieldDelegate {
     
 
     @IBOutlet weak var newUsernameField: UITextField!
@@ -74,6 +74,20 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UIT
         self.view.bringSubviewToFront(self.newEmailField)
         self.view.bringSubviewToFront(self.newPasswordField)
         self.view.bringSubviewToFront(self.bioField)
+        self.newEmailField.delegate = self
+        self.newPasswordField.delegate = self
+        self.newUsernameField.delegate = self
+        self.bioField.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     

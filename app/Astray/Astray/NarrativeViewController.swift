@@ -87,7 +87,8 @@ class NarrativeViewController: UIViewController {
     }
     
     func updateBar() {
-        let barValue : Float = Float(CMTimeGetSeconds(playerReal.currentTime())) / Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
+        var barValue : Float = 0.1
+        barValue = Float(CMTimeGetSeconds(playerReal.currentTime())) / Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
         
         self.trackBar.value = barValue
         
@@ -155,9 +156,12 @@ class NarrativeViewController: UIViewController {
             let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
             storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
                 let dict = snap.value as! NSDictionary
-                
+                print(dict.valueForKey("author_id") as! String)
+                print(appDelegate.currUid!)
                 if((dict.valueForKey("author_id") as! String) == appDelegate.currUid!){
                     self.deleteStoryButton.hidden = false
+                    print("nothidden!!")
+                    
                 }
                 
                 self.fileType = dict.valueForKey("fileType") as! String
