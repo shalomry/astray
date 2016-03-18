@@ -131,11 +131,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.navigateToView("SearchView")
     }
     
-    
-    func hidePinInfo(tf: Bool) {
-        self.pinInfoView.hidden = true
-    }
-    
+
     func slideOutPinView() {
         self.pinInfoView.hidden = true
     }
