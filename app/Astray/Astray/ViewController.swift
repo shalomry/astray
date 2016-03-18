@@ -26,7 +26,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("LOADING VIEW CONROLLER")
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
@@ -114,10 +113,24 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     @IBAction func goToStory() {
+        var fileType = ""
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+       
         if appDelegate.currStory != nil {
-            self.navigateToView("NarrativeView")
-        }
+          
+                let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
+                storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
+                    let dict = snap.value as! NSDictionary
+                    fileType = dict.valueForKey("fileType") as! String
+                    if fileType=="mp3"{
+                        self.navigateToView("NarrativeView")
+                    }
+                    else if fileType=="txt"{
+                        self.navigateToView("TextView")
+                    }
+
+                })
+            }
     }
     
     @IBAction func goToProfile() {
