@@ -14,7 +14,7 @@ import CoreData
 
 import Foundation
 
-class LoginViewController : UIViewController, UIActionSheetDelegate {
+class LoginViewController : UIViewController, UIActionSheetDelegate, UITextFieldDelegate {
     @IBOutlet weak var loginPasswordField: UITextField!
     @IBOutlet weak var loginEmailField: UITextField!
     @IBOutlet weak var emailBackground: UILabel!
@@ -34,6 +34,8 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         if self.loginErrorMessage != nil {
             self.loginErrorMessage.text = ""
         }
+        loginEmailField.delegate = self
+        loginPasswordField.delegate = self
         
         passwordBackground.layer.shadowOffset = CGSize(width: 0, height: 0)
         passwordBackground.layer.shadowRadius = 5
@@ -43,6 +45,16 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         emailBackground.layer.shadowOpacity = 1.0
         self.view.bringSubviewToFront(self.loginPasswordField)
         self.view.bringSubviewToFront(self.loginEmailField)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     func navigateToView(view:String) {

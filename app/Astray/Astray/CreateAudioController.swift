@@ -15,7 +15,7 @@ import AVKit
 import AVFoundation
 
 
-class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate {
+class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var titleHolder: UITextField!
     @IBOutlet weak var currTime: UILabel!
@@ -47,6 +47,9 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
     override func viewDidLoad() {
         super.viewDidLoad()
         print("at audio view!")
+        self.titleHolder.delegate = self
+        self.descriptionHolder.delegate = self
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
             
@@ -74,6 +77,16 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
         trackBar.addTarget(self, action: Selector("trackBarMoved"), forControlEvents: UIControlEvents.ValueChanged)
 
         descriptionHolder.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {

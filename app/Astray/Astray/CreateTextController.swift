@@ -14,7 +14,7 @@ import GeoFire
 import AVFoundation
 
 
-class CreateTextController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate {
+class CreateTextController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var titleHolder: UITextField!
@@ -35,7 +35,18 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
         
         descriptionHolder.delegate = self
         bodyHolder.delegate = self
+        titleHolder.delegate = self
         
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
