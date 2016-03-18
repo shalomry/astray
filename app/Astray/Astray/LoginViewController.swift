@@ -45,6 +45,23 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
         emailBackground.layer.shadowOpacity = 1.0
         self.view.bringSubviewToFront(self.loginPasswordField)
         self.view.bringSubviewToFront(self.loginEmailField)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -55,6 +72,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
+        
     }
     
     func navigateToView(view:String) {
