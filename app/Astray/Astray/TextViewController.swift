@@ -79,7 +79,7 @@ class TextViewController: UIViewController {
     @IBAction func deleteClicked(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        // TODO: ASK FOR CONFIRMATION!!!!
+        // TODO: ASK FOR CONFIRMATION!!!! DON'T JUST DELETE THE STORY...
         
         if let currStory = appDelegate.currStory {
             let storyArray = NSMutableArray()

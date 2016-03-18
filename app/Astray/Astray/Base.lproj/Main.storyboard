@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z0B-pN-pq9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z0B-pN-pq9">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -242,6 +242,13 @@
                                 <color key="maximumTrackTintColor" red="0.30980392159999998" green="0.43921568630000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oe-1s-Xxv">
+                                <rect key="frame" x="293" y="453" width="107" height="30"/>
+                                <state key="normal" title="DELETE STORY"/>
+                                <connections>
+                                    <action selector="deleteClicked:" destination="htA-ZJ-9zY" eventType="touchUpInside" id="6KX-7K-eEL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -275,6 +282,7 @@
                     </view>
                     <connections>
                         <outlet property="currTime" destination="EWN-Wd-KFb" id="aok-xd-SDv"/>
+                        <outlet property="deleteStoryButton" destination="2oe-1s-Xxv" id="xRs-nr-3BY"/>
                         <outlet property="durationTime" destination="p7y-nO-qSq" id="V4X-BB-rFD"/>
                         <outlet property="playPause" destination="335-0c-a4S" id="JKC-ok-uAZ"/>
                         <outlet property="storyTitle" destination="N5J-gm-9oH" id="YbE-ca-gll"/>

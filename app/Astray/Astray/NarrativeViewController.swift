@@ -19,6 +19,7 @@ class NarrativeViewController: UIViewController {
     @IBOutlet weak var trackBar: UISlider!
     @IBOutlet weak var durationTime: UILabel!
     @IBOutlet weak var currTime: UILabel!
+    @IBOutlet weak var deleteStoryButton: UIButton!
     
     var playerReal: AVPlayer! = AVPlayer()
     var playerItemReal: AVPlayerItem!
@@ -33,7 +34,8 @@ class NarrativeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        deleteStoryButton.hidden = true
+
         do {
               try setupVideo()
         } catch AppError.InvalidResource(let name, let type) {
@@ -165,6 +167,10 @@ class NarrativeViewController: UIViewController {
             storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
                 let dict = snap.value as! NSDictionary
                 
+                if((dict.valueForKey("author_id") as! String) == appDelegate.currUid!){
+                    self.deleteStoryButton.hidden = false
+                }
+                
                 self.fileType = dict.valueForKey("fileType") as! String
                 self.payload = dict.valueForKey("data") as! String
                 
@@ -220,9 +226,8 @@ class NarrativeViewController: UIViewController {
     }
     
     
-    //TODO: check if this story was uploaded by the given user.
-    //if so, show the delete button.
-    func delete() {
+    @IBAction func deleteClicked(sender: AnyObject) {
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currStory = appDelegate.currStory {
             let storyArray = NSMutableArray()
@@ -231,7 +236,6 @@ class NarrativeViewController: UIViewController {
             self.navigateToView("ProfileView")
         }
     }
-
     
 }
 
