@@ -107,14 +107,11 @@ class UserStoriesController: UIViewController, MKMapViewDelegate, CLLocationMana
             storyRef.observeEventType(.Value, withBlock: { snapshot in
                 print(snapshot.value)
                 if let key: String = snapshot.value as? String {
-                    print("showing view story button")
                     UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8,initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
                             self.pinInfoView.frame.origin.y = 0
                             }, completion: nil)
                     self.pinInfoView.hidden = false
                     appDelegate.currStory = key
-                } else {
-                    print("showing not in range label")
                 }
             })
         
