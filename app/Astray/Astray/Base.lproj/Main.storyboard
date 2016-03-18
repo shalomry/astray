@@ -206,16 +206,6 @@
                                     </mask>
                                 </variation>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
-                                <rect key="frame" x="80" y="473" width="123" height="30"/>
-                                <color key="backgroundColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                <color key="tintColor" red="0.43529411764705883" green="0.28627450980392155" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Create your story!"/>
-                                <connections>
-                                    <action selector="uploadStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="jGj-pe-j1W"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5i-Dz-Fi5">
                                 <rect key="frame" x="412" y="535" width="30" height="30"/>
                                 <state key="normal" title="Text">
@@ -254,7 +244,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="create-map-bottom.tiff" translatesAutoresizingMaskIntoConstraints="NO" id="TSO-N7-aqw">
-                                <rect key="frame" x="0.0" y="252" width="600" height="348"/>
+                                <rect key="frame" x="0.0" y="237" width="600" height="348"/>
                             </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pzu-LS-YgL">
                                 <rect key="frame" x="180" y="338" width="241" height="31"/>
@@ -283,6 +273,16 @@
                                     <constraint firstAttribute="width" secondItem="VK1-Sn-qGJ" secondAttribute="height" multiplier="146:41" id="gvX-eL-ZJ9"/>
                                 </constraints>
                                 <state key="normal" image="create-video-button.tiff"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
+                                <rect key="frame" x="32" y="207" width="123" height="30"/>
+                                <color key="backgroundColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="tintColor" red="0.43529411764705883" green="0.28627450980392155" blue="0.49411764705882355" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create your story!"/>
+                                <connections>
+                                    <action selector="uploadStoryButtonClicked" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="jGj-pe-j1W"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91372001169999995" green="0.97842323779999996" blue="0.99981433149999999" alpha="1" colorSpace="calibratedRGB"/>

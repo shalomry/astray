@@ -84,6 +84,11 @@ class NarrativeViewController: UIViewController {
 //    [self.avPlayer seekToTime:t];
 //    }
     
+    
+//circular sliders for time and audio????
+    
+    //https://github.com/eliotfowler/EFCircularSlider
+    
     @IBAction func restartAudio() {
         playerReal.pause()
         playerReal.seekToTime(CMTimeMake(0, 1))
@@ -95,15 +100,6 @@ class NarrativeViewController: UIViewController {
     private var firstAppear = true
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-//        if firstAppear {
-//            do {
-//              //  try setupVideo()
-//            } catch AppError.InvalidResource(let name, let type) {
-//                debugPrint("Could not find resource \(name).\(type)")
-//            } catch {
-//                debugPrint("Generic error")
-//            }
-//        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -116,7 +112,6 @@ class NarrativeViewController: UIViewController {
     
       
     private func setupVideo() throws {
-        
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if appDelegate.currStory != nil {
@@ -164,6 +159,9 @@ class NarrativeViewController: UIViewController {
         self.navigateToView("DiscoverView")
     }
     
+    
+    //TODO: check if this story was uploaded by the given user.
+    //if so, show the delete button.
     func delete() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currStory = appDelegate.currStory {
