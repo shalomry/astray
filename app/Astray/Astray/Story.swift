@@ -11,6 +11,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
+var storyInfo = Story()
+
 class Story {
     var id: Int64
     var username : String
@@ -21,11 +24,12 @@ class Story {
     var author: String
     var authorId: String
     var radius: Double
-    var location: CLLocation
+    var lat: Double
+    var long: Double
     var time: NSDate
     
     
-    init(location:CLLocation) {
+    init() {
         //get from database
         self.id=1
         self.username="username"
@@ -36,7 +40,8 @@ class Story {
         self.author="author"
         self.authorId="authorId"
         self.radius = 0.1
-        self.location=CLLocation()
+        self.lat = 0.1
+        self.long = 0.1
         self.time=NSDate()
     }
     
@@ -76,8 +81,12 @@ class Story {
         return self.radius
     }
     
-    func getLocation() -> CLLocation {
-        return self.location
+    func getLat() -> Double {
+        return self.lat
+    }
+    
+    func getLong() -> Double {
+        return self.long
     }
     
     func getTime() -> NSDate {
