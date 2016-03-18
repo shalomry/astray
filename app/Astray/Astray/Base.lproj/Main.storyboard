@@ -70,7 +70,7 @@
                                 <rect key="frame" x="115" y="20" width="30" height="30"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <action selector="createAStory" destination="BYZ-38-t0r" eventType="touchUpInside" id="SVe-NX-sJI"/>
+                                    <action selector="createAStory" destination="BYZ-38-t0r" eventType="touchUpInside" id="oIv-9G-MN5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hD-ip-9D3">
@@ -262,13 +262,6 @@
                                     <action selector="radiusSlider:" destination="7Xg-TQ-HDl" eventType="valueChanged" id="8lq-nc-IzY"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1a-ai-jI1">
-                                <rect key="frame" x="216" y="531" width="169" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="m1a-ai-jI1" secondAttribute="height" multiplier="146:41" id="zh0-6l-shC"/>
-                                </constraints>
-                                <state key="normal" image="create-text-button.tiff"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szH-C7-Lbd">
                                 <rect key="frame" x="94" y="450" width="182" height="53"/>
                                 <constraints>
@@ -303,9 +296,7 @@
                             <constraint firstItem="B3K-FH-eaa" firstAttribute="height" secondItem="tQa-vv-NiI" secondAttribute="height" multiplier="0.425" id="2ou-ra-Owl"/>
                             <constraint firstItem="pzu-LS-YgL" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="3df-EK-ZyZ"/>
                             <constraint firstItem="TSO-N7-aqw" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.513" id="4bn-E5-NUN"/>
-                            <constraint firstItem="m1a-ai-jI1" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="9iC-p9-oV7"/>
                             <constraint firstItem="txJ-Bi-nxb" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="H7A-xE-FRu"/>
-                            <constraint firstItem="m1a-ai-jI1" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.843" id="JVn-8O-JXg"/>
                             <constraint firstItem="szH-C7-Lbd" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="M4f-kG-qEv"/>
                             <constraint firstItem="FCc-jY-atv" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.055" id="Nch-T6-wRG"/>
                             <constraint firstItem="07d-FU-6Fu" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="top" id="OwD-Fr-Hzc"/>
@@ -313,7 +304,6 @@
                             <constraint firstItem="VK1-Sn-qGJ" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="WXS-9H-lML"/>
                             <constraint firstItem="szH-C7-Lbd" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.123" id="Xxi-4O-VsE"/>
                             <constraint firstItem="FCc-jY-atv" firstAttribute="top" secondItem="07d-FU-6Fu" secondAttribute="bottom" multiplier="0.319" id="Zqe-uZ-FbA"/>
-                            <constraint firstItem="m1a-ai-jI1" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="bSi-zq-4oc"/>
                             <constraint firstItem="VK1-Sn-qGJ" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.524" id="cp1-Me-xl3"/>
                             <constraint firstItem="B3K-FH-eaa" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" id="eaR-pO-fUB"/>
                             <constraint firstItem="07d-FU-6Fu" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" id="g9a-xH-JUd"/>
@@ -327,7 +317,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="TEMPBUTTON" destination="m1a-ai-jI1" id="gyC-Ea-I3w"/>
                         <outlet property="mapView" destination="B3K-FH-eaa" id="0ej-1a-6YQ"/>
                         <outlet property="uploadStoryButton" destination="txJ-Bi-nxb" id="RYS-9B-eIt"/>
                     </connections>
@@ -1317,7 +1306,6 @@
         <image name="create-acct-button.tiff" width="753" height="189"/>
         <image name="create-audio-button.tiff" width="444" height="129"/>
         <image name="create-map-bottom.tiff" width="1242" height="1074"/>
-        <image name="create-text-button.tiff" width="444" height="129"/>
         <image name="create-top-bar.tiff" width="1242" height="237"/>
         <image name="create-video-button.tiff" width="444" height="129"/>
         <image name="finish-button.tiff" width="753" height="189"/>
