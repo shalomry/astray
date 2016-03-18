@@ -21,7 +21,7 @@ class NarrativeViewController: UIViewController {
     var playerReal: AVPlayer! = AVPlayer()
     //var audioPlayer
     //var textDisplayer
-    var playing = false
+    var playing = true
     
     var fileURL: NSURL!
     var ref: Firebase!
@@ -143,17 +143,6 @@ class NarrativeViewController: UIViewController {
                 let playerController = AVPlayerViewController()
                 playerController.player = self.playerReal
                 self.playerReal.play()
-                
-                
-                
-                //CALL UPON EXIT, UPON LEAVING THE VIDEO SCREEN::::: SUPER IMPORTANT, DELETE FILE
-                do{
-                    try NSFileManager.defaultManager().removeItemAtURL(self.fileURL)
-                }
-                catch{
-                    print("everything burns - figure out cache system better, things did not go as expected")
-                }
-                
             })
         }
     }
@@ -162,6 +151,17 @@ class NarrativeViewController: UIViewController {
         if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
             self.navigationController?.pushViewController(nextView, animated: true)
         }
+    }
+    
+    @IBAction func backToExplore() {
+        do{
+            try NSFileManager.defaultManager().removeItemAtURL(self.fileURL)
+        }
+        catch{
+            print("Could not delete the cached files!")
+        }
+
+        self.navigateToView("DiscoverView")
     }
     
     func delete() {
