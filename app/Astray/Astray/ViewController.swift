@@ -24,6 +24,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var pinInfoView: UIView!
     
+    
     @IBOutlet weak var pinTitleAtInfoView: UILabel!
     @IBOutlet weak var pinTypeAtInfoView: UILabel!
     @IBOutlet weak var pinAuthorAtInfoView: UILabel!
