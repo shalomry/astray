@@ -16,6 +16,7 @@ import GeoFire
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var ref: Firebase!
+    var activeUid : String!
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewStoryButton: UIButton!
@@ -42,6 +43,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // appDelegate.stumbleMode = true
         if let currUid = appDelegate.currUid {
+            activeUid = currUid
             
             if (CLLocationManager.locationServicesEnabled()) {
                 locationManager = CLLocationManager()
@@ -226,6 +228,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.navigateToView("ProfileView")
     }
     
+
+    @IBAction func goToAuthorProfile() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.viewingUid = activeUid
+        self.navigateToView("ProfileMapView")
+    }
+    
     
     @IBAction func goToSearch() {
         self.navigateToView("SearchView")
@@ -269,6 +278,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     
                     self.pinTitleAtInfoView.text = dict.valueForKey("title") as? String
                     let uid = dict.valueForKey("author_id")
+                    self.activeUid = String(uid!)
                     let currUserRef = self.ref.childByAppendingPath(String(uid!))
                     var subLine = ""
                     currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
