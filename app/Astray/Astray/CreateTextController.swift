@@ -22,7 +22,8 @@ class CreateTextController: UIViewController, CLLocationManagerDelegate, AVAudio
     
     @IBOutlet weak var descriptionHolder: UITextField!
     
-    @IBOutlet weak var bodyHolder: UITextField!
+    
+    @IBOutlet weak var bodyHolder: UITextView!
     
     @IBOutlet weak var uploadStoryButton: UIButton!
     @IBOutlet weak var backToCreateButton: UIButton!
