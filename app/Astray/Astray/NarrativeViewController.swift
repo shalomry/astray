@@ -222,7 +222,7 @@ class NarrativeViewController: UIViewController {
             print("Could not delete the cached files!")
         }
 
-        self.navigateToView("DiscoverView")
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

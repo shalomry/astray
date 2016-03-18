@@ -44,6 +44,8 @@
 		8FE01EE11C8D73CD009FF8C7 /* create-audio-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FE01EDF1C8D73CD009FF8C7 /* create-audio-button.tiff */; };
 		8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */; };
 		8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FF177B41C6012B60035BB3D /* sample.mp3 */; };
+		8FF63C241C9C2D27001F51CB /* narrative-text-background.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FF63C231C9C2D27001F51CB /* narrative-text-background.tiff */; };
+		8FF63C261C9C3319001F51CB /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8FF63C251C9C3319001F51CB /* Montserrat-Light.otf */; };
 		8FFDEE031C9BC2D200B2E84E /* edit-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDEE021C9BC2D200B2E84E /* edit-button.tiff */; };
 		8FFDEE071C9BC5E900B2E84E /* view-your-stories.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDEE041C9BC5E900B2E84E /* view-your-stories.tiff */; };
 		8FFDEE081C9BC5E900B2E84E /* view-followed-profiles.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDEE051C9BC5E900B2E84E /* view-followed-profiles.tiff */; };
@@ -128,6 +130,8 @@
 		8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarrativeViewController.swift; sourceTree = "<group>"; };
 		8FF177B21C60101D0035BB3D /* sax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sax.mp3; path = "../../../../../../Qt/Examples/Qt-5.3/svg/embedded/desktopservices/data/sax.mp3"; sourceTree = "<group>"; };
 		8FF177B41C6012B60035BB3D /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample.mp3; path = Astray/sample.mp3; sourceTree = "<group>"; };
+		8FF63C231C9C2D27001F51CB /* narrative-text-background.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "narrative-text-background.tiff"; path = "UI assets/narrative-text-background.tiff"; sourceTree = "<group>"; };
+		8FF63C251C9C3319001F51CB /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.otf"; path = "montserrat/Montserrat-Light.otf"; sourceTree = "<group>"; };
 		8FFDEE021C9BC2D200B2E84E /* edit-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "edit-button.tiff"; path = "UI assets/edit-button.tiff"; sourceTree = "<group>"; };
 		8FFDEE041C9BC5E900B2E84E /* view-your-stories.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "view-your-stories.tiff"; path = "UI assets/view-your-stories.tiff"; sourceTree = "<group>"; };
 		8FFDEE051C9BC5E900B2E84E /* view-followed-profiles.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "view-followed-profiles.tiff"; path = "UI assets/view-followed-profiles.tiff"; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 		8F27915F1C850B910058D138 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8FF63C251C9C3319001F51CB /* Montserrat-Light.otf */,
+				8FF63C231C9C2D27001F51CB /* narrative-text-background.tiff */,
 				8FFDEE0C1C9BE12400B2E84E /* play-button.tiff */,
 				8FFDEE0D1C9BE12400B2E84E /* pause-button.tiff */,
 				8FFDEE0A1C9BDD3600B2E84E /* narrative-audio-background.tiff */,
@@ -433,6 +439,7 @@
 				8F27916D1C851CE00058D138 /* create-acct-background.tiff in Resources */,
 				8FFDEE0E1C9BE12400B2E84E /* play-button.tiff in Resources */,
 				8FFDEE081C9BC5E900B2E84E /* view-followed-profiles.tiff in Resources */,
+				8FF63C241C9C2D27001F51CB /* narrative-text-background.tiff in Resources */,
 				8F27916E1C851CE00058D138 /* create-acct-button.tiff in Resources */,
 				69B4E6F71C5056EF00FF1663 /* Assets.xcassets in Resources */,
 				8FE01EE11C8D73CD009FF8C7 /* create-audio-button.tiff in Resources */,
@@ -451,6 +458,7 @@
 				C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */,
 				8FFDEE031C9BC2D200B2E84E /* edit-button.tiff in Resources */,
 				8F27916C1C851CE00058D138 /* back-chevron.tiff in Resources */,
+				8FF63C261C9C3319001F51CB /* Montserrat-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

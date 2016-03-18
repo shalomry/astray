@@ -16,8 +16,8 @@ class TextViewController: UIViewController {
     var payload: String!
    
     @IBOutlet weak var titleOfStory: UILabel!
-    @IBOutlet weak var storyDescription: UILabel!
-    @IBOutlet weak var storyBody: UILabel!
+//    @IBOutlet weak var storyDescription: UILabel!
+    @IBOutlet weak var storyBody: UITextView!
     
     @IBOutlet weak var deleteStoryButton: UIButton!
   
@@ -37,8 +37,11 @@ class TextViewController: UIViewController {
                 let title = dict.valueForKey("title") as! String
                 
                 self.titleOfStory.text = "\(title)"
-                  self.storyDescription.text = dict.valueForKey("description") as! String
-                   self.storyBody.text = dict.valueForKey("data") as! String
+//                  self.storyDescription.text = dict.valueForKey("description") as! String
+                self.storyBody.text = dict.valueForKey("data") as! String
+                self.storyBody.textColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 1)
+                self.storyBody.textContainer.lineFragmentPadding = 0;
+                self.storyBody.textContainerInset = UIEdgeInsetsZero;
                 
                 
                 
@@ -72,7 +75,7 @@ class TextViewController: UIViewController {
     }
     
     @IBAction func backToExplore() {
-        self.navigateToView("DiscoverView")
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

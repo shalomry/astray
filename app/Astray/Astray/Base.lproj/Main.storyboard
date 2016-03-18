@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z0B-pN-pq9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z0B-pN-pq9">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -12,7 +12,11 @@
         <mutableArray key="Existence-UnicaseLight.otf">
             <string>Existence-UnicaseLight</string>
         </mutableArray>
+        <mutableArray key="Montserrat-Light.otf">
+            <string>Montserrat-Light</string>
+        </mutableArray>
         <mutableArray key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
@@ -30,7 +34,7 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Discover-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="DiscoverView" hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,10 +129,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Discover" id="pit-gr-sps">
-                        <barButtonItem key="leftBarButtonItem" title="My Profile" id="slN-s2-a7P"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Wb-qG-saK"/>
-                    </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -174,7 +174,7 @@
         <!--Narrative View Controller-->
         <scene sceneID="0Hn-5z-ogB">
             <objects>
-                <viewController storyboardIdentifier="NarrativeView" id="htA-ZJ-9zY" customClass="NarrativeViewController" customModule="Astray" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NarrativeView" hidesBottomBarWhenPushed="YES" id="htA-ZJ-9zY" customClass="NarrativeViewController" customModule="Astray" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W8c-YN-2sS"/>
                         <viewControllerLayoutGuide type="bottom" id="4DP-GK-E35"/>
@@ -296,7 +296,7 @@
         <!--Text View Controller-->
         <scene sceneID="OXe-Cz-5FN">
             <objects>
-                <viewController storyboardIdentifier="TextView" id="KZ4-D8-50f" customClass="TextViewController" customModule="Astray" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TextView" hidesBottomBarWhenPushed="YES" id="KZ4-D8-50f" customClass="TextViewController" customModule="Astray" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9UM-j1-h3N"/>
                         <viewControllerLayoutGuide type="bottom" id="7FT-ft-cul"/>
@@ -305,31 +305,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aa-yo-p86">
-                                <rect key="frame" x="34" y="80" width="116" height="30"/>
-                                <state key="normal" title="Back to Discover"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="narrative-text-background.tiff" translatesAutoresizingMaskIntoConstraints="NO" id="YOp-6A-7Cb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aa-yo-p86">
+                                <rect key="frame" x="20" y="20" width="27" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1aa-yo-p86" secondAttribute="height" multiplier="26.86:38" id="aId-pc-cKo"/>
+                                </constraints>
+                                <state key="normal" image="back-chevron.tiff"/>
                                 <connections>
                                     <action selector="backToExplore" destination="KZ4-D8-50f" eventType="touchUpInside" id="aEL-0b-EVt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="story_title_here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="871-qq-bsq">
-                                <rect key="frame" x="34" y="186" width="115" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSA-R6-c6Z">
-                                <rect key="frame" x="3" y="260" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8e9-OS-NY0">
-                                <rect key="frame" x="28" y="334" width="40" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rl9-Dk-pbT">
                                 <rect key="frame" x="370" y="416" width="107" height="30"/>
                                 <state key="normal" title="DELETE STORY"/>
@@ -337,13 +325,42 @@
                                     <action selector="deleteClicked:" destination="KZ4-D8-50f" eventType="touchUpInside" id="Rq0-oj-hYG"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;story_title_here&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="871-qq-bsq">
+                                <rect key="frame" x="243" y="20" width="115" height="21"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="36"/>
+                                <color key="textColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Body" translatesAutoresizingMaskIntoConstraints="NO" id="HBt-kd-Dbj">
+                                <rect key="frame" x="180" y="112" width="240" height="128"/>
+                                <color key="textColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YOp-6A-7Cb" firstAttribute="centerX" secondItem="le8-0Y-rke" secondAttribute="centerX" id="13T-lH-MpE"/>
+                            <constraint firstItem="HBt-kd-Dbj" firstAttribute="height" secondItem="le8-0Y-rke" secondAttribute="height" multiplier="0.83" id="7hL-cJ-5jI"/>
+                            <constraint firstItem="HBt-kd-Dbj" firstAttribute="top" secondItem="le8-0Y-rke" secondAttribute="bottom" multiplier="0.1222" id="HPf-Wq-xiQ"/>
+                            <constraint firstItem="871-qq-bsq" firstAttribute="height" relation="lessThanOrEqual" secondItem="le8-0Y-rke" secondAttribute="height" multiplier="0.08" id="JuW-Sm-JQF"/>
+                            <constraint firstItem="871-qq-bsq" firstAttribute="centerX" secondItem="le8-0Y-rke" secondAttribute="centerX" id="RgS-gh-a1D"/>
+                            <constraint firstItem="1aa-yo-p86" firstAttribute="height" secondItem="le8-0Y-rke" secondAttribute="height" multiplier="0.0516" id="TBi-Oz-KDp"/>
+                            <constraint firstItem="1aa-yo-p86" firstAttribute="top" secondItem="le8-0Y-rke" secondAttribute="bottom" multiplier="0.0245" id="V2c-rs-V1x"/>
+                            <constraint firstItem="1aa-yo-p86" firstAttribute="leading" secondItem="le8-0Y-rke" secondAttribute="trailing" multiplier="0.0435" id="YHB-go-jaT"/>
+                            <constraint firstItem="871-qq-bsq" firstAttribute="centerY" secondItem="le8-0Y-rke" secondAttribute="top" constant="36" id="e9f-2I-zfu"/>
+                            <constraint firstItem="YOp-6A-7Cb" firstAttribute="centerY" secondItem="le8-0Y-rke" secondAttribute="centerY" id="er2-ym-jLL"/>
+                            <constraint firstItem="YOp-6A-7Cb" firstAttribute="width" secondItem="le8-0Y-rke" secondAttribute="width" id="mCA-kB-yob"/>
+                            <constraint firstItem="HBt-kd-Dbj" firstAttribute="width" secondItem="le8-0Y-rke" secondAttribute="width" multiplier="0.8647" id="nXo-AT-bSC"/>
+                            <constraint firstItem="HBt-kd-Dbj" firstAttribute="centerX" secondItem="le8-0Y-rke" secondAttribute="centerX" id="oB0-fu-rEh"/>
+                            <constraint firstItem="YOp-6A-7Cb" firstAttribute="height" secondItem="le8-0Y-rke" secondAttribute="height" id="yhp-Dj-vrt"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="deleteStoryButton" destination="Rl9-Dk-pbT" id="krf-6L-QjN"/>
-                        <outlet property="storyBody" destination="8e9-OS-NY0" id="jeB-0p-uwX"/>
-                        <outlet property="storyDescription" destination="MSA-R6-c6Z" id="7rG-xW-JBp"/>
+                        <outlet property="storyBody" destination="HBt-kd-Dbj" id="qBV-Ek-amZ"/>
                         <outlet property="titleOfStory" destination="871-qq-bsq" id="sZf-zl-0sY"/>
                     </connections>
                 </viewController>
@@ -1327,7 +1344,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjh-DJ-BYy">
                                 <rect key="frame" x="45" y="337" width="515" height="33"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.82745098039999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1337,7 +1354,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyJ-cI-xB0">
                                 <rect key="frame" x="45" y="389" width="515" height="33"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.82745098039999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1504,7 +1521,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFC-mt-Vmu">
                                 <rect key="frame" x="27" y="153" width="515" height="33"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.8666666666666667" green="0.82745098039215681" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1514,7 +1531,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NJ-E9-rBh">
                                 <rect key="frame" x="27" y="215" width="515" height="33"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.82745098039999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1524,7 +1541,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX4-7t-zIh">
                                 <rect key="frame" x="27" y="278" width="515" height="33"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.82745098039999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1534,7 +1551,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR7-rz-8zI">
                                 <rect key="frame" x="27" y="344" width="515" height="33"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.82745098039999998" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1697,6 +1714,7 @@
         <image name="login-background.tiff" width="1242" height="2208"/>
         <image name="login-button.tiff" width="753" height="189"/>
         <image name="narrative-audio-background.tiff" width="1242" height="2208"/>
+        <image name="narrative-text-background.tiff" width="1242" height="2208"/>
         <image name="pause-button.tiff" width="708" height="708"/>
         <image name="profile-background.tiff" width="1242" height="2208"/>
         <image name="view-followed-profiles.tiff" width="924" height="156"/>
