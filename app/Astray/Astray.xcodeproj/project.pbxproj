@@ -30,6 +30,10 @@
 		8F24C3D41C9C5A350001D02C /* profile-icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3D11C9C5A350001D02C /* profile-icon.tiff */; };
 		8F24C3D51C9C5A350001D02C /* search-icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3D21C9C5A350001D02C /* search-icon.tiff */; };
 		8F24C3D61C9C5A350001D02C /* create-icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3D31C9C5A350001D02C /* create-icon.tiff */; };
+		8F24C3D81C9C7BEE0001D02C /* discover-card.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3D71C9C7BEE0001D02C /* discover-card.tiff */; };
+		8F24C3DA1C9C87100001D02C /* go-to-profile.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3D91C9C87100001D02C /* go-to-profile.tiff */; };
+		8F24C3DD1C9C89B60001D02C /* read-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3DB1C9C89B60001D02C /* read-button.tiff */; };
+		8F24C3DE1C9C89B60001D02C /* listen-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3DC1C9C89B60001D02C /* listen-button.tiff */; };
 		8F2791581C84F3FB0058D138 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F2791571C84F3FB0058D138 /* Montserrat-Regular.otf */; };
 		8F27915C1C8507DF0058D138 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */; };
 		8F27916B1C851CE00058D138 /* finish-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F2791641C851CE00058D138 /* finish-button.tiff */; };
@@ -124,6 +128,10 @@
 		8F24C3D11C9C5A350001D02C /* profile-icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "profile-icon.tiff"; path = "UI assets/profile-icon.tiff"; sourceTree = "<group>"; };
 		8F24C3D21C9C5A350001D02C /* search-icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "search-icon.tiff"; path = "UI assets/search-icon.tiff"; sourceTree = "<group>"; };
 		8F24C3D31C9C5A350001D02C /* create-icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "create-icon.tiff"; path = "UI assets/create-icon.tiff"; sourceTree = "<group>"; };
+		8F24C3D71C9C7BEE0001D02C /* discover-card.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "discover-card.tiff"; path = "UI assets/discover-card.tiff"; sourceTree = "<group>"; };
+		8F24C3D91C9C87100001D02C /* go-to-profile.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "go-to-profile.tiff"; path = "UI assets/go-to-profile.tiff"; sourceTree = "<group>"; };
+		8F24C3DB1C9C89B60001D02C /* read-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "read-button.tiff"; path = "UI assets/read-button.tiff"; sourceTree = "<group>"; };
+		8F24C3DC1C9C89B60001D02C /* listen-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "listen-button.tiff"; path = "UI assets/listen-button.tiff"; sourceTree = "<group>"; };
 		8F2791571C84F3FB0058D138 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.otf"; path = "montserrat/Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8F2791641C851CE00058D138 /* finish-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "finish-button.tiff"; path = "UI assets/finish-button.tiff"; sourceTree = "<group>"; };
@@ -282,6 +290,10 @@
 		8F27915F1C850B910058D138 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8F24C3DB1C9C89B60001D02C /* read-button.tiff */,
+				8F24C3DC1C9C89B60001D02C /* listen-button.tiff */,
+				8F24C3D91C9C87100001D02C /* go-to-profile.tiff */,
+				8F24C3D71C9C7BEE0001D02C /* discover-card.tiff */,
 				8F24C3D11C9C5A350001D02C /* profile-icon.tiff */,
 				8F24C3D21C9C5A350001D02C /* search-icon.tiff */,
 				8F24C3D31C9C5A350001D02C /* create-icon.tiff */,
@@ -465,6 +477,7 @@
 				8F24C3D61C9C5A350001D02C /* create-icon.tiff in Resources */,
 				8F660BA51C9B83CC009C0E9F /* profile-background.tiff in Resources */,
 				69B4E6FA1C5056EF00FF1663 /* LaunchScreen.storyboard in Resources */,
+				8F24C3DE1C9C89B60001D02C /* listen-button.tiff in Resources */,
 				8FF63C2C1C9C46B5001F51CB /* create-audio-background.tiff in Resources */,
 				8F2791581C84F3FB0058D138 /* Montserrat-Regular.otf in Resources */,
 				8FE01EE01C8D73CD009FF8C7 /* create-video-button.tiff in Resources */,
@@ -474,6 +487,7 @@
 				8FF63C241C9C2D27001F51CB /* narrative-text-background.tiff in Resources */,
 				8F27916E1C851CE00058D138 /* create-acct-button.tiff in Resources */,
 				69B4E6F71C5056EF00FF1663 /* Assets.xcassets in Resources */,
+				8F24C3DA1C9C87100001D02C /* go-to-profile.tiff in Resources */,
 				8FE01EE11C8D73CD009FF8C7 /* create-audio-button.tiff in Resources */,
 				8FFDEE0F1C9BE12400B2E84E /* pause-button.tiff in Resources */,
 				8F27916F1C851CE00058D138 /* login-button.tiff in Resources */,
@@ -485,6 +499,7 @@
 				8FE01EDB1C8D69D1009FF8C7 /* create-map-bottom.tiff in Resources */,
 				8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */,
 				8F24C3D41C9C5A350001D02C /* profile-icon.tiff in Resources */,
+				8F24C3DD1C9C89B60001D02C /* read-button.tiff in Resources */,
 				8FE01ED91C8D6346009FF8C7 /* create-top-bar.tiff in Resources */,
 				8FFDEE0B1C9BDD3600B2E84E /* narrative-audio-background.tiff in Resources */,
 				8FFDEE071C9BC5E900B2E84E /* view-your-stories.tiff in Resources */,
@@ -495,6 +510,7 @@
 				8FFDEE031C9BC2D200B2E84E /* edit-button.tiff in Resources */,
 				8F27916C1C851CE00058D138 /* back-chevron.tiff in Resources */,
 				8FF63C261C9C3319001F51CB /* Montserrat-Light.otf in Resources */,
+				8F24C3D81C9C7BEE0001D02C /* discover-card.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
