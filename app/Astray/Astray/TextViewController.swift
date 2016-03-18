@@ -94,7 +94,7 @@ class TextViewController: UIViewController {
             let storyArray = NSMutableArray()
             storyArray.addObject(currStory)
             appDelegate.deleteStories(storyArray)
-            self.navigateToView("ProfileView")
+            backToExplore()
         }
     }
     
