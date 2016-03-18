@@ -50,11 +50,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func deleteStories(storiesToDelete: NSArray) {
         let userRef = Firebase(url:"https://astray194.firebaseio.com/Users")
-        ref.observeEventType(.Value, withBlock: { snapshot in
+        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 if let storiesSeen = rest.value.valueForKey("storiestheyveseen") as? NSArray {
                     let newStoriesSeen = NSMutableArray()
+                    newStoriesSeen.addObject("")
                     for (story) in storiesSeen {
                         if (story as! String).characters.count > 0 {
                             if !storiesToDelete.containsObject(story) {
@@ -67,6 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if let availableStories = rest.value.valueForKey("availablestories") as? NSArray {
                     let newAvailableStories = NSMutableArray()
+                    newAvailableStories.addObject("")
                     for (story) in availableStories {
                         if (story as! String).characters.count > 0 {
                             if !storiesToDelete.containsObject(story) {
@@ -80,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if rest.key == self.currUid {
                     if let storiesCreated = rest.value.valueForKey("listofcreatedstories") as? NSArray {
                         let newStoriesCreated = NSMutableArray()
+                        newStoriesCreated.addObject("")
                         for (story) in storiesCreated {
                             if (story as! String).characters.count > 0 {
                                 if !storiesToDelete.containsObject(story) {

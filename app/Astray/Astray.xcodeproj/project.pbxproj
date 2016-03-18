@@ -41,10 +41,12 @@
 		8FE01EE11C8D73CD009FF8C7 /* create-audio-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FE01EDF1C8D73CD009FF8C7 /* create-audio-button.tiff */; };
 		8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */; };
 		8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FF177B41C6012B60035BB3D /* sample.mp3 */; };
+		C840D9141C9BA2B7005EC732 /* SeenStoriesMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C840D9131C9BA2B7005EC732 /* SeenStoriesMapController.swift */; };
 		C848768D1C7BEC8C008C401D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C848768C1C7BEC8C008C401D /* Images.xcassets */; };
 		C8A35F231C73CF5E006B9D4A /* CreateStoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */; };
 		C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */; };
 		C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C8AD727E1C6AB66F005C54DE /* memchu.mp3 */; };
+		C8BCFC9F1C9B70460049F70C /* UserStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BCFC9E1C9B70460049F70C /* UserStoriesController.swift */; };
 		C8D97A1E1C8D40AF003142CE /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6995CDCF1C6A8B6B0089117D /* UserController.swift */; };
 		C8D97A201C8D46A0003142CE /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */; };
 		C8D97A221C8D692E003142CE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D97A211C8D692E003142CE /* SearchController.swift */; };
@@ -75,7 +77,7 @@
 		694464441C688CDE00B7A12F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6944644C1C688DA100B7A12F /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		6995CDC51C6A8B2B0089117D /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
-		6995CDC71C6A8B360089117D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6995CDC71C6A8B360089117D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6995CDC91C6A8B420089117D /* RecordingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		6995CDCB1C6A8B510089117D /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample.mp3; sourceTree = "<group>"; };
 		6995CDCD1C6A8B540089117D /* samplevideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = samplevideo.mov; sourceTree = "<group>"; };
@@ -115,10 +117,12 @@
 		9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A270DC07E54A6D407493D5CE /* Pods_AstrayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FD38F251876BDBBF61A1E7 /* Pods_Astray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C840D9131C9BA2B7005EC732 /* SeenStoriesMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeenStoriesMapController.swift; sourceTree = "<group>"; };
 		C848768C1C7BEC8C008C401D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStoryController.swift; sourceTree = "<group>"; };
 		C8AD727D1C6AB66F005C54DE /* lakelag.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lakelag.mp3; sourceTree = "<group>"; };
 		C8AD727E1C6AB66F005C54DE /* memchu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = memchu.mp3; sourceTree = "<group>"; };
+		C8BCFC9E1C9B70460049F70C /* UserStoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStoriesController.swift; sourceTree = "<group>"; };
 		C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		C8D97A211C8D692E003142CE /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		D240410A82D67689366AE0EC /* Pods-Astray.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Astray.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Astray/Pods-Astray.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			children = (
 				8F27915F1C850B910058D138 /* UI */,
 				6995CDC91C6A8B420089117D /* RecordingViewController.swift */,
+				C8BCFC9E1C9B70460049F70C /* UserStoriesController.swift */,
 				6995CDC71C6A8B360089117D /* LoginViewController.swift */,
 				8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */,
 				6995CDC51C6A8B2B0089117D /* global.swift */,
@@ -203,6 +208,7 @@
 				C848768C1C7BEC8C008C401D /* Images.xcassets */,
 				C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */,
 				C8D97A211C8D692E003142CE /* SearchController.swift */,
+				C840D9131C9BA2B7005EC732 /* SeenStoriesMapController.swift */,
 			);
 			path = Astray;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8BCFC9F1C9B70460049F70C /* UserStoriesController.swift in Sources */,
 				6995CDD01C6A8B6B0089117D /* UserController.swift in Sources */,
 				6995CDC81C6A8B360089117D /* LoginViewController.swift in Sources */,
 				6995CDC61C6A8B2B0089117D /* global.swift in Sources */,
@@ -562,6 +569,7 @@
 				6995CDCA1C6A8B420089117D /* RecordingViewController.swift in Sources */,
 				69B4E6F01C5056EF00FF1663 /* AppDelegate.swift in Sources */,
 				8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */,
+				C840D9141C9BA2B7005EC732 /* SeenStoriesMapController.swift in Sources */,
 				6944644D1C688DA100B7A12F /* Story.swift in Sources */,
 				C8A35F231C73CF5E006B9D4A /* CreateStoryController.swift in Sources */,
 				C8D97A201C8D46A0003142CE /* FavoritesController.swift in Sources */,

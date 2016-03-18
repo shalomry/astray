@@ -34,6 +34,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
     let invalidPasswordText = "The password you entered was incorrect."
     let invalidEmailText = "Please enter a valid email address."
     let emailTakenText = "An account with that email already exists."
+    let deleteErrorText = "You must enter your password to delete your account."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +63,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
 //        }
         if uid != nil {
             let currUserRef = ref.childByAppendingPath(uid)
-            currUserRef.observeEventType(.Value, withBlock: { snapshot in
+            currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if let username = snapshot.value.objectForKey("username") {
                     self.username = "\(username)"
                     if self.profileUsernameLabel != nil {
@@ -156,9 +157,9 @@ class UserController : UIViewController, UIActionSheetDelegate {
         if let currUid = appDelegate.currUid {
             let currUserRef = ref.childByAppendingPath(currUid)
             let profileUserRef = ref.childByAppendingPath(uid)
-            currUserRef.observeEventType(.Value, withBlock: { snapshot1 in
+            currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot1 in
                 if let following = snapshot1.value.objectForKey("following") as? NSArray {
-                    profileUserRef.observeEventType(.Value, withBlock: { snapshot2 in
+                    profileUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot2 in
                         if let followers = snapshot2.value.objectForKey("followers") as? NSArray {
                             let newFollowing: NSMutableArray = NSMutableArray()
                             let newFollowers: NSMutableArray = NSMutableArray()
@@ -199,7 +200,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
             let currUserRef = ref.childByAppendingPath(currUid)
             if let currUid = appDelegate.currUid {
                 let currUserRef = ref.childByAppendingPath(currUid)
-                currUserRef.observeEventType(.Value, withBlock: { snapshot in
+                currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                     if let email = snapshot.value.objectForKey("email") {
                         if self.newEmailField.text != "\(email)" {
                             let ref = Firebase(url:"https://astray194.firebaseio.com")
@@ -234,91 +235,91 @@ class UserController : UIViewController, UIActionSheetDelegate {
     
     @IBAction func confirmDelete() {
         //TODO: confirm i.e. "are you sure you want to delete your account?"
-        if (true) {
-            deleteUser()
+        if true {
+            deleteUser(self.newEmailField.text!, password: self.passwordConfirmation.text!)
+            self.navigateToView("LoginView")
         }
     }
     
-    func deleteUser() {
-        print("DELETING USER")
+    func deleteUser(email: String, password: String) {
+        let authRef = Firebase(url:"https://astray194.firebaseio.com")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        if let currUid = appDelegate.currUid {
-            print("CURR UID: ")
-            print(currUid)
-            let currUserRef = ref.childByAppendingPath(currUid)
-            currUserRef.observeEventType(.Value, withBlock: { snapshot in
-                print(snapshot)
+        authRef.authUser(email, password: password,
+            withCompletionBlock: { error, authData in
+                if error != nil {
+                    self.settingsError.text = self.deleteErrorText
+                } else {
+        
+                    if let currUid = appDelegate.currUid {
+                        
+                        let currUserRef = self.ref.childByAppendingPath(currUid)
+                        let userHandle = currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                     
-                if let favorites = snapshot.value.objectForKey("following") as? NSArray {
-                    print("FAVORITES:")
-                    print(favorites)
-                    for (favorite) in favorites {
-                        if (favorite as! String).characters.count > 0 {
-                            print("FAV:")
-                            print(favorite)
-                            let favoriteRef = self.ref.childByAppendingPath(favorite as! String)
-                            let newFavFollowers = NSMutableArray()
-                            favoriteRef.observeEventType(.Value, withBlock: { snapshot1 in
-                                if let favFollowers = snapshot1.value.objectForKey("followers") as? NSArray {
-                                    for (follower) in favFollowers {
-                                        if (follower as! String).characters.count > 0 {
-                                            if follower as! String != currUid {
-                                                newFavFollowers.addObject(follower)
+                            if let favorites = snapshot.value.objectForKey("following") as? NSArray {
+                                for (favorite) in favorites {
+                                    if (favorite as! String).characters.count > 0 {
+                                        let favoriteRef = self.ref.childByAppendingPath(favorite as! String)
+                                        let newFavFollowers = NSMutableArray()
+                                        newFavFollowers.addObject("")
+                                        favoriteRef.observeSingleEventOfType(.Value, withBlock: { snapshot1 in
+                                            if let favFollowers = snapshot1.value.objectForKey("followers") as? NSArray {
+                                                for (follower) in favFollowers {
+                                                    if (follower as! String).characters.count > 0 {
+                                                        if follower as! String != currUid {
+                                                            newFavFollowers.addObject(follower)
+                                                        }
+                                                    }
+                                                }
+                                                favoriteRef.childByAppendingPath("followers").setValue(newFavFollowers)
                                             }
-                                        }
+                                        })
                                     }
                                 }
-                                print("NEW FAVORITES")
-                                print(newFavFollowers)
-                            })
-                            favoriteRef.childByAppendingPath("followers").setValue(newFavFollowers)
-                            print("updated value of followers")
-                        }
-                    }
-                }
-                print(" ")
-                print(" ")
-                print(" ")
-                
-                if let followers = snapshot.value.objectForKey("followers") as? NSArray {
-                    print("FOLLOWERS")
-                    print(followers)
-                    for (follower) in followers {
-                        if (follower as! String).characters.count > 0 {
-                            print("FOLLOWER:")
-                            print(follower)
-                            let followerRef = self.ref.childByAppendingPath(follower as! String)
-                            let newFollowerFavs = NSMutableArray()
-                            followerRef.observeEventType(.Value, withBlock: { snapshot2 in
-                                if let followerFavs = snapshot2.value.objectForKey("following") as? NSArray {
-                                    print("snapshot2")
-                                    print(snapshot2)
-                                    for (favorite) in followerFavs {
-                                        if (favorite as! String).characters.count > 0 {
-                                            if favorite as! String != currUid {
-                                                newFollowerFavs.addObject(favorite)
+                            }
+
+                            if let followers = snapshot.value.objectForKey("followers") as? NSArray {
+                                for (follower) in followers {
+                                    if (follower as! String).characters.count > 0 {
+                                        let followerRef = self.ref.childByAppendingPath(follower as! String)
+                                        let newFollowerFavs = NSMutableArray()
+                                        newFollowerFavs.addObject("")
+                                        followerRef.observeSingleEventOfType(.Value, withBlock: { snapshot2 in
+                                            if let followerFavs = snapshot2.value.objectForKey("following") as? NSArray {
+                                                for (favorite) in followerFavs {
+                                                    if (favorite as! String).characters.count > 0 {
+                                                        if favorite as! String != currUid {
+                                                            newFollowerFavs.addObject(favorite)
+                                                        }
+                                                    }
+                                                }
+                                                followerRef.childByAppendingPath("following").setValue(newFollowerFavs)
                                             }
-                                        }
+                                        })
                                     }
-                                    print("NEW FOLLOWER FAVS")
-                                    print(newFollowerFavs)
                                 }
-                            })
-                            followerRef.childByAppendingPath("following").setValue(newFollowerFavs)
-                            print("updated following val")
-                        }
+                            }
+                    
+                            if let storiesCreated = snapshot.value.objectForKey("listofcreatedstories") as? NSArray {
+                                appDelegate.deleteStories(storiesCreated)
+                            }
+                        }, withCancelBlock: { error in
+                                print(error.description)
+                        })
+
+                        authRef.removeUser(email, password: password,
+                            withCompletionBlock: { error in
+                                if error != nil {
+                                    self.settingsError.text = self.deleteErrorText
+                                } else {
+                                    let userRef = Firebase(url:"https://astray194.firebaseio.com/Users/" + appDelegate.currUid!)
+                                    userRef.removeValue()
+                                    appDelegate.currUid = nil
+                                }
+                        
+                            
+                        })
                     }
                 }
-                    
-                if let storiesCreated = snapshot.value.objectForKey("listofcreatedstories") as? NSArray {
-                    print("STORIES CREATED")
-                    print(storiesCreated)
-                    appDelegate.deleteStories(storiesCreated)
-                }
-                    
-            })
-                
-            currUserRef.removeValue()
-        }
+        })
     }
 }
