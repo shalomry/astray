@@ -14,7 +14,7 @@ import Firebase
 import GeoFire
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewStoryButton: UIButton!
     @IBOutlet weak var notInRangeLabel: UILabel!
@@ -22,14 +22,17 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var pinInfoView: UIView!
     
-    
+    @IBOutlet weak var pinTitleAtInfoView: UILabel!
+    @IBOutlet weak var pinTypeAtInfoView: UILabel!
+    @IBOutlet weak var pinAuthorAtInfoView: UILabel!
+    @IBOutlet weak var pinDescriptionAtInfoView: UILabel!
     
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-       // appDelegate.stumbleMode = true
+        // appDelegate.stumbleMode = true
         if let currUid = appDelegate.currUid {
             
             if (CLLocationManager.locationServicesEnabled()) {
@@ -63,10 +66,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                             let title = storySnapshot.value.objectForKey("title") as! String
                             pin.title = title
                             self.mapView.addAnnotation(pin)
-                        
+                            
                             var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long),     withRadius: 0.1)
                             var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-                            //print("Key '\(key)' entered the search area and is at '"+title)
+                                //print("Key '\(key)' entered the search area and is at '"+title)
                                 let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
                                 storiesRef.childByAppendingPath(title).runTransactionBlock({
                                     (currentData:FMutableData!) in
@@ -79,7 +82,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                                 let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
                                 storiesRef.childByAppendingPath(title).removeValue()
                             })
-
+                            
                         }
                     })
                     rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildRemoved, withBlock: { snapshot in
@@ -108,15 +111,16 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                                 pin.coordinate = loc
                                 let title = storySnapshot.value.objectForKey("title") as! String
                                 pin.title = title
+                                pin.subtitle = storySnapshot.value.objectForKey("author_id") as! String
                                 self.mapView.addAnnotation(pin)
-                                    
+                                
                                 var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long),     withRadius: 0.1)
                                 var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
                                     //print("Key '\(key)' entered the search area and is at '"+title)
                                     let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
-                                        storiesRef.childByAppendingPath(title).runTransactionBlock({
-                                            (currentData:FMutableData!) in
-                                            currentData.value = storyKey
+                                    storiesRef.childByAppendingPath(title).runTransactionBlock({
+                                        (currentData:FMutableData!) in
+                                        currentData.value = storyKey
                                         return FTransactionResult.successWithValue(currentData)
                                     })
                                 })
@@ -125,10 +129,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                                     let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
                                     storiesRef.childByAppendingPath(title).removeValue()
                                 })
-                                    
+                                
                             })
-                        
-                        
+                            
+                            
                         }
                     })
                     rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildRemoved, withBlock: { snapshot1 in
@@ -151,7 +155,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         }
                         self.mapView.removeAnnotations(annotationsToRemove)
                     })
-
+                    
                 }
             }
         } else {
@@ -173,7 +177,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-
+    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = manager.location {
             
@@ -189,22 +193,22 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBAction func goToStory() {
         var fileType = ""
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-       
+        
         if appDelegate.currStory != nil {
-          
-                let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
-                storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
-                    let dict = snap.value as! NSDictionary
-                    fileType = dict.valueForKey("fileType") as! String
-                    if fileType=="mp3"{
-                        self.navigateToView("NarrativeView")
-                    }
-                    else if fileType=="txt"{
-                        self.navigateToView("TextView")
-                    }
-
-                })
-            }
+            
+            let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
+            storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
+                let dict = snap.value as! NSDictionary
+                fileType = dict.valueForKey("fileType") as! String
+                if fileType=="mp3"{
+                    self.navigateToView("NarrativeView")
+                }
+                else if fileType=="txt"{
+                    self.navigateToView("TextView")
+                }
+                
+            })
+        }
     }
     
     @IBAction func goToProfile() {
@@ -218,7 +222,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.navigateToView("SearchView")
     }
     
-
+    
     func slideOutPinView() {
         self.pinInfoView.hidden = true
     }
@@ -226,35 +230,54 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func mapView(_ mapView: MKMapView,
         didSelectAnnotationView view: MKAnnotationView) {
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            var key: String = ""
             var title: String = ""
             if let aTitle = mapView.selectedAnnotations[0].title {
                 title = aTitle!
             } else { return; }
             if (title == "Current Location") { return; }
             if let currUid = appDelegate.currUid {
+      
                 let url = "https://astray194.firebaseio.com/Users/"+currUid+"/availablestories/"+title
-                let storyRef = Firebase(url:url)
-                storyRef.observeEventType(.Value, withBlock: { snapshot in
-                    print(snapshot.value)
-                    if let key: String = snapshot.value as? String {
-                        print("showing view story button")
-                        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
-                            self.pinInfoView.frame.origin.y = 0
-                            }, completion: nil)
-                        self.pinInfoView.hidden = false
+                var storyRef = Firebase(url:url)
+                storyRef.observeSingleEventOfType(.Value, withBlock: { val in
+                    
+                    if let keyval : String = val.value as? String {
+                   
+                    key = keyval
+                    }
+                    else {
                         
-                        self.viewStoryButton.hidden = false
-                        self.notInRangeLabel.hidden = true
-                        appDelegate.currStory = key
-                    } else {
                         print("showing not in range label")
                         self.notInRangeLabel.hidden = false
                         self.viewStoryButton.hidden = true
                     }
+                if key != ""{
+                storyRef = Firebase(url: "https://astray194.firebaseio.com/Stories/"+key)
+                storyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    let dict = snapshot.value as! NSDictionary
+                    
+                    self.pinTitleAtInfoView.text = dict.valueForKey("title") as? String
+                    self.pinAuthorAtInfoView.text = dict.valueForKey("author_id") as? String
+                    self.pinDescriptionAtInfoView.text = dict.valueForKey("description") as? String
+                    self.pinTypeAtInfoView.text = dict.valueForKey("fileType") as? String
+                    
+                    UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
+                        self.pinInfoView.frame.origin.y = 0
+                        }, completion: nil)
+                    self.pinInfoView.hidden = false
+                    
+                    self.viewStoryButton.hidden = false
+                    self.notInRangeLabel.hidden = true
+                    appDelegate.currStory = key
+                    
                 })
+                 }
+                })
+                
             }
     }
-
+    
     func mapView(_ mapView: MKMapView,
         didDeselectAnnotationView view: MKAnnotationView) {
             slideOutPinView()
@@ -262,12 +285,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.currStory = nil
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }

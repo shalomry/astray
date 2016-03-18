@@ -93,6 +93,24 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXg-eu-g2p">
+                                        <rect key="frame" x="240" y="115" width="42" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2a-7z-Vh4">
+                                        <rect key="frame" x="298" y="116" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihu-Mo-eRI">
+                                        <rect key="frame" x="318" y="138" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -135,7 +153,11 @@
                     <connections>
                         <outlet property="mapView" destination="aWA-bF-3dh" id="UPu-RM-mya"/>
                         <outlet property="notInRangeLabel" destination="g0w-BH-egh" id="glT-7h-rOW"/>
+                        <outlet property="pinAuthorAtInfoView" destination="J2a-7z-Vh4" id="sT6-9h-cOZ"/>
+                        <outlet property="pinDescriptionAtInfoView" destination="EXg-eu-g2p" id="zDh-ho-Dry"/>
                         <outlet property="pinInfoView" destination="ZuW-wh-hKp" id="X0Q-0n-0u6"/>
+                        <outlet property="pinTitleAtInfoView" destination="NKL-gt-czR" id="Lxi-Ig-tqV"/>
+                        <outlet property="pinTypeAtInfoView" destination="ihu-Mo-eRI" id="kYk-Pi-h3j"/>
                         <outlet property="searchButton" destination="5hD-ip-9D3" id="ERw-y2-LK5"/>
                         <outlet property="viewStoryButton" destination="4p9-lQ-IeD" id="c4K-mq-TFE"/>
                     </connections>
