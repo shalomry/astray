@@ -161,7 +161,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     print(snapshot.value)
                     if var key: String = snapshot.value as? String {
                         print("showing view story button")
-                        self.pinInfoView.slideUpFromBottom()
+                        self.pinInfoView.hidden = false
+                        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                            self.pinInfoView.frame.origin.y = 0
+                        }, completion: nil)
+                        
                         self.viewStoryButton.hidden = false
                         self.notInRangeLabel.hidden = true
                         appDelegate.currStory = key

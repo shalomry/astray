@@ -18,7 +18,7 @@ extension UIView {
         slideUpFromBottomTransition.subtype = kCATransitionFromTop
         slideUpFromBottomTransition.duration = duration
         slideUpFromBottomTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        slideUpFromBottomTransition.fillMode = kCAFillModeRemoved
+        slideUpFromBottomTransition.fillMode = kCAFillModeForwards
         
         self.layer.addAnimation(slideUpFromBottomTransition, forKey: "slideUpFromBottomTransition")
     }
