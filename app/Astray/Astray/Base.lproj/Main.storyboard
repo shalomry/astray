@@ -21,6 +21,8 @@
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -48,7 +50,7 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aWA-bF-3dh">
-                                <rect key="frame" x="0.0" y="70" width="600" height="439"/>
+                                <rect key="frame" x="0.0" y="142" width="600" height="367"/>
                                 <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
                             </mapView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are not within range of this story." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-BH-egh">
@@ -76,6 +78,13 @@
                                 <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="goToSearch" destination="BYZ-38-t0r" eventType="touchUpInside" id="JQO-WK-ldd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYY-PD-YQN">
+                                <rect key="frame" x="26" y="63" width="69" height="30"/>
+                                <state key="normal" title="My profile"/>
+                                <connections>
+                                    <action selector="goToProfile" destination="BYZ-38-t0r" eventType="touchUpInside" id="4p2-sr-reN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -529,29 +538,17 @@
                                     <segue destination="IOM-a6-7Vf" kind="show" id="RGQ-Lj-f3E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYn-Jr-sfn">
-                                <rect key="frame" x="95" y="210" width="48" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;bio text&gt;" lineBreakMode="wordWrap" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjM-gg-PCR">
-                                <rect key="frame" x="95" y="248" width="241" height="135"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFo-I8-PGU">
-                                <rect key="frame" x="95" y="144" width="42" height="24"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;email&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El7-A5-xiL">
-                                <rect key="frame" x="95" y="174" width="64" height="24"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="95" y="126" width="64" height="24"/>
+                                <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="gww-3z-yEU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tO-6R-9rh">
                                 <rect key="frame" x="396" y="96" width="132" height="30"/>
@@ -576,38 +573,41 @@
                                 <color key="shadowColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="&lt;bio text&gt;" lineBreakMode="wordWrap" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjM-gg-PCR">
+                                <rect key="frame" x="95" y="198" width="241" height="135"/>
+                                <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="zkX-Zq-ij3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.7843137255" green="0.87450980389999999" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6tO-6R-9rh" secondAttribute="trailing" constant="52" id="3Ko-qn-KRw"/>
-                            <constraint firstItem="NYn-Jr-sfn" firstAttribute="top" secondItem="El7-A5-xiL" secondAttribute="bottom" constant="30" id="AJS-sr-73I"/>
                             <constraint firstItem="6tO-6R-9rh" firstAttribute="top" secondItem="uyG-vh-hPf" secondAttribute="bottom" constant="65" id="Alh-ZI-ud1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NjM-gg-PCR" secondAttribute="trailing" constant="20" id="BdX-JT-wlg"/>
+                            <constraint firstItem="NjM-gg-PCR" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="trailing" multiplier="0.106" id="CNi-hC-G4U"/>
                             <constraint firstItem="TI6-mz-gdE" firstAttribute="top" secondItem="ih6-QS-yak" secondAttribute="bottom" constant="30" id="LIk-tH-znp"/>
-                            <constraint firstItem="El7-A5-xiL" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="Mfa-5a-PT8"/>
                             <constraint firstItem="K9L-eN-41P" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="TxE-re-Yuj"/>
-                            <constraint firstItem="9Jn-It-SQM" firstAttribute="top" secondItem="uyG-vh-hPf" secondAttribute="bottom" constant="40" id="ZvJ-bu-1WD"/>
-                            <constraint firstItem="NYn-Jr-sfn" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="bMC-w2-ZiJ"/>
                             <constraint firstItem="ih6-QS-yak" firstAttribute="top" secondItem="K9L-eN-41P" secondAttribute="bottom" constant="20" id="ccY-6E-IhO"/>
                             <constraint firstItem="Tvl-nU-Kka" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="-20" id="dD1-S5-DVe"/>
-                            <constraint firstItem="NjM-gg-PCR" firstAttribute="top" secondItem="NYn-Jr-sfn" secondAttribute="bottom" constant="20" id="eQz-VE-XsN"/>
-                            <constraint firstItem="NjM-gg-PCR" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="fpz-fQ-ZXH"/>
                             <constraint firstItem="Tvl-nU-Kka" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="topMargin" id="gEL-wu-vvv"/>
                             <constraint firstItem="ih6-QS-yak" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="hIp-JH-YPe"/>
+                            <constraint firstItem="NjM-gg-PCR" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="width" multiplier="0.787" id="lW7-Ub-7ev"/>
                             <constraint firstItem="TI6-mz-gdE" firstAttribute="top" secondItem="Tvl-nU-Kka" secondAttribute="bottom" id="pMS-8l-OBU"/>
-                            <constraint firstItem="El7-A5-xiL" firstAttribute="top" secondItem="cFo-I8-PGU" secondAttribute="bottom" constant="20" id="r5d-Tm-jaV"/>
-                            <constraint firstItem="cFo-I8-PGU" firstAttribute="top" secondItem="uyG-vh-hPf" secondAttribute="bottom" constant="90" id="suI-iu-GYH"/>
+                            <constraint firstItem="El7-A5-xiL" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.21" id="qTa-1f-s15"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="height" secondItem="qeS-tE-8Rj" secondAttribute="height" multiplier="0.047" id="tTI-Lf-DvT"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="centerX" secondItem="qeS-tE-8Rj" secondAttribute="centerX" id="u0v-Sg-ib3"/>
+                            <constraint firstItem="NjM-gg-PCR" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.352" id="uGo-xY-HQS"/>
+                            <constraint firstItem="El7-A5-xiL" firstAttribute="width" secondItem="qeS-tE-8Rj" secondAttribute="width" multiplier="0.787" id="wiu-uG-5vo"/>
                             <constraint firstItem="9Jn-It-SQM" firstAttribute="top" secondItem="qeS-tE-8Rj" secondAttribute="bottom" multiplier="0.019" id="y4D-dv-v1J"/>
-                            <constraint firstItem="cFo-I8-PGU" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="leadingMargin" constant="20" id="zBr-PR-hBU"/>
+                            <constraint firstItem="El7-A5-xiL" firstAttribute="leading" secondItem="qeS-tE-8Rj" secondAttribute="trailing" multiplier="0.106" id="y6L-8N-uj9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tvl-nU-Kka" secondAttribute="trailing" constant="-20" id="zvW-cV-6x0"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ZvJ-bu-1WD"/>
-                            </mask>
-                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Profile" id="dvs-BD-4LS">

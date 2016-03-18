@@ -42,12 +42,16 @@ class UserController : UIViewController, UIActionSheetDelegate {
         if self.settingsError != nil {
             self.settingsError.text = ""
         }
+        print("IN USERCONTROLLER")
 //        appDelegate.viewingUid = "1c5ac729-2507-4247-82f1-48f6d9fd525d"
         if let viewingUid = appDelegate.viewingUid {
+            print("SETTING VIEWINGUID")
             self.uid = viewingUid
         } else if let currUid = appDelegate.currUid {
+            print("SETTING CURRUID")
             self.uid = currUid
         }
+        print("GOT HERE")
 //        if appDelegate.viewingUid == appDelegate.currUid {
 //            followButton.hidden = true
 //            favoritesButton.hidden = false
@@ -124,6 +128,16 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     }
                 }
             })
+            
+            profileUsernameLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            profileUsernameLabel.layer.shadowRadius = 5
+            profileUsernameLabel.layer.shadowOpacity = 1.0
+            profileBioLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            profileBioLabel.layer.shadowRadius = 5
+            profileBioLabel.layer.shadowOpacity = 1.0
+            profileEmailLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            profileEmailLabel.layer.shadowRadius = 5
+            profileEmailLabel.layer.shadowOpacity = 1.0
         }
     }
     
