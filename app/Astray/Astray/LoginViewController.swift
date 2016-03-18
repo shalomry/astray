@@ -20,6 +20,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
     @IBOutlet weak var emailBackground: UILabel!
     @IBOutlet weak var passwordBackground: UILabel!
     var ref: Firebase!
+    var keyboardShowing: Bool = false
     
     @IBOutlet weak var loginErrorMessage: UILabel!
     let unknownEmailMsg = "Oops! We couldn't find the specified email address."
@@ -46,12 +47,14 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
         self.view.bringSubviewToFront(self.loginPasswordField)
         self.view.bringSubviewToFront(self.loginEmailField)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: loginPasswordField)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: loginPasswordField)
     }
     
     func keyboardWillShow(notification: NSNotification) {
         
+        if (keyboardShowing) { return }
+        keyboardShowing = true
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
             self.view.frame.origin.y -= keyboardSize.height
         }
@@ -59,6 +62,8 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
     }
     
     func keyboardWillHide(notification: NSNotification) {
+        if (!keyboardShowing) {return}
+        keyboardShowing = false
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
             self.view.frame.origin.y += keyboardSize.height
         }
