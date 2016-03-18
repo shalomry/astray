@@ -48,22 +48,11 @@ class NarrativeViewController: UIViewController {
         
         trackBar.addTarget(self, action: Selector("trackBarMoved"), forControlEvents: UIControlEvents.ValueChanged)
 
-        
-        
-   //     self.view.addSubview(self.overlay)
-        
-        //FOR VIDEO: AVPLAYERLAYER FIGURE OUT
-        
-        // FOR BUTTON FUNCS: http://pastebin.com/6Yz61NW7
-        
-        
-        
         //TRYING FOR IMAGE : loading image from url http://stackoverflow.com/questions/24231680/loading-image-from-url
         //        var url:NSURL = NSURL.URLWithString("http://myURL/ios8.png")
         //        var data:NSData = NSData.dataWithContentsOfURL(url, options: nil, error: nil)
         //
         //        imageView.image = UIImage.imageWithData(data)// Error here
-        
         
     }
     
