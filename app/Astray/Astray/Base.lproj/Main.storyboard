@@ -1395,7 +1395,7 @@
                                 <color key="shadowColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tO-6R-9rh">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tO-6R-9rh">
                                 <rect key="frame" x="411" y="32" width="132" height="30"/>
                                 <state key="normal" title="follow &lt;username&gt;"/>
                                 <connections>
@@ -1432,6 +1432,9 @@
                                     <constraint firstAttribute="width" secondItem="jUS-jt-zUv" secondAttribute="height" multiplier="26.86:38" id="czK-Dz-3fi"/>
                                 </constraints>
                                 <state key="normal" image="back-chevron.tiff"/>
+                                <connections>
+                                    <action selector="goBackButton" destination="vcR-bc-sQL" eventType="touchUpInside" id="RUc-Z0-a6G"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quY-fi-joT">
                                 <rect key="frame" x="151" y="371" width="299" height="41"/>
