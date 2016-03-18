@@ -24,9 +24,6 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
     
     var placeHolderTextDesc = "description"
     var placeHolderTextBody = "body"
-
-    
-    
         
     override func viewDidLoad() {
         super.viewDidLoad()
