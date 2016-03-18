@@ -268,6 +268,9 @@
                                     <constraint firstAttribute="width" secondItem="szH-C7-Lbd" secondAttribute="height" multiplier="146:41" id="mZY-Eq-L9c"/>
                                 </constraints>
                                 <state key="normal" image="create-audio-button.tiff"/>
+                                <connections>
+                                    <action selector="goToRecording" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="pic-Nh-Eh9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK1-Sn-qGJ">
                                 <rect key="frame" x="321" y="450" width="182" height="52"/>
@@ -306,6 +309,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="TEMPBUTTON" destination="m1a-ai-jI1" id="gyC-Ea-I3w"/>
                         <outlet property="mapView" destination="B3K-FH-eaa" id="0ej-1a-6YQ"/>
                         <outlet property="uploadStoryButton" destination="txJ-Bi-nxb" id="RYS-9B-eIt"/>
                     </connections>
@@ -701,6 +705,15 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2T-Ne-qaQ">
+                                <rect key="frame" x="194" y="455" width="105" height="30"/>
+                                <state key="normal" title="Delete Account">
+                                    <color key="titleColor" red="0.85490196080000003" green="0.79215686269999996" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmDelete" destination="tTi-D6-Ar7" eventType="touchUpInside" id="YGm-uD-QIZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.7843137255" green="0.87450980389999999" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
