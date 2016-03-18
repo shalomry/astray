@@ -35,6 +35,9 @@
 		8F24C3DD1C9C89B60001D02C /* read-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3DB1C9C89B60001D02C /* read-button.tiff */; };
 		8F24C3DE1C9C89B60001D02C /* listen-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3DC1C9C89B60001D02C /* listen-button.tiff */; };
 		8F24C3E01C9C99CD0001D02C /* delete-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3DF1C9C99CD0001D02C /* delete-button.tiff */; };
+		8F24C3E21C9CA7450001D02C /* profile-top-bar.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3E11C9CA7450001D02C /* profile-top-bar.tiff */; };
+		8F24C3E51C9CA8160001D02C /* unfollow-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3E31C9CA8160001D02C /* unfollow-button.tiff */; };
+		8F24C3E61C9CA8160001D02C /* follow-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3E41C9CA8160001D02C /* follow-button.tiff */; };
 		8F2791581C84F3FB0058D138 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F2791571C84F3FB0058D138 /* Montserrat-Regular.otf */; };
 		8F27915C1C8507DF0058D138 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */; };
 		8F27916B1C851CE00058D138 /* finish-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F2791641C851CE00058D138 /* finish-button.tiff */; };
@@ -134,6 +137,9 @@
 		8F24C3DB1C9C89B60001D02C /* read-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "read-button.tiff"; path = "UI assets/read-button.tiff"; sourceTree = "<group>"; };
 		8F24C3DC1C9C89B60001D02C /* listen-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "listen-button.tiff"; path = "UI assets/listen-button.tiff"; sourceTree = "<group>"; };
 		8F24C3DF1C9C99CD0001D02C /* delete-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "delete-button.tiff"; path = "UI assets/delete-button.tiff"; sourceTree = "<group>"; };
+		8F24C3E11C9CA7450001D02C /* profile-top-bar.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "profile-top-bar.tiff"; path = "UI assets/profile-top-bar.tiff"; sourceTree = "<group>"; };
+		8F24C3E31C9CA8160001D02C /* unfollow-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "unfollow-button.tiff"; path = "UI assets/unfollow-button.tiff"; sourceTree = "<group>"; };
+		8F24C3E41C9CA8160001D02C /* follow-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "follow-button.tiff"; path = "UI assets/follow-button.tiff"; sourceTree = "<group>"; };
 		8F2791571C84F3FB0058D138 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.otf"; path = "montserrat/Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8F2791641C851CE00058D138 /* finish-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "finish-button.tiff"; path = "UI assets/finish-button.tiff"; sourceTree = "<group>"; };
@@ -292,6 +298,9 @@
 		8F27915F1C850B910058D138 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8F24C3E31C9CA8160001D02C /* unfollow-button.tiff */,
+				8F24C3E41C9CA8160001D02C /* follow-button.tiff */,
+				8F24C3E11C9CA7450001D02C /* profile-top-bar.tiff */,
 				8F24C3DF1C9C99CD0001D02C /* delete-button.tiff */,
 				8F24C3DB1C9C89B60001D02C /* read-button.tiff */,
 				8F24C3DC1C9C89B60001D02C /* listen-button.tiff */,
@@ -495,6 +504,8 @@
 				8FE01EE11C8D73CD009FF8C7 /* create-audio-button.tiff in Resources */,
 				8FFDEE0F1C9BE12400B2E84E /* pause-button.tiff in Resources */,
 				8F27916F1C851CE00058D138 /* login-button.tiff in Resources */,
+				8F24C3E51C9CA8160001D02C /* unfollow-button.tiff in Resources */,
+				8F24C3E21C9CA7450001D02C /* profile-top-bar.tiff in Resources */,
 				C8AD727F1C6AB66F005C54DE /* lakelag.mp3 in Resources */,
 				8F27916B1C851CE00058D138 /* finish-button.tiff in Resources */,
 				8F2791731C851DE40058D138 /* cancel-button.tiff in Resources */,
@@ -509,6 +520,7 @@
 				8FFDEE071C9BC5E900B2E84E /* view-your-stories.tiff in Resources */,
 				6995CDCC1C6A8B510089117D /* sample.mp3 in Resources */,
 				8FF63C281C9C3899001F51CB /* create-text-background.tiff in Resources */,
+				8F24C3E61C9CA8160001D02C /* follow-button.tiff in Resources */,
 				8FF63C2A1C9C41B8001F51CB /* upload-button.tiff in Resources */,
 				C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */,
 				8FFDEE031C9BC2D200B2E84E /* edit-button.tiff in Resources */,
