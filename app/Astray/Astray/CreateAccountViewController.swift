@@ -49,7 +49,7 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UIT
         existingUsernames = NSMutableArray()
         let usersRef = ref.childByAppendingPath("Users")
         usersRef.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot)
+            //print(snapshot)
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 if let username = rest.value.valueForKey("username") {
