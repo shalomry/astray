@@ -263,7 +263,7 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
             "timestamp": timestamp,
             "data": storyData,
             "fileType": "mp3",
-            "viewCount" 0
+            "viewCount": 0
         ]
         
         let childRef = storyRef.childByAutoId()
