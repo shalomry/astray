@@ -19,13 +19,9 @@ class NarrativeViewController: UIViewController {
     @IBOutlet weak var trackBar: UISlider!
     @IBOutlet weak var durationTime: UILabel!
     @IBOutlet weak var currTime: UILabel!
-    //var playerReal: AVAudioPlayer! = AVAudioPlayer()
     
-    //pick whichever one depending on the type of media.
     var playerReal: AVPlayer! = AVPlayer()
     var playerItemReal: AVPlayerItem!
-    //var audioPlayer
-    //var textDisplayer
     var playing = true
     
     var fileURL: NSURL!
@@ -166,7 +162,7 @@ class NarrativeViewController: UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if appDelegate.currStory != nil {
             let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
-            storyInfoRef.observeEventType(.Value, withBlock: { snap in
+            storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
                 let dict = snap.value as! NSDictionary
                 
                 self.fileType = dict.valueForKey("fileType") as! String

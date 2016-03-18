@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var currStory: String?
     var viewingUid: String?
     var ref: Firebase!
+    var stumbleMode: Bool = false
     
 
 

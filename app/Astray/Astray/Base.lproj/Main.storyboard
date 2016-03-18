@@ -285,6 +285,56 @@
             </objects>
             <point key="canvasLocation" x="2912" y="632"/>
         </scene>
+        <!--Text View Controller-->
+        <scene sceneID="OXe-Cz-5FN">
+            <objects>
+                <viewController storyboardIdentifier="TextView" id="KZ4-D8-50f" customClass="TextViewController" customModule="Astray" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9UM-j1-h3N"/>
+                        <viewControllerLayoutGuide type="bottom" id="7FT-ft-cul"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="le8-0Y-rke">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aa-yo-p86">
+                                <rect key="frame" x="34" y="80" width="116" height="30"/>
+                                <state key="normal" title="Back to Discover"/>
+                                <connections>
+                                    <action selector="backToExplore" destination="KZ4-D8-50f" eventType="touchUpInside" id="aEL-0b-EVt"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="story_title_here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="871-qq-bsq">
+                                <rect key="frame" x="34" y="186" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSA-R6-c6Z">
+                                <rect key="frame" x="3" y="260" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8e9-OS-NY0">
+                                <rect key="frame" x="28" y="334" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="storyBody" destination="8e9-OS-NY0" id="jeB-0p-uwX"/>
+                        <outlet property="storyDescription" destination="MSA-R6-c6Z" id="7rG-xW-JBp"/>
+                        <outlet property="titleOfStory" destination="871-qq-bsq" id="sZf-zl-0sY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V9Z-ud-R71" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3374" y="383"/>
+        </scene>
         <!--Create Story Controller-->
         <scene sceneID="Tep-Da-DXw">
             <objects>
@@ -452,7 +502,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcv-UW-gvW">
-                                <rect key="frame" x="227" y="401" width="93" height="30"/>
+                                <rect key="frame" x="226" y="533" width="93" height="30"/>
                                 <state key="normal" title="Upload Audio"/>
                                 <connections>
                                     <action selector="uploadStoryButtonClicked" destination="zrh-q9-MjI" eventType="touchUpInside" id="W7t-UC-KvM"/>
@@ -475,17 +525,32 @@
                                     <action selector="backToCreate:" destination="zrh-q9-MjI" eventType="touchUpInside" id="qXG-fx-LXN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-e1-6iy">
+                                <rect key="frame" x="108" y="396" width="100" height="30"/>
+                                <state key="normal" title="Restart Replay"/>
+                                <connections>
+                                    <action selector="restartReplayAudio" destination="zrh-q9-MjI" eventType="touchUpInside" id="RIO-bC-xbp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfr-bB-h79">
+                                <rect key="frame" x="238" y="396" width="99" height="30"/>
+                                <state key="normal" title="Play Recorded"/>
+                                <connections>
+                                    <action selector="controlReplayAudio" destination="zrh-q9-MjI" eventType="touchUpInside" id="j6K-Cj-9bE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="descriptionHolder" destination="p9k-qR-qhk" id="vgs-Vq-e20"/>
+                        <outlet property="playPauseButton" destination="mfr-bB-h79" id="69g-JH-1zi"/>
                         <outlet property="titleHolder" destination="WHI-Rp-hLr" id="HUC-uA-t5c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdD-Hv-ZEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3082" y="1839"/>
+            <point key="canvasLocation" x="3082" y="1775"/>
         </scene>
         <!--Create Text Controller-->
         <scene sceneID="8Tg-x5-liN">
@@ -509,11 +574,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="body" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xnk-dM-Cp0">
-                                <rect key="frame" x="244" y="263" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db2-8K-Fmz">
                                 <rect key="frame" x="238" y="400" width="90" height="30"/>
                                 <state key="normal" title="Upload Story"/>
@@ -528,12 +588,18 @@
                                     <action selector="backToCreate:" destination="ba1-aP-YRh" eventType="touchUpInside" id="NKW-A4-4ym"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="body" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lpr-fK-Vqz">
+                                <rect key="frame" x="219" y="236" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="backToCreateButton" destination="9nd-Mm-sEW" id="6hY-vL-Uep"/>
-                        <outlet property="bodyHolder" destination="Xnk-dM-Cp0" id="ypa-A0-V3b"/>
+                        <outlet property="bodyHolder" destination="lpr-fK-Vqz" id="cJk-YY-akP"/>
                         <outlet property="descriptionHolder" destination="atP-z3-T1k" id="wMY-Ye-zbc"/>
                         <outlet property="titleHolder" destination="0Iq-Hx-nth" id="PXn-Wp-OwI"/>
                         <outlet property="uploadStoryButton" destination="Db2-8K-Fmz" id="xFV-bg-7JE"/>
