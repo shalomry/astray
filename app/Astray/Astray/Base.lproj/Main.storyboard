@@ -49,16 +49,16 @@
                                     <action selector="goToStory" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Ir-PG-PgE"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aWA-bF-3dh">
-                                <rect key="frame" x="0.0" y="142" width="600" height="367"/>
-                                <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
-                            </mapView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are not within range of this story." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-BH-egh">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="You are not within range of this story." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-BH-egh">
                                 <rect key="frame" x="152" y="545" width="284" height="21"/>
                                 <fontDescription key="fontDescription" name="Existence-UnicaseLight" family="Existence" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aWA-bF-3dh">
+                                <rect key="frame" x="0.0" y="117" width="600" height="367"/>
+                                <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="0.0"/>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-0A-acV">
                                 <rect key="frame" x="26" y="20" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
@@ -81,10 +81,10 @@
                                 </connections>
                             </button>
                             <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZuW-wh-hKp">
-                                <rect key="frame" x="40" y="366" width="520" height="234"/>
+                                <rect key="frame" x="20" y="366" width="540" height="159"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi from story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKL-gt-czR">
-                                        <rect key="frame" x="193" y="145" width="97" height="21"/>
+                                        <rect key="frame" x="213" y="145" width="97" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -99,19 +99,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.91372001171112061" green="0.97842323780059814" blue="0.99981433153152466" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="aWA-bF-3dh" secondAttribute="trailing" constant="20" id="4X9-UQ-1PW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4p9-lQ-IeD" secondAttribute="bottom" constant="10" id="FdQ-eG-a6l"/>
                             <constraint firstItem="ZuW-wh-hKp" firstAttribute="top" secondItem="5hD-ip-9D3" secondAttribute="bottom" constant="316" id="HAC-FT-mHR"/>
-                            <constraint firstItem="aWA-bF-3dh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="HW1-qd-Rhl"/>
                             <constraint firstItem="g0w-BH-egh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IlK-dH-Byq"/>
                             <constraint firstItem="ZuW-wh-hKp" firstAttribute="top" secondItem="4p9-lQ-IeD" secondAttribute="top" constant="-30" id="PUb-SZ-Mqv"/>
                             <constraint firstItem="ZuW-wh-hKp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rgk-iy-b9G"/>
-                            <constraint firstItem="g0w-BH-egh" firstAttribute="top" secondItem="aWA-bF-3dh" secondAttribute="bottom" constant="10" id="YAv-fK-Hap"/>
                             <constraint firstItem="ZuW-wh-hKp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fPG-XD-K0m"/>
-                            <constraint firstItem="aWA-bF-3dh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="q6p-Do-ZWn"/>
-                            <constraint firstItem="4p9-lQ-IeD" firstAttribute="top" secondItem="aWA-bF-3dh" secondAttribute="bottom" constant="10" id="sgf-eG-zhD"/>
                             <constraint firstItem="4p9-lQ-IeD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4G-Ta-U6C"/>
-                            <constraint firstItem="aWA-bF-3dh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vSo-Km-Jhp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1353,7 +1347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neu-eh-1qF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049.5" y="1178.5"/>
+            <point key="canvasLocation" x="1969" y="1392"/>
         </scene>
     </scenes>
     <resources>

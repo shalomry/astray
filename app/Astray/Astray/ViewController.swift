@@ -21,7 +21,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var pinInfoView: UIView!
     
-    @IBOutlet weak var pinInfoContainer: UIView!
     
     
     var locationManager: CLLocationManager!
@@ -87,20 +86,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
-//    func slideUpFromBottom(duration: NSTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
-//        let slideUpFromBottomTransition = CATransition()
-//        if let delegate: AnyObject = completionDelegate {
-//            slideUpFromBottomTransition.delegate = delegate
-//        }
-//        slideUpFromBottomTransition.type = kCATransitionPush
-//        slideUpFromBottomTransition.subtype = kCATransitionFromBottom
-//        slideUpFromBottomTransition.duration = duration
-//        slideUpFromBottomTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-//        slideUpFromBottomTransition.fillMode = kCAFillModeRemoved
-//        
-//        self.layer.addAnimation(slideUpFromBottomTransition, forKey: "slideUpFromBottomTransition")
-//    }
-    
     func navigateToView(view:String) {
         if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
             self.navigationController?.pushViewController(nextView, animated: true)
@@ -146,6 +131,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.navigateToView("SearchView")
     }
     
+    
+    func hidePinInfo(tf: Bool) {
+        self.pinInfoView.hidden = true
+    }
+    
+    func slideOutPinView() {
+        self.pinInfoView.hidden = true
+    }
+    
     func mapView(_ mapView: MKMapView,
         didSelectAnnotationView view: MKAnnotationView) {
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -159,12 +153,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 let storyRef = Firebase(url:url)
                 storyRef.observeEventType(.Value, withBlock: { snapshot in
                     print(snapshot.value)
-                    if var key: String = snapshot.value as? String {
+                    if let key: String = snapshot.value as? String {
                         print("showing view story button")
-                        self.pinInfoView.hidden = false
-                        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
                             self.pinInfoView.frame.origin.y = 0
-                        }, completion: nil)
+                            }, completion: nil)
+                        self.pinInfoView.hidden = false
                         
                         self.viewStoryButton.hidden = false
                         self.notInRangeLabel.hidden = true
@@ -180,7 +174,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     func mapView(_ mapView: MKMapView,
         didDeselectAnnotationView view: MKAnnotationView) {
-            self.viewStoryButton.hidden = true
+            slideOutPinView()
             self.notInRangeLabel.hidden = true
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.currStory = nil
