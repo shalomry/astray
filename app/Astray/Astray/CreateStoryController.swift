@@ -31,9 +31,6 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     var username: String?
     var userId: String?
     
-    //@IBOutlet weak var sliderRadius: UISlider!
-    
-    
     
     var recordButton: UIButton!
     var recordingSession: AVAudioSession!
@@ -205,7 +202,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             do {
                  try NSFileManager.defaultManager().removeItemAtURL(audioURL)
             } catch {
-                print("OMG FILE COULDNT BE DELETED WTHH")
+                print("File could not be deleted from cache.")
             }
             return data!.base64EncodedStringWithOptions(encodeOption)
         }
@@ -242,8 +239,8 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             audioRecorder = try AVAudioRecorder(URL: audioURL, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.record()
-
             recordButton.setTitle("Tap to Stop", forState: .Normal)
+            
         } catch {
             print("recorder couldn't be built")
             finishRecording(success: false)
@@ -297,8 +294,6 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        
-        do{
             let storyInfo: NSDictionary = [
                 "title": "titleofastory",
            //     "description": self.storyDescription.text!, //also fix title and filetype!!!
@@ -315,15 +310,10 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             let childRef = storyRef.childByAutoId()
             childRef.setValue(storyInfo)
             
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             print("KEY:")
             print(childRef.key)
             appDelegate.currStory = childRef.key
             self.navigateToView("DiscoverView") //or should we go back to discover view instead??
-        }
-        catch {
-            print("videoData could not be uploaded.")
-        }
         
     }
     
