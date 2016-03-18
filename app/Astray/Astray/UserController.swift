@@ -75,10 +75,10 @@ class UserController : UIViewController, UIActionSheetDelegate {
                     if self.storyUsernameLabel != nil {
                         self.storyUsernameLabel.text = "\(username)"
                     }
-                    if self.goToStoriesButton != nil {
-                        let title = "\(username)'s Stories"
-                        self.goToStoriesButton.setTitle(title, forState: .Normal)
-                    }
+//                    if self.goToStoriesButton != nil {
+//                        let title = "\(username)'s Stories"
+//                        self.goToStoriesButton.setTitle(title, forState: .Normal)
+//                    }
                     if self.followButton != nil {
                         self.followButton.setTitle("Follow \(username)", forState: .Normal)
                     }
@@ -150,6 +150,11 @@ class UserController : UIViewController, UIActionSheetDelegate {
     
     @IBAction func goToFavorites() {
         self.navigateToView("FavoritesView")
+    }
+    
+    
+    @IBAction func goToStories() {
+        self.navigateToView("UserStoriesView")
     }
     
     @IBAction func goBack() {

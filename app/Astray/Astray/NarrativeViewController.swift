@@ -15,6 +15,8 @@ import Firebase
 class NarrativeViewController: UIViewController {
     @IBOutlet weak var strFiles: UITextView!
     @IBOutlet weak var playPause: UIButton!
+    @IBOutlet weak var storyTitle: UILabel!
+    @IBOutlet weak var timeBar: UIProgressView!
     //var playerReal: AVAudioPlayer! = AVAudioPlayer()
     
     //pick whichever one depending on the type of media.
@@ -28,6 +30,8 @@ class NarrativeViewController: UIViewController {
     var payload: String!
     var fileType: String = "mov"
     
+    var timer : NSTimer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +42,8 @@ class NarrativeViewController: UIViewController {
         } catch {
             debugPrint("Generic error")
         }
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "updateBar", userInfo: nil, repeats: true)
 
         
         
@@ -66,12 +72,20 @@ class NarrativeViewController: UIViewController {
     @IBAction func controlAudio() {
         if playing {
             playerReal.pause()
-            playPause.setTitle(">", forState: .Normal)
+            if let image = UIImage(named: "play-button.tiff") {
+                playPause.setImage(image, forState: .Normal)
+            }
         } else {
             playerReal.play()
-            playPause.setTitle("| |", forState: .Normal)
+            if let image = UIImage(named: "pause-button.tiff") {
+                playPause.setImage(image, forState: .Normal)
+            }
         }
         playing = !playing
+    }
+    
+    func updateBar() {
+        timeBar?.progress = Float(CMTimeGetSeconds(playerReal.currentTime())) / Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
     }
     
 //    
@@ -92,7 +106,9 @@ class NarrativeViewController: UIViewController {
     @IBAction func restartAudio() {
         playerReal.pause()
         playerReal.seekToTime(CMTimeMake(0, 1))
-        playPause.setTitle("| |", forState: .Normal)
+        if let image = UIImage(named: "pause-button.tiff") {
+            playPause.setImage(image, forState: .Normal)
+        }
         playerReal.play()
         playing = true
     }
@@ -123,6 +139,12 @@ class NarrativeViewController: UIViewController {
                 self.payload = dict.valueForKey("data") as! String
                 
                 print(dict.valueForKey("title") as! String)
+                
+                self.storyTitle.text = dict.valueForKey("title") as! String
+                
+                self.storyTitle.layer.shadowOffset = CGSize(width: 0, height: 0)
+                self.storyTitle.layer.shadowRadius = 5
+                self.storyTitle.layer.shadowOpacity = 1.0
                 
                 let decodeOption = NSDataBase64DecodingOptions(rawValue: 0)
                 let decodedData = NSData(base64EncodedString: self.payload, options: decodeOption)

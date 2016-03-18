@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 import MapKit
 import CoreLocation
 import Firebase
@@ -78,6 +79,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         })
 
                     }
+                })
+            rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildAdded, withBlock: { snapshot in
+                    print("NEW THING IN RANGE")
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    // story id = snapshot.value
+                    print(snapshot.value)
                 })
             }
         } else {
