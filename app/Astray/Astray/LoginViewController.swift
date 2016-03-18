@@ -47,12 +47,12 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
         self.view.bringSubviewToFront(self.loginPasswordField)
         self.view.bringSubviewToFront(self.loginEmailField)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: loginPasswordField)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: loginPasswordField)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        
+        print(keyboardShowing)
         if (keyboardShowing) { return }
         keyboardShowing = true
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
@@ -62,6 +62,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
     }
     
     func keyboardWillHide(notification: NSNotification) {
+        print(keyboardShowing)
         if (!keyboardShowing) {return}
         keyboardShowing = false
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
