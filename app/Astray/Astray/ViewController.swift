@@ -284,6 +284,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         subLine = " ~ " + subLine
                     }
                     if let views = dict.valueForKey("viewCount") {
+                        print(views.integerValue)
+                        if views.integerValue==1{
+                            self.viewCountAtInfoView.text = (views.stringValue)+" view"
+                        }
                         self.viewCountAtInfoView.text = (views.stringValue)+" views"
                     }
                     let fileType = dict.valueForKey("fileType") as? String
