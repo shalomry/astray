@@ -19,6 +19,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var notInRangeLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
     
+    @IBOutlet weak var pinInfoView: UIView!
+    
+    @IBOutlet weak var pinInfoContainer: UIView!
+    
+    
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +86,20 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+//    func slideUpFromBottom(duration: NSTimeInterval = 1.0, completionDelegate: AnyObject? = nil) {
+//        let slideUpFromBottomTransition = CATransition()
+//        if let delegate: AnyObject = completionDelegate {
+//            slideUpFromBottomTransition.delegate = delegate
+//        }
+//        slideUpFromBottomTransition.type = kCATransitionPush
+//        slideUpFromBottomTransition.subtype = kCATransitionFromBottom
+//        slideUpFromBottomTransition.duration = duration
+//        slideUpFromBottomTransition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+//        slideUpFromBottomTransition.fillMode = kCAFillModeRemoved
+//        
+//        self.layer.addAnimation(slideUpFromBottomTransition, forKey: "slideUpFromBottomTransition")
+//    }
+    
     func navigateToView(view:String) {
         if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
             self.navigationController?.pushViewController(nextView, animated: true)
@@ -134,6 +153,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     print(snapshot.value)
                     if var key: String = snapshot.value as? String {
                         print("showing view story button")
+                        self.pinInfoView.slideUpFromBottom()
                         self.viewStoryButton.hidden = false
                         self.notInRangeLabel.hidden = true
                         appDelegate.currStory = key

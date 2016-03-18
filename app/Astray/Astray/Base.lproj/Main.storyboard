@@ -77,6 +77,18 @@
                                     <action selector="goToSearch" destination="BYZ-38-t0r" eventType="touchUpInside" id="JQO-WK-ldd"/>
                                 </connections>
                             </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZuW-wh-hKp">
+                                <rect key="frame" x="180" y="597" width="253" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hi from story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKL-gt-czR">
+                                        <rect key="frame" x="50" y="55" width="97" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.91372001171112061" green="0.97842323780059814" blue="0.99981433153152466" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -84,7 +96,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4p9-lQ-IeD" secondAttribute="bottom" constant="10" id="FdQ-eG-a6l"/>
                             <constraint firstItem="aWA-bF-3dh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="HW1-qd-Rhl"/>
                             <constraint firstItem="g0w-BH-egh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IlK-dH-Byq"/>
+                            <constraint firstItem="ZuW-wh-hKp" firstAttribute="top" secondItem="4p9-lQ-IeD" secondAttribute="bottom" constant="17" id="PUb-SZ-Mqv"/>
                             <constraint firstItem="g0w-BH-egh" firstAttribute="top" secondItem="aWA-bF-3dh" secondAttribute="bottom" constant="10" id="YAv-fK-Hap"/>
+                            <constraint firstItem="ZuW-wh-hKp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fPG-XD-K0m"/>
                             <constraint firstItem="aWA-bF-3dh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="q6p-Do-ZWn"/>
                             <constraint firstItem="4p9-lQ-IeD" firstAttribute="top" secondItem="aWA-bF-3dh" secondAttribute="bottom" constant="10" id="sgf-eG-zhD"/>
                             <constraint firstItem="4p9-lQ-IeD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u4G-Ta-U6C"/>
@@ -98,13 +112,14 @@
                     <connections>
                         <outlet property="mapView" destination="aWA-bF-3dh" id="UPu-RM-mya"/>
                         <outlet property="notInRangeLabel" destination="g0w-BH-egh" id="glT-7h-rOW"/>
+                        <outlet property="pinInfoView" destination="ZuW-wh-hKp" id="X0Q-0n-0u6"/>
                         <outlet property="searchButton" destination="5hD-ip-9D3" id="ERw-y2-LK5"/>
                         <outlet property="viewStoryButton" destination="4p9-lQ-IeD" id="c4K-mq-TFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2076" y="613"/>
+            <point key="canvasLocation" x="2076" y="571"/>
         </scene>
         <!--RecordingViewController-->
         <scene sceneID="iWa-G3-YgS">
@@ -1268,6 +1283,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vvz-CN-e7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1264" y="613"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="i2W-a6-pma">
+            <objects>
+                <viewController id="kZS-cQ-fpp" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RYd-dX-vTe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Story title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asu-Db-124">
+                                <rect key="frame" x="82" y="10" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDq-R5-fB6">
+                                <rect key="frame" x="82" y="77" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvz-Uo-63x">
+                                <rect key="frame" x="82" y="48" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="neu-eh-1qF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2049.5" y="1178.5"/>
         </scene>
     </scenes>
     <resources>
