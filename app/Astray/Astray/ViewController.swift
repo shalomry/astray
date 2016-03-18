@@ -19,6 +19,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var notInRangeLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
     
+    @IBOutlet weak var pinInfoView: UIView!
+    
+    
+    
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,6 +131,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.navigateToView("SearchView")
     }
     
+
+    func slideOutPinView() {
+        self.pinInfoView.hidden = true
+    }
+    
     func mapView(_ mapView: MKMapView,
         didSelectAnnotationView view: MKAnnotationView) {
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -140,8 +149,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 let storyRef = Firebase(url:url)
                 storyRef.observeEventType(.Value, withBlock: { snapshot in
                     print(snapshot.value)
-                    if var key: String = snapshot.value as? String {
+                    if let key: String = snapshot.value as? String {
                         print("showing view story button")
+                        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
+                            self.pinInfoView.frame.origin.y = 0
+                            }, completion: nil)
+                        self.pinInfoView.hidden = false
+                        
                         self.viewStoryButton.hidden = false
                         self.notInRangeLabel.hidden = true
                         appDelegate.currStory = key
@@ -156,7 +170,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     func mapView(_ mapView: MKMapView,
         didDeselectAnnotationView view: MKAnnotationView) {
-            self.viewStoryButton.hidden = true
+            slideOutPinView()
             self.notInRangeLabel.hidden = true
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.currStory = nil

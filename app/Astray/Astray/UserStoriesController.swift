@@ -22,6 +22,7 @@ class UserStoriesController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var storyUsernameLabel: UILabel!
     
+    @IBOutlet weak var pinInfoView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +90,41 @@ class UserStoriesController: UIViewController, MKMapViewDelegate, CLLocationMana
         } else {
             self.navigateToView("LoginView")
         }
+    }
+    
+    
+    
+    func mapView(_ mapView: MKMapView,
+        didSelectAnnotationView view: MKAnnotationView) {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            var title: String = ""
+            if let aTitle = mapView.selectedAnnotations[0].title {
+                title = aTitle!
+            } else { return; }
+            if (title == "Current Location") { return; }
+            let url = "https://astray194.firebaseio.com/Users/"+self.viewingUid!+"/availablestories/"+title
+            let storyRef = Firebase(url:url)
+            storyRef.observeEventType(.Value, withBlock: { snapshot in
+                print(snapshot.value)
+                if let key: String = snapshot.value as? String {
+                    print("showing view story button")
+                    UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8,initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
+                            self.pinInfoView.frame.origin.y = 0
+                            }, completion: nil)
+                    self.pinInfoView.hidden = false
+                    appDelegate.currStory = key
+                } else {
+                    print("showing not in range label")
+                }
+            })
+        
+    }
+    
+    func mapView(_ mapView: MKMapView,
+        didDeselectAnnotationView view: MKAnnotationView) {
+            self.pinInfoView.hidden = true
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.currStory = nil
     }
     
     func navigateToView(view:String) {
