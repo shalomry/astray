@@ -20,6 +20,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
     @IBOutlet weak var emailBackground: UILabel!
     @IBOutlet weak var passwordBackground: UILabel!
     var ref: Firebase!
+    var keyboardShowing: Bool = false
     
     @IBOutlet weak var loginErrorMessage: UILabel!
     let unknownEmailMsg = "Oops! We couldn't find the specified email address."
@@ -45,6 +46,28 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
         emailBackground.layer.shadowOpacity = 1.0
         self.view.bringSubviewToFront(self.loginPasswordField)
         self.view.bringSubviewToFront(self.loginEmailField)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        print(keyboardShowing)
+        if (keyboardShowing) { return }
+        keyboardShowing = true
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y -= keyboardSize.height
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        print(keyboardShowing)
+        if (!keyboardShowing) {return}
+        keyboardShowing = false
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.view.frame.origin.y += keyboardSize.height
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -55,6 +78,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate, UITextField
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
         view.endEditing(true)
         super.touchesBegan(touches, withEvent: event)
+        
     }
     
     func navigateToView(view:String) {

@@ -15,25 +15,35 @@ import GeoFire
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    var ref: Firebase!
+    var activeUid : String!
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var viewStoryButton: UIButton!
-    @IBOutlet weak var notInRangeLabel: UILabel!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var rangeLabel: UILabel!
     
     @IBOutlet weak var pinInfoView: UIView!
+    
     
     @IBOutlet weak var pinTitleAtInfoView: UILabel!
     @IBOutlet weak var pinTypeAtInfoView: UILabel!
     @IBOutlet weak var pinAuthorAtInfoView: UILabel!
     @IBOutlet weak var pinDescriptionAtInfoView: UILabel!
+    @IBOutlet weak var viewCountAtInfoView: UILabel!
     
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Firebase(url:"https://astray194.firebaseio.com/Users")
+        
+        self.pinInfoView.layer.borderWidth = 0
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         // appDelegate.stumbleMode = true
         if let currUid = appDelegate.currUid {
+            activeUid = currUid
             
             if (CLLocationManager.locationServicesEnabled()) {
                 locationManager = CLLocationManager()
@@ -57,7 +67,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                             let storyKey = child.key
                             let storySnapshot = snapshot.childSnapshotForPath(storyKey)
                             print("adding story")
-                            print(storySnapshot.value.objectForKey("latitude"))
+                            //print(storySnapshot.value.objectForKey("latitude"))
                             let lat = storySnapshot.value.objectForKey("latitude") as! Double
                             let long = storySnapshot.value.objectForKey("longitude") as! Double
                             let loc = CLLocationCoordinate2DMake(lat, long)
@@ -87,23 +97,23 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     })
                     rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildRemoved, withBlock: { snapshot in
                         print("NEW THING IN RANGE")
-                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                        //AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                         // story id = snapshot.value
-                        print(snapshot.value)
+                        // print(snapshot.value)
                     })
                 } else {
                     rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildAdded, withBlock: { snapshot1 in
-                        print("SNAPSHOT 1")
-                        print(snapshot1)
-                        print("SNAPSHOT DONE")
-                        print(snapshot1.value)
+//                        print("SNAPSHOT 1")
+//                        print(snapshot1)
+//                        print("SNAPSHOT DONE")
+//                        print(snapshot1.value)
                         let storyKey = snapshot1.value
                         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                         if (storyKey as! String).characters.count > 0 {
                             rootRef.childByAppendingPath("Stories").childByAppendingPath(storyKey as! String).observeSingleEventOfType(.ChildAdded, withBlock: { storySnapshot in
-                                print("adding story")
-                                print(storySnapshot)
-                                print(storySnapshot.value.objectForKey("latitude"))
+//                                print("adding story")
+//                                print(storySnapshot)
+//                                print(storySnapshot.value.objectForKey("latitude"))
                                 let lat = storySnapshot.value.objectForKey("latitude") as! Double
                                 let long = storySnapshot.value.objectForKey("longitude") as! Double
                                 let loc = CLLocationCoordinate2DMake(lat, long)
@@ -218,6 +228,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.navigateToView("ProfileView")
     }
     
+
+    @IBAction func goToAuthorProfile() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.viewingUid = activeUid
+        self.navigateToView("ProfileMapView")
+    }
+    
     
     @IBAction func goToSearch() {
         self.navigateToView("SearchView")
@@ -250,7 +267,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     else {
                         
                         print("showing not in range label")
-                        self.notInRangeLabel.hidden = false
+                        self.rangeLabel.text = "out of range"
+                        self.pinInfoView.layer.borderWidth = 0
                         self.viewStoryButton.hidden = true
                     }
                 if key != ""{
@@ -259,9 +277,41 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     let dict = snapshot.value as! NSDictionary
                     
                     self.pinTitleAtInfoView.text = dict.valueForKey("title") as? String
-                    self.pinAuthorAtInfoView.text = dict.valueForKey("author_id") as? String
+                    let uid = dict.valueForKey("author_id")
+                    self.activeUid = String(uid!)
+                    let currUserRef = self.ref.childByAppendingPath(String(uid!))
+                    var subLine = ""
+                    currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                        if let username = snapshot.value.objectForKey("username") {
+                            self.pinAuthorAtInfoView.text = "by " + (username as! String)
+                        }
+                        })
+                    if let timestamp = dict.valueForKey("timestamp") {
+                        subLine = timestamp as! String
+                    }
                     self.pinDescriptionAtInfoView.text = dict.valueForKey("description") as? String
-                    self.pinTypeAtInfoView.text = dict.valueForKey("fileType") as? String
+                    if subLine != "" {
+                        subLine = " ~ " + subLine
+                    }
+                    if let views = dict.valueForKey("viewCount") {
+                        print(views.integerValue)
+                        if views.integerValue==1{
+                            self.viewCountAtInfoView.text = (views.stringValue)+" view"
+                        }
+                        self.viewCountAtInfoView.text = (views.stringValue)+" views"
+                    }
+                    let fileType = dict.valueForKey("fileType") as? String
+                    if fileType == "mp3" {
+                        self.pinTypeAtInfoView.text = "Audio" + subLine
+                        if let image = UIImage(named: "listen-button.tiff") {
+                            self.viewStoryButton.setImage(image, forState: .Normal)
+                        }
+                    } else {
+                        self.pinTypeAtInfoView.text = "Text" + subLine
+                        if let image = UIImage(named: "read-button.tiff") {
+                            self.viewStoryButton.setImage(image, forState: .Normal)
+                        }
+                    }
                     
                     UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
                         self.pinInfoView.frame.origin.y = 0
@@ -269,7 +319,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.pinInfoView.hidden = false
                     
                     self.viewStoryButton.hidden = false
-                    self.notInRangeLabel.hidden = true
+                    self.rangeLabel.text = "in range"
+                    self.pinInfoView.layer.borderWidth = 3
+                    self.pinInfoView.layer.borderColor = UIColor(red:235.0/255.0, green:215.0/255.0, blue:159.0/255.0, alpha: 1.0).CGColor
                     appDelegate.currStory = key
                     
                 })
@@ -282,7 +334,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     func mapView(_ mapView: MKMapView,
         didDeselectAnnotationView view: MKAnnotationView) {
             slideOutPinView()
-            self.notInRangeLabel.hidden = true
+            self.rangeLabel.text = "in range"
+            self.pinInfoView.layer.borderWidth = 3
+            self.pinInfoView.layer.borderColor = UIColor(red:235.0/255.0, green:215.0/255.0, blue:159.0/255.0, alpha: 1.0).CGColor
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.currStory = nil
     }

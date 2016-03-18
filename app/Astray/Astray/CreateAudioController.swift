@@ -241,7 +241,11 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
         print("uploadClicked!!")
         let title = self.titleHolder.text
         let description = self.descriptionHolder.text
-    
+        
+        let time =  NSDate()
+        let cal = NSCalendar.currentCalendar()
+        let comps = cal.components([.Day , .Month , .Year], fromDate: time)
+        let timestamp = String(comps.month)+"/"+String(comps.day)+"/"+String(comps.year)
 
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
@@ -251,15 +255,15 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
         
         let storyBundle: NSDictionary = [
             "title": title!,
-            "description": description!, //also fix title and filetype!!!
-            
+            "description": description!,
             "author_id": appDelegate.currUid!,
             "latitude": storyInfo.lat,
             "longitude": storyInfo.long,
             "radius": storyInfo.radius,
-            //   "timestamp": NSDate(),
+            "timestamp": timestamp,
             "data": storyData,
-            "fileType": "mp3"
+            "fileType": "mp3",
+            "viewCount": 0
         ]
         
         let childRef = storyRef.childByAutoId()

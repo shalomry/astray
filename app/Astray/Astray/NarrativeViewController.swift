@@ -87,10 +87,15 @@ class NarrativeViewController: UIViewController {
     }
     
     func updateBar() {
-        let barValue : Float = Float(CMTimeGetSeconds(playerReal.currentTime())) / Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
-        
-        self.trackBar.value = barValue
-        
+        var barValue : Float = 0.1
+        if (playerReal.currentItem?.asset.duration) != nil {
+            let denom = Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
+            if denom != 0 {
+                barValue = Float(CMTimeGetSeconds(playerReal.currentTime())) / denom
+                self.trackBar.value = barValue
+            }
+        }
+        if playerReal.currentTime().value != 0 && playerReal.currentTime().timescale != 0 {
         let currMin = Int(CMTimeGetSeconds((playerReal.currentTime()))) / 60
         let currSec = Int(CMTimeGetSeconds((playerReal.currentTime()))) % 60
         var currSecString = String(currSec)
@@ -109,6 +114,7 @@ class NarrativeViewController: UIViewController {
             durationSecString = "0" + durationSecString
         }
         durationTime.text = String(durationMin) + ":" + durationSecString
+        }
     }
     
 //    
@@ -155,10 +161,19 @@ class NarrativeViewController: UIViewController {
             let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
             storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
                 let dict = snap.value as! NSDictionary
-                
+                print(dict.valueForKey("author_id") as! String)
+                print(appDelegate.currUid!)
                 if((dict.valueForKey("author_id") as! String) == appDelegate.currUid!){
                     self.deleteStoryButton.hidden = false
+                    print("nothidden!!")
+                    
                 }
+                
+                var newViewCount = dict.valueForKey("viewCount") as! NSNumber
+                
+                let viewCountRef = Firebase(url: "https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!+"/viewCount")
+                let val = newViewCount.integerValue + 1
+                viewCountRef.setValue(val)
                 
                 self.fileType = dict.valueForKey("fileType") as! String
                 self.payload = dict.valueForKey("data") as! String
@@ -222,7 +237,7 @@ class NarrativeViewController: UIViewController {
             let storyArray = NSMutableArray()
             storyArray.addObject(currStory)
             appDelegate.deleteStories(storyArray)
-            self.navigateToView("ProfileView")
+            backToExplore()
         }
     }
     

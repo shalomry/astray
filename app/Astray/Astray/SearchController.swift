@@ -66,8 +66,6 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
         filteredIds = NSMutableArray()
         filteredBios = NSMutableArray()
         ref = Firebase(url:"https://astray194.firebaseio.com/Users")
-        print(ref)
-
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
@@ -76,7 +74,7 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
         
 
         ref.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot)
+            //print(snapshot)
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 if let username = rest.value.valueForKey("username") {

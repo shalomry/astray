@@ -49,7 +49,7 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UIT
         existingUsernames = NSMutableArray()
         let usersRef = ref.childByAppendingPath("Users")
         usersRef.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot)
+            //print(snapshot)
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FDataSnapshot {
                 if let username = rest.value.valueForKey("username") {
@@ -78,6 +78,7 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UIT
         self.newPasswordField.delegate = self
         self.newUsernameField.delegate = self
         self.bioField.delegate = self
+        
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -92,6 +93,7 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UIT
     
     
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        self.view.frame.origin.y -= 150
         
         self.bioField.textColor = UIColor(red: 12.0/255.0, green: 18.0/255.0, blue: 24.0/255.0, alpha: 1)
         
@@ -103,6 +105,8 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UIT
     }
     
     func textViewDidEndEditing(textView: UITextView) {
+        self.view.frame.origin.y += 150
+
         if(bioField.text == "") {
             self.bioField.text = placeHolderText
             self.bioField.textColor = UIColor(red: 12.0/255.0, green: 18.0/255.0, blue: 24.0/255.0, alpha: 1)

@@ -18,20 +18,12 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
     
     
     @IBOutlet weak var titleHolder: UITextField!
-    
-    
     @IBOutlet weak var descriptionHolder: UITextView!
-    
-    
     @IBOutlet weak var bodyHolder: UITextView!
-    
     @IBOutlet weak var uploadStoryButton: UIButton!
     
     var placeHolderTextDesc = "description"
     var placeHolderTextBody = "body"
-
-    
-    
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +99,10 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
         
         let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
         
+        let time =  NSDate()
+        let cal = NSCalendar.currentCalendar()
+        let comps = cal.components([.Day , .Month , .Year], fromDate: time)
+        let timestamp = String(comps.month)+"/"+String(comps.day)+"/"+String(comps.year)
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -118,9 +114,10 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
             "latitude": storyInfo.lat,
             "longitude": storyInfo.long,
             "radius": storyInfo.radius,
-            //   "timestamp": NSDate(),
+            "timestamp": timestamp,
             "data": storyData!,
-            "fileType": "txt"
+            "fileType": "txt",
+            "viewCount": 0
         ]
         
         let childRef = storyRef.childByAutoId()
