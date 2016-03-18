@@ -27,6 +27,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("LOADING VIEW CONROLLER")
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
@@ -64,7 +65,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         
                         var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.1)
                         var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
-                            print("Key '\(key)' entered the search area and is at '"+title)
+                            //print("Key '\(key)' entered the search area and is at '"+title)
                             let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
                             storiesRef.childByAppendingPath(title).runTransactionBlock({
                                 (currentData:FMutableData!) in
@@ -73,7 +74,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                             })
                         })
                         var removeHandle = query.observeEventType(GFEventTypeKeyExited, withBlock: { (key: String!, location: CLLocation!) in
-                            print("Key '\(key)' left '"+title)
+                            //print("Key '\(key)' left '"+title)
                             let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
                             storiesRef.childByAppendingPath(title).removeValue()
                         })
@@ -133,6 +134,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             self.navigateToView("NarrativeView")
         }
     }
+    
+    @IBAction func goToProfile() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        print("CURRID: " + appDelegate.currUid!)
+        self.navigateToView("ProfileView")
+    }
+    
     
     @IBAction func goToSearch() {
         self.navigateToView("SearchView")

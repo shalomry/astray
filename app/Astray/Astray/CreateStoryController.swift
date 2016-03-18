@@ -124,6 +124,17 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
+    func navigateToView(view:String) {
+        if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
+            self.navigationController?.pushViewController(nextView, animated: true)
+        }
+    }
+    
+    @IBAction func createAudio() {
+        navigateToView("AudioCreateView")
+    }
+    
+    
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
         var overlayRenderer : MKCircleRenderer = MKCircleRenderer(overlay: overlay);
         overlayRenderer.lineWidth = 1.0
@@ -162,12 +173,6 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
         self.pin.coordinate = mapView.centerCoordinate;
         updateOverlay()
-    }
-    
-    func navigateToView(view:String) {
-        if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
-            self.navigationController?.pushViewController(nextView, animated: true)
-        }
     }
     
     @IBAction func goBack() {
