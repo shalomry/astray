@@ -41,6 +41,10 @@
 		8FE01EE11C8D73CD009FF8C7 /* create-audio-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FE01EDF1C8D73CD009FF8C7 /* create-audio-button.tiff */; };
 		8FF177B11C600EA70035BB3D /* NarrativeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */; };
 		8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8FF177B41C6012B60035BB3D /* sample.mp3 */; };
+		8FFDEE031C9BC2D200B2E84E /* edit-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDEE021C9BC2D200B2E84E /* edit-button.tiff */; };
+		8FFDEE071C9BC5E900B2E84E /* view-your-stories.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDEE041C9BC5E900B2E84E /* view-your-stories.tiff */; };
+		8FFDEE081C9BC5E900B2E84E /* view-followed-profiles.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDEE051C9BC5E900B2E84E /* view-followed-profiles.tiff */; };
+		8FFDEE091C9BC5E900B2E84E /* log-out-profile.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8FFDEE061C9BC5E900B2E84E /* log-out-profile.tiff */; };
 		C840D9141C9BA2B7005EC732 /* SeenStoriesMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C840D9131C9BA2B7005EC732 /* SeenStoriesMapController.swift */; };
 		C848768D1C7BEC8C008C401D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C848768C1C7BEC8C008C401D /* Images.xcassets */; };
 		C8A35F231C73CF5E006B9D4A /* CreateStoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */; };
@@ -114,6 +118,10 @@
 		8FF177B01C600EA70035BB3D /* NarrativeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NarrativeViewController.swift; sourceTree = "<group>"; };
 		8FF177B21C60101D0035BB3D /* sax.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sax.mp3; path = "../../../../../../Qt/Examples/Qt-5.3/svg/embedded/desktopservices/data/sax.mp3"; sourceTree = "<group>"; };
 		8FF177B41C6012B60035BB3D /* sample.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample.mp3; path = Astray/sample.mp3; sourceTree = "<group>"; };
+		8FFDEE021C9BC2D200B2E84E /* edit-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "edit-button.tiff"; path = "UI assets/edit-button.tiff"; sourceTree = "<group>"; };
+		8FFDEE041C9BC5E900B2E84E /* view-your-stories.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "view-your-stories.tiff"; path = "UI assets/view-your-stories.tiff"; sourceTree = "<group>"; };
+		8FFDEE051C9BC5E900B2E84E /* view-followed-profiles.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "view-followed-profiles.tiff"; path = "UI assets/view-followed-profiles.tiff"; sourceTree = "<group>"; };
+		8FFDEE061C9BC5E900B2E84E /* log-out-profile.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "log-out-profile.tiff"; path = "UI assets/log-out-profile.tiff"; sourceTree = "<group>"; };
 		9CC8E458E796A6085933AF88 /* Pods_AstrayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A270DC07E54A6D407493D5CE /* Pods_AstrayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AstrayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FD38F251876BDBBF61A1E7 /* Pods_Astray.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Astray.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,6 +242,10 @@
 		8F27915F1C850B910058D138 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8FFDEE041C9BC5E900B2E84E /* view-your-stories.tiff */,
+				8FFDEE051C9BC5E900B2E84E /* view-followed-profiles.tiff */,
+				8FFDEE061C9BC5E900B2E84E /* log-out-profile.tiff */,
+				8FFDEE021C9BC2D200B2E84E /* edit-button.tiff */,
 				8F660BA41C9B83CC009C0E9F /* profile-background.tiff */,
 				8FE01EDE1C8D73CD009FF8C7 /* create-video-button.tiff */,
 				8FE01EDF1C8D73CD009FF8C7 /* create-audio-button.tiff */,
@@ -391,12 +403,14 @@
 				C848768D1C7BEC8C008C401D /* Images.xcassets in Resources */,
 				8FE01EDD1C8D70C1009FF8C7 /* create-text-button.tiff in Resources */,
 				6995CDCE1C6A8B540089117D /* samplevideo.mov in Resources */,
+				8FFDEE091C9BC5E900B2E84E /* log-out-profile.tiff in Resources */,
 				8F2791701C851CE00058D138 /* login-background.tiff in Resources */,
 				8F660BA51C9B83CC009C0E9F /* profile-background.tiff in Resources */,
 				69B4E6FA1C5056EF00FF1663 /* LaunchScreen.storyboard in Resources */,
 				8F2791581C84F3FB0058D138 /* Montserrat-Regular.otf in Resources */,
 				8FE01EE01C8D73CD009FF8C7 /* create-video-button.tiff in Resources */,
 				8F27916D1C851CE00058D138 /* create-acct-background.tiff in Resources */,
+				8FFDEE081C9BC5E900B2E84E /* view-followed-profiles.tiff in Resources */,
 				8F27916E1C851CE00058D138 /* create-acct-button.tiff in Resources */,
 				69B4E6F71C5056EF00FF1663 /* Assets.xcassets in Resources */,
 				8FE01EE11C8D73CD009FF8C7 /* create-audio-button.tiff in Resources */,
@@ -408,8 +422,10 @@
 				8FE01EDB1C8D69D1009FF8C7 /* create-map-bottom.tiff in Resources */,
 				8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */,
 				8FE01ED91C8D6346009FF8C7 /* create-top-bar.tiff in Resources */,
+				8FFDEE071C9BC5E900B2E84E /* view-your-stories.tiff in Resources */,
 				6995CDCC1C6A8B510089117D /* sample.mp3 in Resources */,
 				C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */,
+				8FFDEE031C9BC2D200B2E84E /* edit-button.tiff in Resources */,
 				8F27916C1C851CE00058D138 /* back-chevron.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
