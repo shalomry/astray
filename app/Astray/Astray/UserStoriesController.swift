@@ -37,6 +37,7 @@ class UserStoriesController: UIViewController, MKMapViewDelegate, CLLocationMana
             
             if self.storyUsernameLabel != nil {
                 let url = "https://astray194.firebaseio.com/Users/"+self.viewingUid!+"/username"
+                print(self.viewingUid)
                 let usernameRef = Firebase(url:url)
                 usernameRef.observeEventType(.Value, withBlock: {
                     snapshot in
