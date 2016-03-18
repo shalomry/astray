@@ -30,6 +30,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         print("LOADING VIEW CONROLLER")
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+       // appDelegate.stumbleMode = true
         if let currUid = appDelegate.currUid {
             
             if (CLLocationManager.locationServicesEnabled()) {
@@ -48,45 +49,111 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 
                 let rootRef = Firebase(url:"https://astray194.firebaseio.com")
                 let geoFire = GeoFire(firebaseRef: rootRef.childByAppendingPath("Geo"))
-                rootRef.childByAppendingPath("Stories").observeEventType(.Value, withBlock: { snapshot in
-                    for child in snapshot.children {
-                        let storyKey = child.key
-                        let storySnapshot = snapshot.childSnapshotForPath(storyKey)
-                        print("adding story")
-                        print(storySnapshot.value.objectForKey("latitude"))
-                        let lat = storySnapshot.value.objectForKey("latitude") as! Double
-                        let long = storySnapshot.value.objectForKey("longitude") as! Double
-                        let loc = CLLocationCoordinate2DMake(lat, long)
-                        let pin = MKPointAnnotation()
-                        pin.coordinate = loc
-                        let title = storySnapshot.value.objectForKey("title") as! String
-                        pin.title = title
-                        self.mapView.addAnnotation(pin)
+                if !appDelegate.stumbleMode {
+                    rootRef.childByAppendingPath("Stories").observeEventType(.Value, withBlock: { snapshot in
+                        for child in snapshot.children {
+                            let storyKey = child.key
+                            let storySnapshot = snapshot.childSnapshotForPath(storyKey)
+                            print("adding story")
+                            print(storySnapshot.value.objectForKey("latitude"))
+                            let lat = storySnapshot.value.objectForKey("latitude") as! Double
+                            let long = storySnapshot.value.objectForKey("longitude") as! Double
+                            let loc = CLLocationCoordinate2DMake(lat, long)
+                            let pin = MKPointAnnotation()
+                            pin.coordinate = loc
+                            let title = storySnapshot.value.objectForKey("title") as! String
+                            pin.title = title
+                            self.mapView.addAnnotation(pin)
                         
-                        var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long), withRadius: 0.1)
-                        var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+                            var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long),     withRadius: 0.1)
+                            var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
                             //print("Key '\(key)' entered the search area and is at '"+title)
-                            let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
-                            storiesRef.childByAppendingPath(title).runTransactionBlock({
-                                (currentData:FMutableData!) in
-                                currentData.value = storyKey
-                                return FTransactionResult.successWithValue(currentData)
+                                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+                                storiesRef.childByAppendingPath(title).runTransactionBlock({
+                                    (currentData:FMutableData!) in
+                                    currentData.value = storyKey
+                                    return FTransactionResult.successWithValue(currentData)
+                                })
                             })
-                        })
-                        var removeHandle = query.observeEventType(GFEventTypeKeyExited, withBlock: { (key: String!, location: CLLocation!) in
-                            //print("Key '\(key)' left '"+title)
-                            let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
-                            storiesRef.childByAppendingPath(title).removeValue()
-                        })
+                            var removeHandle = query.observeEventType(GFEventTypeKeyExited, withBlock: { (key: String!, location: CLLocation!) in
+                                //print("Key '\(key)' left '"+title)
+                                let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+                                storiesRef.childByAppendingPath(title).removeValue()
+                            })
 
-                    }
-                })
-            rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildAdded, withBlock: { snapshot in
-                    print("NEW THING IN RANGE")
-                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-                    // story id = snapshot.value
-                    print(snapshot.value)
-                })
+                        }
+                    })
+                    rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildRemoved, withBlock: { snapshot in
+                        print("NEW THING IN RANGE")
+                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                        // story id = snapshot.value
+                        print(snapshot.value)
+                    })
+                } else {
+                    rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildAdded, withBlock: { snapshot1 in
+                        print("SNAPSHOT 1")
+                        print(snapshot1)
+                        print("SNAPSHOT DONE")
+                        print(snapshot1.value)
+                        let storyKey = snapshot1.value
+                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                        if (storyKey as! String).characters.count > 0 {
+                            rootRef.childByAppendingPath("Stories").childByAppendingPath(storyKey as! String).observeSingleEventOfType(.ChildAdded, withBlock: { storySnapshot in
+                                print("adding story")
+                                print(storySnapshot)
+                                print(storySnapshot.value.objectForKey("latitude"))
+                                let lat = storySnapshot.value.objectForKey("latitude") as! Double
+                                let long = storySnapshot.value.objectForKey("longitude") as! Double
+                                let loc = CLLocationCoordinate2DMake(lat, long)
+                                let pin = MKPointAnnotation()
+                                pin.coordinate = loc
+                                let title = storySnapshot.value.objectForKey("title") as! String
+                                pin.title = title
+                                self.mapView.addAnnotation(pin)
+                                    
+                                var query = geoFire.queryAtLocation(CLLocation(latitude: lat, longitude: long),     withRadius: 0.1)
+                                var addHandle = query.observeEventType(GFEventTypeKeyEntered, withBlock: { (key: String!, location: CLLocation!) in
+                                    //print("Key '\(key)' entered the search area and is at '"+title)
+                                    let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+                                        storiesRef.childByAppendingPath(title).runTransactionBlock({
+                                            (currentData:FMutableData!) in
+                                            currentData.value = storyKey
+                                        return FTransactionResult.successWithValue(currentData)
+                                    })
+                                })
+                                var removeHandle = query.observeEventType(GFEventTypeKeyExited, withBlock: { (key: String!, location: CLLocation!) in
+                                    //print("Key '\(key)' left '"+title)
+                                    let storiesRef = Firebase(url:"https://astray194.firebaseio.com/Users/"+key+"/availablestories")
+                                    storiesRef.childByAppendingPath(title).removeValue()
+                                })
+                                    
+                            })
+                        
+                        
+                        }
+                    })
+                    rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildRemoved, withBlock: { snapshot1 in
+                        let titlesToRemove = NSMutableArray()
+                        for storyKey in snapshot1.children {
+                            if (storyKey as! String).characters.count > 0 {
+                                rootRef.childByAppendingPath("Stories").childByAppendingPath(storyKey as! String).observeSingleEventOfType(.ChildAdded, withBlock: { storySnapshot in
+                                    print("removing story")
+                                    if let title = storySnapshot.value.objectForKey("title") {
+                                        titlesToRemove.addObject(title)
+                                    }
+                                })
+                            }
+                        }
+                        var annotationsToRemove = [MKAnnotation]()
+                        for (pin) in self.mapView.annotations {
+                            if titlesToRemove.containsObject(pin.title!!) {
+                                annotationsToRemove.append(pin)
+                            }
+                        }
+                        self.mapView.removeAnnotations(annotationsToRemove)
+                    })
+
+                }
             }
         } else {
             self.navigateToView("LoginView")
