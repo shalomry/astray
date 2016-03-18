@@ -35,6 +35,11 @@ class TextViewController: UIViewController {
                 }
                 
                 let title = dict.valueForKey("title") as! String
+                let newViewCount = (dict.valueForKey("viewCount") as! Int)
+                
+                let viewCountRef = Firebase(url: "https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!+"/viewCount")
+                viewCountRef.setValue = newViewCount + 1
+                
                 
                 self.titleOfStory.text = "\(title)"
 //                  self.storyDescription.text = dict.valueForKey("description") as! String

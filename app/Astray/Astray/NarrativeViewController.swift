@@ -164,6 +164,11 @@ class NarrativeViewController: UIViewController {
                     
                 }
                 
+                let newViewCount = (dict.valueForKey("viewCount") as! Int)
+                
+                let viewCountRef = Firebase(url: "https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!+"/viewCount")
+                viewCountRef.setValue = newViewCount + 1
+                
                 self.fileType = dict.valueForKey("fileType") as! String
                 self.payload = dict.valueForKey("data") as! String
                 
