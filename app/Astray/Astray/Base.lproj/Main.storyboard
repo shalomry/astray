@@ -13,6 +13,7 @@
             <string>Montserrat-Light</string>
             <string>Montserrat-Light</string>
             <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
         </mutableArray>
         <mutableArray key="Montserrat-Regular.otf">
             <string>Montserrat-Regular</string>
@@ -155,6 +156,12 @@
                                             <action selector="goToStory" destination="BYZ-38-t0r" eventType="touchUpInside" id="oFi-JH-7Yy"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRz-t1-Hln">
+                                        <rect key="frame" x="429" y="80" width="42" height="23"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
+                                        <color key="textColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -227,6 +234,7 @@
                         <outlet property="pinTypeAtInfoView" destination="ihu-Mo-eRI" id="kYk-Pi-h3j"/>
                         <outlet property="rangeLabel" destination="4qM-mY-9Zv" id="xFV-Cr-StD"/>
                         <outlet property="searchButton" destination="5hD-ip-9D3" id="ERw-y2-LK5"/>
+                        <outlet property="viewCountAtInfoView" destination="bRz-t1-Hln" id="PZE-S6-YHQ"/>
                         <outlet property="viewStoryButton" destination="1Cu-bB-73h" id="hkp-dD-H7L"/>
                     </connections>
                 </viewController>

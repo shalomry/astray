@@ -29,6 +29,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var pinTypeAtInfoView: UILabel!
     @IBOutlet weak var pinAuthorAtInfoView: UILabel!
     @IBOutlet weak var pinDescriptionAtInfoView: UILabel!
+    @IBOutlet weak var viewCountAtInfoView: UILabel!
     
     var locationManager: CLLocationManager!
     override func viewDidLoad() {
@@ -281,6 +282,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.pinDescriptionAtInfoView.text = dict.valueForKey("description") as? String
                     if subLine != "" {
                         subLine = " ~ " + subLine
+                    }
+                    if let views = dict.valueForKey("viewCount") {
+                        self.viewCountAtInfoView.text = (views.stringValue)+" views"
                     }
                     let fileType = dict.valueForKey("fileType") as? String
                     if fileType == "mp3" {
