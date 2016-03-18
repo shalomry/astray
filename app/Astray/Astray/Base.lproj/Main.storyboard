@@ -254,6 +254,13 @@
                                     <action selector="createAudio" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="0Sv-B6-zzv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZg-AT-tT6">
+                                <rect key="frame" x="268" y="496" width="38" height="30"/>
+                                <state key="normal" title="TEXT"/>
+                                <connections>
+                                    <action selector="createText" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="uNd-ix-GxY"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK1-Sn-qGJ">
                                 <rect key="frame" x="294" y="451" width="182" height="52"/>
                                 <constraints>
@@ -351,12 +358,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am audio upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-vG-ph1">
-                                <rect key="frame" x="108" y="77" width="135" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcv-UW-gvW">
                                 <rect key="frame" x="227" y="401" width="93" height="30"/>
                                 <state key="normal" title="Upload Audio"/>
@@ -374,6 +375,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2m-bN-2l4">
+                                <rect key="frame" x="27" y="56" width="105" height="30"/>
+                                <state key="normal" title="Back To Create"/>
+                                <connections>
+                                    <action selector="backToCreate:" destination="zrh-q9-MjI" eventType="touchUpInside" id="qXG-fx-LXN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -385,6 +393,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdD-Hv-ZEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3082" y="1839"/>
+        </scene>
+        <!--Create Text Controller-->
+        <scene sceneID="8Tg-x5-liN">
+            <objects>
+                <viewController storyboardIdentifier="TextCreateView" id="ba1-aP-YRh" customClass="CreateTextController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KwC-qG-C5g"/>
+                        <viewControllerLayoutGuide type="bottom" id="oq9-CF-UoX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7yR-7H-svs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Iq-Hx-nth">
+                                <rect key="frame" x="235" y="92" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="description" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="atP-z3-T1k">
+                                <rect key="frame" x="235" y="176" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="body" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xnk-dM-Cp0">
+                                <rect key="frame" x="244" y="263" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db2-8K-Fmz">
+                                <rect key="frame" x="238" y="400" width="90" height="30"/>
+                                <state key="normal" title="Upload Story"/>
+                                <connections>
+                                    <action selector="uploadStoryButtonClicked" destination="ba1-aP-YRh" eventType="touchUpInside" id="2e0-es-FN9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nd-Mm-sEW">
+                                <rect key="frame" x="74" y="69" width="102" height="30"/>
+                                <state key="normal" title="Back to Create"/>
+                                <connections>
+                                    <action selector="backToCreate:" destination="ba1-aP-YRh" eventType="touchUpInside" id="NKW-A4-4ym"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backToCreateButton" destination="9nd-Mm-sEW" id="6hY-vL-Uep"/>
+                        <outlet property="bodyHolder" destination="Xnk-dM-Cp0" id="ypa-A0-V3b"/>
+                        <outlet property="descriptionHolder" destination="atP-z3-T1k" id="wMY-Ye-zbc"/>
+                        <outlet property="titleHolder" destination="0Iq-Hx-nth" id="PXn-Wp-OwI"/>
+                        <outlet property="uploadStoryButton" destination="Db2-8K-Fmz" id="xFV-bg-7JE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Agq-jf-1bN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3472" y="1717"/>
         </scene>
         <!--Seen Stories Map Controller-->
         <scene sceneID="zTi-uI-jKx">
