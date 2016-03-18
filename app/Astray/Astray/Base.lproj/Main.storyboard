@@ -548,12 +548,21 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kbv-sa-oPa">
+                                <rect key="frame" x="48" y="360" width="504" height="214"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="504" id="MG1-Is-FGo"/>
+                                    <constraint firstAttribute="height" constant="214" id="bRx-l2-ccZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="hcn-ND-93u" secondAttribute="trailing" constant="-20" id="FAk-gN-bfO"/>
                             <constraint firstItem="hcn-ND-93u" firstAttribute="leading" secondItem="ixo-eN-EEa" secondAttribute="leadingMargin" constant="-20" id="NWr-zr-xRS"/>
                             <constraint firstItem="HLR-6E-kXr" firstAttribute="centerX" secondItem="ixo-eN-EEa" secondAttribute="centerX" id="Raf-XO-3CD"/>
+                            <constraint firstItem="kbv-sa-oPa" firstAttribute="centerX" secondItem="ixo-eN-EEa" secondAttribute="centerX" id="a2f-XL-YHW"/>
                             <constraint firstItem="HLR-6E-kXr" firstAttribute="top" secondItem="hcn-ND-93u" secondAttribute="bottom" constant="15" id="l7Z-uq-aYp"/>
                             <constraint firstItem="lqv-s2-hyk" firstAttribute="top" secondItem="hcn-ND-93u" secondAttribute="bottom" constant="40" id="oGn-PO-Voy"/>
                             <constraint firstItem="hcn-ND-93u" firstAttribute="top" secondItem="ixo-eN-EEa" secondAttribute="topMargin" id="syd-Yt-xJ6"/>
@@ -561,6 +570,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="hcn-ND-93u" id="Qlc-jg-ndY"/>
+                        <outlet property="pinInfoView" destination="kbv-sa-oPa" id="dHp-J3-u4v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGP-Ye-iQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
