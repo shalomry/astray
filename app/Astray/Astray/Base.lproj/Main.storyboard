@@ -165,6 +165,13 @@
                                     <action selector="restartAudio" destination="htA-ZJ-9zY" eventType="touchUpInside" id="0X6-kt-LZ9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMB-dd-zDc">
+                                <rect key="frame" x="33" y="55" width="116" height="30"/>
+                                <state key="normal" title="Back to Discover"/>
+                                <connections>
+                                    <action selector="backToExplore" destination="htA-ZJ-9zY" eventType="touchUpInside" id="Kiw-dV-lPg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -252,6 +259,9 @@
                             <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pzu-LS-YgL">
                                 <rect key="frame" x="180" y="338" width="241" height="31"/>
                                 <color key="tintColor" red="0.92156862750000001" green="0.84313725490000002" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="radiusSlider:" destination="7Xg-TQ-HDl" eventType="valueChanged" id="8lq-nc-IzY"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1a-ai-jI1">
                                 <rect key="frame" x="216" y="531" width="169" height="49"/>
@@ -310,12 +320,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXS-Ai-p01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2563" y="1230"/>
+            <point key="canvasLocation" x="2623" y="1266"/>
         </scene>
-        <!--User Controller-->
+        <!--User Stories Controller-->
         <scene sceneID="vgF-pg-VDK">
             <objects>
-                <viewController storyboardIdentifier="UserStoriesView" id="IOM-a6-7Vf" customClass="UserController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserStoriesView" id="IOM-a6-7Vf" customClass="UserStoriesController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TOr-XD-XFS"/>
                         <viewControllerLayoutGuide type="bottom" id="fMs-vV-ZBw"/>
@@ -337,6 +347,10 @@
                                 <rect key="frame" x="247" y="550" width="107" height="30"/>
                                 <state key="normal" title="View This Story"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izx-gC-W4G">
+                                <rect key="frame" x="53" y="512" width="198" height="30"/>
+                                <state key="normal" title="Show story pin (make pretty)"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.91372001169999995" green="0.97842323779999996" blue="0.99981433149999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -351,6 +365,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="qnk-TJ-b0B" id="maZ-xU-7e2"/>
                         <outlet property="storyUsernameLabel" destination="ahx-uh-aIx" id="x31-LZ-5Al"/>
                     </connections>
                 </viewController>

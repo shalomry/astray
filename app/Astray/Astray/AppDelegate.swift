@@ -56,8 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let storiesSeen = rest.value.valueForKey("storiestheyveseen") as? NSArray {
                     let newStoriesSeen = NSMutableArray()
                     for (story) in storiesSeen {
-                        if !storiesToDelete.containsObject(story) {
-                            newStoriesSeen.addObject(story)
+                        if (story as! String).characters.count > 0 {
+                            if !storiesToDelete.containsObject(story) {
+                                newStoriesSeen.addObject(story)
+                            }
                         }
                     }
                     userRef.childByAppendingPath(rest.key + "/storiestheyveseen").setValue(newStoriesSeen)
@@ -66,8 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let availableStories = rest.value.valueForKey("availablestories") as? NSArray {
                     let newAvailableStories = NSMutableArray()
                     for (story) in availableStories {
-                        if !storiesToDelete.containsObject(story) {
-                            newAvailableStories.addObject(story)
+                        if (story as! String).characters.count > 0 {
+                            if !storiesToDelete.containsObject(story) {
+                                newAvailableStories.addObject(story)
+                            }
                         }
                     }
                     userRef.childByAppendingPath(rest.key + "/availablestories").setValue(newAvailableStories)
@@ -77,8 +81,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if let storiesCreated = rest.value.valueForKey("listofcreatedstories") as? NSArray {
                         let newStoriesCreated = NSMutableArray()
                         for (story) in storiesCreated {
-                            if !storiesToDelete.containsObject(story) {
-                                newStoriesCreated.addObject(story)
+                            if (story as! String).characters.count > 0 {
+                                if !storiesToDelete.containsObject(story) {
+                                    newStoriesCreated.addObject(story)
+                                }
                             }
                         }
                         userRef.childByAppendingPath(rest.key + "/listofcreatedstories").setValue(newStoriesCreated)
