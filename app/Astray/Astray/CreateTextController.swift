@@ -14,19 +14,22 @@ import GeoFire
 import AVFoundation
 
 
-class CreateTextController: UIViewController, CLLocationManagerDelegate, AVAudioRecorderDelegate {
+class CreateTextController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate {
     
     
     @IBOutlet weak var titleHolder: UITextField!
     
     
-    @IBOutlet weak var descriptionHolder: UITextField!
+    @IBOutlet weak var descriptionHolder: UITextView!
     
     
     @IBOutlet weak var bodyHolder: UITextView!
     
     @IBOutlet weak var uploadStoryButton: UIButton!
-    @IBOutlet weak var backToCreateButton: UIButton!
+    
+    var placeHolderTextDesc = "description"
+    var placeHolderTextBody = "body"
+
     
     
         
@@ -34,6 +37,41 @@ class CreateTextController: UIViewController, CLLocationManagerDelegate, AVAudio
         super.viewDidLoad()
         print("at audio view!")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        descriptionHolder.delegate = self
+        bodyHolder.delegate = self
+        
+    }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        
+        print("CLICKED")
+
+        if(textView.text == placeHolderTextDesc || textView.text == placeHolderTextBody) {
+            print("PASSEDTEST")
+            textView.text = ""
+        }
+        
+        return true
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if(textView.text == "" && textView == bodyHolder) {
+            bodyHolder.text = placeHolderTextBody
+        } else if (textView.text == "" && textView == descriptionHolder) {
+            descriptionHolder.text = placeHolderTextDesc
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        descriptionHolder.textColor = UIColor(red: 12.0/255.0, green: 18.0/255.0, blue: 24.0/255.0, alpha: 1)
+        descriptionHolder.text = placeHolderTextDesc
+        descriptionHolder.textContainer.lineFragmentPadding = 0;
+        descriptionHolder.textContainerInset = UIEdgeInsetsZero;
+        bodyHolder.textColor = UIColor(red: 12.0/255.0, green: 18.0/255.0, blue: 24.0/255.0, alpha: 1)
+        bodyHolder.text = placeHolderTextBody
+        bodyHolder.textContainer.lineFragmentPadding = 0;
+        bodyHolder.textContainerInset = UIEdgeInsetsZero;
         
     }
     
@@ -48,10 +86,6 @@ class CreateTextController: UIViewController, CLLocationManagerDelegate, AVAudio
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    
-    @IBAction func backToCreate(sender: AnyObject) {
-        self.navigateToView("CreateStoryView")
-    }
     
     @IBAction func uploadStoryButtonClicked() {
         print("uploadClicked!!")

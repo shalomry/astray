@@ -126,7 +126,7 @@ class NarrativeViewController: UIViewController {
     
     //https://github.com/eliotfowler/EFCircularSlider
     
-    @IBAction func resetAudio() {
+    func resetAudio() {
         playerReal.pause()
         playerReal.seekToTime(CMTimeMake(0, 1))
         if let image = UIImage(named: "play-button.tiff") {

@@ -158,6 +158,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     
                 }
             }
+            view.sendSubviewToBack(mapView)
         } else {
             self.navigateToView("LoginView")
         }

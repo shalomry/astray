@@ -15,25 +15,33 @@ import AVKit
 import AVFoundation
 
 
-class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudioRecorderDelegate {
+class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationManagerDelegate, AVAudioRecorderDelegate {
     
-    @IBOutlet weak var descriptionHolder: UITextField!
     @IBOutlet weak var titleHolder: UITextField!
+    @IBOutlet weak var currTime: UILabel!
+    @IBOutlet weak var descriptionHolder: UITextView!
+    @IBOutlet weak var durationTime: UILabel!
+    @IBOutlet weak var trackBar: CustomUISlider!
+    @IBOutlet weak var recordButton: UIButton!
     var storyData: String!
 
     var finishedRecordingSuccessfully = false
     
-    @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var playPause: UIButton!
    
     var playerReal: AVPlayer! = AVPlayer()
+    var playerItemReal: AVPlayerItem!
     var playing = false
     
     var fileURL: NSURL!
-    var recordButton: UIButton!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var audioURL: NSURL!
     var locationManager: CLLocationManager!
+    
+    var timer : NSTimer!
+    
+    var placeHolderTextDesc = "description"
     
     
     override func viewDidLoad() {
@@ -61,6 +69,30 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
                 // failed to record!
             }
         }
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateBar", userInfo: nil, repeats: true)
+        
+        trackBar.addTarget(self, action: Selector("trackBarMoved"), forControlEvents: UIControlEvents.ValueChanged)
+
+        descriptionHolder.delegate = self
+    }
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        textView.text = ""
+        
+        return true
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if(textView.text == "") {
+            descriptionHolder.text = placeHolderTextDesc
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        descriptionHolder.textColor = UIColor(red: 12.0/255.0, green: 18.0/255.0, blue: 24.0/255.0, alpha: 1)
+        descriptionHolder.text = placeHolderTextDesc
+        descriptionHolder.textContainer.lineFragmentPadding = 0;
+        descriptionHolder.textContainerInset = UIEdgeInsetsZero;
     }
     
     func navigateToView(view:String) {
@@ -75,10 +107,11 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
         } catch {
             print("File could not be deleted from cache.")
         }
-        self.navigateToView("CreateStoryView")
+        goBack()
     }
     
     @IBAction func goBack() {
+        finishedRecordingSuccessfully = false
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -87,7 +120,6 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
         audioRecorder = nil
         
         if success {
-            finishedRecordingSuccessfully = true
             storyData = prepareRecording()
             do{
                 try replayAudioSetup()
@@ -95,9 +127,14 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
             catch{
                 print("Couldn't construct replay audio setup.")
             }
-            recordButton.setTitle("Tap to Re-record", forState: .Normal)
+            finishedRecordingSuccessfully = true
+            if let image = UIImage(named: "record-new-track.tiff") {
+                recordButton.setImage(image, forState: .Normal)
+            }
         } else {
-            recordButton.setTitle("Tap to Record", forState: .Normal)
+            if let image = UIImage(named: "record-new-track.tiff") {
+                recordButton.setImage(image, forState: .Normal)
+            }
             print("recording failed :(")
         }
     }
@@ -120,17 +157,13 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
     }
     
     func loadRecordingUI() {
-        recordButton = UIButton(frame: CGRect(x: 64, y: 64, width: 400, height: 64))
-        recordButton.setTitle("Tap to Record", forState: .Normal)
-        recordButton.titleLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
-        recordButton.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
-      
         recordButton.addTarget(self, action: "recordTapped", forControlEvents: .TouchUpInside)
-        view.addSubview(recordButton)
     }
     
     
     func startRecording(){
+        
+        finishedRecordingSuccessfully = false
         
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let docDir = paths[0]
@@ -150,7 +183,9 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
             audioRecorder = try AVAudioRecorder(URL: audioURL, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.record()
-            recordButton.setTitle("Tap to Stop", forState: .Normal)
+            if let image = UIImage(named: "stop-recording.tiff") {
+                recordButton.setImage(image, forState: .Normal)
+            }
             
         } catch {
             print("recorder couldn't be built")
@@ -228,30 +263,64 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
     
     @IBAction func controlReplayAudio() {
         if(finishedRecordingSuccessfully){
-        if playing {
-            playerReal.pause()
-            if let image = UIImage(named: "play-button.tiff") {
-                playPauseButton.setImage(image, forState: .Normal)
+            if playing {
+                playerReal.pause()
+                if let image = UIImage(named: "play-button.tiff") {
+                    playPause.setImage(image, forState: .Normal)
+                }
+            } else {
+                playerReal.play()
+                if let image = UIImage(named: "pause-button.tiff") {
+                    playPause.setImage(image, forState: .Normal)
+                }
             }
-        } else {
-            playerReal.play()
-            if let image = UIImage(named: "pause-button.tiff") {
-                playPauseButton.setImage(image, forState: .Normal)
-            }
-        }
-        playing = !playing
+            playing = !playing
         }
     }
     
-    @IBAction func restartReplayAudio() {
-        if(finishedRecordingSuccessfully){
+    func trackBarMoved() {
+        if (finishedRecordingSuccessfully) {
+            timer.invalidate()
+            let durDuration = (playerReal.currentItem?.asset.duration)!
+            let durSecs = CMTimeGetSeconds(durDuration)
+            let trackValue = self.trackBar.value
+            playerReal.seekToTime(CMTimeMakeWithSeconds(Float64(trackValue) * durSecs, 1))
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "updateBar", userInfo: nil, repeats: true)
+        }
+    }
+    
+    func updateBar() {
+        if (finishedRecordingSuccessfully) {
+        let barValue : Float = Float(CMTimeGetSeconds(playerReal.currentTime())) / Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
+        
+        self.trackBar.value = barValue
+        
+        let currMin = Int(CMTimeGetSeconds((playerReal.currentTime()))) / 60
+        let currSec = Int(CMTimeGetSeconds((playerReal.currentTime()))) % 60
+        var currSecString = String(currSec)
+        if currSec < 10 {
+            currSecString = "0" + currSecString
+        }
+        currTime.text = String(currMin) + ":" + currSecString
+        
+        let durDuration = (playerReal.currentItem?.asset.duration)!
+        let durSecs = CMTimeGetSeconds(durDuration)
+        
+        let durationMin = Int(durSecs) / 60
+        let durationSec = Int(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!)) % 60
+        var durationSecString = String(durationSec)
+        if durationSec < 10 {
+            durationSecString = "0" + durationSecString
+        }
+        durationTime.text = String(durationMin) + ":" + durationSecString
+        }
+    }
+    
+    func resetAudio() {
         playerReal.pause()
         playerReal.seekToTime(CMTimeMake(0, 1))
-        if let image = UIImage(named: "pause-button.tiff") {
-            playPauseButton.setImage(image, forState: .Normal)
-        }
-        playerReal.play()
-        playing = true
+        if let image = UIImage(named: "play-button.tiff") {
+            playPause.setImage(image, forState: .Normal)
         }
     }
     
@@ -280,9 +349,18 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
                 
                 decodedData!.writeToFile(dataPath, atomically: true)
                 self.fileURL = NSURL(fileURLWithPath: dataPath)
-                self.playerReal = AVPlayer(URL: self.fileURL)
+                self.playerItemReal = AVPlayerItem(URL: self.fileURL)
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: "audioDone", name: AVPlayerItemDidPlayToEndTimeNotification, object: self.playerItemReal)
+        
+                self.playerReal = AVPlayer(playerItem: self.playerItemReal)
                 let playerController = AVPlayerViewController()
-                playerController.player = self.playerReal   
+                playerController.player = self.playerReal
+
+    }
+    
+    func audioDone() {
+        resetAudio()
+        playing = false
     }
     
     override func didReceiveMemoryWarning() {
