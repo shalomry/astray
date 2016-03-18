@@ -28,23 +28,22 @@ class TextViewController: UIViewController {
         if appDelegate.currStory != nil {
             let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
             storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
-                let dict = snap.value as! NSDictionary
+                let dict = snap.value
                 
-                if((dict.valueForKey("author_id") as! String) != appDelegate.currUid!){
+                if((dict.objectForKey("author_id") as! String) != appDelegate.currUid!){
                     self.deleteStoryButton.hidden = true
                 }
                 
-                let title = dict.valueForKey("title") as! String
-                var newViewCount = dict.valueForKey("viewCount") as! NSNumber
+                let title = dict.objectForKey("title") as! String
+   //             var newViewCount = dict.objectForKey("viewCount") as! NSNumber
                 
-                let viewCountRef = Firebase(url: "https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!+"/viewCount")
-                let val = newViewCount.integerValue + 1
-                viewCountRef.setValue(val)
-                
+             //   let viewCountRef = Firebase(url: "https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!+"/viewCount")
+           //     let val = newViewCount.integerValue + 1
+                //viewCountRef.setValue(val)
                 
                 self.titleOfStory.text = "\(title)"
-//                  self.storyDescription.text = dict.valueForKey("description") as! String
-                self.storyBody.text = dict.valueForKey("data") as! String
+//                  self.storyDescription.text = objectForKey("description") as! String
+                self.storyBody.text = dict.objectForKey("data") as! String
                 self.storyBody.textColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 1)
                 self.storyBody.textContainer.lineFragmentPadding = 0;
                 self.storyBody.textContainerInset = UIEdgeInsetsZero;
@@ -94,7 +93,7 @@ class TextViewController: UIViewController {
             let storyArray = NSMutableArray()
             storyArray.addObject(currStory)
             appDelegate.deleteStories(storyArray)
-            self.navigateToView("ProfileView")
+            backToExplore()
         }
     }
     
