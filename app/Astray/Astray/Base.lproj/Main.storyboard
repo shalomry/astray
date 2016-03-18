@@ -278,7 +278,7 @@
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="1Cu-bB-73h" firstAttribute="top" secondItem="ZuW-wh-hKp" secondAttribute="top" constant="242" id="0lz-al-xSl"/>
+                                    <constraint firstItem="1Cu-bB-73h" firstAttribute="top" secondItem="ZuW-wh-hKp" secondAttribute="top" constant="220" id="0lz-al-xSl"/>
                                     <constraint firstItem="ihu-Mo-eRI" firstAttribute="leading" secondItem="ZuW-wh-hKp" secondAttribute="leading" constant="17" id="AVO-Lm-pcu"/>
                                     <constraint firstItem="1Cu-bB-73h" firstAttribute="width" secondItem="ZuW-wh-hKp" secondAttribute="width" multiplier="0.381333" id="BMF-cZ-aWE"/>
                                     <constraint firstItem="ndC-jW-pE1" firstAttribute="centerY" secondItem="ZuW-wh-hKp" secondAttribute="centerY" id="CBm-WQ-HcW"/>
@@ -298,7 +298,7 @@
                                     <constraint firstItem="1Cu-bB-73h" firstAttribute="centerX" secondItem="ZuW-wh-hKp" secondAttribute="centerX" id="jTw-Lq-p6y"/>
                                     <constraint firstAttribute="trailing" secondItem="4qM-mY-9Zv" secondAttribute="trailing" constant="18" id="kR2-k3-pfm"/>
                                     <constraint firstItem="NKL-gt-czR" firstAttribute="top" secondItem="ZuW-wh-hKp" secondAttribute="top" constant="41" id="ld4-6Q-yjU"/>
-                                    <constraint firstItem="k3B-wY-oRE" firstAttribute="leading" secondItem="ZuW-wh-hKp" secondAttribute="leading" constant="221" id="sD3-O3-7jy"/>
+                                    <constraint firstItem="k3B-wY-oRE" firstAttribute="leading" secondItem="ZuW-wh-hKp" secondAttribute="leading" constant="180" id="sD3-O3-7jy"/>
                                 </constraints>
                             </view>
                         </subviews>
