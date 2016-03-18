@@ -17,12 +17,8 @@ class NarrativeViewController: UIViewController {
     @IBOutlet weak var playPause: UIButton!
     @IBOutlet weak var storyTitle: UILabel!
     @IBOutlet weak var timeBar: UIProgressView!
-    //var playerReal: AVAudioPlayer! = AVAudioPlayer()
     
-    //pick whichever one depending on the type of media.
     var playerReal: AVPlayer! = AVPlayer()
-    //var audioPlayer
-    //var textDisplayer
     var playing = true
     
     var fileURL: NSURL!

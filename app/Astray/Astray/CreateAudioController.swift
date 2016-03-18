@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import Firebase
 import GeoFire
+import AVKit
 import AVFoundation
 
 
@@ -20,7 +21,14 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
     @IBOutlet weak var titleHolder: UITextField!
     var storyData: String!
 
+    var finishedRecordingSuccessfully = false
     
+    @IBOutlet weak var playPauseButton: UIButton!
+   
+    var playerReal: AVPlayer! = AVPlayer()
+    var playing = false
+    
+    var fileURL: NSURL!
     var recordButton: UIButton!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
@@ -74,16 +82,19 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    //    @IBAction func videoCreate() {
-    //        self.navigateToView("RecordingView")
-    //    }
-    //
     func finishRecording(success success: Bool) {
         audioRecorder.stop()
         audioRecorder = nil
         
         if success {
+            finishedRecordingSuccessfully = true
             storyData = prepareRecording()
+            do{
+                try replayAudioSetup()
+            }
+            catch{
+                print("Couldn't construct replay audio setup.")
+            }
             recordButton.setTitle("Tap to Re-record", forState: .Normal)
         } else {
             recordButton.setTitle("Tap to Record", forState: .Normal)
@@ -211,6 +222,67 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
         appDelegate.currStory = childRef.key
         self.navigateToView("DiscoverView")
         
+    }
+    
+    
+    
+    @IBAction func controlReplayAudio() {
+        if(finishedRecordingSuccessfully){
+        if playing {
+            playerReal.pause()
+            if let image = UIImage(named: "play-button.tiff") {
+                playPauseButton.setImage(image, forState: .Normal)
+            }
+        } else {
+            playerReal.play()
+            if let image = UIImage(named: "pause-button.tiff") {
+                playPauseButton.setImage(image, forState: .Normal)
+            }
+        }
+        playing = !playing
+        }
+    }
+    
+    @IBAction func restartReplayAudio() {
+        if(finishedRecordingSuccessfully){
+        playerReal.pause()
+        playerReal.seekToTime(CMTimeMake(0, 1))
+        if let image = UIImage(named: "pause-button.tiff") {
+            playPauseButton.setImage(image, forState: .Normal)
+        }
+        playerReal.play()
+        playing = true
+        }
+    }
+    
+    private var firstAppear = true
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        playing = false
+        playerReal.pause()
+        playerReal.seekToTime(CMTimeMake(0, 1))
+    }
+
+    
+    private func replayAudioSetup() throws {
+        
+                let decodeOption = NSDataBase64DecodingOptions(rawValue: 0)
+                let decodedData = NSData(base64EncodedString: storyData, options: decodeOption)
+                
+                let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)
+                let docDir = paths[0]
+                let dataPath = (docDir as NSString).stringByAppendingPathComponent("cacheddata.mp3")
+                
+                decodedData!.writeToFile(dataPath, atomically: true)
+                self.fileURL = NSURL(fileURLWithPath: dataPath)
+                self.playerReal = AVPlayer(URL: self.fileURL)
+                let playerController = AVPlayerViewController()
+                playerController.player = self.playerReal   
     }
     
     override func didReceiveMemoryWarning() {
