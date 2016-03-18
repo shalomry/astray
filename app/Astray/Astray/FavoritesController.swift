@@ -17,6 +17,9 @@ class FavoritesController : UITableViewController {
     var ref: Firebase!
     @IBOutlet var favoritesTable: UITableView!
     
+    @IBOutlet var buttonView: UIView!
+    
+    
     var listOfUsernames: NSMutableArray!
     var listOfIds: NSMutableArray!
     var listOfBios: NSMutableArray!
@@ -26,6 +29,7 @@ class FavoritesController : UITableViewController {
         listOfUsernames = NSMutableArray()
         listOfIds = NSMutableArray()
         listOfBios = NSMutableArray()
+        self.favoritesTable.tableFooterView = buttonView
         ref = Firebase(url:"https://astray194.firebaseio.com/Users")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
@@ -50,6 +54,10 @@ class FavoritesController : UITableViewController {
                 }
             })
         }
+    }
+    
+    @IBAction func goBack() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -16,7 +16,9 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
     
     
     @IBOutlet var resultsTable: UITableView!
+    @IBOutlet weak var searchHeader: UIView!
 
+    @IBOutlet var buttonView: UIView!
     var ref: Firebase!
     
     var listOfUsernames: NSMutableArray!
@@ -28,13 +30,31 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
     var filteredUsernames: NSMutableArray!
     var filteredIds: NSMutableArray!
     var filteredBios: NSMutableArray!
-    let searchController = UISearchController(searchResultsController: nil)
+    var searchController: UISearchController!
     
     @IBOutlet weak var searchBar: UISearchBar!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+     //   let searchContainer = self.childViewControllers[0] as! SearchContainerController
+       // self.searchBar = searchContainer.searchBar
+        self.searchController = UISearchController(searchResultsController: nil)
+//        self.searchController = self.childViewControllers[0] as! SearchContainerController
+//        self.searchBar = searchController.searchBar
+        self.resultsTable.tableFooterView = buttonView
+        
+        if self.resultsTable == nil {
+            print("results table nil")
+        }
+        if self.resultsTable.tableHeaderView == nil {
+            print("results header nil")
+        }
+        if self.searchHeader == nil {
+            print("search header nil")
+        }
+        
+        //self.resultsTable.tableHeaderView = self.searchController.searchBar
         print("IN SEARCH")
         listOfUsernames = NSMutableArray()
         listOfIds = NSMutableArray()
@@ -46,24 +66,17 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
         filteredIds = NSMutableArray()
         filteredBios = NSMutableArray()
         ref = Firebase(url:"https://astray194.firebaseio.com/Users")
-        //print(ref)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
+
         ref.observeEventType(.Value, withBlock: { snapshot in
             //print(snapshot)
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FDataSnapshot {
-             //   print("USER")
-              //  print(" ")
-//                print("id: " + rest.key)
-//               // print(rest.value)
-//                print(rest.value.valueForKey("username")!)
-//                print(rest.value.valueForKey("email")!)
-//                print(" ")
                 if let username = rest.value.valueForKey("username") {
                     if let email = rest.value.valueForKey("email") {
                         self.allIds.addObject(rest.key)
@@ -79,6 +92,10 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
                 }
             }
         })
+    }
+    
+    @IBAction func backButtonPressed() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -107,7 +124,11 @@ class SearchController : UITableViewController, UISearchResultsUpdating {
         if searchController.active && searchController.searchBar.text != "" {
             return filteredUsernames.count
         }
-        return allUsernames.count
+        if let usernames = allUsernames {
+            return usernames.count
+        } else {
+            return 0
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

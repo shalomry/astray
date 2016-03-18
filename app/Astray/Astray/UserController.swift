@@ -11,8 +11,12 @@ import AVKit
 import AVFoundation
 import Firebase
 import CoreData
+import MapKit
+import CoreLocation
 
-class UserController : UIViewController, UIActionSheetDelegate {
+class UserController : UIViewController, UIActionSheetDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    var locationManager: CLLocationManager!
     
     var ref: Firebase!
     var uid: String?
@@ -63,6 +67,52 @@ class UserController : UIViewController, UIActionSheetDelegate {
 //            favoritesButton.hidden = true
 //        }
         if uid != nil {
+            if (self.mapView != nil) {
+                if (CLLocationManager.locationServicesEnabled()) {
+                    locationManager = CLLocationManager()
+                    locationManager.delegate = self
+                    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                    locationManager.requestAlwaysAuthorization()
+                    locationManager.startUpdatingLocation()
+                    
+                    //                let userTrackingArrow = MKUserTrackingBarButtonItem(mapView: self.mapView)
+                    //                self.toolbarItems = [userTrackingArrow]
+                    //                self.navigationController?.setToolbarHidden(true, animated: false)
+                    mapView.showsUserLocation = true
+                    mapView.delegate = self
+                    //                self.mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false);
+            }
+            
+                
+                print("getting stories")
+                var pins = [MKAnnotation]()
+                let rootRef = Firebase(url:"https://astray194.firebaseio.com")
+                Firebase(url:"https://astray194.firebaseio.com/Stories").observeSingleEventOfType(.Value, withBlock: { snapshot in
+                    print("whyyy")
+                    for child in snapshot.children {
+                        let storyKey = child.key
+                        let storySnapshot = snapshot.childSnapshotForPath(storyKey)
+                        print("currUid")
+                        print(self.uid)
+                        print("storyAuthorId")
+                        //print(storySnapshot.value.objectForKey("author_id") as! String)
+                        if (storySnapshot.value.objectForKey("author_id") as! String == self.uid){
+                            print("adding story")
+                            //print(storySnapshot.value.objectForKey("latitude"))
+                            let lat = storySnapshot.value.objectForKey("latitude") as! Double
+                            let long = storySnapshot.value.objectForKey("longitude") as! Double
+                            let loc = CLLocationCoordinate2DMake(lat, long)
+                            let pin = MKPointAnnotation()
+                            pin.coordinate = loc
+                            let title = storySnapshot.value.objectForKey("title") as! String
+                            pin.title = title
+                            if (self.mapView != nil) {self.mapView.addAnnotation(pin)}
+                            pins.append(pin)
+                        }
+                    }
+                    if (self.mapView != nil) {self.mapView.showAnnotations(pins, animated: true)}
+                })
+            }
             let currUserRef = ref.childByAppendingPath(uid)
             currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if let username = snapshot.value.objectForKey("username") {

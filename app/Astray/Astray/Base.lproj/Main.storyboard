@@ -1246,18 +1246,37 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="buttonView" destination="7FP-pV-zR7" id="IrU-Rr-a9T"/>
                         <outlet property="favoritesTable" destination="xOa-Ld-HlL" id="Lgh-2S-c4U"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bF-fE-h8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="7FP-pV-zR7">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzc-pM-XE1">
+                            <rect key="frame" x="13" y="7" width="42" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="Fr4-OY-bZ9"/>
+                                <constraint firstAttribute="width" secondItem="Hzc-pM-XE1" secondAttribute="height" multiplier="42:47" id="NrP-xe-UP3"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="back-chevron.tiff"/>
+                            <connections>
+                                <action selector="goBack" destination="gZW-pw-CHj" eventType="touchUpInside" id="U0Q-dP-gyf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1922" y="-955"/>
         </scene>
-        <!--Search Controller-->
+        <!--Title-->
         <scene sceneID="Zsz-aO-Szg">
             <objects>
                 <tableViewController storyboardIdentifier="SearchView" id="ZOG-og-P7B" customClass="SearchController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7IG-dv-2RB">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" sectionHeaderHeight="28" sectionFooterHeight="28" id="7IG-dv-2RB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1268,16 +1287,13 @@
                             <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="barTintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="ZOG-og-P7B" id="Y1b-6v-ArA"/>
-                            </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Pce-Uo-zg1" detailTextLabel="knh-To-bXO" style="IBUITableViewCellStyleSubtitle" id="75S-HD-l3b">
-                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Pce-Uo-zg1" detailTextLabel="knh-To-bXO" rowHeight="45" style="IBUITableViewCellStyleSubtitle" id="75S-HD-l3b">
+                                <rect key="frame" x="0.0" y="72" width="600" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="75S-HD-l3b" id="exD-Xd-kFn">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pce-Uo-zg1">
@@ -1305,24 +1321,53 @@
                             <outlet property="delegate" destination="ZOG-og-P7B" id="bpl-MC-uZ0"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="l1F-k8-wIg"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="buttonView" destination="fSD-NU-ODu" id="zZp-yY-AeV"/>
                         <outlet property="resultsTable" destination="7IG-dv-2RB" id="Y66-jr-wTW"/>
-                        <outlet property="searchBar" destination="G2i-vW-fk6" id="2G3-Y9-J0x"/>
-                        <outlet property="searchDisplayController" destination="QHQ-Fg-e0q" id="RVz-Yn-osJ"/>
+                        <outlet property="searchBar" destination="v6M-EO-aWH" id="jL1-1s-uGe"/>
+                        <outlet property="searchDisplayController" destination="8gM-GX-iVD" id="ggG-hj-Np8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FSz-AA-IE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="fSD-NU-ODu">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNd-9G-GEr">
+                            <rect key="frame" x="9" y="7" width="47" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="RNd-9G-GEr" secondAttribute="height" multiplier="47:49" id="k3N-AC-BE8"/>
+                                <constraint firstAttribute="height" constant="49" id="wYV-5B-9eD"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="back-chevron.tiff"/>
+                            <connections>
+                                <action selector="backButtonPressed" destination="ZOG-og-P7B" eventType="touchUpInside" id="nCy-44-XJ9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <searchDisplayController id="QHQ-Fg-e0q">
                     <connections>
                         <outlet property="delegate" destination="ZOG-og-P7B" id="a52-bB-5Gh"/>
-                        <outlet property="searchBar" destination="G2i-vW-fk6" id="M2p-As-Fj0"/>
                         <outlet property="searchContentsController" destination="ZOG-og-P7B" id="rxT-nt-SLS"/>
                         <outlet property="searchResultsDataSource" destination="ZOG-og-P7B" id="PPI-0z-l20"/>
                         <outlet property="searchResultsDelegate" destination="ZOG-og-P7B" id="29p-um-h8z"/>
                     </connections>
                 </searchDisplayController>
+                <searchDisplayController id="8gM-GX-iVD">
+                    <connections>
+                        <outlet property="delegate" destination="ZOG-og-P7B" id="Nhq-Fq-EKs"/>
+                        <outlet property="searchContentsController" destination="ZOG-og-P7B" id="0oM-67-uSP"/>
+                        <outlet property="searchResultsDataSource" destination="ZOG-og-P7B" id="VkG-uz-OBI"/>
+                        <outlet property="searchResultsDelegate" destination="ZOG-og-P7B" id="ywU-6V-yCK"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2678" y="-973"/>
+            <point key="canvasLocation" x="2664" y="-978"/>
         </scene>
         <!--Profile-->
         <scene sceneID="4fg-mR-85B">
@@ -1757,7 +1802,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.047058823529411764" green="0.070588235294117646" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -1774,7 +1819,7 @@
                                 <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.047058823529411764" green="0.070588235294117646" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.047058823529411764" green="0.070588235294117646" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -1875,7 +1920,7 @@
                                 <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.047058823529411764" green="0.070588235294117646" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -1887,7 +1932,7 @@
                                 <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                         <color key="value" red="0.047058823529411764" green="0.070588235294117646" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -2045,6 +2090,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40z-Ll-Pjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-752" y="-1649"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fxw-YE-OZ7">
+            <objects>
+                <viewController id="A9u-5s-YN0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8R8-xw-1c6"/>
+                        <viewControllerLayoutGuide type="bottom" id="r46-yz-rH3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r3e-Gt-DEH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IRo-uq-jL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pe2-U5-E18">
+            <objects>
+                <viewController id="dxz-fU-Jsd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZsU-B8-rZn"/>
+                        <viewControllerLayoutGuide type="bottom" id="XTn-SD-In7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hjR-aq-Njv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sfi-ha-yoF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2352" y="-2334.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rAF-pS-qaB">
+            <objects>
+                <viewController id="deS-4a-PWu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WM9-O5-20n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ddn-Wu-Rjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

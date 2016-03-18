@@ -155,6 +155,11 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
     func prepareRecording() -> String{
         let data = NSData(contentsOfURL: audioURL!)
         
+        //manual upload
+//        let url = NSBundle.mainBundle().URLForResource("margaretjacks", withExtension: "mp3")
+//        let data = NSData(contentsOfURL: url!)
+        
+        
         if data != "" {
             
             let encodeOption = NSDataBase64EncodingOptions(rawValue: 0)
