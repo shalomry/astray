@@ -50,12 +50,12 @@ class UserStoriesController: UIViewController, MKMapViewDelegate, CLLocationMana
                 locationManager.requestAlwaysAuthorization()
                 locationManager.startUpdatingLocation()
                 
-                let userTrackingArrow = MKUserTrackingBarButtonItem(mapView: self.mapView)
-                //self.toolbarItems = [userTrackingArrow]
-                self.navigationController?.setToolbarHidden(true, animated: false)
+//                let userTrackingArrow = MKUserTrackingBarButtonItem(mapView: self.mapView)
+//                self.toolbarItems = [userTrackingArrow]
+//                self.navigationController?.setToolbarHidden(true, animated: false)
                 mapView.showsUserLocation = true
                 mapView.delegate = self
-                self.mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false);
+//                self.mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false);
                 
                 print("getting stories")
                 var pins = [MKAnnotation]()
@@ -83,8 +83,8 @@ class UserStoriesController: UIViewController, MKMapViewDelegate, CLLocationMana
                             pins.append(pin)
                         }
                     }
+                    self.mapView.showAnnotations(pins, animated: true)
                 })
-                self.mapView.showAnnotations(pins, animated: true)
             }
         } else {
             self.navigateToView("LoginView")
