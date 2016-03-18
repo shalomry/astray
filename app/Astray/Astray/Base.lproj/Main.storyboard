@@ -70,7 +70,7 @@
                                 <rect key="frame" x="115" y="20" width="30" height="30"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <action selector="createAStory" destination="BYZ-38-t0r" eventType="touchUpInside" id="Daw-k3-Pe5"/>
+                                    <action selector="createAStory" destination="BYZ-38-t0r" eventType="touchUpInside" id="oIv-9G-MN5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hD-ip-9D3">
@@ -215,27 +215,6 @@
                                     </mask>
                                 </variation>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5i-Dz-Fi5">
-                                <rect key="frame" x="412" y="535" width="30" height="30"/>
-                                <state key="normal" title="Text">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0n-SK-PjL">
-                                <rect key="frame" x="494" y="486" width="40" height="30"/>
-                                <state key="normal" title="Audio">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7m-Fa-pba">
-                                <rect key="frame" x="402" y="480" width="40" height="30"/>
-                                <state key="normal" title="Video">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="videoCreate" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="AQa-5A-qrg"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="create-top-bar.tiff" translatesAutoresizingMaskIntoConstraints="NO" id="07d-FU-6Fu">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                 <constraints>
@@ -262,13 +241,6 @@
                                     <action selector="radiusSlider:" destination="7Xg-TQ-HDl" eventType="valueChanged" id="8lq-nc-IzY"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1a-ai-jI1">
-                                <rect key="frame" x="216" y="531" width="169" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="m1a-ai-jI1" secondAttribute="height" multiplier="146:41" id="zh0-6l-shC"/>
-                                </constraints>
-                                <state key="normal" image="create-text-button.tiff"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szH-C7-Lbd">
                                 <rect key="frame" x="94" y="450" width="182" height="53"/>
                                 <constraints>
@@ -277,15 +249,17 @@
                                 <state key="normal" image="create-audio-button.tiff"/>
                                 <connections>
                                     <action selector="createAudio" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="0Sv-B6-zzv"/>
-                                    <action selector="goToRecording" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="pic-Nh-Eh9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK1-Sn-qGJ">
-                                <rect key="frame" x="321" y="450" width="182" height="52"/>
+                                <rect key="frame" x="294" y="451" width="182" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VK1-Sn-qGJ" secondAttribute="height" multiplier="146:41" id="gvX-eL-ZJ9"/>
                                 </constraints>
                                 <state key="normal" image="create-video-button.tiff"/>
+                                <connections>
+                                    <action selector="createVideo" destination="7Xg-TQ-HDl" eventType="touchUpInside" id="0XP-Wi-H0K"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txJ-Bi-nxb">
                                 <rect key="frame" x="32" y="207" width="123" height="30"/>
@@ -303,9 +277,7 @@
                             <constraint firstItem="B3K-FH-eaa" firstAttribute="height" secondItem="tQa-vv-NiI" secondAttribute="height" multiplier="0.425" id="2ou-ra-Owl"/>
                             <constraint firstItem="pzu-LS-YgL" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="3df-EK-ZyZ"/>
                             <constraint firstItem="TSO-N7-aqw" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.513" id="4bn-E5-NUN"/>
-                            <constraint firstItem="m1a-ai-jI1" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="9iC-p9-oV7"/>
                             <constraint firstItem="txJ-Bi-nxb" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="H7A-xE-FRu"/>
-                            <constraint firstItem="m1a-ai-jI1" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="bottom" multiplier="0.843" id="JVn-8O-JXg"/>
                             <constraint firstItem="szH-C7-Lbd" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="M4f-kG-qEv"/>
                             <constraint firstItem="FCc-jY-atv" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.055" id="Nch-T6-wRG"/>
                             <constraint firstItem="07d-FU-6Fu" firstAttribute="top" secondItem="tQa-vv-NiI" secondAttribute="top" id="OwD-Fr-Hzc"/>
@@ -313,7 +285,6 @@
                             <constraint firstItem="VK1-Sn-qGJ" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" multiplier="0.352" id="WXS-9H-lML"/>
                             <constraint firstItem="szH-C7-Lbd" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.123" id="Xxi-4O-VsE"/>
                             <constraint firstItem="FCc-jY-atv" firstAttribute="top" secondItem="07d-FU-6Fu" secondAttribute="bottom" multiplier="0.319" id="Zqe-uZ-FbA"/>
-                            <constraint firstItem="m1a-ai-jI1" firstAttribute="centerX" secondItem="tQa-vv-NiI" secondAttribute="centerX" id="bSi-zq-4oc"/>
                             <constraint firstItem="VK1-Sn-qGJ" firstAttribute="leading" secondItem="tQa-vv-NiI" secondAttribute="trailing" multiplier="0.524" id="cp1-Me-xl3"/>
                             <constraint firstItem="B3K-FH-eaa" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" id="eaR-pO-fUB"/>
                             <constraint firstItem="07d-FU-6Fu" firstAttribute="width" secondItem="tQa-vv-NiI" secondAttribute="width" id="g9a-xH-JUd"/>
@@ -327,7 +298,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="TEMPBUTTON" destination="m1a-ai-jI1" id="gyC-Ea-I3w"/>
                         <outlet property="mapView" destination="B3K-FH-eaa" id="0ej-1a-6YQ"/>
                         <outlet property="uploadStoryButton" destination="txJ-Bi-nxb" id="RYS-9B-eIt"/>
                     </connections>
@@ -337,9 +307,33 @@
             <point key="canvasLocation" x="2623" y="1266"/>
         </scene>
         <!--Create Story Controller-->
+        <scene sceneID="JLT-Dd-DY5">
+            <objects>
+                <viewController storyboardIdentifier="VideoCreateView" id="N9B-5t-O4U" customClass="CreateStoryController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jHZ-tV-NSA"/>
+                        <viewControllerLayoutGuide type="bottom" id="M99-dX-U9M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zVf-6A-f3v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMn-yA-RUe">
+                                <rect key="frame" x="100" y="285" width="113" height="30"/>
+                                <state key="normal" title="Video uploader!!"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Df-qy-h3p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3448" y="1147"/>
+        </scene>
+        <!--Create Audio Controller-->
         <scene sceneID="Mq6-dx-Yjo">
             <objects>
-                <viewController storyboardIdentifier="AudioCreateView" id="zrh-q9-MjI" customClass="CreateStoryController" customModule="Astray" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AudioCreateView" id="zrh-q9-MjI" customClass="CreateAudioController" customModule="Astray" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gf8-id-clH"/>
                         <viewControllerLayoutGuide type="bottom" id="QpD-9m-XYf"/>
@@ -349,14 +343,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I am audio upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-vG-ph1">
-                                <rect key="frame" x="32" y="51" width="135" height="21"/>
+                                <rect key="frame" x="108" y="77" width="135" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcv-UW-gvW">
+                                <rect key="frame" x="227" y="401" width="93" height="30"/>
+                                <state key="normal" title="Upload Audio"/>
+                                <connections>
+                                    <action selector="uploadStoryButtonClicked" destination="zrh-q9-MjI" eventType="touchUpInside" id="W7t-UC-KvM"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="title" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WHI-Rp-hLr">
+                                <rect key="frame" x="159" y="222" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Description" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p9k-qR-qhk">
+                                <rect key="frame" x="210" y="268" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionHolder" destination="p9k-qR-qhk" id="vgs-Vq-e20"/>
+                        <outlet property="titleHolder" destination="WHI-Rp-hLr" id="HUC-uA-t5c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdD-Hv-ZEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1317,7 +1332,6 @@
         <image name="create-acct-button.tiff" width="753" height="189"/>
         <image name="create-audio-button.tiff" width="444" height="129"/>
         <image name="create-map-bottom.tiff" width="1242" height="1074"/>
-        <image name="create-text-button.tiff" width="444" height="129"/>
         <image name="create-top-bar.tiff" width="1242" height="237"/>
         <image name="create-video-button.tiff" width="444" height="129"/>
         <image name="finish-button.tiff" width="753" height="189"/>
