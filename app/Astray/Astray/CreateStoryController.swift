@@ -127,7 +127,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
         var overlayRenderer : MKCircleRenderer = MKCircleRenderer(overlay: overlay);
         overlayRenderer.lineWidth = 1.0
-        overlayRenderer.strokeColor = UIColor.redColor()
+        overlayRenderer.strokeColor = UIColor.blueColor()
         return overlayRenderer
     }
     
