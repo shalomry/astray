@@ -88,10 +88,14 @@ class NarrativeViewController: UIViewController {
     
     func updateBar() {
         var barValue : Float = 0.1
-        barValue = Float(CMTimeGetSeconds(playerReal.currentTime())) / Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
-        
-        self.trackBar.value = barValue
-        
+        if (playerReal.currentItem?.asset.duration) != nil {
+            let denom = Float(CMTimeGetSeconds((playerReal.currentItem?.asset.duration)!))
+            if denom != 0 {
+                barValue = Float(CMTimeGetSeconds(playerReal.currentTime())) / denom
+                self.trackBar.value = barValue
+            }
+        }
+        if playerReal.currentTime().value != 0 && playerReal.currentTime().timescale != 0 {
         let currMin = Int(CMTimeGetSeconds((playerReal.currentTime()))) / 60
         let currSec = Int(CMTimeGetSeconds((playerReal.currentTime()))) % 60
         var currSecString = String(currSec)
@@ -110,6 +114,7 @@ class NarrativeViewController: UIViewController {
             durationSecString = "0" + durationSecString
         }
         durationTime.text = String(durationMin) + ":" + durationSecString
+        }
     }
     
 //    
@@ -226,7 +231,7 @@ class NarrativeViewController: UIViewController {
             let storyArray = NSMutableArray()
             storyArray.addObject(currStory)
             appDelegate.deleteStories(storyArray)
-            self.navigateToView("ProfileView")
+            backToExplore()
         }
     }
     
