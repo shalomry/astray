@@ -31,6 +31,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var favoritesButton: UIButton!
     
+    @IBOutlet weak var mapView: MKMapView!
     let invalidPasswordText = "The password you entered was incorrect."
     let invalidEmailText = "Please enter a valid email address."
     let emailTakenText = "An account with that email already exists."

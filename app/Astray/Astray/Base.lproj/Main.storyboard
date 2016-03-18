@@ -148,6 +148,7 @@
                     </view>
                     <connections>
                         <outlet property="followButton" destination="wrs-Ag-KGQ" id="QWy-Tv-e03"/>
+                        <outlet property="mapView" destination="gaE-b8-CLa" id="ypG-RW-ebh"/>
                         <outlet property="profileBioLabel" destination="dIu-Gb-J08" id="ceD-ec-xch"/>
                         <outlet property="profileUsernameLabel" destination="T84-pf-MtS" id="q0k-WI-Dkg"/>
                     </connections>
