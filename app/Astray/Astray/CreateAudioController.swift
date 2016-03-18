@@ -18,18 +18,8 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
     
     @IBOutlet weak var descriptionHolder: UITextField!
     @IBOutlet weak var titleHolder: UITextField!
-    @IBOutlet weak var storyTitle: UITextField!
-    @IBOutlet weak var storyDescription: UITextField!
-    @IBOutlet weak var storyTextData: UITextField!
-    @IBOutlet var storyData: String!
-    @IBOutlet weak var uploadStoryButton: UIButton!
-    @IBOutlet weak var mapView: MKMapView!
-    var pin: MKPointAnnotation!
-    var radius: Double = minR+initDelta
-    var radiusOverlay: MKCircle = MKCircle()
-    var username: String?
-    var userId: String?
-    
+    var storyData: String!
+
     
     var recordButton: UIButton!
     var recordingSession: AVAudioSession!
@@ -71,6 +61,14 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
         }
     }
     
+    @IBAction func backToCreate(sender: UIButton) {
+        do {
+            try NSFileManager.defaultManager().removeItemAtURL(audioURL)
+        } catch {
+            print("File could not be deleted from cache.")
+        }
+        self.navigateToView("CreateStoryView")
+    }
     
     @IBAction func goBack() {
         self.navigationController?.popViewControllerAnimated(true)

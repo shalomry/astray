@@ -25,6 +25,7 @@
 		69B4E7051C5056EF00FF1663 /* AstrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E7041C5056EF00FF1663 /* AstrayTests.swift */; };
 		69B4E7101C5056EF00FF1663 /* AstrayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B4E70F1C5056EF00FF1663 /* AstrayUITests.swift */; };
 		82E951C01C9BC6B5003B1FC1 /* CreateAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E951BF1C9BC6B4003B1FC1 /* CreateAudioController.swift */; };
+		82E951C21C9BE2D4003B1FC1 /* CreateTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E951C11C9BE2D4003B1FC1 /* CreateTextController.swift */; };
 		8F2791581C84F3FB0058D138 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8F2791571C84F3FB0058D138 /* Montserrat-Regular.otf */; };
 		8F27915C1C8507DF0058D138 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */; };
 		8F27916B1C851CE00058D138 /* finish-button.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F2791641C851CE00058D138 /* finish-button.tiff */; };
@@ -103,6 +104,7 @@
 		69B4E7111C5056EF00FF1663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E4E458BC9672AEEE42EC048 /* Pods-AstrayUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AstrayUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AstrayUITests/Pods-AstrayUITests.release.xcconfig"; sourceTree = "<group>"; };
 		82E951BF1C9BC6B4003B1FC1 /* CreateAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAudioController.swift; sourceTree = "<group>"; };
+		82E951C11C9BE2D4003B1FC1 /* CreateTextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTextController.swift; sourceTree = "<group>"; };
 		8F2791571C84F3FB0058D138 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.otf"; path = "montserrat/Montserrat-Regular.otf"; sourceTree = "<group>"; };
 		8F27915B1C8507DF0058D138 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8F2791641C851CE00058D138 /* finish-button.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "finish-button.tiff"; path = "UI assets/finish-button.tiff"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				6944644C1C688DA100B7A12F /* Story.swift */,
 				C8A35F221C73CF5E006B9D4A /* CreateStoryController.swift */,
 				82E951BF1C9BC6B4003B1FC1 /* CreateAudioController.swift */,
+				82E951C11C9BE2D4003B1FC1 /* CreateTextController.swift */,
 				C848768C1C7BEC8C008C401D /* Images.xcassets */,
 				C8D97A1F1C8D46A0003142CE /* FavoritesController.swift */,
 				C8D97A211C8D692E003142CE /* SearchController.swift */,
@@ -584,6 +587,7 @@
 				C8BCFC9F1C9B70460049F70C /* UserStoriesController.swift in Sources */,
 				6995CDD01C6A8B6B0089117D /* UserController.swift in Sources */,
 				6995CDC81C6A8B360089117D /* LoginViewController.swift in Sources */,
+				82E951C21C9BE2D4003B1FC1 /* CreateTextController.swift in Sources */,
 				6995CDC61C6A8B2B0089117D /* global.swift in Sources */,
 				C8D97A221C8D692E003142CE /* SearchController.swift in Sources */,
 				8F27915C1C8507DF0058D138 /* CreateAccountViewController.swift in Sources */,

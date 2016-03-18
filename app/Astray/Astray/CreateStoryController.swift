@@ -102,16 +102,24 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
-    @IBAction func createVideo() {
-          navigateToView("VideoCreateView")
-    }
-    
-    @IBAction func createAudio() {
+    func collectData(){
         storyInfo.radius = self.radius
         storyInfo.lat = mapView.centerCoordinate.latitude
         storyInfo.long = mapView.centerCoordinate.longitude
-        
-
+    }
+    
+    @IBAction func createVideo() {
+        collectData()
+        navigateToView("VideoCreateView")
+    }
+    
+    @IBAction func createText() {
+        collectData()
+        navigateToView("TextCreateView")
+    }
+    
+    @IBAction func createAudio() {
+        collectData()
         navigateToView("AudioCreateView")
     }
     
@@ -175,44 +183,44 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
 
-    @IBAction func uploadStoryButtonClicked() {
-        let rad = self.radius
-        
-        var lat = mapView.centerCoordinate.latitude
-        var long = mapView.centerCoordinate.longitude
-       
-        if (self.pin != nil) {
-            lat = self.pin.coordinate.latitude
-            long = self.pin.coordinate.longitude
-        }
-        
-        let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
-        
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-            let storyInfo: NSDictionary = [
-                "title": "titleofastory",
-           //     "description": self.storyDescription.text!, //also fix title and filetype!!!
-              
-                "author_id": appDelegate.currUid!,
-                "latitude": lat,
-                "longitude": long,
-                "radius": rad,
-             //   "timestamp": NSDate(),
-                "data": storyData,
-                "fileType": "mp3"
-            ]
-            
-            let childRef = storyRef.childByAutoId()
-            childRef.setValue(storyInfo)
-            
-            print("KEY:")
-            print(childRef.key)
-            appDelegate.currStory = childRef.key
-            self.navigateToView("DiscoverView") //or should we go back to discover view instead??
-        
-    }
+//    @IBAction func uploadStoryButtonClicked() {
+//        let rad = self.radius
+//        
+//        var lat = mapView.centerCoordinate.latitude
+//        var long = mapView.centerCoordinate.longitude
+//       
+//        if (self.pin != nil) {
+//            lat = self.pin.coordinate.latitude
+//            long = self.pin.coordinate.longitude
+//        }
+//        
+//        let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
+//        
+//        
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        
+//            let storyInfo: NSDictionary = [
+//                "title": "titleofastory",
+//           //     "description": self.storyDescription.text!, //also fix title and filetype!!!
+//              
+//                "author_id": appDelegate.currUid!,
+//                "latitude": lat,
+//                "longitude": long,
+//                "radius": rad,
+//             //   "timestamp": NSDate(),
+//                "data": storyData,
+//                "fileType": "mp3"
+//            ]
+//            
+//            let childRef = storyRef.childByAutoId()
+//            childRef.setValue(storyInfo)
+//            
+//            print("KEY:")
+//            print(childRef.key)
+//            appDelegate.currStory = childRef.key
+//            self.navigateToView("DiscoverView") //or should we go back to discover view instead??
+//        
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
