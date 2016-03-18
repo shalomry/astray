@@ -14,13 +14,17 @@ import CoreData
 
 import Foundation
 
-class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
+class CreateAccountViewController : UIViewController, UIActionSheetDelegate, UITextViewDelegate {
     
 
     @IBOutlet weak var newUsernameField: UITextField!
+    @IBOutlet weak var usernameBackground: UILabel!
     @IBOutlet weak var newEmailField: UITextField!
+    @IBOutlet weak var emailBackground: UILabel!
     @IBOutlet weak var newPasswordField: UITextField!
-    @IBOutlet weak var bioField: UITextField!
+    @IBOutlet weak var passwordBackground: UILabel!
+    @IBOutlet weak var bioBackground: UILabel!
+    @IBOutlet weak var bioField: UITextView!
     
     @IBOutlet weak var createAccountErrorMessage: UILabel!
     let invalidEmailMsg = "The specified email address is invalid."
@@ -30,6 +34,8 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
     let usernameTakenMsg = "An account with that username already exists."
     var ref: Firebase!
     var existingUsernames: NSMutableArray!
+    
+    var placeHolderText = "bio"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +57,52 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
                 }
             }
         })
+        
+        usernameBackground.layer.shadowOffset = CGSize(width: 0, height: 0)
+        usernameBackground.layer.shadowRadius = 5
+        usernameBackground.layer.shadowOpacity = 1.0
+        passwordBackground.layer.shadowOffset = CGSize(width: 0, height: 0)
+        passwordBackground.layer.shadowRadius = 5
+        passwordBackground.layer.shadowOpacity = 1.0
+        emailBackground.layer.shadowOffset = CGSize(width: 0, height: 0)
+        emailBackground.layer.shadowRadius = 5
+        emailBackground.layer.shadowOpacity = 1.0
+        bioBackground.layer.shadowOffset = CGSize(width: 0, height: 0)
+        bioBackground.layer.shadowRadius = 5
+        bioBackground.layer.shadowOpacity = 1.0
+        self.view.bringSubviewToFront(self.newUsernameField)
+        self.view.bringSubviewToFront(self.newEmailField)
+        self.view.bringSubviewToFront(self.newPasswordField)
+        self.view.bringSubviewToFront(self.bioField)
+    }
+    
+    
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        
+        self.bioField.textColor = UIColor(red: 12.0/255.0, green: 18.0/255.0, blue: 24.0/255.0, alpha: 1)
+        
+        if(self.bioField.text == placeHolderText) {
+            self.bioField.text = ""
+        }
+        
+        return true
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if(bioField.text == "") {
+            self.bioField.text = placeHolderText
+            self.bioField.textColor = UIColor(red: 193.0/255.0, green: 193.0/255.0, blue: 193.0/255.0, alpha: 1)
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.bioField.textColor = UIColor(red: 193.0/255.0, green: 193.0/255.0, blue: 193.0/255.0, alpha: 1.0)
+        self.bioField.text = placeHolderText
+        self.bioField.textContainer.lineFragmentPadding = 0;
+        self.bioField.textContainerInset = UIEdgeInsetsZero;
+        
+        //COMMENT IN TO BRING BACK AUTH
+        //    self.navigationItem.setHidesBackButton(true, animated:true)
     }
     
     func navigateToView(view:String) {
@@ -111,11 +163,6 @@ class CreateAccountViewController : UIViewController, UIActionSheetDelegate {
     
     @IBAction func cancel() {
         self.navigateToView("LoginView")
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        //COMMENT IN TO BRING BACK AUTH
-        //    self.navigationItem.setHidesBackButton(true, animated:true)
     }
     
     

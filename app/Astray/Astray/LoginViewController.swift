@@ -17,6 +17,8 @@ import Foundation
 class LoginViewController : UIViewController, UIActionSheetDelegate {
     @IBOutlet weak var loginPasswordField: UITextField!
     @IBOutlet weak var loginEmailField: UITextField!
+    @IBOutlet weak var emailBackground: UILabel!
+    @IBOutlet weak var passwordBackground: UILabel!
     var ref: Firebase!
     
     @IBOutlet weak var loginErrorMessage: UILabel!
@@ -32,6 +34,15 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         if self.loginErrorMessage != nil {
             self.loginErrorMessage.text = ""
         }
+        
+        passwordBackground.layer.shadowOffset = CGSize(width: 0, height: 0)
+        passwordBackground.layer.shadowRadius = 5
+        passwordBackground.layer.shadowOpacity = 1.0
+        emailBackground.layer.shadowOffset = CGSize(width: 0, height: 0)
+        emailBackground.layer.shadowRadius = 5
+        emailBackground.layer.shadowOpacity = 1.0
+        self.view.bringSubviewToFront(self.loginPasswordField)
+        self.view.bringSubviewToFront(self.loginEmailField)
     }
     
     func navigateToView(view:String) {
