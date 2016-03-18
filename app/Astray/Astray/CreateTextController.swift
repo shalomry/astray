@@ -116,7 +116,8 @@ class CreateTextController: UIViewController, UITextViewDelegate, CLLocationMana
             "radius": storyInfo.radius,
             "timestamp": timestamp,
             "data": storyData!,
-            "fileType": "txt"
+            "fileType": "txt",
+            "viewCount": 0
         ]
         
         let childRef = storyRef.childByAutoId()
