@@ -302,10 +302,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rl9-Dk-pbT">
+                                <rect key="frame" x="370" y="416" width="107" height="30"/>
+                                <state key="normal" title="DELETE STORY"/>
+                                <connections>
+                                    <action selector="deleteClicked:" destination="KZ4-D8-50f" eventType="touchUpInside" id="Rq0-oj-hYG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="deleteStoryButton" destination="Rl9-Dk-pbT" id="krf-6L-QjN"/>
                         <outlet property="storyBody" destination="8e9-OS-NY0" id="jeB-0p-uwX"/>
                         <outlet property="storyDescription" destination="MSA-R6-c6Z" id="7rG-xW-JBp"/>
                         <outlet property="titleOfStory" destination="871-qq-bsq" id="sZf-zl-0sY"/>
@@ -313,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9Z-ud-R71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3374" y="383"/>
+            <point key="canvasLocation" x="3372" y="333"/>
         </scene>
         <!--Create Story Controller-->
         <scene sceneID="Tep-Da-DXw">

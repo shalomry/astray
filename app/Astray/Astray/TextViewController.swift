@@ -19,8 +19,8 @@ class TextViewController: UIViewController {
     @IBOutlet weak var storyDescription: UILabel!
     @IBOutlet weak var storyBody: UILabel!
     
- //   @IBOutlet weak var titleOfStory: UILabel!
-    
+    @IBOutlet weak var deleteStoryButton: UIButton!
+  
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -29,6 +29,11 @@ class TextViewController: UIViewController {
             let storyInfoRef = Firebase(url:"https://astray194.firebaseio.com/Stories/"+appDelegate.currStory!)
             storyInfoRef.observeSingleEventOfType(.Value, withBlock: { snap in
                 let dict = snap.value as! NSDictionary
+                
+                if((dict.valueForKey("author_id") as! String) != appDelegate.currUid!){
+                    self.deleteStoryButton.hidden = true
+                }
+                
                 let title = dict.valueForKey("title") as! String
                 
                 self.titleOfStory.text = "\(title)"
@@ -71,10 +76,11 @@ class TextViewController: UIViewController {
     }
     
     
-    //TODO: check if this story was uploaded by the given user.
-    //if so, show the delete button.
-    func delete() {
+    @IBAction func deleteClicked(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        // TODO: ASK FOR CONFIRMATION!!!!
+        
         if let currStory = appDelegate.currStory {
             let storyArray = NSMutableArray()
             storyArray.addObject(currStory)
@@ -82,7 +88,6 @@ class TextViewController: UIViewController {
             self.navigateToView("ProfileView")
         }
     }
-    
     
 }
 
