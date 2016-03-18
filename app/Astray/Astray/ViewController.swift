@@ -268,20 +268,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.pinTitleAtInfoView.text = dict.valueForKey("title") as? String
                     let uid = dict.valueForKey("author_id")
                     let currUserRef = self.ref.childByAppendingPath(String(uid!))
+                    var subLine = ""
                     currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                         if let username = snapshot.value.objectForKey("username") {
                             self.pinAuthorAtInfoView.text = "by " + (username as! String)
                         }
                         })
+                    if let timestamp = dict.valueForKey("timestamp") {
+                        subLine = timestamp as! String
+                    }
                     self.pinDescriptionAtInfoView.text = dict.valueForKey("description") as? String
+                    if subLine != "" {
+                        subLine = " ~ " + subLine
+                    }
                     let fileType = dict.valueForKey("fileType") as? String
                     if fileType == "mp3" {
-                        self.pinTypeAtInfoView.text = "Audio"
+                        self.pinTypeAtInfoView.text = "Audio" + subLine
                         if let image = UIImage(named: "listen-button.tiff") {
                             self.viewStoryButton.setImage(image, forState: .Normal)
                         }
                     } else {
-                        self.pinTypeAtInfoView.text = "Text"
+                        self.pinTypeAtInfoView.text = "Text" + subLine
                         if let image = UIImage(named: "read-button.tiff") {
                             self.viewStoryButton.setImage(image, forState: .Normal)
                         }
