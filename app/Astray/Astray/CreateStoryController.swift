@@ -106,6 +106,11 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     }
     
     @IBAction func createAudio() {
+        storyInfo.radius = self.radius
+        storyInfo.lat = mapView.centerCoordinate.latitude
+        storyInfo.long = mapView.centerCoordinate.longitude
+        
+
         navigateToView("AudioCreateView")
     }
     
@@ -174,7 +179,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         var lat = mapView.centerCoordinate.latitude
         var long = mapView.centerCoordinate.longitude
-        
+       
         if (self.pin != nil) {
             lat = self.pin.coordinate.latitude
             long = self.pin.coordinate.longitude

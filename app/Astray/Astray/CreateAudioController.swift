@@ -44,8 +44,24 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {
             
+            recordingSession = AVAudioSession.sharedInstance()
             
-        
+            do {
+                try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+                try recordingSession.setActive(true)
+                recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if allowed {
+                            self.loadRecordingUI()
+                            print("permission granted!")
+                        } else {
+                            // failed to record!
+                        }
+                    }
+                }
+            } catch {
+                // failed to record!
+            }
         }
     }
     
@@ -55,34 +71,6 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
         }
     }
     
-    
-    @IBAction func recordAudio() {
-        
-        recordingSession = AVAudioSession.sharedInstance()
-        
-        do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
-                dispatch_async(dispatch_get_main_queue()) {
-                    if allowed {
-                        self.loadRecordingUI()
-                        print("permission granted!")
-                    } else {
-                        // failed to record!
-                        //
-                        //                        audioRecorder.delegate = self
-                        //                        audioRecorder.meteringEnabled = true
-                        //                        audioRecorder.prepareToRecord()
-                        //                        audioRecorder.record()
-                    }
-                }
-            }
-        } catch {
-            // failed to record!
-        }
-        
-    }
     
     @IBAction func goBack() {
         self.navigationController?.popViewControllerAnimated(true)
@@ -123,7 +111,7 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
     }
     
     func loadRecordingUI() {
-        recordButton = UIButton(frame: CGRect(x: 64, y: 64, width: 128, height: 64))
+        recordButton = UIButton(frame: CGRect(x: 64, y: 64, width: 400, height: 64))
         recordButton.setTitle("Tap to Record", forState: .Normal)
         recordButton.titleLabel?.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
         recordButton.setTitleColor(UIColor.darkGrayColor(), forState: UIControlState.Normal)
@@ -194,34 +182,31 @@ class CreateAudioController: UIViewController, CLLocationManagerDelegate, AVAudi
     
     @IBAction func uploadStoryButtonClicked() {
         print("uploadClicked!!")
-        let rad = 0
-        
-        var lat = 0
-        var long = 0
         let title = self.titleHolder.text
         let description = self.descriptionHolder.text
-        
+    
 
-        let storyRef = Firebase(url:"")//"https://astray194.firebaseio.com/Stories")
+        
+        let storyRef = Firebase(url:"https://astray194.firebaseio.com/Stories")
         
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        let storyInfo: NSDictionary = [
+        let storyBundle: NSDictionary = [
             "title": title!,
             "description": description!, //also fix title and filetype!!!
             
             "author_id": appDelegate.currUid!,
-            "latitude": lat,
-            "longitude": long,
-            "radius": rad,
+            "latitude": storyInfo.lat,
+            "longitude": storyInfo.long,
+            "radius": storyInfo.radius,
             //   "timestamp": NSDate(),
             "data": storyData,
             "fileType": "mp3"
         ]
         
         let childRef = storyRef.childByAutoId()
-        childRef.setValue(storyInfo)
+        childRef.setValue(storyBundle)
         
         print("KEY:")
         print(childRef.key)
