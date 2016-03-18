@@ -278,7 +278,7 @@
                                 <color key="backgroundColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.047058823530000002" green="0.070588235289999995" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="1Cu-bB-73h" firstAttribute="top" secondItem="ZuW-wh-hKp" secondAttribute="top" constant="242" id="0lz-al-xSl"/>
+                                    <constraint firstItem="1Cu-bB-73h" firstAttribute="top" secondItem="ZuW-wh-hKp" secondAttribute="top" constant="220" id="0lz-al-xSl"/>
                                     <constraint firstItem="ihu-Mo-eRI" firstAttribute="leading" secondItem="ZuW-wh-hKp" secondAttribute="leading" constant="17" id="AVO-Lm-pcu"/>
                                     <constraint firstItem="1Cu-bB-73h" firstAttribute="width" secondItem="ZuW-wh-hKp" secondAttribute="width" multiplier="0.381333" id="BMF-cZ-aWE"/>
                                     <constraint firstItem="ndC-jW-pE1" firstAttribute="centerY" secondItem="ZuW-wh-hKp" secondAttribute="centerY" id="CBm-WQ-HcW"/>
@@ -298,7 +298,7 @@
                                     <constraint firstItem="1Cu-bB-73h" firstAttribute="centerX" secondItem="ZuW-wh-hKp" secondAttribute="centerX" id="jTw-Lq-p6y"/>
                                     <constraint firstAttribute="trailing" secondItem="4qM-mY-9Zv" secondAttribute="trailing" constant="18" id="kR2-k3-pfm"/>
                                     <constraint firstItem="NKL-gt-czR" firstAttribute="top" secondItem="ZuW-wh-hKp" secondAttribute="top" constant="41" id="ld4-6Q-yjU"/>
-                                    <constraint firstItem="k3B-wY-oRE" firstAttribute="leading" secondItem="ZuW-wh-hKp" secondAttribute="leading" constant="221" id="sD3-O3-7jy"/>
+                                    <constraint firstItem="k3B-wY-oRE" firstAttribute="leading" secondItem="ZuW-wh-hKp" secondAttribute="leading" constant="180" id="sD3-O3-7jy"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1293,7 +1293,7 @@
                                 <rect key="frame" x="0.0" y="72" width="600" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="75S-HD-l3b" id="exD-Xd-kFn">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pce-Uo-zg1">
@@ -2130,8 +2130,8 @@
             <objects>
                 <viewController id="deS-4a-PWu" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GwE-Vn-oCA"/>
-                        <viewControllerLayoutGuide type="bottom" id="hif-a7-QDI"/>
+                        <viewControllerLayoutGuide type="top" id="fig-0W-opN"/>
+                        <viewControllerLayoutGuide type="bottom" id="uxA-F6-buL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WM9-O5-20n">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
