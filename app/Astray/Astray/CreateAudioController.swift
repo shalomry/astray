@@ -153,11 +153,11 @@ class CreateAudioController: UIViewController, UITextViewDelegate, CLLocationMan
     }
     
     func prepareRecording() -> String{
-        //let data = NSData(contentsOfURL: audioURL!)
+        let data = NSData(contentsOfURL: audioURL!)
         
-        
-        let url = NSBundle.mainBundle().URLForResource("lakelag", withExtension: "mp3")
-        let data = NSData(contentsOfURL: url!)
+        //manual upload
+//        let url = NSBundle.mainBundle().URLForResource("margaretjacks", withExtension: "mp3")
+//        let data = NSData(contentsOfURL: url!)
         
         
         if data != "" {

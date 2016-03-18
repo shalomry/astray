@@ -265,7 +265,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                 if key != ""{
                 storyRef = Firebase(url: "https://astray194.firebaseio.com/Stories/"+key)
                 storyRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-                    let dict = snapshot.value as! NSDictionary
+                    if let dict = snapshot.value as? NSDictionary{
                     
                     self.pinTitleAtInfoView.text = dict.valueForKey("title") as? String
                     let uid = dict.valueForKey("author_id")
@@ -313,7 +313,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     self.pinInfoView.layer.borderWidth = 3
                     self.pinInfoView.layer.borderColor = UIColor(red:235.0/255.0, green:215.0/255.0, blue:159.0/255.0, alpha: 1.0).CGColor
                     appDelegate.currStory = key
-                    
+                    }
                 })
                  }
                 })

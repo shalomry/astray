@@ -450,7 +450,7 @@
 				TargetAttributes = {
 					69B4E6EB1C5056EF00FF1663 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 2844T94CU2;
+						DevelopmentTeam = 78LZUB52UA;
 					};
 					69B4E6FF1C5056EF00FF1663 = {
 						CreatedOnToolsVersion = 7.2;
@@ -853,7 +853,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Astray/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jhgshgfgcvgvgdfgfgf.Astray;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kjlnauchauiolybcrafkhlcbuysk.Astray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Astray-Bridging-Header.h";
@@ -870,7 +870,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Astray/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jhgshgfgcvgvgdfgfgf.Astray;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kjlnauchauiolybcrafkhlcbuysk.Astray;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Astray-Bridging-Header.h";
