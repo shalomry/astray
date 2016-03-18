@@ -95,7 +95,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                     })
                     rootRef.childByAppendingPath("Users").childByAppendingPath(currUid).childByAppendingPath("availablestories").observeEventType(.ChildRemoved, withBlock: { snapshot in
                         print("NEW THING IN RANGE")
-                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                        //AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                         // story id = snapshot.value
                         print(snapshot.value)
                     })
