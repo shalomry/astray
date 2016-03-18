@@ -70,10 +70,10 @@ class UserStoriesController: UIViewController, MKMapViewDelegate, CLLocationMana
                         print("currUid")
                         print(self.viewingUid)
                         print("storyAuthorId")
-                        print(storySnapshot.value.objectForKey("author_id") as! String)
+                        //print(storySnapshot.value.objectForKey("author_id") as! String)
                         if (storySnapshot.value.objectForKey("author_id") as! String == self.viewingUid){
                             print("adding story")
-                            print(storySnapshot.value.objectForKey("latitude"))
+                            //print(storySnapshot.value.objectForKey("latitude"))
                             let lat = storySnapshot.value.objectForKey("latitude") as! Double
                             let long = storySnapshot.value.objectForKey("longitude") as! Double
                             let loc = CLLocationCoordinate2DMake(lat, long)
@@ -106,7 +106,7 @@ class UserStoriesController: UIViewController, MKMapViewDelegate, CLLocationMana
             let url = "https://astray194.firebaseio.com/Users/"+self.viewingUid!+"/availablestories/"+title
             let storyRef = Firebase(url:url)
             storyRef.observeEventType(.Value, withBlock: { snapshot in
-                print(snapshot.value)
+                //print(snapshot.value)
                 if let key: String = snapshot.value as? String {
                     UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.8,initialSpringVelocity: 0, options: [UIViewAnimationOptions.CurveEaseInOut, UIViewAnimationOptions.BeginFromCurrentState], animations: {
                             self.pinInfoView.frame.origin.y = 0
