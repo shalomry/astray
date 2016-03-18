@@ -1055,10 +1055,29 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="buttonView" destination="7FP-pV-zR7" id="IrU-Rr-a9T"/>
                         <outlet property="favoritesTable" destination="xOa-Ld-HlL" id="Lgh-2S-c4U"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1bF-fE-h8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="7FP-pV-zR7">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzc-pM-XE1">
+                            <rect key="frame" x="13" y="7" width="42" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="47" id="Fr4-OY-bZ9"/>
+                                <constraint firstAttribute="width" secondItem="Hzc-pM-XE1" secondAttribute="height" multiplier="42:47" id="NrP-xe-UP3"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="back-chevron.tiff"/>
+                            <connections>
+                                <action selector="goBack" destination="gZW-pw-CHj" eventType="touchUpInside" id="U0Q-dP-gyf"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1922" y="-955"/>
         </scene>
