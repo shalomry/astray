@@ -235,15 +235,12 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         do {
             print(audioURL)
             audioRecorder = try AVAudioRecorder(URL: audioURL, settings: settings)
-                        print("recorder is built0!")
             audioRecorder.delegate = self
-                        print("recorder is built1!")
             audioRecorder.record()
-                        print("recorder is built2!")
 
             recordButton.setTitle("Tap to Stop", forState: .Normal)
         } catch {
-            print("recorder couldn't be built :(")
+            print("recorder couldn't be built")
             finishRecording(success: false)
         }
     }
@@ -253,7 +250,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
             print("starting recording")
             startRecording()
         } else {
-            print("done with recording! kudos")
+            print("done with recording!")
             finishRecording(success: true)
         }
     }
@@ -280,8 +277,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     }
 
     @IBAction func uploadStoryButtonClicked() {
-        let rad = self.radius //radius of story, get from mk
-        let time = 0 //NSData
+        let rad = self.radius
         
         var lat = mapView.centerCoordinate.latitude
         var long = mapView.centerCoordinate.longitude
@@ -299,14 +295,14 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         do{
             let storyInfo: NSDictionary = [
-                "title": "tit",
-                "description": self.storyDescription.text!,
-                "author": self.username!,
-                "author_id": self.userId!,
+                "title": "titleofastory",
+           //     "description": self.storyDescription.text!, //also fix title and filetype!!!
+              
+                "author_id": appDelegate.currUid!,
                 "latitude": lat,
                 "longitude": long,
                 "radius": rad,
-                "timestamp": time,
+             //   "timestamp": NSDate(),
                 "data": storyData,
                 "fileType": "mp3"
             ]
