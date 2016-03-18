@@ -152,6 +152,10 @@ class UserController : UIViewController, UIActionSheetDelegate {
         self.navigateToView("FavoritesView")
     }
     
+    @IBAction func goBack() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     @IBAction func follow() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if let currUid = appDelegate.currUid {

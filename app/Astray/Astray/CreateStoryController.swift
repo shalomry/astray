@@ -24,6 +24,7 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet weak var storyTextData: UITextField!
     @IBOutlet var storyData: String!
     @IBOutlet weak var uploadStoryButton: UIButton!
+    @IBOutlet weak var TEMPBUTTON: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     var pin: MKPointAnnotation!
     var radius: Double = minR+initDelta
