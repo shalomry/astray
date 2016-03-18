@@ -27,6 +27,12 @@
 		82E951C01C9BC6B5003B1FC1 /* CreateAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E951BF1C9BC6B4003B1FC1 /* CreateAudioController.swift */; };
 		82E951C21C9BE2D4003B1FC1 /* CreateTextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E951C11C9BE2D4003B1FC1 /* CreateTextController.swift */; };
 		82E951C41C9BF256003B1FC1 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E951C31C9BF256003B1FC1 /* TextViewController.swift */; };
+		82E951CB1C9CAC24003B1FC1 /* burbankdormroom.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82E951C51C9CAC24003B1FC1 /* burbankdormroom.mp3 */; };
+		82E951CC1C9CAC24003B1FC1 /* bushesbehindflomo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82E951C61C9CAC24003B1FC1 /* bushesbehindflomo.mp3 */; };
+		82E951CD1C9CAC24003B1FC1 /* margaretjacks.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82E951C71C9CAC24003B1FC1 /* margaretjacks.mp3 */; };
+		82E951CE1C9CAC24003B1FC1 /* papua new guinea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82E951C81C9CAC24003B1FC1 /* papua new guinea.mp3 */; };
+		82E951CF1C9CAC24003B1FC1 /* terra.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82E951C91C9CAC24003B1FC1 /* terra.mp3 */; };
+		82E951D01C9CAC24003B1FC1 /* tresidder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 82E951CA1C9CAC24003B1FC1 /* tresidder.mp3 */; };
 		8F24C3D41C9C5A350001D02C /* profile-icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3D11C9C5A350001D02C /* profile-icon.tiff */; };
 		8F24C3D51C9C5A350001D02C /* search-icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3D21C9C5A350001D02C /* search-icon.tiff */; };
 		8F24C3D61C9C5A350001D02C /* create-icon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 8F24C3D31C9C5A350001D02C /* create-icon.tiff */; };
@@ -126,6 +132,12 @@
 		82E951BF1C9BC6B4003B1FC1 /* CreateAudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAudioController.swift; sourceTree = "<group>"; };
 		82E951C11C9BE2D4003B1FC1 /* CreateTextController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTextController.swift; sourceTree = "<group>"; };
 		82E951C31C9BF256003B1FC1 /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		82E951C51C9CAC24003B1FC1 /* burbankdormroom.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = burbankdormroom.mp3; sourceTree = "<group>"; };
+		82E951C61C9CAC24003B1FC1 /* bushesbehindflomo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bushesbehindflomo.mp3; sourceTree = "<group>"; };
+		82E951C71C9CAC24003B1FC1 /* margaretjacks.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = margaretjacks.mp3; sourceTree = "<group>"; };
+		82E951C81C9CAC24003B1FC1 /* papua new guinea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "papua new guinea.mp3"; sourceTree = "<group>"; };
+		82E951C91C9CAC24003B1FC1 /* terra.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = terra.mp3; sourceTree = "<group>"; };
+		82E951CA1C9CAC24003B1FC1 /* tresidder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tresidder.mp3; sourceTree = "<group>"; };
 		8F24C3D11C9C5A350001D02C /* profile-icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "profile-icon.tiff"; path = "UI assets/profile-icon.tiff"; sourceTree = "<group>"; };
 		8F24C3D21C9C5A350001D02C /* search-icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "search-icon.tiff"; path = "UI assets/search-icon.tiff"; sourceTree = "<group>"; };
 		8F24C3D31C9C5A350001D02C /* create-icon.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "create-icon.tiff"; path = "UI assets/create-icon.tiff"; sourceTree = "<group>"; };
@@ -237,6 +249,12 @@
 		69B4E6EE1C5056EF00FF1663 /* Astray */ = {
 			isa = PBXGroup;
 			children = (
+				82E951C51C9CAC24003B1FC1 /* burbankdormroom.mp3 */,
+				82E951C61C9CAC24003B1FC1 /* bushesbehindflomo.mp3 */,
+				82E951C71C9CAC24003B1FC1 /* margaretjacks.mp3 */,
+				82E951C81C9CAC24003B1FC1 /* papua new guinea.mp3 */,
+				82E951C91C9CAC24003B1FC1 /* terra.mp3 */,
+				82E951CA1C9CAC24003B1FC1 /* tresidder.mp3 */,
 				8F27915F1C850B910058D138 /* UI */,
 				6995CDC91C6A8B420089117D /* RecordingViewController.swift */,
 				C8BCFC9E1C9B70460049F70C /* UserStoriesController.swift */,
@@ -487,8 +505,11 @@
 				8FE01EE01C8D73CD009FF8C7 /* create-video-button.tiff in Resources */,
 				8F27916D1C851CE00058D138 /* create-acct-background.tiff in Resources */,
 				8FFDEE0E1C9BE12400B2E84E /* play-button.tiff in Resources */,
+				82E951CE1C9CAC24003B1FC1 /* papua new guinea.mp3 in Resources */,
 				8FFDEE081C9BC5E900B2E84E /* view-followed-profiles.tiff in Resources */,
 				8FF63C241C9C2D27001F51CB /* narrative-text-background.tiff in Resources */,
+				82E951D01C9CAC24003B1FC1 /* tresidder.mp3 in Resources */,
+				82E951CC1C9CAC24003B1FC1 /* bushesbehindflomo.mp3 in Resources */,
 				8F27916E1C851CE00058D138 /* create-acct-button.tiff in Resources */,
 				69B4E6F71C5056EF00FF1663 /* Assets.xcassets in Resources */,
 				8F24C3DA1C9C87100001D02C /* go-to-profile.tiff in Resources */,
@@ -502,12 +523,15 @@
 				69B4E6F51C5056EF00FF1663 /* Main.storyboard in Resources */,
 				8FE01EDB1C8D69D1009FF8C7 /* create-map-bottom.tiff in Resources */,
 				8FF177B51C6012B60035BB3D /* sample.mp3 in Resources */,
+				82E951CF1C9CAC24003B1FC1 /* terra.mp3 in Resources */,
 				8F24C3D41C9C5A350001D02C /* profile-icon.tiff in Resources */,
 				8F24C3DD1C9C89B60001D02C /* read-button.tiff in Resources */,
 				8FE01ED91C8D6346009FF8C7 /* create-top-bar.tiff in Resources */,
 				8FFDEE0B1C9BDD3600B2E84E /* narrative-audio-background.tiff in Resources */,
 				8FFDEE071C9BC5E900B2E84E /* view-your-stories.tiff in Resources */,
+				82E951CD1C9CAC24003B1FC1 /* margaretjacks.mp3 in Resources */,
 				6995CDCC1C6A8B510089117D /* sample.mp3 in Resources */,
+				82E951CB1C9CAC24003B1FC1 /* burbankdormroom.mp3 in Resources */,
 				8FF63C281C9C3899001F51CB /* create-text-background.tiff in Resources */,
 				8FF63C2A1C9C41B8001F51CB /* upload-button.tiff in Resources */,
 				C8AD72801C6AB66F005C54DE /* memchu.mp3 in Resources */,
