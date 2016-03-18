@@ -175,12 +175,6 @@ class CreateStoryController: UIViewController, MKMapViewDelegate, CLLocationMana
         updateOverlay()
     }
     
-    func navigateToView(view:String) {
-        if let nextView = self.storyboard?.instantiateViewControllerWithIdentifier(view) {
-            self.navigationController?.pushViewController(nextView, animated: true)
-        }
-    }
-    
     @IBAction func goBack() {
         self.navigationController?.popViewControllerAnimated(true)
     }
