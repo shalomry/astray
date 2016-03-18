@@ -34,7 +34,7 @@ class UserController : UIViewController, UIActionSheetDelegate {
     let invalidPasswordText = "The password you entered was incorrect."
     let invalidEmailText = "Please enter a valid email address."
     let emailTakenText = "An account with that email already exists."
-    let deleteErrorText = "You must enter your password to confirm the deletion of your account."
+    let deleteErrorText = "You must enter your password to delete your account."
     
     override func viewDidLoad() {
         super.viewDidLoad()
